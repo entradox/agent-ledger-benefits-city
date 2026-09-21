@@ -131,6 +131,12 @@ img { max-width: 100%; }
 .section .sub { color: var(--muted); max-width: 640px; margin: 0 0 30px; font-size: 16.5px; }
 
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+/* Grid items default to min-width:auto, so a panel whose content is a wide table refuses
+   to shrink below the table's min-content width — the panel blew out to 377px inside a
+   342px content box at 390px, making the page scroll sideways. min-width:0 lets the panel
+   shrink so .tbl-wrap's own overflow-x:auto can contain the table, which is the intended
+   behaviour (measured in production: the table scrolls inside its wrapper, page does not). */
+.split > * { min-width: 0; }
 @media (max-width: 760px) { .split { grid-template-columns: 1fr; } }
 .panel {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
