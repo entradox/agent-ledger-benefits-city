@@ -5,7 +5,7 @@
  * whole site works under a BASE_PATH (e.g. "/bonuses" behind aiagentscity.com).
  * Data is rendered live from the real bonus database — nothing is hardcoded.
  */
-import { expiringSoon, getBonusById, searchBonuses } from "./db.js";
+import { expiringSoon, getBonusById, listAll, searchBonuses } from "./db.js";
 import { daysUntil, formatDate, formatUsd, getStats } from "./stats.js";
 import type { Bonus } from "./types.js";
 
@@ -122,7 +122,14 @@ function footer(ctx: SiteContext): string {
   </div></footer>`;
 }
 
-function shell(ctx: SiteContext, title: string, desc: string, body: string): string {
+function shell(ctx: SiteContext, title: string, desc: string, body: string, path = "/"): string {
+  // Canonical + og:url are derived from ctx.publicUrl (the PUBLIC_URL env), never from the
+  // request Host header. That matters because this app is reachable on two hosts — the
+  // Railway origin and aiagentscity.com/benefits through the reverse proxy — and they serve
+  // identical content. Self-referencing from the request host would let the origin declare
+  // ITSELF canonical, which is the duplicate-content problem rather than the fix.
+  // ctx.publicUrl already carries the /benefits base, so no bp() here.
+  const canonical = `${ctx.publicUrl.replace(/\/+$/, "")}${path === "/" ? "/" : path}`;
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,6 +137,15 @@ function shell(ctx: SiteContext, title: string, desc: string, body: string): str
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)} — ${SITE_NAME}</title>
 <meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="${esc(canonical)}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="${esc(SITE_NAME)}">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:url" content="${esc(canonical)}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(desc)}">
 <link rel="stylesheet" href="${bp(ctx, "/assets/site.css")}">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234F46E5'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='monospace' font-weight='bold'>B</text></svg>">
 </head>
@@ -258,7 +274,7 @@ export function landingPage(ctx: SiteContext): string {
     </div>
   </div></section>`;
 
-  return shell(ctx, "US Bank & Credit Card Signup Bonuses, Verified", "Every verified US bank account opening bonus and credit card signup bonus — browsable by humans, queryable by AI agents over MCP.", body);
+  return shell(ctx, "US Bank & Credit Card Signup Bonuses, Verified", "Every verified US bank account opening bonus and credit card signup bonus — browsable by humans, queryable by AI agents over MCP.", body, "/");
 }
 
 /* ---------------- browse ---------------- */
@@ -337,7 +353,7 @@ export function browsePage(ctx: SiteContext, query: BrowseQuery): string {
     ${results.length ? `<div class="cards">${cards}</div>` : `<div class="empty"><p><strong>No bonuses match those filters.</strong></p><p>Try widening the state or lowering the minimum bonus.</p></div>`}
     <div style="height:40px"></div>
   </div>`;
-  return shell(ctx, "Browse Bonuses", "Search and filter every verified US bank account and credit card signup bonus.", body);
+  return shell(ctx, "Browse Bonuses", "Search and filter every verified US bank account and credit card signup bonus.", body, "/bonuses");
 }
 
 /* ---------------- detail ---------------- */
@@ -402,7 +418,7 @@ export function detailPage(ctx: SiteContext, id: string): string | null {
     </div>
     <div style="height:40px"></div>
   </div>`;
-  return shell(ctx, `${b.bank_or_issuer} ${b.product_name} — ${formatUsd(b.bonus_amount_usd)} Bonus`, `Full terms, requirements and expiry for the ${b.bank_or_issuer} ${b.product_name} ${formatUsd(b.bonus_amount_usd)} bonus.`, body);
+  return shell(ctx, `${b.bank_or_issuer} ${b.product_name} — ${formatUsd(b.bonus_amount_usd)} Bonus`, `Full terms, requirements and expiry for the ${b.bank_or_issuer} ${b.product_name} ${formatUsd(b.bonus_amount_usd)} bonus.`, body, `/bonuses/${b.id}`);
 }
 
 /* ---------------- agents ---------------- */
@@ -486,7 +502,7 @@ npm run cli -- compare bmo-checking-600 sofi-checking-savings-400`))}
     <p style="margin-top:24px"><a href="${bp(ctx, "/bonuses")}">← Back to browsing as a human</a></p>
   </div></section>`;
 
-  return shell(ctx, "For Agents — MCP + API Docs", "Connect an AI agent to the bank bonus feed: MCP endpoint, tool schemas, JSON feeds, llms.txt, and CLI.", body);
+  return shell(ctx, "For Agents — MCP + API Docs", "Connect an AI agent to the bank bonus feed: MCP endpoint, tool schemas, JSON feeds, llms.txt, and CLI.", body, "/agents");
 }
 
 /* ---------------- legal ---------------- */
@@ -515,7 +531,7 @@ export function aboutPage(ctx: SiteContext): string {
       <li>We don't give financial advice. A bonus is one factor among many — read the bank's full terms before opening anything.</li>
     </ul>
   </div><div style="height:40px"></div></div>`;
-  return shell(ctx, "About", "What ${SITE_NAME} is, who runs it, and how the bonus data stays honest.", body);
+  return shell(ctx, "About", "What ${SITE_NAME} is, who runs it, and how the bonus data stays honest.", body, "/about");
 }
 
 export function disclosurePage(ctx: SiteContext): string {
@@ -538,7 +554,7 @@ export function disclosurePage(ctx: SiteContext): string {
     <h2>Questions</h2>
     <p>Ask us anything about how we're paid: <a href="${bp(ctx, "/contact")}">contact page</a>.</p>
   </div><div style="height:40px"></div></div>`;
-  return shell(ctx, "Affiliate Disclosure", "How ${SITE_NAME} makes money: affiliate disclosure in plain language.", body);
+  return shell(ctx, "Affiliate Disclosure", "How ${SITE_NAME} makes money: affiliate disclosure in plain language.", body, "/disclosure");
 }
 
 export function contactPage(ctx: SiteContext): string {
@@ -556,7 +572,7 @@ export function contactPage(ctx: SiteContext): string {
     </ul>
     <p>We read everything; response time is usually within a couple of days.</p>
   </div><div style="height:40px"></div></div>`;
-  return shell(ctx, "Contact", "Contact ${SITE_NAME}: corrections, new offers, partnerships, agent integration help.", body);
+  return shell(ctx, "Contact", "Contact ${SITE_NAME}: corrections, new offers, partnerships, agent integration help.", body, "/contact");
 }
 
 export function notFoundPage(ctx: SiteContext): string {
@@ -565,7 +581,40 @@ export function notFoundPage(ctx: SiteContext): string {
     <p>That page doesn't exist. The bonuses, however, are very real:</p>
     <p><a class="btn" href="${bp(ctx, "/bonuses")}">Browse bonuses</a></p>
   </div></div>`;
-  return shell(ctx, "Not Found", "Page not found.", body);
+  return shell(ctx, "Not Found", "Page not found.", body, "/");
+}
+
+/* ---------------- robots.txt (dynamic) ---------------- */
+
+/**
+ * Served from PUBLIC_URL, not from the request host: this app answers on two hosts (the
+ * Railway origin and aiagentscity.com/benefits via the reverse proxy) and the sitemap must
+ * publish the canonical one. Pointing crawlers at the origin would advertise the duplicate.
+ */
+export function robotsText(ctx: SiteContext): string {
+  const base = ctx.publicUrl.replace(/\/+$/, "");
+  return `# ${SITE_NAME} — an AI Agent City project
+User-agent: *
+Allow: /
+
+Sitemap: ${base}/sitemap.xml
+`;
+}
+
+/* ---------------- sitemap.xml (dynamic) ---------------- */
+
+export function sitemapText(ctx: SiteContext): string {
+  const base = ctx.publicUrl.replace(/\/+$/, "");
+  const urls = ["/", "/bonuses", "/agents", "/about", "/disclosure", "/contact"]
+    .map((p) => `  <url><loc>${base}${p}</loc></url>`);
+  for (const b of listAll()) {
+    if (b?.id) urls.push(`  <url><loc>${base}/bonuses/${b.id}</loc></url>`);
+  }
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.join("\n")}
+</urlset>
+`;
 }
 
 /* ---------------- llms.txt (dynamic) ---------------- */

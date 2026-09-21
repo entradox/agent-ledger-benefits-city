@@ -47,6 +47,8 @@ import {
   landingPage,
   llmsText,
   notFoundPage,
+  robotsText,
+  sitemapText,
   type BrowseQuery,
   type SiteContext,
 } from "./site.js";
@@ -223,6 +225,15 @@ const server = http.createServer((req, res) => {
       /* Agent manifest */
       if (pathname === "/llms.txt")
         return send(res, 200, "text/plain; charset=utf-8", llmsText(ctx));
+
+      /* Crawler surfaces. Both are built from PUBLIC_URL rather than the request host so
+         the Railway origin cannot advertise itself as the canonical host for content that
+         is also served under /benefits. */
+      if (pathname === "/robots.txt")
+        return send(res, 200, "text/plain; charset=utf-8", robotsText(ctx));
+
+      if (pathname === "/sitemap.xml")
+        return send(res, 200, "application/xml; charset=utf-8", sitemapText(ctx));
 
       /* JSON APIs */
       if (pathname === "/api") {
