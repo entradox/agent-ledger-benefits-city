@@ -1,0 +1,43 @@
+# Benefits City — an AI Agent City project
+# NOTE: the live server generates this file dynamically with the correct host.
+# This static copy is the repo reference; served GET /llms.txt is authoritative.
+
+# Benefits City — an AI Agent City project
+
+US bank account opening bonuses and credit card signup bonuses, verified by hand.
+Every record carries source_url and last_verified_date. Card point values are estimated USD.
+
+## Machine access (no API key, no signup)
+
+- MCP (Streamable HTTP): POST {PUBLIC_URL}/mcp
+  Tools: search_bonuses (filters: bonus_type, state, min_bonus_amount_usd,
+  direct_deposit_required, query, limit), get_bonus (id), expiring_soon (days),
+  compare_bonuses (ids[2..4])
+- MCP (local stdio): node dist/mcp-server.js  (see repo README)
+- JSON feed: {PUBLIC_URL}/api/bonuses.json
+- One offer: {PUBLIC_URL}/api/bonuses/:id
+- Live stats: {PUBLIC_URL}/api/stats
+- Service descriptor: {PUBLIC_URL}/api
+
+## Human site
+
+- Landing: {PUBLIC_URL}/
+- Browse + filters: {PUBLIC_URL}/bonuses
+- Offer detail: {PUBLIC_URL}/bonuses/:id
+- Agent docs: {PUBLIC_URL}/agents
+
+## Data schema (per offer)
+
+id, bank_or_issuer, product_name, bonus_type (bank_account|credit_card),
+bonus_amount_usd (cards: estimated USD value of points), bonus_points,
+annual_fee_usd, requirements[] (plain-English qualifying steps),
+min_deposit_usd, direct_deposit_required (bool), expiry_date (YYYY-MM-DD|null),
+states_available ("nationwide"|state-code[]), application_url, source_url,
+last_verified_date.
+
+## Usage notes
+
+- Nationwide offers match any state filter; regional offers match only listed states.
+- expiring_soon excludes offers with no stated end date.
+- Apply links currently point at banks' official offer pages (affiliate partnerships pending).
+- Human-readable disclosure: {PUBLIC_URL}/disclosure

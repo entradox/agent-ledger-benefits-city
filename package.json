@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.0",
+    "zod": "^3.23.8"
+  },
+  "description": "Agent-first US bank account and credit card signup bonus discovery: MCP server + machine-readable feeds",
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  },
+  "name": "bank-bonus-agent",
+  "scripts": {
+    "build": "tsc",
+    "cli": "node dist/cli.js",
+    "mcp": "node dist/mcp-server.js",
+    "seed": "node dist/seed.js",
+    "typecheck": "tsc --noEmit",
+    "web": "node dist/web-server.js",
+    "start": "node dist/web-server.js",
+    "prestart": "node dist/seed.js"
+  },
+  "type": "module",
+  "version": "0.2.0",
+  "engines": {
+    "node": ">=20"
+  }
+}
