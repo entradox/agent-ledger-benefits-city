@@ -9,9 +9,40 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { expiringSoon, getBonusById, searchBonuses } from "./db.js";
 import { compareBonuses } from "./compare.js";
+import { recordMcpCall } from "./metrics.js";
 
 function textResult(obj: unknown) {
   return { content: [{ type: "text" as const, text: JSON.stringify(obj, null, 2) }] };
+}
+
+/**
+ * Wrap an MCP tool handler so every call is counted, with its latency.
+ *
+ * PRIVACY: `param_summary` is a whitelist of safe, non-identifying fields — enum values,
+ * booleans, a numeric limit, and a count of ids. Free-text arguments (e.g. a search
+ * `query`) are NEVER written; only whether one was supplied. A user's search words are
+ * exactly the kind of thing that would turn this table into a PII sink.
+ */
+function timed<A extends Record<string, unknown>, R>(
+  tool: string,
+  handler: (args: A) => Promise<R>,
+): (args: A) => Promise<R> {
+  return async (args: A) => {
+    const started = Date.now();
+    try {
+      return await handler(args);
+    } finally {
+      const parts: string[] = [];
+      const a = (args ?? {}) as Record<string, unknown>;
+      for (const k of ["bonus_type", "state", "direct_deposit_required", "limit", "days"]) {
+        if (a[k] !== undefined && a[k] !== "") parts.push(`${k}=${String(a[k]).slice(0, 40)}`);
+      }
+      if (typeof a.query === "string" && a.query) parts.push(`query=supplied(${a.query.length})`);
+      if (Array.isArray(a.ids)) parts.push(`ids=${a.ids.length}`);
+      if (typeof a.id === "string" && a.id) parts.push(`id=supplied`);
+      recordMcpCall(null, tool, Date.now() - started, parts.join(" ") || "no-params");
+    }
+  };
 }
 
 export function createMcpServer(): McpServer {
@@ -47,7 +78,7 @@ export function createMcpServer(): McpServer {
         .describe("Keyword matched against bank/issuer and product name, e.g. 'Chase' or 'Sapphire'."),
       limit: z.number().int().min(1).max(100).default(25).describe("Max results to return."),
     },
-    async (args) => textResult(searchBonuses(args)),
+    timed("search_bonuses", async (args) => textResult(searchBonuses(args))),
   );
 
   server.tool(
@@ -56,7 +87,7 @@ export function createMcpServer(): McpServer {
     {
       id: z.string().describe("Bonus id, e.g. 'chase-total-checking-300'. Use search_bonuses to find ids."),
     },
-    async ({ id }) => {
+    timed("get_bonus", async ({ id }) => {
       const bonus = getBonusById(id);
       if (!bonus) {
         return {
@@ -65,7 +96,7 @@ export function createMcpServer(): McpServer {
         };
       }
       return textResult(bonus);
-    },
+    }),
   );
 
   server.tool(
@@ -80,7 +111,7 @@ export function createMcpServer(): McpServer {
         .default(30)
         .describe("Lookahead window in days (default 30)."),
     },
-    async ({ days }) => textResult(expiringSoon(days)),
+    timed("expiring_soon", async ({ days }) => textResult(expiringSoon(days))),
   );
 
   server.tool(
@@ -93,7 +124,7 @@ export function createMcpServer(): McpServer {
         .max(4)
         .describe("2 to 4 bonus ids to compare, e.g. ['chase-total-checking-300', 'sofi-checking-savings-400']."),
     },
-    async ({ ids }) => {
+    timed("compare_bonuses", async ({ ids }) => {
       try {
         return textResult(compareBonuses(ids));
       } catch (err) {
@@ -102,7 +133,7 @@ export function createMcpServer(): McpServer {
           isError: true,
         };
       }
-    },
+    }),
   );
 
   return server;

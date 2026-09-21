@@ -4,6 +4,7 @@
  * site can never go stale relative to the database.
  */
 import { expiringSoon, getDb } from "./db.js";
+import { liveCounters } from "./metrics.js";
 import type { Bonus } from "./types.js";
 
 export interface Stats {
@@ -16,6 +17,10 @@ export interface Stats {
   expiring_within_30d: Bonus[];
   /** Max last_verified_date across records, or null. */
   last_verified: string | null;
+  /** Rolling 24h usage counters. All three are 0 when metrics are disabled. */
+  visitors_24h: number;
+  apply_clicks_24h: number;
+  mcp_calls_24h: number;
   generated_at: string;
 }
 
@@ -44,6 +49,7 @@ export function getStats(): Stats {
     highest_bonus: highest,
     expiring_within_30d: expiringSoon(30),
     last_verified: verified.length ? verified[verified.length - 1] : null,
+    ...liveCounters(),
     generated_at: todayISO(),
   };
 }

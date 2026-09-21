@@ -370,12 +370,13 @@ export function detailPage(ctx: SiteContext, id: string): string | null {
 
   const reqs = b.requirements.map((r) => `<li>${esc(r)}</li>`).join("");
 
-  // AFFILIATE_PLACEHOLDER: application_url currently points at the bank's official
-  // offer page. When affiliate partnerships are live, swap these URLs for tracked
-  // affiliate links and mark them in the UI + disclosure page.
+  // Apply clicks route through /go/:id, which 302s to the bank's official offer page.
+  // That makes the click countable AND gives affiliate tagging a single injection point
+  // later. rel="nofollow noopener" is retained on this link; the /go route re-emits the
+  // same directives on its redirect so the destination is not treated as an endorsement.
   const applyUrl = b.application_url || b.source_url;
   const applyBtn = applyUrl
-    ? `<a class="btn" href="${esc(applyUrl)}" rel="nofollow noopener" target="_blank">Apply at ${esc(b.bank_or_issuer)} →</a>`
+    ? `<a class="btn" href="${esc(bp(ctx, `/go/${b.id}`))}" rel="nofollow noopener">Apply at ${esc(b.bank_or_issuer)} →</a>`
     : `<p style="color:#a7b5ac;font-size:14px">No application link on file for this offer.</p>`;
 
   const body = `
@@ -551,6 +552,8 @@ export function disclosurePage(ctx: SiteContext): string {
       <li><strong>Verification is independent of monetization.</strong> An offer is listed because its terms check out, not because it pays.</li>
       <li><strong>Card valuations are disclosed.</strong> Estimated USD values for points/miles use published valuations, stated per offer.</li>
     </ul>
+    <h2>Analytics</h2>
+    <p>We count page views and Apply clicks so we know which offers are useful. <strong>No personal data is stored</strong> — no names, no email addresses, no raw IP addresses. Counting uses a salted hash that is regenerated every day and cannot be linked back to you or followed across days. We honour your browser's <span class="mono">Do Not Track</span> and <span class="mono">Global Privacy Control</span> signals: when either is set, nothing about your visit is recorded. Automated crawlers are excluded from these counts.</p>
     <h2>Questions</h2>
     <p>Ask us anything about how we're paid: <a href="${bp(ctx, "/contact")}">contact page</a>.</p>
   </div><div style="height:40px"></div></div>`;

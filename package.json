@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.17.0",
+    "@types/better-sqlite3": "^9.6.0",
+    "better-sqlite3": "^11.10.0",
     "zod": "^3.23.8"
   },
   "description": "Agent-first US bank account and credit card signup bonus discovery: MCP server + machine-readable feeds",
