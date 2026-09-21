@@ -81,6 +81,17 @@ img { max-width: 100%; }
 .btn-dark-outline { border: 1px solid rgba(255,255,255,0.35); color: #fff; background: transparent; }
 .btn-dark-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); color: #fff; }
 .nav-cta { margin-left: 8px; padding: 9px 16px; font-size: 14px; }
+/* Mobile: the row is brand + 3 links + CTA on one nowrap flex line, which overflows any
+   viewport narrower than ~505px (measured: .nav-cta sat at x=385..503 in a 390px viewport,
+   making the whole document 504px wide and forcing a horizontal scroll). Collapse the link
+   list and let the CTA carry navigation on small screens — it points at /bonuses, the same
+   destination as the first link. */
+@media (max-width: 620px) {
+  .nav-inner { gap: 14px; }
+  .nav-links { display: none; }
+  .brand small { display: none; }
+  .nav-cta { margin-left: auto; }
+}
 
 /* ---------- hero ---------- */
 .hero {
