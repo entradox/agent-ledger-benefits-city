@@ -3,13 +3,14 @@
  * Benefits City — operator CLI. Same data and logic as the MCP server, JSON on stdout.
  * For agents/operators that prefer a shell over MCP.
  *
- *   npm run cli -- search [--type bank_account|credit_card] [--state TX] [--min 300]
+ *   npm run cli -- search [--type bank_account|credit_card|savings] [--state TX] [--min 300]
  *                        [--dd] [--no-dd] [--query chase] [--limit 25] [--pretty]
  *   npm run cli -- get <id> [--pretty]
  *   npm run cli -- expiring [--days 30] [--pretty]
  *   npm run cli -- compare <id1> <id2> [id3] [id4] [--pretty]
  */
 import { expiringSoon, getBonusById, searchBonuses } from "./db.js";
+import { toPublic } from "./links.js";
 import { compareBonuses } from "./compare.js";
 import type { BonusType } from "./types.js";
 
@@ -22,7 +23,7 @@ function usage(): never {
   console.error(
     [
       "usage:",
-      "  npm run cli -- search [--type bank_account|credit_card] [--state TX] [--min 300] [--dd] [--no-dd] [--query chase] [--limit 25] [--pretty]",
+      "  npm run cli -- search [--type bank_account|credit_card|savings] [--state TX] [--min 300] [--dd] [--no-dd] [--query chase] [--limit 25] [--pretty]",
       "  npm run cli -- get <id> [--pretty]",
       "  npm run cli -- expiring [--days 30] [--pretty]",
       "  npm run cli -- compare <id1> <id2> [id3] [id4] [--pretty]",
@@ -75,8 +76,8 @@ function main(): void {
   switch (cmd) {
     case "search": {
       const type = flags.type;
-      if (type !== undefined && type !== "bank_account" && type !== "credit_card") {
-        fail("--type must be bank_account or credit_card");
+      if (type !== undefined && type !== "bank_account" && type !== "credit_card" && type !== "savings") {
+        fail("--type must be bank_account, credit_card or savings");
       }
       const min = flags.min === undefined ? undefined : Number(flags.min);
       if (min !== undefined && Number.isNaN(min)) fail("--min must be a number");
@@ -90,7 +91,7 @@ function main(): void {
           direct_deposit_required: flags.dd === undefined ? undefined : flags.dd === true,
           query: flags.query === undefined ? undefined : String(flags.query),
           limit,
-        }),
+        }).map(toPublic),
         pretty,
       );
       break;
@@ -100,19 +101,20 @@ function main(): void {
       if (!id) fail("get needs a bonus id");
       const b = getBonusById(id);
       if (!b) fail(`unknown bonus id: ${id}`);
-      out(b, pretty);
+      out(toPublic(b), pretty);
       break;
     }
     case "expiring": {
       const days = flags.days === undefined ? 30 : Number(flags.days);
       if (!Number.isInteger(days) || days < 1 || days > 365) fail("--days must be an integer 1-365");
-      out(expiringSoon(days), pretty);
+      out(expiringSoon(days).map(toPublic), pretty);
       break;
     }
     case "compare": {
       if (positional.length < 2 || positional.length > 4) fail("compare needs 2-4 bonus ids");
       try {
-        out(compareBonuses(positional), pretty);
+        const cmp = compareBonuses(positional);
+        out({ ...cmp, bonuses: cmp.bonuses.map(toPublic) }, pretty);
       } catch (e) {
         fail((e as Error).message);
       }

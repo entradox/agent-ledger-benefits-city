@@ -53,9 +53,9 @@ export function createMcpServer(): McpServer {
     "Search US bank account opening bonuses and credit card signup bonuses. Returns matching offers sorted by bonus amount (highest first).",
     {
       bonus_type: z
-        .enum(["bank_account", "credit_card"])
+        .enum(["bank_account", "credit_card", "savings"])
         .optional()
-        .describe("Restrict to bank account bonuses or credit card signup bonuses."),
+        .describe("Restrict to bank account bonuses, credit card signup bonuses, or savings account bonuses."),
       state: z
         .string()
         .optional()

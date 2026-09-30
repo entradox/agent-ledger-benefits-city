@@ -34,9 +34,9 @@ export function esc(s: string | number | null | undefined): string {
 }
 
 function typeBadge(b: Bonus): string {
-  return b.bonus_type === "bank_account"
-    ? `<span class="badge badge-type-bank">Bank account</span>`
-    : `<span class="badge badge-type-card">Credit card</span>`;
+  if (b.bonus_type === "bank_account") return `<span class="badge badge-type-bank">Bank account</span>`;
+  if (b.bonus_type === "savings") return `<span class="badge badge-type-bank">Savings</span>`;
+  return `<span class="badge badge-type-card">Credit card</span>`;
 }
 
 export function expiryBadge(b: Bonus): string {
@@ -281,7 +281,7 @@ export function landingPage(ctx: SiteContext): string {
 /* ---------------- browse ---------------- */
 
 export interface BrowseQuery {
-  type: string; // "" | "bank_account" | "credit_card"
+  type: string; // "" | "bank_account" | "credit_card" | "savings"
   state: string;
   min: string;
   dd: string; // "" | "yes" | "no"
@@ -291,7 +291,7 @@ export interface BrowseQuery {
 
 export function browsePage(ctx: SiteContext, query: BrowseQuery): string {
   const filters: Parameters<typeof searchBonuses>[0] = {};
-  if (query.type === "bank_account" || query.type === "credit_card")
+  if (query.type === "bank_account" || query.type === "credit_card" || query.type === "savings")
     filters.bonus_type = query.type;
   const minNum = Number(query.min);
   if (query.min !== "" && Number.isFinite(minNum) && minNum > 0)
@@ -329,6 +329,7 @@ export function browsePage(ctx: SiteContext, query: BrowseQuery): string {
             <option value=""${sel("type", "", query.type)}>All</option>
             <option value="bank_account"${sel("type", "bank_account", query.type)}>Bank accounts</option>
             <option value="credit_card"${sel("type", "credit_card", query.type)}>Credit cards</option>
+            <option value="savings"${sel("type", "savings", query.type)}>Savings accounts</option>
           </select></div>
         <div class="field"><label for="f-state">State</label>
           <input id="f-state" name="state" value="${esc(query.state)}" placeholder="e.g. TX" maxlength="2" size="4" style="text-transform:uppercase"></div>
@@ -391,7 +392,7 @@ export function detailPage(ctx: SiteContext, id: string): string | null {
         <div class="fact-box">
           ${amountHtml(b, true)}
           <div class="facts">
-            <div class="fact"><div class="k">Offer type</div><div class="v">${b.bonus_type === "bank_account" ? "Bank account bonus" : "Credit card signup bonus"}</div></div>
+            <div class="fact"><div class="k">Offer type</div><div class="v">${b.bonus_type === "bank_account" ? "Bank account bonus" : b.bonus_type === "savings" ? "Savings account bonus" : "Credit card signup bonus"}</div></div>
             <div class="fact"><div class="k">Expiry</div><div class="v">${esc(expiryLine)}</div></div>
             ${b.bonus_points ? `<div class="fact"><div class="k">Points / miles</div><div class="v mono">${b.bonus_points.toLocaleString("en-US")}</div></div>` : ""}
             ${b.annual_fee_usd != null ? `<div class="fact"><div class="k">Annual fee</div><div class="v">${b.annual_fee_usd === 0 ? "None" : formatUsd(b.annual_fee_usd)}</div></div>` : ""}
@@ -461,7 +462,7 @@ export function agentsPage(ctx: SiteContext): string {
       <h3>search_bonuses</h3>
       <p>Search offers. Returns matches sorted by bonus amount, highest first.</p>
       <dl class="kv">
-        <dt>bonus_type?</dt><dd>"bank_account" | "credit_card"</dd>
+        <dt>bonus_type?</dt><dd>"bank_account" | "credit_card" | "savings"</dd>
         <dt>state?</dt><dd>2-letter code, e.g. "TX" — nationwide offers always match</dd>
         <dt>min_bonus_amount_usd?</dt><dd>number — card values are estimated USD</dd>
         <dt>direct_deposit_required?</dt><dd>boolean</dd>
@@ -653,7 +654,7 @@ Every record carries source_url and last_verified_date. Card point values are es
 
 ## Data schema (per offer)
 
-id, bank_or_issuer, product_name, bonus_type (bank_account|credit_card),
+id, bank_or_issuer, product_name, bonus_type (bank_account|credit_card|savings),
 bonus_amount_usd (cards: estimated USD value of points), bonus_points,
 annual_fee_usd, requirements[] (plain-English qualifying steps),
 min_deposit_usd, direct_deposit_required (bool), expiry_date (YYYY-MM-DD|null),
