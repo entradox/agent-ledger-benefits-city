@@ -6,14 +6,45 @@
  * so the contract can never drift between transports.
  */
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { expiringSoon, getBonusById, searchBonuses } from "./db.js";
 import { compareBonuses } from "./compare.js";
 import { recordMcpCall } from "./metrics.js";
+import { toPublic } from "./links.js";
+import { SERVER_VERSION, SKILL_URI } from "./meta.js";
 
 function textResult(obj: unknown) {
   return { content: [{ type: "text" as const, text: JSON.stringify(obj, null, 2) }] };
 }
+
+/** Typed error envelope agents can self-correct from: {error:{type,message,code?,param?}}. */
+function errorResult(type: string, message: string, param?: string, code?: string) {
+  const error: Record<string, string> = { type, message };
+  if (code) error.code = code;
+  if (param) error.param = param;
+  return { content: [{ type: "text" as const, text: JSON.stringify({ error }, null, 2) }], isError: true };
+}
+
+const SKILL_FILE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "skill", "benefits-city", "SKILL.md");
+
+const API_DOCS = `# Benefits City MCP
+Tools: search_bonuses(bonus_type?, state?, min_bonus_amount_usd?, direct_deposit_required?, query?, limit?),
+get_bonus(id), expiring_soon(days?), compare_bonuses(ids[2..4]), benefits_api_docs(), benefits_examples().
+Every offer: id, bank_or_issuer, product_name, bonus_type (bank_account|credit_card|savings), bonus_amount_usd
+(cards: estimated USD value of points), expiry_date, requirements[], verification{method,verified_at,sources},
+last_verified_date, sponsored (bool), apply_url (tracked link), disclosure_url.
+Ordering: bonus value desc, id asc — never influenced by commissions. Expired offers are never returned.
+Errors: {"error":{"type","message","code?","param?"}} with isError=true.`;
+
+const EXAMPLES = [
+  { title: "Top checking bonuses without direct deposit", tool: "search_bonuses", arguments: { bonus_type: "bank_account", direct_deposit_required: false, limit: 5 } },
+  { title: "What expires in the next two weeks", tool: "expiring_soon", arguments: { days: 14 } },
+  { title: "Best savings bonuses in Texas", tool: "search_bonuses", arguments: { bonus_type: "savings", state: "TX" } },
+  { title: "Head-to-head", tool: "compare_bonuses", arguments: { ids: ["chase-total-checking-300", "sofi-checking-savings-400"] } },
+];
 
 /**
  * Wrap an MCP tool handler so every call is counted, with its latency.
@@ -46,7 +77,7 @@ function timed<A extends Record<string, unknown>, R>(
 }
 
 export function createMcpServer(): McpServer {
-  const server = new McpServer({ name: "benefits-city", version: "0.2.0" });
+  const server = new McpServer({ name: "benefits-city", version: SERVER_VERSION });
 
   server.tool(
     "search_bonuses",
@@ -78,7 +109,7 @@ export function createMcpServer(): McpServer {
         .describe("Keyword matched against bank/issuer and product name, e.g. 'Chase' or 'Sapphire'."),
       limit: z.number().int().min(1).max(100).default(25).describe("Max results to return."),
     },
-    timed("search_bonuses", async (args) => textResult(searchBonuses(args))),
+    timed("search_bonuses", async (args) => textResult(searchBonuses(args).map(toPublic))),
   );
 
   server.tool(
@@ -89,13 +120,8 @@ export function createMcpServer(): McpServer {
     },
     timed("get_bonus", async ({ id }) => {
       const bonus = getBonusById(id);
-      if (!bonus) {
-        return {
-          content: [{ type: "text" as const, text: `Unknown bonus id: ${id}` }],
-          isError: true,
-        };
-      }
-      return textResult(bonus);
+      if (!bonus) return errorResult("not_found", `Unknown bonus id: ${id}`, "id");
+      return textResult(toPublic(bonus));
     }),
   );
 
@@ -111,7 +137,7 @@ export function createMcpServer(): McpServer {
         .default(30)
         .describe("Lookahead window in days (default 30)."),
     },
-    timed("expiring_soon", async ({ days }) => textResult(expiringSoon(days))),
+    timed("expiring_soon", async ({ days }) => textResult(expiringSoon(days).map(toPublic))),
   );
 
   server.tool(
@@ -126,13 +152,34 @@ export function createMcpServer(): McpServer {
     },
     timed("compare_bonuses", async ({ ids }) => {
       try {
-        return textResult(compareBonuses(ids));
+        const r = compareBonuses(ids);
+        return textResult({ ...r, bonuses: r.bonuses.map(toPublic) });
       } catch (err) {
-        return {
-          content: [{ type: "text" as const, text: (err as Error).message }],
-          isError: true,
-        };
+        return errorResult("not_found", (err as Error).message, "ids");
       }
+    }),
+  );
+
+  server.tool(
+    "benefits_api_docs",
+    "Self-serve documentation for this server: tools, record fields, ordering guarantees, error format.",
+    {},
+    timed("benefits_api_docs", async () => ({ content: [{ type: "text" as const, text: API_DOCS }] })),
+  );
+
+  server.tool(
+    "benefits_examples",
+    "Runnable example tool calls (title, tool, arguments) an agent can copy.",
+    {},
+    timed("benefits_examples", async () => textResult(EXAMPLES)),
+  );
+
+  server.resource(
+    "benefits-skill",
+    SKILL_URI,
+    { mimeType: "text/markdown", description: "How to finish the job with Benefits City" },
+    async (uri) => ({
+      contents: [{ uri: uri.href, mimeType: "text/markdown", text: fs.readFileSync(SKILL_FILE, "utf8") }],
     }),
   );
 

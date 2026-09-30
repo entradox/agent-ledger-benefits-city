@@ -36,6 +36,7 @@ import { fileURLToPath } from "node:url";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { getBonusById, listAll } from "./db.js";
 import { resolveApplyUrl, toPublic } from "./links.js";
+import { API_VERSION, SERVER_VERSION } from "./meta.js";
 import { createMcpServer } from "./mcp-tools.js";
 import {
   closeMetrics,
@@ -80,6 +81,7 @@ function send(
   res.writeHead(status, {
     "content-type": contentType,
     "access-control-allow-origin": "*",
+    "x-api-version": API_VERSION,
     "cache-control": status === 200 ? "public, max-age=300" : "no-store",
   });
   res.end(body);
@@ -198,7 +200,7 @@ const server = http.createServer((req, res) => {
           await handleMcp(req, res);
           return;
         }
-        res.writeHead(405, { allow: "POST" });
+        res.writeHead(405, { allow: "POST", "x-api-version": API_VERSION });
         res.end();
         return;
       }
@@ -228,6 +230,7 @@ const server = http.createServer((req, res) => {
           // Directives travel with the redirect so a crawler treats the destination the
           // same way it would have treated the direct link.
           "x-robots-tag": "noindex",
+          "x-api-version": API_VERSION,
         });
         return res.end();
       }
@@ -322,7 +325,7 @@ const server = http.createServer((req, res) => {
           JSON.stringify(
             {
               name: "benefits-city",
-              version: "0.2.0",
+              version: SERVER_VERSION,
               description:
                 "US bank account opening bonuses and credit card signup bonuses — human site + agent-native feed. An AI Agent City project.",
               site: {
@@ -342,7 +345,7 @@ const server = http.createServer((req, res) => {
                 transports: ["streamable-http", "stdio"],
                 http_endpoint: `${ctx.publicUrl}/mcp`,
                 stdio_command: "node dist/mcp-server.js (after npm run build)",
-                tools: ["search_bonuses", "get_bonus", "expiring_soon", "compare_bonuses"],
+                tools: ["search_bonuses", "get_bonus", "expiring_soon", "compare_bonuses", "benefits_api_docs", "benefits_examples"],
               },
               cli: "npm run cli -- <search|get|expiring|compare> [flags]  (JSON on stdout)",
             },
