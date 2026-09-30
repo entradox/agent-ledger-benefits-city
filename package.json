@@ -19,7 +19,9 @@
     "typecheck": "tsc --noEmit",
     "web": "node dist/web-server.js",
     "start": "node dist/web-server.js",
-    "prestart": "node dist/seed.js"
+    "prestart": "node dist/seed.js",
+    "test": "tsc && node --test dist/tests/*.test.js",
+    "freshness": "node dist/freshness-cli.js"
   },
   "type": "module",
   "version": "0.2.0",

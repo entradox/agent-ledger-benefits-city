@@ -1,6 +1,30 @@
-export type BonusType = "bank_account" | "credit_card";
+export type BonusType = "bank_account" | "credit_card" | "savings";
+export type BonusStatus = "active" | "expired" | "needs_review";
 
-/** A single bank account or credit card signup bonus offer. */
+export interface OfferHistoryEntry {
+  amount_usd: number;
+  /** "YYYY-MM-DD" or null when unknown */
+  valid_from: string | null;
+  valid_to: string | null;
+}
+
+export interface Verification {
+  /** issuer_page = we fetched the issuer's own page; aggregator_consensus = 3+ reputable listings agree */
+  method: "issuer_page" | "aggregator_consensus";
+  /** "YYYY-MM-DD" */
+  verified_at: string;
+  sources: string[];
+}
+
+/** Structured eligibility facts (nullable = unknown). Consumed by the later planner sub-project. */
+export interface Eligibility {
+  new_to_bank: boolean | null;
+  once_per_lifetime: boolean | null;
+  cooldown_months: number | null;
+  issuer_rules: string[];
+}
+
+/** A single bank account, savings account, or credit card signup bonus offer. */
 export interface Bonus {
   /** kebab-case unique id, e.g. "chase-total-checking-300" */
   id: string;
@@ -24,12 +48,18 @@ export interface Bonus {
   expiry_date: string | null;
   /** "nationwide" or array of 2-letter US state codes */
   states_available: string | string[];
-  /** STUBBED for now: official application page URL; replaced by affiliate link later */
+  /** The issuer's own offer/application page (never an affiliate URL) */
   application_url: string | null;
+  /** Partner-tracked URL; used by /go/:id when present. NEVER published in feeds/MCP/CLI. */
+  affiliate_url: string | null;
   /** Page where the live terms were confirmed */
   source_url: string | null;
   /** "YYYY-MM-DD" the terms were last confirmed */
   last_verified_date: string | null;
+  offer_history: OfferHistoryEntry[];
+  verification: Verification | null;
+  status: BonusStatus;
+  eligibility: Eligibility | null;
 }
 
 /** Raw shape accepted from seed JSON files (some fields optional, defaults applied). */

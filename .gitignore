@@ -2,3 +2,6 @@ node_modules/
 dist/
 data/bonuses.json
 *.log
+data/review-queue.json
+data/freshness-state.json
+.superpowers/

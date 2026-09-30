@@ -3,7 +3,7 @@
  * The landing page and /api/stats both read from here, so numbers on the
  * site can never go stale relative to the database.
  */
-import { expiringSoon, getDb } from "./db.js";
+import { expiringSoon, listAll } from "./db.js";
 import { liveCounters } from "./metrics.js";
 import type { Bonus } from "./types.js";
 
@@ -11,6 +11,7 @@ export interface Stats {
   total_offers: number;
   bank_account_offers: number;
   credit_card_offers: number;
+  savings_offers: number;
   /** Sum of bonus_amount_usd across all offers (credit cards are estimated USD values). */
   total_bonus_usd: number;
   highest_bonus: Bonus | null;
@@ -29,7 +30,7 @@ function todayISO(): string {
 }
 
 export function getStats(): Stats {
-  const bonuses = getDb().bonuses;
+  const bonuses = listAll();
   const bank = bonuses.filter((b) => b.bonus_type === "bank_account");
   const cards = bonuses.filter((b) => b.bonus_type === "credit_card");
   const total = bonuses.reduce((sum, b) => sum + (b.bonus_amount_usd || 0), 0);
@@ -45,6 +46,7 @@ export function getStats(): Stats {
     total_offers: bonuses.length,
     bank_account_offers: bank.length,
     credit_card_offers: cards.length,
+    savings_offers: bonuses.filter((b) => b.bonus_type === "savings").length,
     total_bonus_usd: Math.round(total),
     highest_bonus: highest,
     expiring_within_30d: expiringSoon(30),
