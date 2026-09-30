@@ -57,12 +57,22 @@ can't be fetched:
 - A bot-error page on the official site ("Oops, something went wrong") does **not**
   mean the offer is dead — confirm via aggregators before removing a record.
 
-## Automation sketch (future)
+## Automated freshness (D-1518)
 
-A scheduled worker (cron) that: fetches affiliate-network offer APIs → diffs against
-`data/bonuses.json` → flags changed/expired/new offers → writes a review queue file →
-a human or agent approves → seed + re-verify dates update. Until that exists, the manual
-cadence above is the process.
+`npm run freshness` (`node dist/freshness-cli.js`) is the deterministic daily check. No LLM.
+
+- Reads the served store, fetches each record's `source_url` politely (robots.txt respected,
+  2s spacing, identifiable user agent), and classifies: `ok`, `expired`, `amount_missing`,
+  `changed`, `gone`, `blocked`, `unreachable`.
+- It **never edits records**. It writes `data/review-queue.json` (and `data/freshness-state.json`
+  for change detection). A human or agent resolves the queue by editing `seed-data/` and re-seeding.
+- **Blocked is not dead.** Issuer pages (Chase, Wells Fargo, Fifth Third, ...) routinely block bots.
+  `blocked` and `unreachable` are informational and fall back to the multi-aggregator consensus
+  tier above; only `expired`, `amount_missing`, `changed`, `gone` are actionable.
+- Exit codes: `0` nothing actionable - `1` a human must look - `3` broken / no data at all
+  (never a pass). `--canary` proves the classifier can go RED on known-bad input.
+- Seed files are the single source of truth: `npm run seed` upserts **and prunes**, so a renamed or
+  removed offer cannot linger in the served store.
 
 ## Compliance notes
 
