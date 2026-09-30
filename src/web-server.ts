@@ -35,6 +35,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { getBonusById, listAll } from "./db.js";
+import { resolveApplyUrl, toPublic } from "./links.js";
 import { createMcpServer } from "./mcp-tools.js";
 import {
   closeMetrics,
@@ -211,7 +212,7 @@ const server = http.createServer((req, res) => {
       if (goMatch && (req.method === "GET" || req.method === "HEAD")) {
         const offer = getBonusById(goMatch[1]);
         if (!offer) return send(res, 404, "text/html; charset=utf-8", notFoundPage(ctx));
-        const dest = offer.application_url || offer.source_url;
+        const dest = resolveApplyUrl(offer);
         if (!dest) return send(res, 404, "text/html; charset=utf-8", notFoundPage(ctx));
         let destHost = "";
         try {
@@ -356,14 +357,14 @@ const server = http.createServer((req, res) => {
       }
       if (pathname === "/api/bonuses.json") {
         recordFeedHit(req, "api/bonuses.json");
-        return send(res, 200, "application/json; charset=utf-8", JSON.stringify(listAll(), null, 2));
+        return send(res, 200, "application/json; charset=utf-8", JSON.stringify(listAll().map(toPublic), null, 2));
       }
       const apiMatch = pathname.match(/^\/api\/bonuses\/([A-Za-z0-9_-]+)$/);
       if (apiMatch) {
         const bonus = getBonusById(apiMatch[1]);
         if (!bonus)
           return send(res, 404, "application/json; charset=utf-8", JSON.stringify({ error: "bonus not found" }));
-        return send(res, 200, "application/json; charset=utf-8", JSON.stringify(bonus, null, 2));
+        return send(res, 200, "application/json; charset=utf-8", JSON.stringify(toPublic(bonus), null, 2));
       }
 
       /* Static assets */

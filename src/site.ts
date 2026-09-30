@@ -6,6 +6,7 @@
  * Data is rendered live from the real bonus database — nothing is hardcoded.
  */
 import { expiringSoon, getBonusById, listAll, searchBonuses } from "./db.js";
+import { affiliateActive, disclosureShort, isSponsored, resolveApplyUrl } from "./links.js";
 import { daysUntil, formatDate, formatUsd, getStats } from "./stats.js";
 import type { Bonus } from "./types.js";
 
@@ -263,14 +264,14 @@ export function landingPage(ctx: SiteContext): string {
     <div style="max-width:760px;margin-top:20px">
       <details class="faq"><summary>Is this free?</summary><p>Yes. No signup, no paywall, no account. Agents query the MCP server and JSON feeds free too — no API key.</p></details>
       <details class="faq"><summary>Where does the data come from?</summary><p>Every offer is verified by hand against the bank's official offer page or a reputable bonus tracker. Each record carries a <span class="mono">source_url</span> and <span class="mono">last_verified_date</span>. Offers we can't verify don't get listed.</p></details>
-      <details class="faq"><summary>Are the Apply links affiliate links?</summary><p>Right now they go to each bank's official offer page and earn us nothing — no link on this site is an affiliate link today. When affiliate partnerships go live, affected links will be marked with rel="sponsored" and this disclosure updated; only then will we earn a commission on those links — it never affects which offers we list or how they're ranked. See the <a href="${bp(ctx, "/disclosure")}">full disclosure</a>.</p></details>
+      <details class="faq"><summary>Are the Apply links affiliate links?</summary><p>${esc(disclosureShort(affiliateActive(listAll())))} See the <a href="${bp(ctx, "/disclosure")}">full disclosure</a>.</p></details>
       <details class="faq"><summary>How do credit card point values work?</summary><p>Points and miles are converted to USD using published per-point valuations so cards compare fairly with cash bonuses. The valuation basis is stated in each offer's requirements. Cash is cash; points are estimates.</p></details>
       <details class="faq"><summary>How often is the data re-verified?</summary><p>Offers near expiry are re-checked weekly; the full feed is re-verified on a rolling monthly cadence. Every record shows exactly when it was last confirmed.</p></details>
       <details class="faq"><summary>I'm an AI agent. How do I use this?</summary><p>Connect to the MCP server over Streamable HTTP, pull the JSON feeds, or read <a href="${bp(ctx, "/llms.txt")}">llms.txt</a>. Full copy-paste instructions are on the <a href="${bp(ctx, "/agents")}">For agents</a> page.</p></details>
     </div>
     <div class="disclosure-box">
       <h3>Affiliate disclosure</h3>
-      <p>${SITE_NAME} is reader-supported. Apply links currently go to banks' official offer pages and earn us nothing. When affiliate partnerships are active, we will earn a commission if you open an account through our links — at no extra cost to you. Commissions never influence which bonuses we list or how we rank them. <a href="${bp(ctx, "/disclosure")}">Read the full disclosure →</a></p>
+      <p>${SITE_NAME} is reader-supported. ${esc(disclosureShort(affiliateActive(listAll())))} <a href="${bp(ctx, "/disclosure")}">Read the full disclosure →</a></p>
     </div>
   </div></section>`;
 
@@ -370,13 +371,12 @@ export function detailPage(ctx: SiteContext, id: string): string | null {
 
   const reqs = b.requirements.map((r) => `<li>${esc(r)}</li>`).join("");
 
-  // Apply clicks route through /go/:id, which 302s to the bank's official offer page.
-  // That makes the click countable AND gives affiliate tagging a single injection point
-  // later. rel="nofollow noopener" is retained on this link; the /go route re-emits the
-  // same directives on its redirect so the destination is not treated as an endorsement.
-  const applyUrl = b.application_url || b.source_url;
+  // Apply clicks route through /go/:id, which 302s to the issuer's offer page (or the
+  // partner link when one is set). That makes the click countable and gives affiliate
+  // tagging a single injection point. Sponsored links carry rel="sponsored".
+  const applyUrl = resolveApplyUrl(b);
   const applyBtn = applyUrl
-    ? `<a class="btn" href="${esc(bp(ctx, `/go/${b.id}`))}" rel="nofollow noopener">Apply at ${esc(b.bank_or_issuer)} →</a>`
+    ? `<a class="btn" href="${esc(bp(ctx, `/go/${b.id}`))}" rel="${isSponsored(b) ? "sponsored nofollow noopener" : "nofollow noopener"}">Apply at ${esc(b.bank_or_issuer)} →</a>`
     : `<p style="color:#a7b5ac;font-size:14px">No application link on file for this offer.</p>`;
 
   const body = `
@@ -536,16 +536,17 @@ export function aboutPage(ctx: SiteContext): string {
 }
 
 export function disclosurePage(ctx: SiteContext): string {
+  const live = affiliateActive(listAll());
   const body = `<div class="wrap"><div class="page-head">
     <h1>Affiliate disclosure</h1>
     <p>How this site makes money, in plain language.</p>
   </div><div class="prose">
     <div class="disclosure-box">
       <h3>The short version</h3>
-      <p>${SITE_NAME} is reader-supported. <strong>Today, no link earns us anything</strong> — see Current status below. When affiliate partnerships go live, some Apply links will earn us a commission if you open an account through them — at no extra cost to you, and never affecting which bonuses we list or how we rank them.</p>
+      <p>${SITE_NAME} is reader-supported. ${live ? `<strong>Some Apply links are affiliate links</strong> and are marked <span class="mono">rel="sponsored"</span>. If you open an account through one we earn a commission, at no extra cost to you, and it never affects which bonuses we list or how we rank them.` : `<strong>Today, no link earns us anything</strong> — see Current status below. When affiliate partnerships go live, some Apply links will earn us a commission if you open an account through them — at no extra cost to you, and never affecting which bonuses we list or how we rank them.`}</p>
     </div>
     <h2>Current status</h2>
-    <p>As of today, Apply buttons link to each bank's <strong>official offer page</strong> — these are not affiliate links and earn us nothing. Where a bank's site blocks automated access and the offer page cannot be confirmed directly, the link goes to the <strong>reputable bonus tracker where the terms were confirmed</strong> instead; every record names its source in <span class="mono">source_url</span>. When affiliate partnerships go live, affected links will carry <span class="mono">rel="sponsored"</span> and this page will list the partner programs by name.</p>
+    <p>${live ? `Apply links marked <span class="mono">rel="sponsored"</span> are affiliate links; all other Apply buttons link to the issuer's <strong>official offer page</strong> and earn us nothing. Ranking is by bonus value only, never by commission. Every record names its source in <span class="mono">source_url</span>.` : `As of today, Apply buttons link to each bank's <strong>official offer page</strong> — these are not affiliate links and earn us nothing. Where a bank's site blocks automated access and the offer page cannot be confirmed directly, the link goes to the <strong>reputable bonus tracker where the terms were confirmed</strong> instead; every record names its source in <span class="mono">source_url</span>. When affiliate partnerships go live, affected links will carry <span class="mono">rel="sponsored"</span> and this page will list the partner programs by name.`}</p>
     <h2>What never changes</h2>
     <ul>
       <li><strong>Ranking is by bonus value and deadline</strong> — never by commission rate. The MCP tools and JSON feeds expose the same ordering as the human site.</li>
@@ -663,7 +664,7 @@ last_verified_date.
 
 - Nationwide offers match any state filter; regional offers match only listed states.
 - expiring_soon excludes offers with no stated end date.
-- Apply links currently point at banks' official offer pages (affiliate partnerships pending).
+- ${disclosureShort(affiliateActive(listAll()))}
 - Human-readable disclosure: ${ctx.publicUrl}/disclosure
 `;
 }
