@@ -644,6 +644,8 @@ Every record carries source_url and last_verified_date. Card point values are es
 - One offer: ${ctx.publicUrl}/api/bonuses/:id
 - Live stats: ${ctx.publicUrl}/api/stats
 - Service descriptor: ${ctx.publicUrl}/api
+- MCP registry manifest: ${ctx.publicUrl}/server.json
+- Credentials (none required): ${ctx.publicUrl}/auth.md
 
 ## Human site
 

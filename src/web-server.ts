@@ -36,7 +36,7 @@ import { fileURLToPath } from "node:url";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { getBonusById, listAll } from "./db.js";
 import { resolveApplyUrl, toPublic } from "./links.js";
-import { API_VERSION, SERVER_VERSION } from "./meta.js";
+import { API_VERSION, SERVER_VERSION, authMd, serverJson } from "./meta.js";
 import { createMcpServer } from "./mcp-tools.js";
 import {
   closeMetrics,
@@ -316,6 +316,12 @@ const server = http.createServer((req, res) => {
       if (pathname === "/sitemap.xml")
         return send(res, 200, "application/xml; charset=utf-8", sitemapText(ctx));
 
+      /* Agent discovery: MCP registry manifest (also at the well-known path) and credential doc. */
+      if (pathname === "/server.json" || pathname === "/.well-known/mcp.json")
+        return send(res, 200, "application/json; charset=utf-8", JSON.stringify(serverJson(ctx.publicUrl), null, 2));
+      if (pathname === "/auth.md")
+        return send(res, 200, "text/markdown; charset=utf-8", authMd(ctx.publicUrl));
+
       /* JSON APIs */
       if (pathname === "/api") {
         return send(
@@ -337,6 +343,8 @@ const server = http.createServer((req, res) => {
               endpoints: {
                 llms_txt: bp(ctx, "/llms.txt"),
                 service_descriptor: bp(ctx, "/api"),
+                server_json: bp(ctx, "/server.json"),
+                auth_md: bp(ctx, "/auth.md"),
                 stats: bp(ctx, "/api/stats"),
                 bonuses_feed: bp(ctx, "/api/bonuses.json"),
                 bonus_by_id: bp(ctx, "/api/bonuses/:id"),
