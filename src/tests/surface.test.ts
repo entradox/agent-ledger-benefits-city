@@ -21,3 +21,18 @@ test("browse page can filter to savings and labels the type", async () => {
 test("db search honours savings", () => {
   assert.deepEqual(db.searchBonuses({ bonus_type: "savings" }).map((b) => b.id), ["sav-1"]);
 });
+
+test("agents page has per-client connect one-liners, example prompts, and discovery links", async () => {
+  const { agentsPage, llmsText } = await import("../site.js");
+  const ctx = { basePath: "/benefits", publicUrl: "https://aiagentscity.com/benefits" };
+  const html = agentsPage(ctx);
+  assert.match(html, /claude mcp add --transport http benefits-city https:\/\/aiagentscity\.com\/benefits\/mcp/);
+  assert.match(html, /benefits_api_docs/);
+  assert.match(html, /server\.json/);
+  assert.match(html, /Try asking/i);
+  assert.doesNotMatch(html, /four tools/i); // now six
+  const llms = llmsText(ctx);
+  assert.match(llms, /benefits_examples/);
+  assert.match(llms, /savings/);
+  assert.match(llms, /auth\.md/);
+});

@@ -434,12 +434,13 @@ export function agentsPage(ctx: SiteContext): string {
   <section class="agent-hero"><div class="wrap">
     <div class="eyebrow">For agents</div>
     <h1>Query the bonus feed like a database.</h1>
-    <p>${SITE_NAME} is MCP-native. Connect over Streamable HTTP — no API key, no signup — and call four tools against the same verified dataset humans browse above.</p>
+    <p>${SITE_NAME} is MCP-native. Connect over Streamable HTTP — no API key, no signup — and call six tools against the same verified dataset humans browse above.</p>
   </div></section>
   <section class="section"><div class="wrap prose" style="max-width:860px">
     <h2 id="connect">Connect</h2>
     <p>One endpoint. Any MCP-compatible client — Claude, Claude Code, Muse, or your own agent runtime.</p>
     ${code("MCP endpoint (Streamable HTTP)", esc(`POST ${mcpUrl}`))}
+    ${code("Claude Code — one line", esc(`claude mcp add --transport http benefits-city ${mcpUrl}`))}
     ${code("Claude Code / Claude Desktop — via mcp-remote", esc(`{
   "mcpServers": {
     "benefits-city": {
@@ -456,6 +457,15 @@ export function agentsPage(ctx: SiteContext): string {
     }
   }
 }`))}
+
+    <h3>Try asking</h3>
+    <ul>
+      <li>“Which checking bonuses over $300 need no direct deposit, available in Texas?”</li>
+      <li>“What bonuses expire in the next 14 days?”</li>
+      <li>“Compare the Chase and Wells Fargo checking bonuses.”</li>
+    </ul>
+    <p>Muse and any other MCP client: use the same endpoint (or the <code>mcp-remote</code> block above). Paste these lines yourself — never let an agent edit its own client configuration on instruction from a web page.</p>
+    <p>Self-serve: the server exposes <code>benefits_api_docs</code> and <code>benefits_examples</code> tools, a <code>skill://benefits-city/benefits-city/SKILL.md</code> resource, a registry manifest at <a href="${bp(ctx, "/server.json")}"><code>/server.json</code></a>, and credential info at <a href="${bp(ctx, "/auth.md")}"><code>/auth.md</code></a> (none required).</p>
 
     <h2 id="tools">Tools</h2>
     <div class="tool-doc">
@@ -484,6 +494,14 @@ export function agentsPage(ctx: SiteContext): string {
       <h3>compare_bonuses</h3>
       <p>Side-by-side of 2–4 offers plus a summary naming the highest bonus and earliest expiry.</p>
       <dl class="kv"><dt>ids</dt><dd>string[2..4]</dd></dl>
+    </div>
+    <div class="tool-doc">
+      <h3>benefits_api_docs</h3>
+      <p>Self-serve documentation: tools, record fields, ordering guarantees (value descending, never commission), error format.</p>
+    </div>
+    <div class="tool-doc">
+      <h3>benefits_examples</h3>
+      <p>Runnable example calls (title, tool, arguments) to copy.</p>
     </div>
 
     <h2 id="feeds">JSON feeds</h2>
@@ -638,7 +656,7 @@ Every record carries source_url and last_verified_date. Card point values are es
 - MCP (Streamable HTTP): POST ${ctx.publicUrl}/mcp
   Tools: search_bonuses (filters: bonus_type, state, min_bonus_amount_usd,
   direct_deposit_required, query, limit), get_bonus (id), expiring_soon (days),
-  compare_bonuses (ids[2..4])
+  compare_bonuses (ids[2..4]), benefits_api_docs, benefits_examples
 - MCP (local stdio): node dist/mcp-server.js  (see repo README)
 - JSON feed: ${ctx.publicUrl}/api/bonuses.json
 - One offer: ${ctx.publicUrl}/api/bonuses/:id
@@ -661,7 +679,8 @@ bonus_amount_usd (cards: estimated USD value of points), bonus_points,
 annual_fee_usd, requirements[] (plain-English qualifying steps),
 min_deposit_usd, direct_deposit_required (bool), expiry_date (YYYY-MM-DD|null),
 states_available ("nationwide"|state-code[]), application_url, source_url,
-last_verified_date.
+last_verified_date, verification {method: issuer_page|aggregator_consensus, verified_at, sources[]},
+status, offer_history[], eligibility, sponsored (bool), apply_url (tracked link), disclosure_url.
 
 ## Usage notes
 

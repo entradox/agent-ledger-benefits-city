@@ -6,7 +6,7 @@ by hand — served two ways:
 | Audience | Interface | How |
 |---|---|---|
 | **Humans** | Server-rendered site: landing, filterable browse, bonus detail pages, agent docs | `npm start` → `/`, `/bonuses`, `/bonuses/:id`, `/agents` |
-| **Agents** | MCP server — 4 tools over **Streamable HTTP** (`POST /mcp`) and **stdio** | `npm start` → `/mcp` · `npm run mcp` |
+| **Agents** | MCP server — 6 tools over **Streamable HTTP** (`POST /mcp`) and **stdio** | `npm start` → `/mcp` · `npm run mcp` |
 | **Agents** | JSON feeds + `llms.txt` | `/api/bonuses.json`, `/api/bonuses/:id`, `/api/stats`, `/llms.txt` |
 | **Operators** | CLI, same data/logic as MCP, JSON on stdout | `npm run cli -- …` |
 
@@ -19,6 +19,8 @@ computed from the real data — they can't go stale.
 cd ~/workspace/bank-bonus-agent
 npm install --ignore-scripts   # pure-JS deps; --ignore-scripts avoids native/binary postinstalls
 npm run build                  # tsc -> dist/
+npm run test                   # tsc + node:test suite (dist/tests)
+npm run freshness              # daily source check -> data/review-queue.json (see REFRESH_PLAN.md)
 npm start                      # prestart seeds data/bonuses.json, then serves on PORT (default 3000)
 ```
 
@@ -37,11 +39,20 @@ Other commands: `npm run mcp` (stdio MCP server), `npm run cli -- …`,
 ## For agents: connect via MCP
 
 Streamable HTTP — any MCP-compatible client (Claude, Claude Code, Muse, …),
-no API key:
+no API key (see `/auth.md`):
 
 ```
 POST {PUBLIC_URL}/mcp
 ```
+
+Claude Code, one line:
+
+```bash
+claude mcp add --transport http benefits-city https://aiagentscity.com/benefits/mcp
+```
+
+Discovery: `/server.json` (MCP registry manifest, also at `/.well-known/mcp.json`), `/auth.md`,
+`/llms.txt`, and a `skill://benefits-city/benefits-city/SKILL.md` resource.
 
 Claude Code / Claude Desktop config (via `mcp-remote`):
 
@@ -97,10 +108,18 @@ curl localhost:3000/llms.txt
 
 | Tool | Inputs | Output |
 |---|---|---|
-| `search_bonuses` | `bonus_type?` (`bank_account`\|`credit_card`), `state?` (2-letter code; nationwide always matches), `min_bonus_amount_usd?`, `direct_deposit_required?`, `query?` (bank/product substring), `limit?` (1–100, default 25) | Array of bonus records, highest bonus first |
-| `get_bonus` | `id` | Full record, or error on unknown id |
+| `search_bonuses` | `bonus_type?` (`bank_account`\|`credit_card`\|`savings`), `state?` (2-letter code; nationwide always matches), `min_bonus_amount_usd?`, `direct_deposit_required?`, `query?` (bank/product substring), `limit?` (1–100, default 25) | Array of bonus records, highest bonus first |
+| `get_bonus` | `id` | Full record, or typed `not_found` error |
 | `expiring_soon` | `days?` (1–365, default 30) | Records with stated expiry inside the window, soonest first. No-stated-expiry offers excluded |
-| `compare_bonuses` | `ids` (2–4) | `{ bonuses: [...], summary: { highest_bonus_usd, earliest_expiry } }`, or error listing unknown ids |
+| `compare_bonuses` | `ids` (2–4) | `{ bonuses: [...], summary: { highest_bonus_usd, earliest_expiry } }`, or typed `not_found` error listing unknown ids |
+| `benefits_api_docs` | — | Markdown docs: tools, fields, ordering guarantees, error format |
+| `benefits_examples` | — | Runnable example calls `{title, tool, arguments}` |
+
+Every record returned by MCP/CLI/feeds is shaped by `toPublic()` (`src/links.ts`): the raw
+`affiliate_url` is never published; consumers get `apply_url` (our `/go/:id` tracked link),
+`sponsored` (bool) and `disclosure_url`. Ordering is bonus value descending (ties by id) and is
+never influenced by commissions (enforced by a test). Expired offers are never returned.
+Errors use `{"error":{"type","message","code?","param?"}}`.
 
 Tool definitions live in `src/mcp-tools.ts`, shared by the stdio server and the
 Streamable HTTP transport so the contract can't drift. (Stateless HTTP follows
@@ -108,18 +127,25 @@ the SDK pattern: one fresh server + transport per request.)
 
 ## Data schema (per record)
 
-`id` (kebab-case) · `bank_or_issuer` · `product_name` · `bonus_type` ·
+`id` (kebab-case) · `bank_or_issuer` · `product_name` · `bonus_type` (`bank_account` \| `credit_card` \| `savings`) ·
 `bonus_amount_usd` (bank accounts: advertised bonus; credit cards: **estimated USD value of the points/miles bonus — valuation basis stated in `requirements`**) ·
 `bonus_points` · `annual_fee_usd` · `requirements[]` (plain-English qualifying steps) ·
 `min_deposit_usd` · `direct_deposit_required` · `expiry_date` (`YYYY-MM-DD`, null = no stated end) ·
 `states_available` (`"nationwide"` or state-code array) · `application_url` ·
-`source_url` (where live terms were confirmed) · `last_verified_date`.
+`source_url` (where live terms were confirmed) · `last_verified_date` ·
+`verification` (`issuer_page` = the issuer's own page was fetched; `aggregator_consensus` = 3+ reputable listings agree; plus `verified_at` and `sources[]`) ·
+`status` (`active` \| `expired` \| `needs_review`) · `offer_history[]` · `eligibility` (structured, nullable) ·
+`affiliate_url` (**input only** — used by `/go/:id`, never published).
+
+"Today" is the US Eastern calendar date: an offer valid through 9/30 is served all day on 9/30 ET.
 
 ## Seed data provenance
 
-29 records, all verified live on **2026-09-20** (14 bank account, 15 credit card). Every record
-carries `source_url` + `last_verified_date`; nothing was invented — unverifiable offers were skipped.
-The 8 soonest-expiring offers were re-verified the same day; see `REFRESH_PLAN.md`.
+33 records (15 bank account, 17 credit card, 1 savings). The base set was verified live on
+**2026-09-20**; on **2026-09-30** (D-1518) the soonest-expiring and highest-impact records were
+re-verified, 4 offers were added from issuer pages, and unverifiable claims were deliberately left out.
+Every record carries `source_url`, `verification` and `last_verified_date`; nothing was invented.
+See `REFRESH_PLAN.md`.
 
 Known caveats: for Chase and Wells Fargo no verbatim official offer-page URL surfaced, so
 `application_url` points at the page where terms were confirmed; BMO's record uses a Doctor of
@@ -130,7 +156,8 @@ Credit page for both URL fields. Swap in true bank URLs / affiliate links later.
 - **`application_url` = official offer pages, not affiliate links.** The user signs up for bank
   affiliate programs themselves; swap URLs when approved (marked `AFFILIATE_PLACEHOLDER`
   in `src/site.ts`; also update the disclosure page's "Current status" section).
-- **No automated refresh.** Re-verification is a manual/scripted cadence — see
+- **Refresh is detect-and-review, not auto-publish.** `npm run freshness` reports expired / changed /
+  amount-mismatch offers into a review queue; a human or agent edits `seed-data/` — see
   [REFRESH_PLAN.md](REFRESH_PLAN.md).
 - **Single-node JSON store** (`data/bonuses.json`, atomic writes). Fine at this scale; move to
   Postgres/SQLite if concurrent writers ever appear.
@@ -154,9 +181,15 @@ src/
   cli.ts          operator CLI (JSON on stdout)
   db.ts           JSON data store + query functions (search/get/expiring/list)
   compare.ts      shared compare logic (MCP + CLI)
-  seed.ts         seed loader (validates + upserts seed-data/*.json)
+  seed.ts         seed loader (validates, upserts AND prunes: seed-data/*.json is the source of truth)
   types.ts        Bonus schema types
-seed-data/        researched offers (bank-account-bonuses.json, credit-card-bonuses.json)
+  links.ts        apply-URL resolution, toPublic() shaping, disclosure wording
+  meta.ts         version constants, server.json + auth.md builders
+  freshness.ts    pure source-page classifier (blocked is not dead)
+  freshness-cli.ts  daily check runner -> data/review-queue.json (`--canary` proves it can go red)
+  tests/          node:test suite (npm run test)
+skill/            product skill served over MCP (skill://benefits-city/benefits-city/SKILL.md)
+seed-data/        researched offers (bank-account, credit-card, savings JSON files)
 data/             bonuses.json (generated by npm run seed / prestart; gitignored)
 public/assets/    site.css (no build step)
 public/llms.txt   static reference copy (server generates the live one per-host)
