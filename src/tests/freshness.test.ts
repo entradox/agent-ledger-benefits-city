@@ -67,11 +67,32 @@ test("canary: known-good ok, every known-bad is non-ok", () => {
 
 test("exit policy: blocked/unreachable are informational; actionable kinds alert; total blackout is BROKEN not clean", async () => {
   const { exitCodeFor } = await import("../freshness.js");
-  const f = (kind: string) => ({ id: "x", kind, detail: "" }) as never;
+  const f = (kind: string, id = "x") => ({ id, kind, detail: "" }) as never;
   assert.equal(exitCodeFor([], 29), 0);
-  assert.equal(exitCodeFor([f("blocked"), f("unreachable")], 29), 0);
-  assert.equal(exitCodeFor([f("blocked"), f("amount_missing")], 29), 1);
+  assert.equal(exitCodeFor([f("blocked", "a"), f("unreachable", "b")], 29), 0);
+  assert.equal(exitCodeFor([f("blocked", "a"), f("amount_missing", "b")], 29), 1);
   for (const k of ["expired", "changed", "gone"]) assert.equal(exitCodeFor([f(k)], 29), 1, k);
-  // every record unreachable = no data was obtained: never a pass
-  assert.equal(exitCodeFor(Array.from({ length: 5 }, () => f("unreachable")), 5), 3);
+  // every record unreachable = no data was obtained: never a pass (one finding per record id)
+  assert.equal(exitCodeFor(Array.from({ length: 5 }, (_, i) => f("unreachable", `r${i}`)), 5), 3);
+});
+
+test("I-3: a stale last_verified_date (>30 days or missing) is an actionable finding", async () => {
+  const { staleFinding } = await import("../freshness.js");
+  assert.equal(staleFinding(makeBonus({ last_verified_date: iso(-10) }), iso(0)), null);
+  assert.equal(staleFinding(makeBonus({ last_verified_date: iso(-30) }), iso(0)), null); // exactly 30 = still within SLA
+  assert.equal(staleFinding(makeBonus({ id: "s", last_verified_date: iso(-31) }), iso(0))!.kind, "stale");
+  assert.equal(staleFinding(makeBonus({ id: "n", last_verified_date: null }), iso(0))!.kind, "stale");
+});
+
+test("I-3: a fleet-wide bot-block/unreachable run is BROKEN (exit 3), never clean; stale is actionable", async () => {
+  const { exitCodeFor } = await import("../freshness.js");
+  const f = (kind: string, id = "x") => ({ id, kind, detail: "" }) as never;
+  assert.equal(exitCodeFor(Array.from({ length: 5 }, (_, i) => f("blocked", `r${i}`)), 5), 3);
+  assert.equal(
+    exitCodeFor([f("blocked", "r0"), f("blocked", "r1"), f("blocked", "r2"), f("unreachable", "r3"), f("unreachable", "r4")], 5),
+    3,
+  );
+  // 4 of 5 blocked is still informational (one record was actually read)
+  assert.equal(exitCodeFor([f("blocked", "r0"), f("blocked", "r1"), f("blocked", "r2"), f("unreachable", "r3")], 5), 0);
+  assert.equal(exitCodeFor([f("stale")], 29), 1);
 });

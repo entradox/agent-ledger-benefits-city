@@ -155,7 +155,7 @@ function open(): Database.Database | null {
 }
 
 export function initMetrics(): void {
-  if (open()) purgeOldEvents();
+  if (open()) maybePurgeOldEvents();
 }
 
 function utcDay(d: Date): string {
@@ -210,6 +210,18 @@ export function purgeOldEvents(days: number = EVENT_RETENTION_DAYS): number {
   return database.prepare("DELETE FROM events WHERE day < ?").run(cutoff).changes;
 }
 
+let lastPurgeDay = "";
+
+/** Run the retention purge at most once per UTC day. Called at startup AND from the flush timer,
+ *  so a server that stays up for months still honours the published retention period. */
+export function maybePurgeOldEvents(now: Date = new Date()): boolean {
+  const day = utcDay(now);
+  if (day === lastPurgeDay) return false;
+  lastPurgeDay = day;
+  purgeOldEvents();
+  return true;
+}
+
 /** Browse-filter summary for the funnel. Enumerated filters are kept; the free-text search box is
  *  recorded only as present (q=1), never verbatim — a search phrase can identify a person. */
 export function browseFilterSummary(sp: URLSearchParams): string {
@@ -228,6 +240,7 @@ let timer: NodeJS.Timeout | null = null;
 const MAX_QUEUE = 5000;
 
 function flush(): void {
+  maybePurgeOldEvents();
   const database = db;
   if (!database || queue.length === 0) return;
   const batch = queue;

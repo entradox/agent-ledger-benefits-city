@@ -47,3 +47,9 @@ test("browse filter summary never stores free-text search; enumerated filters ar
   assert.ok(!s.includes("sort"));
   assert.equal(m.browseFilterSummary(new URLSearchParams("")), "");
 });
+
+test("I-2: the retention purge runs at most once per UTC day, not only at startup", () => {
+  assert.equal(m.maybePurgeOldEvents(new Date("2026-12-01T10:00:00Z")), true);
+  assert.equal(m.maybePurgeOldEvents(new Date("2026-12-01T23:00:00Z")), false);
+  assert.equal(m.maybePurgeOldEvents(new Date("2026-12-02T00:30:00Z")), true);
+});

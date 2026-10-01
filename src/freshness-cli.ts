@@ -11,7 +11,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { allRecords } from "./db.js";
-import { classify, exitCodeFor, type FetchResult, type Finding } from "./freshness.js";
+import { classify, exitCodeFor, staleFinding, type FetchResult, type Finding } from "./freshness.js";
 import { makeCanaryFixtures } from "./freshness-canary.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -84,6 +84,8 @@ async function main(): Promise<number> {
     const { finding, hash } = classify(b, fetched, prior[b.id] ?? null);
     if (hash) next[b.id] = hash;
     if (finding.kind !== "ok") findings.push(finding);
+    const stale = finding.kind === "expired" ? null : staleFinding(b);
+    if (stale) findings.push(stale);
     if (dest) await sleep(2000);
   }
   fs.mkdirSync(path.dirname(QUEUE), { recursive: true });
@@ -93,7 +95,7 @@ async function main(): Promise<number> {
   const code = exitCodeFor(findings, records.length);
   const info = findings.filter((f) => f.kind === "blocked" || f.kind === "unreachable").length;
   console.log(`checked ${records.length}, actionable ${findings.length - info}, informational (blocked/unreachable) ${info} → ${QUEUE}`);
-  if (code === 3) console.error("FRESHNESS BROKEN: no page could be fetched (no data is not a pass)");
+  if (code === 3) console.error("FRESHNESS BROKEN: every page was blocked or unreachable — nothing was verified (no data is not a pass)");
   return code;
 }
 

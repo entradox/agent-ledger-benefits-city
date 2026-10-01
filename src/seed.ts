@@ -86,8 +86,12 @@ export function validate(raw: SeedBonus, file: string, idx: number): Bonus {
   };
 }
 
-export function syncSeed(seedDir: string): { upserted: number; removed: string[] } {
+export function syncSeed(
+  seedDir: string,
+  opts: { allowMassPrune?: boolean } = {},
+): { upserted: number; removed: string[] } {
   getDb(); // creates DB
+  const priorCount = allRecords().length;
   if (!fs.existsSync(seedDir)) fail(`seed-data directory not found: ${seedDir}`);
   const files = fs
     .readdirSync(seedDir)
@@ -108,12 +112,20 @@ export function syncSeed(seedDir: string): { upserted: number; removed: string[]
     }
     console.log(`seeded ${parsed.length} bonus(es) from ${file}`);
   }
+  // Guard the destructive step: a renamed/emptied/partial seed file must never silently wipe the
+  // served store. Pruning a few stale ids is normal; a large share (or everything) is not.
+  if (seen.size === 0) fail("refusing to prune: the seed files contain no records");
+  const stale = allRecords().filter((b) => !seen.has(b.id));
+  const limit = Math.max(5, Math.floor(priorCount * 0.2));
+  if (stale.length > limit && !opts.allowMassPrune)
+    fail(
+      `refusing mass prune: ${stale.length} of ${priorCount} stored records are absent from the seed files ` +
+        `(limit ${limit}). If intended, re-run with --allow-mass-prune.`,
+    );
   const removed: string[] = [];
-  for (const b of allRecords()) {
-    if (!seen.has(b.id)) {
-      removeBonus(b.id);
-      removed.push(b.id);
-    }
+  for (const b of stale) {
+    removeBonus(b.id);
+    removed.push(b.id);
   }
   if (removed.length) console.log(`pruned ${removed.length} stale id(s): ${removed.join(", ")}`);
   console.log(`done: ${upserted} bonus(es) in database`);
@@ -122,5 +134,5 @@ export function syncSeed(seedDir: string): { upserted: number; removed: string[]
 
 // Run only when executed directly (prestart: `node dist/seed.js`), not when imported by tests.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  syncSeed(SEED_DIR);
+  syncSeed(SEED_DIR, { allowMassPrune: process.argv.includes("--allow-mass-prune") });
 }

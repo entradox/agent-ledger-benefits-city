@@ -86,7 +86,7 @@ test("syncSeed upserts and PRUNES ids no longer in seed files (rename leaves no 
     application_url: "https://chase.com/x",
   });
   fs.writeFileSync(path.join(dir, "a.json"), JSON.stringify([rec("chase-total-checking-300")]));
-  syncSeed(dir);
+  syncSeed(dir, { allowMassPrune: true }); // test setup deliberately replaces the whole store
   assert.ok(db.getBonusById("chase-total-checking-300"));
   // rename: old id disappears from the seed
   fs.writeFileSync(path.join(dir, "a.json"), JSON.stringify([rec("chase-total-checking-400")]));
@@ -107,4 +107,31 @@ test("'today' is the US Eastern calendar date, so an offer valid through 9/30 is
   const lastDay = makeBonus({ id: "last-day", expiry_date: "2026-09-30" });
   assert.equal(isServable(lastDay, todayISO(new Date("2026-10-01T00:30:00Z"))), true);
   assert.equal(isServable(lastDay, todayISO(new Date("2026-10-01T04:30:00Z"))), false);
+});
+
+test("I-1: seed prune refuses a mass delete (empty seed, or a large share of the store) unless explicitly allowed", async () => {
+  const { syncSeed } = await import("../seed.js");
+  const mk = (n: number) =>
+    Array.from({ length: n }, (_, i) => ({
+      id: `bulk-${i}`, bank_or_issuer: "B", product_name: "P", bonus_type: "bank_account",
+      bonus_amount_usd: 100 + i, expiry_date: iso(30), application_url: "https://example.com/a",
+    }));
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "seed-mass-"));
+  fs.writeFileSync(path.join(dir, "a.json"), JSON.stringify(mk(40)));
+  syncSeed(dir, { allowMassPrune: true });
+  const before = db.allRecords().length;
+  // an empty seed file would wipe everything
+  fs.writeFileSync(path.join(dir, "a.json"), "[]");
+  assert.throws(() => syncSeed(dir), /mass|empty|refus/i);
+  assert.equal(db.allRecords().length, before, "store must be untouched after a refused prune");
+  // a large partial loss (40 -> 10) is also refused
+  fs.writeFileSync(path.join(dir, "a.json"), JSON.stringify(mk(10)));
+  assert.throws(() => syncSeed(dir), /mass|refus/i);
+  assert.ok(db.allRecords().length >= before - 0, "no records deleted by the refused run");
+  // explicit override works
+  const r = syncSeed(dir, { allowMassPrune: true });
+  assert.equal(r.removed.length >= 30, true);
+  // a small prune (rename of one record) is fine without the flag
+  fs.writeFileSync(path.join(dir, "a.json"), JSON.stringify([...mk(10).slice(1), { ...mk(1)[0], id: "bulk-renamed" }]));
+  assert.doesNotThrow(() => syncSeed(dir));
 });
