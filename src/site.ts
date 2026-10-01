@@ -378,8 +378,13 @@ export function detailPage(ctx: SiteContext, id: string): string | null {
   // partner link when one is set). That makes the click countable and gives affiliate
   // tagging a single injection point. Sponsored links carry rel="sponsored".
   const applyUrl = resolveApplyUrl(b);
+  // A VISIBLE "Sponsored" label sits beside every affiliate Apply button (FTC: clear and
+  // conspicuous, close to the link) — rel="sponsored" alone is invisible to people.
+  const sponsoredNote = isSponsored(b)
+    ? ` <span class="badge badge-sponsored">Sponsored</span><div class="sponsored-note">This is an affiliate link: we may earn a commission if you open an account through it, at no extra cost to you. It never affects which offers we list or how we order them. <a href="${bp(ctx, "/disclosure")}">Disclosure</a></div>`
+    : "";
   const applyBtn = applyUrl
-    ? `<a class="btn" href="${esc(bp(ctx, `/go/${b.id}`))}" rel="${isSponsored(b) ? "sponsored nofollow noopener" : "nofollow noopener"}">Apply at ${esc(b.bank_or_issuer)} →</a>`
+    ? `<a class="btn" href="${esc(bp(ctx, `/go/${b.id}`))}" rel="${isSponsored(b) ? "sponsored nofollow noopener" : "nofollow noopener"}">Apply at ${esc(b.bank_or_issuer)} →</a>${sponsoredNote}`
     : `<p style="color:#a7b5ac;font-size:14px">No application link on file for this offer.</p>`;
 
   const body = `
