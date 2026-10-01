@@ -3,7 +3,7 @@
  * The landing page and /api/stats both read from here, so numbers on the
  * site can never go stale relative to the database.
  */
-import { expiringSoon, listAll } from "./db.js";
+import { expiringSoon, listAll, todayISO } from "./db.js";
 import { liveCounters } from "./metrics.js";
 import type { Bonus } from "./types.js";
 
@@ -23,10 +23,6 @@ export interface Stats {
   apply_clicks_24h: number;
   mcp_calls_24h: number;
   generated_at: string;
-}
-
-function todayISO(): string {
-  return new Date().toISOString().slice(0, 10);
 }
 
 export function getStats(): Stats {

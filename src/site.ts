@@ -473,7 +473,7 @@ export function agentsPage(ctx: SiteContext): string {
     <div class="tool-doc">
       <h3>get_bonus</h3>
       <p>Full detail for one offer: requirements, expiry, states, application and source URLs, last-verified date.</p>
-      <dl class="kv"><dt>id</dt><dd>string, e.g. "chase-total-checking-300"</dd></dl>
+      <dl class="kv"><dt>id</dt><dd>string, e.g. "chase-total-checking-400"</dd></dl>
     </div>
     <div class="tool-doc">
       <h3>expiring_soon</h3>

@@ -2,45 +2,33 @@
   {
     "application_url": "https://www.chase.com/personal/checking/total-checking",
     "bank_or_issuer": "Chase",
-    "bonus_amount_usd": 300,
+    "bonus_amount_usd": 400,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
     "expiry_date": "2026-10-14",
-    "id": "chase-total-checking-300",
-    "last_verified_date": "2026-09-20",
+    "id": "chase-total-checking-400",
+    "last_verified_date": "2026-09-30",
     "min_deposit_usd": null,
     "product_name": "Total Checking",
     "requirements": [
       "For new Chase checking customers only",
-      "Open a new Chase Total Checking account and enroll in the offer",
-      "Set up and receive direct deposits totaling $500 or more within 90 days of offer enrollment",
+      "Open a new Chase Total Checking account and enroll in the offer by October 14, 2026",
+      "Set up and receive direct deposits totaling $1,000 or more within 90 days of offer enrollment",
       "Qualifying direct deposit is an electronic deposit of paycheck, pension, or government benefits (Zelle and other person-to-person payments do not qualify)",
       "Bonus is deposited within 15 days of completing requirements"
     ],
-    "source_url": "https://wallethacks.com/chase-bank-new-account-bonus-promotions/",
-    "states_available": "nationwide"
-  },
-  {
-    "application_url": "https://www.wellsfargo.com/checking/everyday/",
-    "bank_or_issuer": "Wells Fargo",
-    "bonus_amount_usd": 400,
-    "bonus_type": "bank_account",
-    "direct_deposit_required": true,
-    "expiry_date": "2026-10-06",
-    "id": "wells-fargo-everyday-checking-400",
-    "last_verified_date": "2026-09-20",
-    "min_deposit_usd": 25,
-    "product_name": "Everyday Checking",
-    "requirements": [
-      "Open a new Wells Fargo consumer checking account with a minimum opening deposit of $25",
-      "Use the bonus offer code when opening (online or in-branch)",
-      "Receive a total of $1,000 or more in qualifying electronic deposits within 90 calendar days of account opening",
-      "Qualifying electronic deposits include ACH direct deposits, RTP/FedNow payments, or debit-card-network credits (transfers between accounts, mobile deposits, Zelle, and branch/ATM deposits do not qualify)",
-      "Bonus is deposited within 30 calendar days after the qualification period",
-      "Offer is not available to customers who received a Wells Fargo consumer checking bonus within the past 12 months"
-    ],
-    "source_url": "https://frequentmiler.com/easy-400-bonus-with-a-new-wells-fargo-checking-account-july-2025/",
-    "states_available": "nationwide"
+    "source_url": "https://www.hustlermoneyblog.com/chase-total-checking-bonus/",
+    "states_available": "nationwide",
+    "verification": {
+      "method": "aggregator_consensus",
+      "sources": [
+        "https://www.hustlermoneyblog.com/chase-total-checking-bonus/",
+        "https://bankbonus.com/promotions/chase-bank/chase-total-checking-bonus-offer/",
+        "https://www.fatstacksacademy.com/blog/chase-total-checking-bonus",
+        "https://www.moneycrashers.com/chase-bank-promotions/"
+      ],
+      "verified_at": "2026-09-30"
+    }
   },
   {
     "application_url": "https://usbank.com/splash/checking/2026-all-market-checking-offer.html",
@@ -160,19 +148,19 @@
     "bonus_amount_usd": 300,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
-    "expiry_date": "2026-09-30",
+    "expiry_date": "2026-11-30",
     "id": "td-bank-beyond-checking-300",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-09-30",
     "min_deposit_usd": null,
     "product_name": "Beyond Checking",
     "requirements": [
-      "Open a new TD Beyond Checking account online through the qualifying offer page by September 30, 2026",
+      "Open a new TD Beyond Checking account online through the qualifying offer page by November 30, 2026",
       "Make $2,500 or more in qualifying direct deposits within 60 calendar days of account opening",
-      "Qualifying direct deposits are electronic deposits of paycheck, pension, or government benefits from an employer or the government (person-to-person and bank transfers do not qualify)",
+      "Qualifying direct deposits are recurring electronic deposits of paycheck, pension, or government benefits (such as Social Security) from an employer or the government, of at least $250 each (person-to-person and bank transfers do not qualify)",
       "Bonus is deposited on or before 180 days from account opening",
       "Not eligible if you are an existing TD personal checking customer, closed a TD checking account within the preceding 12 months, or have ever received a prior TD checking bonus"
     ],
-    "source_url": "https://www.td.com/us/en/personal-banking/checking-bonus/pso/apply/beyond",
+    "source_url": "https://www.td.com/us/en/personal-banking/checking-and-saving-bonus",
     "states_available": [
       "CT",
       "DC",
@@ -190,7 +178,14 @@
       "SC",
       "VA",
       "VT"
-    ]
+    ],
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://www.td.com/us/en/personal-banking/checking-and-saving-bonus"
+      ],
+      "verified_at": "2026-09-30"
+    }
   },
   {
     "application_url": "https://www.53.com/content/fifth-third/en/mkg/checking-offer.html",
@@ -361,7 +356,7 @@
     "direct_deposit_required": true,
     "expiry_date": "2026-10-08",
     "id": "mt-bank-checking-300",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-09-30",
     "min_deposit_usd": null,
     "product_name": "MyChoice Premium Checking",
     "requirements": [
@@ -384,7 +379,14 @@
       "VA",
       "VT",
       "WV"
-    ]
+    ],
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://campaigns.mtb.com/personal/banking/checking-cash-bonus"
+      ],
+      "verified_at": "2026-09-30"
+    }
   },
   {
     "application_url": "https://www.associatedbank.com/checking-account-bonus-offer-promotion",
@@ -410,5 +412,112 @@
       "IL",
       "MN"
     ]
+  },
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": null,
+    "application_url": "https://www.wellsfargo.com/checking/everyday/",
+    "bank_or_issuer": "Wells Fargo",
+    "bonus_amount_usd": 500,
+    "bonus_points": null,
+    "bonus_type": "bank_account",
+    "direct_deposit_required": true,
+    "eligibility": {
+      "cooldown_months": 12,
+      "issuer_rules": [
+        "Not available if you received a Wells Fargo consumer checking bonus in the past 12 months"
+      ],
+      "new_to_bank": true,
+      "once_per_lifetime": null
+    },
+    "expiry_date": "2026-10-06",
+    "id": "wells-fargo-everyday-checking-500",
+    "last_verified_date": "2026-09-30",
+    "min_deposit_usd": 25,
+    "offer_history": [],
+    "product_name": "Everyday Checking",
+    "requirements": [
+      "New Wells Fargo consumer checking customers only; open a new account with the bonus offer code by October 6, 2026 (online or in branch)",
+      "Receive a total of $1,000 or more in qualifying electronic deposits within 90 calendar days of account opening",
+      "Transfers from one account to another, mobile deposits, Zelle, and deposits made at a branch or ATM do not count as qualifying deposits",
+      "Bonus is deposited within 30 calendar days after the requirements are met, and the new account must stay open until it is deposited",
+      "Not available to anyone who received a Wells Fargo consumer checking bonus within the past 12 months, or to Wells Fargo employees",
+      "Everyday Checking has a $15 monthly service fee, waivable (for example with $500+ in qualifying deposits or a $1,500 minimum daily balance)"
+    ],
+    "source_url": "https://www.doctorofcredit.com/wells-fargo-500-checking-bonus/",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "aggregator_consensus",
+      "sources": [
+        "https://www.doctorofcredit.com/wells-fargo-500-checking-bonus/",
+        "https://frequentmiler.com/earn-a-500-bonus-with-a-new-wells-fargo-checking-account/",
+        "https://www.uscreditcardguide.com/wells-fargo-everyday-checking-account/",
+        "https://www.creditdonkey.com/wells-fargo-checking-account-bonus.html"
+      ],
+      "verified_at": "2026-09-30"
+    }
+  },
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": null,
+    "application_url": "https://www.truist.com/checking/lp/promos/open-checking",
+    "bank_or_issuer": "Truist",
+    "bonus_amount_usd": 500,
+    "bonus_points": null,
+    "bonus_type": "bank_account",
+    "direct_deposit_required": true,
+    "eligibility": {
+      "cooldown_months": null,
+      "issuer_rules": [
+        "Not eligible if you closed a Truist personal checking account on or after 2025-07-14"
+      ],
+      "new_to_bank": true,
+      "once_per_lifetime": null
+    },
+    "expiry_date": "2027-02-02",
+    "id": "truist-one-checking-500",
+    "last_verified_date": "2026-09-30",
+    "min_deposit_usd": null,
+    "offer_history": [],
+    "product_name": "One Checking",
+    "requirements": [
+      "New Truist personal checking clients only: open a new Truist One Checking (or Truist Marquee Checking) account from July 14, 2026 through February 2, 2027 using a promo code",
+      "Receive at least 2 qualifying direct deposits totaling $2,000 or more within 120 days of account opening",
+      "Complete at least 20 qualifying debit card purchases within 120 days of account opening",
+      "The promo code must be applied at account opening; it cannot be added afterwards",
+      "Reward is deposited to the new checking account within 10 business days after the requirements are met and verified",
+      "Not eligible if you are the primary holder of an existing Truist personal checking account or closed a Truist personal checking account on or after July 14, 2025",
+      "Truist One Checking has a $12 monthly maintenance fee with several waiver options"
+    ],
+    "source_url": "https://www.truist.com/checking/lp/promos/open-checking",
+    "states_available": [
+      "AL",
+      "AR",
+      "DC",
+      "FL",
+      "GA",
+      "IN",
+      "KY",
+      "MD",
+      "MS",
+      "NC",
+      "NJ",
+      "OH",
+      "PA",
+      "SC",
+      "TN",
+      "TX",
+      "VA",
+      "WV"
+    ],
+    "status": "active",
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://www.truist.com/checking/lp/promos/open-checking"
+      ],
+      "verified_at": "2026-09-30"
+    }
   }
 ]

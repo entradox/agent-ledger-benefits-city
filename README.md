@@ -66,7 +66,7 @@ search_bonuses({ "bonus_type": "bank_account", "min_bonus_amount_usd": 400,
                  "direct_deposit_required": false })
 
 # Full terms for one offer
-get_bonus({ "id": "chase-total-checking-300" })
+get_bonus({ "id": "chase-total-checking-400" })
 
 # What's expiring in the next 2 weeks?
 expiring_soon({ "days": 14 })
@@ -79,7 +79,7 @@ Same via shell (use `node dist/cli.js` directly when piping — `npm run` prints
 
 ```bash
 node dist/cli.js search --type bank_account --state TX --min 300 --pretty
-node dist/cli.js get chase-total-checking-300 --pretty
+node dist/cli.js get chase-total-checking-400 --pretty
 node dist/cli.js expiring --days 30
 node dist/cli.js compare bmo-checking-600 sofi-checking-savings-400
 ```

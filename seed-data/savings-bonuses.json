@@ -1,0 +1,44 @@
+[
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": null,
+    "application_url": "https://banking.us.barclays/tiered-savings.html",
+    "bank_or_issuer": "Barclays",
+    "bonus_amount_usd": 200,
+    "bonus_points": null,
+    "bonus_type": "savings",
+    "direct_deposit_required": false,
+    "eligibility": {
+      "cooldown_months": null,
+      "issuer_rules": [
+        "Existing or previous Barclays Savings/CD customers are not eligible"
+      ],
+      "new_to_bank": true,
+      "once_per_lifetime": null
+    },
+    "expiry_date": "2026-10-31",
+    "id": "barclays-tiered-savings-200",
+    "last_verified_date": "2026-09-30",
+    "min_deposit_usd": 25000,
+    "offer_history": [],
+    "product_name": "Tiered Savings",
+    "requirements": [
+      "Open a new Barclays Tiered Savings account by October 31, 2026",
+      "Fund the new account with at least $25,000 within the first 30 days of opening",
+      "Maintain a balance of at least $25,000 for 120 days",
+      "Current and previous Barclays customers with a Savings account or CD are not eligible",
+      "The bonus is treated as interest for tax purposes and may be reported on Form 1099-INT",
+      "No monthly maintenance fee"
+    ],
+    "source_url": "https://banking.us.barclays/tiered-savings.html",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://banking.us.barclays/tiered-savings.html"
+      ],
+      "verified_at": "2026-09-30"
+    }
+  }
+]

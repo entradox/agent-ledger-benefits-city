@@ -43,7 +43,7 @@ const EXAMPLES = [
   { title: "Top checking bonuses without direct deposit", tool: "search_bonuses", arguments: { bonus_type: "bank_account", direct_deposit_required: false, limit: 5 } },
   { title: "What expires in the next two weeks", tool: "expiring_soon", arguments: { days: 14 } },
   { title: "Best savings bonuses in Texas", tool: "search_bonuses", arguments: { bonus_type: "savings", state: "TX" } },
-  { title: "Head-to-head", tool: "compare_bonuses", arguments: { ids: ["chase-total-checking-300", "sofi-checking-savings-400"] } },
+  { title: "Head-to-head", tool: "compare_bonuses", arguments: { ids: ["chase-total-checking-400", "sofi-checking-savings-400"] } },
 ];
 
 /**
@@ -116,7 +116,7 @@ export function createMcpServer(): McpServer {
     "get_bonus",
     "Get the full detail of one bonus offer: requirements, minimum deposit, expiry date, state availability, application and source URLs, and the date the terms were last verified.",
     {
-      id: z.string().describe("Bonus id, e.g. 'chase-total-checking-300'. Use search_bonuses to find ids."),
+      id: z.string().describe("Bonus id, e.g. 'chase-total-checking-400'. Use search_bonuses to find ids."),
     },
     timed("get_bonus", async ({ id }) => {
       const bonus = getBonusById(id);
@@ -148,7 +148,7 @@ export function createMcpServer(): McpServer {
         .array(z.string())
         .min(2)
         .max(4)
-        .describe("2 to 4 bonus ids to compare, e.g. ['chase-total-checking-300', 'sofi-checking-savings-400']."),
+        .describe("2 to 4 bonus ids to compare, e.g. ['chase-total-checking-400', 'sofi-checking-savings-400']."),
     },
     timed("compare_bonuses", async ({ ids }) => {
       try {

@@ -3,8 +3,10 @@ import os from "node:os";
 import path from "node:path";
 import type { Bonus } from "../types.js";
 
+/** Date `offsetDays` from today, where "today" is the US Eastern calendar date (the app's definition). */
 export function iso(offsetDays: number): string {
-  const d = new Date();
+  const base = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }).format(new Date());
+  const d = new Date(`${base}T00:00:00Z`);
   d.setUTCDate(d.getUTCDate() + offsetDays);
   return d.toISOString().slice(0, 10);
 }

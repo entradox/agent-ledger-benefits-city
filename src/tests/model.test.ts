@@ -98,3 +98,13 @@ test("syncSeed upserts and PRUNES ids no longer in seed files (rename leaves no 
   assert.throws(() => validate({ ...rec("x"), application_url: "javascript:alert(1)" } as never, "t", 0), /http\(s\)/);
   assert.throws(() => validate({ ...rec("x"), bonus_type: "crypto" } as never, "t", 0), /bonus_type/);
 });
+
+test("'today' is the US Eastern calendar date, so an offer valid through 9/30 is still served at 8pm ET on 9/30", async () => {
+  const { todayISO, isServable } = db;
+  assert.equal(todayISO(new Date("2026-10-01T00:30:00Z")), "2026-09-30"); // 20:30 EDT on 9/30
+  assert.equal(todayISO(new Date("2026-10-01T04:30:00Z")), "2026-10-01"); // 00:30 EDT on 10/1
+  assert.equal(todayISO(new Date("2026-01-15T04:30:00Z")), "2026-01-14"); // winter (EST, UTC-5)
+  const lastDay = makeBonus({ id: "last-day", expiry_date: "2026-09-30" });
+  assert.equal(isServable(lastDay, todayISO(new Date("2026-10-01T00:30:00Z"))), true);
+  assert.equal(isServable(lastDay, todayISO(new Date("2026-10-01T04:30:00Z"))), false);
+});

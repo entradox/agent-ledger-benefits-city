@@ -56,8 +56,11 @@ function persist(resolved: string): void {
   fs.renameSync(tmp, resolved);
 }
 
-export function todayISO(): string {
-  return new Date().toISOString().slice(0, 10);
+/** Today's calendar date in US Eastern time (YYYY-MM-DD). Bank offers state deadlines as US dates
+ *  (typically 11:59 PM ET), so an offer valid through 9/30 must still be served all day on 9/30 —
+ *  a UTC date would hide it from 8pm ET. */
+export function todayISO(now: Date = new Date()): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }).format(now);
 }
 
 /** An offer is servable unless marked expired or its stated end date is before today.
@@ -144,8 +147,8 @@ export function listAll(): Bonus[] {
 }
 
 function addDaysISO(days: number): string {
-  const d = new Date();
-  d.setDate(d.getDate() + days);
+  const d = new Date(`${todayISO()}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + days);
   return d.toISOString().slice(0, 10);
 }
 

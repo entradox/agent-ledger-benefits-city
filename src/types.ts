@@ -26,7 +26,7 @@ export interface Eligibility {
 
 /** A single bank account, savings account, or credit card signup bonus offer. */
 export interface Bonus {
-  /** kebab-case unique id, e.g. "chase-total-checking-300" */
+  /** kebab-case unique id, e.g. "chase-total-checking-400" */
   id: string;
   /** e.g. "Chase" */
   bank_or_issuer: string;

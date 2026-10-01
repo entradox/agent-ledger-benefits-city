@@ -161,17 +161,28 @@
     "direct_deposit_required": false,
     "expiry_date": null,
     "id": "capital-one-venture-75k",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-09-30",
     "min_deposit_usd": null,
     "product_name": "Venture Rewards Credit Card",
     "requirements": [
       "Earn 75,000 bonus miles after spending $4,000 on purchases in the first 3 months from account opening",
       "Plus receive a $300 credit for hotel and vacation rental bookings through Capital One Travel in the first cardholder year",
       "Miles valued ~$1,388 at 1.85 cents per mile (TPG September 2026 Capital One valuation); combined value ~$1,688 including the $300 travel credit",
-      "Not eligible if you opened or earned the Venture or Venture X bonus in the past 48 months"
+      "Not eligible if you opened or earned the Venture or Venture X bonus in the past 48 months",
+      "Limited-time (from September 8, 2026): also includes a $300 Capital One Travel credit for hotel and vacation-rental bookings, valid one year; not included in the USD value shown here"
     ],
     "source_url": "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
-    "states_available": "nationwide"
+    "states_available": "nationwide",
+    "verification": {
+      "method": "aggregator_consensus",
+      "sources": [
+        "https://thepointsguy.com/credit-cards/how-good-venture-rewards-75000-mile-300-travel-credit-offer/",
+        "https://frequentmiler.com/new-capital-one-venture-rewards-welcome-offer-75k-miles-300-stays-credit/",
+        "https://awardwallet.com/credit-cards/capital-one-rewards/venture-card-bonus/",
+        "https://www.forbes.com/advisor/credit-cards/capital-one-venture-rewards-offer-boost-lmandp5/"
+      ],
+      "verified_at": "2026-09-30"
+    }
   },
   {
     "annual_fee_usd": 95,
@@ -323,5 +334,79 @@
     ],
     "source_url": "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
     "states_available": "nationwide"
+  },
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": 0,
+    "application_url": "https://creditcards.chase.com/cash-back-credit-cards/freedom/flex",
+    "bank_or_issuer": "Chase",
+    "bonus_amount_usd": 250,
+    "bonus_points": null,
+    "bonus_type": "credit_card",
+    "direct_deposit_required": false,
+    "eligibility": null,
+    "expiry_date": null,
+    "id": "chase-freedom-flex-250",
+    "last_verified_date": "2026-09-30",
+    "min_deposit_usd": null,
+    "offer_history": [],
+    "product_name": "Freedom Flex",
+    "requirements": [
+      "Earn a $250 bonus after you spend $500 on purchases in the first 3 months from account opening",
+      "Limited-time promotion; Chase's page states no end date, so re-check before applying",
+      "No annual fee"
+    ],
+    "source_url": "https://creditcards.chase.com/cash-back-credit-cards/freedom/flex",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://creditcards.chase.com/cash-back-credit-cards/freedom/flex",
+        "https://thepointsguy.com/credit-cards/chase-freedom-unlimited-freedom-flex-bonuses/"
+      ],
+      "verified_at": "2026-09-30"
+    }
+  },
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": 695,
+    "application_url": "https://creditcards.aa.com/credit-cards/citi-executive-card-american-airlines-direct/",
+    "bank_or_issuer": "Citi",
+    "bonus_amount_usd": 1813,
+    "bonus_points": 125000,
+    "bonus_type": "credit_card",
+    "direct_deposit_required": false,
+    "eligibility": {
+      "cooldown_months": 48,
+      "issuer_rules": [
+        "No new-account bonus for this card in the past 48 months"
+      ],
+      "new_to_bank": null,
+      "once_per_lifetime": null
+    },
+    "expiry_date": null,
+    "id": "citi-aadvantage-executive-125k",
+    "last_verified_date": "2026-09-30",
+    "min_deposit_usd": null,
+    "offer_history": [],
+    "product_name": "AAdvantage Executive Card",
+    "requirements": [
+      "Earn 125,000 AAdvantage bonus miles after $15,000 in purchases within the first 5 months of account opening",
+      "Miles valued ~$1,813 at 1.45 cents per mile (TPG September 2026 valuation)",
+      "Limited-time elevated offer; the higher spend requirement comes with 5 months to meet it instead of 3",
+      "Bonus not available if you received a new account bonus for this card in the past 48 months, or converted another Citi card that earned a prior bonus into this account within that timeframe"
+    ],
+    "source_url": "https://creditcards.aa.com/credit-cards/citi-executive-card-american-airlines-direct/",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://creditcards.aa.com/credit-cards/citi-executive-card-american-airlines-direct/",
+        "https://thepointsguy.com/credit-cards/citi-aadvantage-current-offers/"
+      ],
+      "verified_at": "2026-09-30"
+    }
   }
 ]
