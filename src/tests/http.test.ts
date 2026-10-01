@@ -82,3 +82,32 @@ test("/api/stats (highest_bonus, expiring list) never exposes affiliate_url", as
   assert.ok(!body.includes("partner.example"), "raw affiliate URL leaked via /api/stats");
   assert.ok(!body.includes("affiliate_url"));
 });
+
+test("REST parity: /api/search, /api/expiring, /api/compare return public JSON; bad params are typed 400; by-id 404 is typed", async () => {
+  const s = await fetch(url("/api/search?limit=2"));
+  assert.equal(s.status, 200);
+  assert.match(s.headers.get("content-type") ?? "", /application\/json/);
+  assert.equal(s.headers.get("x-api-version"), "2026-09-30");
+  const sBody = await s.text();
+  assert.ok(!sBody.includes("partner.example"));
+  assert.equal(JSON.parse(sBody).length, 2);
+
+  const bad = await fetch(url("/api/search?bonus_type=crypto"));
+  assert.equal(bad.status, 400);
+  const be = (await bad.json()).error;
+  assert.equal(be.type, "invalid_param");
+  assert.equal(be.param, "bonus_type");
+
+  assert.equal((await fetch(url("/api/expiring?days=60"))).status, 200);
+  assert.equal((await fetch(url("/api/expiring?days=0"))).status, 400);
+
+  const cmp = await fetch(url("/api/compare?ids=live-aff,live-plain"));
+  assert.equal(cmp.status, 200);
+  assert.ok(!(await cmp.text()).includes("partner.example"));
+  assert.equal((await fetch(url("/api/compare?ids=live-aff,ghost"))).status, 404);
+  assert.equal((await fetch(url("/api/compare?ids=live-aff"))).status, 400);
+
+  const nf = await fetch(url("/api/bonuses/ghost"));
+  assert.equal(nf.status, 404);
+  assert.equal((await nf.json()).error.type, "not_found");
+});

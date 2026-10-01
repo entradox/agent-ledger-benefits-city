@@ -16,7 +16,10 @@
  *   GET /api                 service descriptor
  *   GET /api/stats           live counts, total bonus value, expiring list
  *   GET /api/bonuses.json    full bonus feed
- *   GET /api/bonuses/:id     single bonus or 404
+ *   GET /api/bonuses/:id     single bonus or typed 404
+ *   GET /api/search          search (same filters as the MCP search_bonuses tool)
+ *   GET /api/expiring        offers expiring within ?days=
+ *   GET /api/compare         ?ids=a,b[,c,d] side-by-side
  *   POST|GET|DELETE /mcp     MCP over Streamable HTTP (stateless, no auth)
  *   GET /assets/*            static assets
  *
@@ -36,6 +39,7 @@ import { fileURLToPath } from "node:url";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { getBonusById, listAll } from "./db.js";
 import { resolveApplyUrl, toPublic } from "./links.js";
+import { restById, restCompare, restExpiring, restSearch, type RestResult } from "./rest.js";
 import { API_VERSION, SERVER_VERSION, authMd, serverJson } from "./meta.js";
 import { createMcpServer } from "./mcp-tools.js";
 import {
@@ -345,6 +349,9 @@ const server = http.createServer((req, res) => {
                 stats: bp(ctx, "/api/stats"),
                 bonuses_feed: bp(ctx, "/api/bonuses.json"),
                 bonus_by_id: bp(ctx, "/api/bonuses/:id"),
+                search: bp(ctx, "/api/search"),
+                expiring: bp(ctx, "/api/expiring"),
+                compare: bp(ctx, "/api/compare"),
               },
               mcp: {
                 transports: ["streamable-http", "stdio"],
@@ -367,12 +374,21 @@ const server = http.createServer((req, res) => {
         recordFeedHit(req, "api/bonuses.json");
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(listAll().map(toPublic), null, 2));
       }
+      /* REST parity with the MCP tools — same data, same public shaping, typed errors. */
+      const restRoutes: Record<string, (sp: URLSearchParams) => RestResult> = {
+        "/api/search": restSearch,
+        "/api/expiring": restExpiring,
+        "/api/compare": restCompare,
+      };
+      if (restRoutes[pathname]) {
+        recordFeedHit(req, pathname.slice(1));
+        const r = restRoutes[pathname](url.searchParams);
+        return send(res, r.status, "application/json; charset=utf-8", JSON.stringify(r.body, null, 2));
+      }
       const apiMatch = pathname.match(/^\/api\/bonuses\/([A-Za-z0-9_-]+)$/);
       if (apiMatch) {
-        const bonus = getBonusById(apiMatch[1]);
-        if (!bonus)
-          return send(res, 404, "application/json; charset=utf-8", JSON.stringify({ error: "bonus not found" }));
-        return send(res, 200, "application/json; charset=utf-8", JSON.stringify(toPublic(bonus), null, 2));
+        const r = restById(apiMatch[1]);
+        return send(res, r.status, "application/json; charset=utf-8", JSON.stringify(r.body, null, 2));
       }
 
       /* Static assets */
