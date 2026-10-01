@@ -58,6 +58,7 @@ const bonusSchema = z.object({
   product_name: z.string(),
   bonus_type: z.enum(BONUS_TYPES),
   bonus_amount_usd: z.number(),
+  bonus_max_usd: z.number().nullable(),
   bonus_points: z.number().nullable(),
   annual_fee_usd: z.number().nullable(),
   requirements: z.array(z.string()),

@@ -33,8 +33,12 @@ export interface Bonus {
   /** e.g. "Total Checking" */
   product_name: string;
   bonus_type: BonusType;
-  /** Advertised bonus in USD. For credit cards: estimated USD value of the points/miles bonus. */
+  /** Advertised bonus in USD. For credit cards: estimated USD value of the points/miles bonus.
+   *  This is the value a typical applicant receives by completing the stated requirements, and it is
+   *  what ranking uses. A tiered offer stores its top tier in `bonus_max_usd`, never here. */
   bonus_amount_usd: number;
+  /** Top tier of a tiered offer, when reaching it needs more than the stated requirements. */
+  bonus_max_usd: number | null;
   /** Points/miles granted (credit cards), null otherwise */
   bonus_points: number | null;
   /** Annual fee in USD (credit cards), null if none/unknown */

@@ -18,6 +18,7 @@ export function makeBonus(o: Partial<Bonus> = {}): Bonus {
     product_name: "Test Checking",
     bonus_type: "bank_account",
     bonus_amount_usd: 300,
+    bonus_max_usd: null,
     bonus_points: null,
     annual_fee_usd: null,
     requirements: ["Open an account"],

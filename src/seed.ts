@@ -69,6 +69,7 @@ export function validate(raw: SeedBonus, file: string, idx: number): Bonus {
     product_name: raw.product_name,
     bonus_type: raw.bonus_type as BonusType,
     bonus_amount_usd: raw.bonus_amount_usd,
+    bonus_max_usd: raw.bonus_max_usd ?? null,
     bonus_points: raw.bonus_points ?? null,
     annual_fee_usd: raw.annual_fee_usd ?? null,
     requirements: Array.isArray(raw.requirements) ? raw.requirements : [],

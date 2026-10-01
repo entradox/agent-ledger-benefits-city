@@ -151,6 +151,7 @@ export function openapiJson(publicUrl: string): object {
             product_name: { type: "string" },
             bonus_type: { type: "string", enum: [...BONUS_TYPES] },
             bonus_amount_usd: { type: "number", description: "Cards: estimated USD value of points" },
+            bonus_max_usd: { type: "number", nullable: true, description: "Top tier of a tiered offer; bonus_amount_usd is the value the stated requirements earn" },
             bonus_points: { type: ["number", "null"] },
             annual_fee_usd: { type: ["number", "null"] },
             requirements: { type: "array", items: { type: "string" } },

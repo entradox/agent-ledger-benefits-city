@@ -13,7 +13,10 @@ const readSeed = (f: string): Record<string, unknown>[] =>
 
 const seed = SEED_FILES.flatMap(readSeed);
 process.env.PUBLIC_URL = "https://aiagentscity.com/benefits";
-await setupDb(seed as unknown as Bonus[]);
+const db = await setupDb(seed as unknown as Bonus[]);
+
+/** The records as the store actually serves them — after validate()/normalize() have run. */
+const servedById = new Map(db.allRecords().map((b) => [b.id, b as unknown as Record<string, unknown>]));
 
 const ctx = { basePath: "/benefits", publicUrl: "https://aiagentscity.com/benefits" };
 
@@ -63,18 +66,23 @@ test("the About page does not overstate the verification cadence", async () => {
 // ---- Data invariants. These are the defects the 2026-10-01 verification runs surfaced: the value we
 // ---- rank and display must be the value a normal applicant actually receives.
 test("no offer ranks on a top tier it cannot pay without extra conditions", () => {
-  const byId = new Map(seed.map((r) => [r.id as string, r]));
-  const assoc = byId.get("associated-bank-checking-600") as Record<string, unknown>;
-  assert.ok(assoc, "associated-bank-checking-600 missing");
+  // Read the SERVED record, not the seed file: a field added to the seed but not plumbed through
+  // validate()/normalize() is silently dropped, and only the served record reveals that.
+  const served = servedById.get("associated-bank-checking-600") as Record<string, unknown>;
+  assert.ok(served, "associated-bank-checking-600 missing from the served store");
   // $600 requires a $10,000+ average daily balance; the direct-deposit action alone earns $300.
   assert.notEqual(
-    assoc.bonus_amount_usd,
+    served.bonus_amount_usd,
     600,
     "ranking on the top tier puts a $300 offer at the top of every 'biggest bonus' surface",
   );
-  assert.equal(assoc.bonus_amount_usd, 300);
-  assert.equal(assoc.bonus_max_usd, 600);
-  assert.match((assoc.requirements as string[]).join(" "), /TOP TIER ONLY/);
+  assert.equal(served.bonus_amount_usd, 300);
+  assert.equal(
+    served.bonus_max_usd,
+    600,
+    "bonus_max_usd must survive seeding and be served, or the tier information is lost",
+  );
+  assert.match((served.requirements as string[]).join(" "), /TOP TIER ONLY/);
 });
 
 test("no offer ranks on a targeted-only amount", () => {

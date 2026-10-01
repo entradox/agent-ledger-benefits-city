@@ -8,6 +8,7 @@ function rec(id: string, amount: number): Bonus {
     product_name: "Canary",
     bonus_type: "bank_account",
     bonus_amount_usd: amount,
+    bonus_max_usd: null,
     bonus_points: null,
     annual_fee_usd: null,
     requirements: [],

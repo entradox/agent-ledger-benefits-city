@@ -27,6 +27,7 @@ function normalize(raw: Bonus): Bonus {
     // Optional-by-intent fields. MCP validates EVERY declared outputSchema property as required, so
     // an absent key fails the whole structured-content response with -32602 — an empty result where
     // a caller asked a plain question. Default them here rather than trusting every seed record.
+    bonus_max_usd: raw.bonus_max_usd ?? null,
     bonus_points: raw.bonus_points ?? null,
     annual_fee_usd: raw.annual_fee_usd ?? null,
     expiry_date: raw.expiry_date ?? null,
