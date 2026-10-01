@@ -54,3 +54,11 @@ test("server-card tools are generated from the live MCP server (no drift)", asyn
   assert.equal(card.tools.length, live.length);
   assert.equal(card.resources[0].uri, "skill://benefits-city/benefits-city/SKILL.md");
 });
+
+test("server.json satisfies the MCP registry schema limits (description <= 100 chars) — the registry rejects longer", async () => {
+  const { serverJson } = await import("../meta.js");
+  const j = serverJson(U) as { description: string; name: string; remotes: { url: string }[] };
+  assert.ok(j.description.length <= 100, `description is ${j.description.length} chars`);
+  assert.ok(j.description.length > 20);
+  assert.equal(j.remotes[0].url, `${U}/mcp`);
+});

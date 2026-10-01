@@ -8,7 +8,7 @@ export function serverJson(publicUrl: string): object {
     name: "io.github.entradox/benefits-city",
     title: "Benefits City",
     description:
-      "US bank-account, savings and credit-card signup bonuses, each checked against a named source (issuer page or bonus tracker), with expiry dates. Search, compare and time-check offers.",
+      "US bank, savings and credit-card signup bonuses, each source-checked, with expiry dates.",
     repository: { url: "https://github.com/entradox/agent-ledger-benefits-city", source: "github" },
     websiteUrl: publicUrl,
     version: SERVER_VERSION,
