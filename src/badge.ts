@@ -6,7 +6,7 @@ import { xmlEscape } from "./changelog.js";
 
 export function badgeSvg(count: number, checked: string | null): string {
   const label = "Benefits City";
-  const value = `${count} offers${checked ? ` · checked ${checked}` : ""}`;
+  const value = `${count} offers${checked ? ` · updated ${checked}` : ""}`;
   const lw = Math.round(label.length * 6.6 + 18);
   const vw = Math.round(value.length * 6.2 + 18);
   const w = lw + vw;

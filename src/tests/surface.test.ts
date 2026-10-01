@@ -57,3 +57,16 @@ test("agents page offers an embeddable badge snippet that links back to the site
   assert.ok(html.includes("Embed the live badge"));
   assert.ok(html.includes("/api/insights"));
 });
+
+test("Morgan C1: no page, footer or llms.txt claims offers are verified/checked 'by hand'", async () => {
+  const site = await import("../site.js");
+  const ctx = { basePath: "/benefits", publicUrl: "https://aiagentscity.com/benefits" };
+  const surfaces: [string, string][] = [
+    ["landing", site.landingPage(ctx)], ["about", site.aboutPage(ctx)], ["agents", site.agentsPage(ctx)],
+    ["browse", site.browsePage(ctx, { type: "", state: "", min: "", dd: "", q: "", sort: "value" })], ["llms", site.llmsText(ctx)],
+  ];
+  for (const [name, text] of surfaces) {
+    assert.doesNotMatch(text, /by hand|hand-check/i, `${name} still claims hand verification`);
+    assert.doesNotMatch(text, /Every US bank bonus/i, `${name} still claims to list every bonus`);
+  }
+});

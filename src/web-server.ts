@@ -41,6 +41,7 @@ import { getBonusById, listAll } from "./db.js";
 import { resolveApplyUrl, toPublic } from "./links.js";
 import { changelog, changelogAtom, changelogJson } from "./changelog.js";
 import { badgeSvg } from "./badge.js";
+import { checkRange } from "./checks.js";
 import { INDEXNOW_KEY } from "./indexnow.js";
 import { insights } from "./insights.js";
 import { openapiJson } from "./openapi.js";
@@ -355,18 +356,17 @@ const server = http.createServer((req, res) => {
       if (pathname === `/${INDEXNOW_KEY}.txt`) return send(res, 200, "text/plain; charset=utf-8", INDEXNOW_KEY);
       if (pathname === "/badge.svg") {
         const all = listAll();
-        const dates = all.map((b) => b.last_verified_date).filter((d): d is string => Boolean(d)).sort();
         res.writeHead(200, {
           "content-type": "image/svg+xml; charset=utf-8",
           "access-control-allow-origin": "*",
           "cache-control": "public, max-age=3600",
           "x-api-version": API_VERSION,
         });
-        return res.end(badgeSvg(all.length, dates.length ? dates[dates.length - 1] : null));
+        return res.end(badgeSvg(all.length, checkRange(all).newest));
       }
       if (pathname === "/api/insights") {
         recordFeedHit(req, "api/insights");
-        return send(res, 200, "application/json; charset=utf-8", JSON.stringify(insights(), null, 2));
+        return send(res, 200, "application/json; charset=utf-8", JSON.stringify(insights(listAll(), ctx.publicUrl), null, 2));
       }
       if (pathname === "/openapi.json")
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(openapiJson(ctx.publicUrl), null, 2));

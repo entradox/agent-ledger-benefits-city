@@ -7,6 +7,9 @@
 import {
   BEST_TYPES, bestOffers, expiringWithin30, issuerBySlug, issuerGroups, regionalStates, stateOffers,
 } from "./seo.js";
+import { checkRange } from "./checks.js";
+import { listAll } from "./db.js";
+import { affiliateActive, disclosureShort } from "./links.js";
 import { bonusCard, bp, esc, shell, type SiteContext } from "./site.js";
 import { daysUntil, formatDate, formatUsd } from "./stats.js";
 import type { Bonus } from "./types.js";
@@ -48,10 +51,6 @@ function breadcrumb(ctx: SiteContext, crumbs: [string, string][]): object {
   };
 }
 
-function latestCheck(offers: Bonus[]): string | null {
-  const ds = offers.map((b) => b.last_verified_date).filter((d): d is string => Boolean(d)).sort();
-  return ds.length ? ds[ds.length - 1] : null;
-}
 
 function plural(n: number, one: string, many: string): string {
   return `${n} ${n === 1 ? one : many}`;
@@ -64,7 +63,7 @@ function top(offers: Bonus[]): Bonus {
 
 function factLine(offers: Bonus[]): string {
   const t = top(offers);
-  const checked = latestCheck(offers);
+  const checked = checkRange(offers).newest;
   return `${plural(offers.length, "current offer", "current offers")}; the highest is ${formatUsd(t.bonus_amount_usd)} (${esc(t.bank_or_issuer)} ${esc(t.product_name)}${t.bonus_type === "credit_card" ? ", estimated value" : ""}).${checked ? ` Most recent source check: ${esc(formatDate(checked))}.` : ""}`;
 }
 
@@ -118,7 +117,7 @@ export function issuerPage(ctx: SiteContext, slug: string): string | null {
     ctx,
     `/banks/${g.slug}`,
     `${g.name} signup bonuses (${plural(g.offers.length, "current offer", "current offers")})`,
-    `${plural(g.offers.length, "current offer", "current offers")} from ${g.name}; highest ${formatUsd(g.offers[0].bonus_amount_usd)}. Requirements, expiry dates and sources.`,
+    `${plural(g.offers.length, "current offer", "current offers")} from ${g.name}; highest ${formatUsd(top(g.offers).bonus_amount_usd)}${top(g.offers).bonus_type === "credit_card" ? " (estimated value)" : ""}. Requirements, expiry dates and sources.`,
     `${g.name} signup bonuses`,
     `${esc(g.name)}: ${factLine(g.offers)}`,
     g.offers,
@@ -164,12 +163,12 @@ export function bestPage(ctx: SiteContext, slug: string): string | null {
   return page(
     ctx,
     `/best/${slug}`,
-    `Best ${label} bonuses right now (top ${offers.length} by value)`,
-    `The ${offers.length} highest-value current ${label} signup bonuses, ranked by bonus value. Commission never affects ranking.`,
-    `Best ${label} bonuses right now`,
-    `Ranked by bonus value${slug === "credit-card" ? " (estimated USD value of points)" : ""} — commissions are never an input. ${factLine(offers)}`,
+    `Highest ${label} bonuses right now (top ${offers.length} by bonus amount)`,
+    `The ${offers.length} highest-amount current ${label} signup bonuses, ranked by stated bonus amount. Commission is never an input to ranking.`,
+    `Highest-value ${label} bonuses right now`,
+    `Ranked by stated bonus amount${slug === "credit-card" ? " (estimated USD value of points)" : ""} — this is not a recommendation: minimum deposits, direct-deposit and spend requirements differ, and commission is never an input. ${esc(disclosureShort(affiliateActive(listAll())))} ${factLine(offers)}`,
     offers,
-    [[`Best ${label} bonuses`, `/best/${slug}`]],
+    [[`Highest ${label} bonuses`, `/best/${slug}`]],
   );
 }
 

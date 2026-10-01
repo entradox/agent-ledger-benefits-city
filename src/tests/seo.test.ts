@@ -113,6 +113,40 @@ test("the stated 'highest' is the real maximum on the page, not just the first-l
   assert.doesNotMatch(html, /the highest is \$500/);
 });
 
+test("Turing I1: two DIFFERENT issuers that slugify the same get distinct pages with correct names (no silent merge)", async () => {
+  db.upsertBonus(makeBonus({ id: "mt-a", bank_or_issuer: "M&T Bank", product_name: "MyChoice", expiry_date: iso(30) }));
+  db.upsertBonus(makeBonus({ id: "mt-b", bank_or_issuer: "M T Bank", product_name: "Other", expiry_date: iso(30) }));
+  const groups = seo.issuerGroups().filter((g) => g.slug.startsWith("m-t-bank"));
+  assert.equal(groups.length, 2);
+  assert.equal(new Set(groups.map((g) => g.slug)).size, 2);
+  const names = groups.map((g) => g.name).sort();
+  assert.deepEqual(names, ["M T Bank", "M&T Bank"]);
+  for (const g of groups) assert.ok(g.offers.every((o) => o.bank_or_issuer === g.name), `page ${g.slug} must only list ${g.name}`);
+  db.removeBonus("mt-a"); db.removeBonus("mt-b");
+});
+
+test("Turing M1: a duplicated state code on one offer lists it once", () => {
+  db.upsertBonus(makeBonus({ id: "dup-ny", bank_or_issuer: "Dupbank", states_available: ["NY", "NY", "ny"], expiry_date: iso(30) }));
+  const ny = seo.stateOffers("ny")!;
+  assert.equal(ny.regional.filter((b) => b.id === "dup-ny").length, 1);
+  db.removeBonus("dup-ny");
+});
+
+test("Morgan C2: best-of pages say 'Highest', state the ranking basis and carry the affiliate disclosure on the page itself", () => {
+  const html = pages.bestPage(ctx, "bank-account")!;
+  assert.match(html, /<title>Highest bank account bonuses right now/);
+  assert.match(html, /<h1>Highest-value bank account bonuses right now<\/h1>/);
+  assert.doesNotMatch(html, /<h1>Best /);
+  assert.match(html, /ranked by (stated )?bonus (value|amount)/i);
+  assert.match(html, /earn us nothing|affiliate link/i); // disclosureShort on the ranking page itself
+});
+
+test("Morgan C6: an issuer page whose top offer is a card keeps the 'estimated value' qualifier in the meta description", () => {
+  const html = pages.issuerPage(ctx, "amex")!;
+  const desc = html.match(/<meta name="description" content="([^"]*)"/)![1];
+  assert.match(desc, /estimated value/i);
+});
+
 test("zero-offer state of the world: no empty index pages are advertised", async () => {
   for (const b of db.allRecords()) db.removeBonus(b.id);
   assert.deepEqual(seo.seoPaths(), []);

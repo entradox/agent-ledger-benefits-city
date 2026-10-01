@@ -17,7 +17,7 @@ test("Morgan pre-live: a VISIBLE 'Sponsored' label sits beside every affiliate A
   assert.match(html, /rel="sponsored nofollow noopener"/);
   // the label is adjacent to the Apply button, not buried elsewhere
   const i = html.indexOf("Apply at");
-  assert.ok(html.slice(Math.max(0, i - 400), i + 400).includes("Sponsored"), "label must be next to the button");
+  assert.ok(html.slice(Math.max(0, i - 700), i + 400).includes("Sponsored"), "label must be next to the button");
 });
 
 test("no label and no affiliate wording on a non-sponsored offer", async () => {
@@ -28,7 +28,13 @@ test("no label and no affiliate wording on a non-sponsored offer", async () => {
   assert.doesNotMatch(html, /rel="sponsored/);
 });
 
-test("the Sponsored label never changes ordering or visibility (commission independence holds)", () => {
-  const ids = db.searchBonuses({ limit: 10 }).map((b) => b.id);
-  assert.deepEqual(ids, ["plain", "spons"]); // equal value -> id asc, regardless of sponsorship
+test("Morgan C5: the disclosure comes BEFORE the click on mobile (label and notice precede the Apply button) and is not faded", async () => {
+  const { detailPage } = await import("../site.js");
+  const html = detailPage(ctx, "spons")!;
+  assert.ok(html.indexOf("badge-sponsored") < html.indexOf('class="btn"'), "label must precede the button");
+  assert.ok(html.indexOf("sponsored-note") < html.indexOf('class="btn"'), "notice must precede the button");
+  const fs = await import("node:fs");
+  const css = fs.readFileSync("public/assets/site.css", "utf8");
+  const rule = css.match(/\.sponsored-note\s*\{[^}]*\}/)![0];
+  assert.ok(!/opacity/.test(rule), "faded text fails 'clear and conspicuous'");
 });

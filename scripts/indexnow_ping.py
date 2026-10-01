@@ -4,7 +4,8 @@
 OUTWARD ACTION: without --dry-run this POSTs to api.indexnow.org. It is never run automatically; run it
 deliberately after a deploy (the key file must already be live at <base>/<key>.txt).
 
-  python3 scripts/indexnow_ping.py --dry-run          # print the payload, send nothing
+  python3 scripts/indexnow_ping.py --dry-run          # print the payload; sends nothing (still does a read-only GET of
+                                                      #   <base>/sitemap.xml unless --sitemap-file is given)
   python3 scripts/indexnow_ping.py                    # send it
 
 Only URLs under --base are submitted (IndexNow requires the key location to cover them).
@@ -13,6 +14,7 @@ import argparse
 import json
 import re
 import sys
+import urllib.error
 import urllib.request
 from urllib.parse import urlparse
 
@@ -31,8 +33,12 @@ def main() -> int:
     if a.sitemap_file:
         xml = open(a.sitemap_file, encoding="utf-8").read()
     else:
-        with urllib.request.urlopen(f"{base}/sitemap.xml", timeout=20) as r:
-            xml = r.read().decode("utf-8")
+        try:
+            with urllib.request.urlopen(f"{base}/sitemap.xml", timeout=20) as r:
+                xml = r.read().decode("utf-8")
+        except (urllib.error.URLError, OSError) as e:
+            print(f"ERROR: could not fetch {base}/sitemap.xml: {e}", file=sys.stderr)
+            return 3
 
     locs = re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", xml)
     urls = [u for u in locs if u == base or u.startswith(base + "/")]
@@ -54,6 +60,9 @@ def main() -> int:
     except urllib.error.HTTPError as e:
         print(f"IndexNow rejected the submission: HTTP {e.code} {e.read().decode()[:200]}", file=sys.stderr)
         return 1
+    except (urllib.error.URLError, OSError) as e:
+        print(f"ERROR: could not reach IndexNow: {e}", file=sys.stderr)
+        return 3
 
 
 if __name__ == "__main__":

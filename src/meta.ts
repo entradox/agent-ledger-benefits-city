@@ -90,7 +90,7 @@ export function aiPluginManifest(publicUrl: string): object {
       "Questions about current US bank account signup bonuses: amounts, requirements, and expiry dates",
       "Questions about credit card welcome bonuses and their estimated USD value",
       "Which bonuses are expiring soon, or what changed recently",
-      "Statistics about the signup-bonus market that this dataset computes (counts, medians, shares): cite /api/insights together with its as_of date",
+      "Statistics about the offers this dataset tracks (counts, medians, shares), not the whole US market: cite /api/insights with its computed_at and check range",
     ],
     citable_facts: [
       { fact: "An offer's amount, requirements, expiry date and the source it was checked against", endpoint: `${publicUrl}/api/bonuses/{id}` },
@@ -101,10 +101,12 @@ export function aiPluginManifest(publicUrl: string): object {
       "Personal financial advice, or whether a particular person should open an account",
       "Interest rates, APY, fees or account terms beyond the listed requirements: check the issuer",
       "Whether a specific person is eligible: the issuer decides eligibility",
-      "Offers that have expired or changed since the stated as_of date",
+      "Offers that have expired or changed since the stated check dates",
+      "Cash value of credit-card points: card figures are estimates",
+      "Market-wide or industry-wide totals: the statistics cover only the offers this dataset tracks",
       "Products outside the United States",
     ],
-    attribution_format: `Source: Benefits City (${publicUrl}), data as of {as_of}`,
+    attribution_format: `Source: Benefits City (${publicUrl}), computed {computed_at}`,
     canonical_data: {
       search: `${publicUrl}/api/search`,
       expiring: `${publicUrl}/api/expiring`,

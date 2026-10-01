@@ -8,14 +8,12 @@
  *  - everything shown is derived from the served data (listAll / expiringSoon), nothing is invented.
  * seoPaths() is the single list the sitemap and the routes both agree on.
  */
-import { expiringSoon, listAll } from "./db.js";
+import { byValue, expiringSoon, listAll } from "./db.js";
 import type { Bonus, BonusType } from "./types.js";
 
 export function slugify(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
-
-const byValue = (a: Bonus, b: Bonus): number => b.bonus_amount_usd - a.bonus_amount_usd || a.id.localeCompare(b.id);
 
 export interface IssuerGroup {
   slug: string;
@@ -23,17 +21,25 @@ export interface IssuerGroup {
   offers: Bonus[];
 }
 
+/** Groups served offers by issuer. Two DIFFERENT issuer names that slugify identically (e.g. "M&T Bank" and
+ *  "M T Bank") must never share a page — that would label one bank's offers with another's name — so they get
+ *  deterministic distinct slugs (alphabetically first keeps the base slug, the rest get -2, -3, ...). */
 export function issuerGroups(): IssuerGroup[] {
-  const map = new Map<string, IssuerGroup>();
+  const bySlug = new Map<string, Map<string, Bonus[]>>();
   for (const b of listAll()) {
     const slug = slugify(b.bank_or_issuer);
     if (!slug) continue;
-    const g = map.get(slug) ?? { slug, name: b.bank_or_issuer, offers: [] };
-    g.offers.push(b);
-    map.set(slug, g);
+    const names = bySlug.get(slug) ?? new Map<string, Bonus[]>();
+    names.set(b.bank_or_issuer, [...(names.get(b.bank_or_issuer) ?? []), b]);
+    bySlug.set(slug, names);
   }
-  for (const g of map.values()) g.offers.sort(byValue);
-  return [...map.values()].sort((a, b) => a.slug.localeCompare(b.slug));
+  const groups: IssuerGroup[] = [];
+  for (const [slug, names] of bySlug) {
+    [...names.keys()].sort().forEach((name, i) => {
+      groups.push({ slug: i === 0 ? slug : `${slug}-${i + 1}`, name, offers: names.get(name)!.sort(byValue) });
+    });
+  }
+  return groups.sort((a, b) => a.slug.localeCompare(b.slug));
 }
 
 export function issuerBySlug(slug: string): IssuerGroup | null {
@@ -61,8 +67,7 @@ export function regionalStates(): RegionalState[] {
   const map = new Map<string, Bonus[]>();
   for (const b of listAll()) {
     if (!Array.isArray(b.states_available)) continue;
-    for (const raw of b.states_available) {
-      const code = String(raw).toUpperCase();
+    for (const code of new Set(b.states_available.map((raw) => String(raw).toUpperCase()))) {
       if (!Object.hasOwn(STATE_NAMES, code)) continue;
       map.set(code, [...(map.get(code) ?? []), b]);
     }

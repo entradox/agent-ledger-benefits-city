@@ -112,7 +112,7 @@ function footer(ctx: SiteContext): string {
     <div class="footer-grid">
       <div class="blurb">
         <a class="brand" href="${bp(ctx, "/")}"><span class="brand-mark">B</span><span>${SITE_NAME}</span></a>
-        <p>Every US bank account opening bonus and credit card signup bonus worth knowing about — verified by hand, structured for humans and AI agents alike. An AI Agent City project.</p>
+        <p>US bank account, savings and credit card signup bonuses — each checked against a named source, structured for humans and AI agents alike. An AI Agent City project.</p>
       </div>
       <div><h4>Explore</h4><ul>
         <li><a href="${bp(ctx, "/bonuses")}">Browse bonuses</a></li>
@@ -135,7 +135,7 @@ function footer(ctx: SiteContext): string {
     </div>
     <div class="footer-bottom">
       <span>© 2026 AI Agent City</span>
-      <span>data verified by hand · every offer carries its source</span>
+      <span>every offer carries its source and check date</span>
     </div>
   </div></footer>`;
 }
@@ -200,7 +200,7 @@ export function landingPage(ctx: SiteContext): string {
   const body = `
   <section class="hero"><div class="wrap">
     <div class="eyebrow">AI Agent City · Benefits</div>
-    <h1>Every US bank bonus. <span class="hl">Verified by hand.</span></h1>
+    <h1>US signup bonuses. <span class="hl">Checked at the source.</span></h1>
     <p class="lede">${stats.total_offers} verified bank account and credit card signup bonuses — browsable by humans, queryable by AI agents over MCP. Every offer carries its source and last-verified date. No invented deals, ever.</p>
     <div class="hero-ctas">
       <a class="btn" href="${bp(ctx, "/bonuses")}">Browse bonuses</a>
@@ -210,7 +210,7 @@ export function landingPage(ctx: SiteContext): string {
       <div class="stat"><div class="v">${stats.total_offers}</div><div class="k">live offers tracked</div><div class="n">${stats.bank_account_offers} bank · ${stats.credit_card_offers} cards</div></div>
       <div class="stat"><div class="v mint">${formatUsd(stats.total_bonus_usd)}</div><div class="k">combined headline value of listed offers</div><div class="n">card points at est. USD value</div></div>
       <div class="stat"><div class="v">${stats.expiring_within_30d.length}</div><div class="k">expiring within 30 days</div><div class="n">act before the deadline</div></div>
-      <div class="stat"><div class="v">${esc(stats.last_verified ?? "—")}</div><div class="k">last verification sweep</div><div class="n">checked by hand, not scraped</div></div>
+      <div class="stat"><div class="v">${esc(stats.last_verified ?? "—")}</div><div class="k">last verification sweep</div><div class="n">most recent source check</div></div>
     </div>
   </div></section>
 
@@ -272,7 +272,7 @@ export function landingPage(ctx: SiteContext): string {
     <p class="sub">A bonus feed is only as good as its verification. Here's the pipeline.</p>
     <div class="steps">
       <div class="step"><div class="num">01</div><h3>We track</h3><p>Bank promo pages and reputable bonus trackers are monitored for new and changed offers — checking, savings, and credit cards.</p></div>
-      <div class="step"><div class="num">02</div><h3>We verify</h3><p>Each offer's terms are confirmed by hand against the bank's own pages. Every record is stamped with its source URL and verification date.</p></div>
+      <div class="step"><div class="num">02</div><h3>We verify</h3><p>Each offer's terms are checked against the issuer's own page where we can read it, otherwise against bonus trackers that agree. Every record is stamped with its source URL and verification date.</p></div>
       <div class="step"><div class="num">03</div><h3>You act</h3><p>Browse here, or have your agent query the MCP feed — then apply directly with the bank. Nothing to sign up for, no paywall.</p></div>
     </div>
   </div></section>
@@ -339,7 +339,7 @@ export function browsePage(ctx: SiteContext, query: BrowseQuery): string {
   <div class="wrap">
     <div class="page-head">
       <h1>Browse bonuses</h1>
-      <p>${results.length} verified offer${results.length === 1 ? "" : "s"} · every one hand-checked with its source on record.</p>
+      <p>${results.length} offer${results.length === 1 ? "" : "s"} · every one with its source on record.</p>
     </div>
     <div class="filters">
       <form method="get" action="${bp(ctx, "/bonuses")}">
@@ -398,10 +398,10 @@ export function detailPage(ctx: SiteContext, id: string): string | null {
   // A VISIBLE "Sponsored" label sits beside every affiliate Apply button (FTC: clear and
   // conspicuous, close to the link) — rel="sponsored" alone is invisible to people.
   const sponsoredNote = isSponsored(b)
-    ? ` <span class="badge badge-sponsored">Sponsored</span><div class="sponsored-note">This is an affiliate link: we may earn a commission if you open an account through it, at no extra cost to you. It never affects which offers we list or how we order them. <a href="${bp(ctx, "/disclosure")}">Disclosure</a></div>`
+    ? `<div class="sponsored-note"><span class="badge badge-sponsored">Sponsored</span> This is an affiliate link: we may earn a commission if you open an account through it, at no extra cost to you. It never affects which offers we list or how we order them. <a href="${bp(ctx, "/disclosure")}">Disclosure</a></div>`
     : "";
   const applyBtn = applyUrl
-    ? `<a class="btn" href="${esc(bp(ctx, `/go/${b.id}`))}" rel="${isSponsored(b) ? "sponsored nofollow noopener" : "nofollow noopener"}">Apply at ${esc(b.bank_or_issuer)} →</a>${sponsoredNote}`
+    ? `${sponsoredNote}<a class="btn" href="${esc(bp(ctx, `/go/${b.id}`))}" rel="${isSponsored(b) ? "sponsored nofollow noopener" : "nofollow noopener"}">Apply at ${esc(b.bank_or_issuer)} →</a>`
     : `<p style="color:#a7b5ac;font-size:14px">No application link on file for this offer.</p>`;
 
   const body = `
@@ -543,7 +543,8 @@ GET ${ctx.publicUrl}/api                # service descriptor`))}
     <h2 id="cite">Cite and embed</h2>
     <p>Original statistics (counts, medians, shares — each with its denominator and a data date) are at <a href="${bp(ctx, "/api/insights")}"><code>/api/insights</code></a>. When to cite this dataset, and when not to, is machine-readable at <a href="${bp(ctx, "/.well-known/ai-plugin-manifest.json")}"><code>/.well-known/ai-plugin-manifest.json</code></a>. Suggested attribution: <em>Source: Benefits City (${esc(ctx.publicUrl)}), data as of {as_of}</em>.</p>
     <p><strong>Embed the live badge</strong> on your own page:</p>
-    ${code("HTML", esc(`<a href="${ctx.publicUrl}/"><img src="${ctx.publicUrl}/badge.svg" alt="Benefits City: live count of verified signup bonuses" height="22"></a>`))}
+    <p style="font-size:14px;opacity:1">The badge shows a count only; it does not endorse the embedding site or any offer.</p>
+    ${code("HTML", esc(`<a href="${ctx.publicUrl}/"><img src="${ctx.publicUrl}/badge.svg" alt="Benefits City: live count of tracked signup bonuses" height="22"></a>`))}
 
     <h2 id="llms">llms.txt</h2>
     <p>Crawlers and agents that prefer a single manifest: <a href="${bp(ctx, "/llms.txt")}"><code>${esc(ctx.publicUrl)}/llms.txt</code></a> describes the service, feeds, MCP endpoint, and data schema.</p>
@@ -706,7 +707,7 @@ export function llmsText(ctx: SiteContext): string {
   const stats = getStats();
   return `# ${SITE_NAME} — an AI Agent City project
 
-US bank account opening bonuses and credit card signup bonuses, verified by hand.
+US bank account, savings and credit card signup bonuses, each checked against a named source (issuer page or tracker consensus).
 ${stats.total_offers} live offers (${stats.bank_account_offers} bank accounts, ${stats.credit_card_offers} credit cards).
 Total bonus value available: ${formatUsd(stats.total_bonus_usd)}. Last verification sweep: ${stats.last_verified ?? "unknown"}.
 Every record carries source_url and last_verified_date. Card point values are estimated USD.

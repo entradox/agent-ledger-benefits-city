@@ -41,3 +41,10 @@ test("ping script refuses to run with no URLs (no data is not a success)", () =>
   assert.notEqual(r.status, 0);
   assert.match(r.stderr, /no urls/i);
 });
+
+test("Turing I4: an unreachable site is a clean error exit (3), not a traceback", () => {
+  const r = spawnSync(PY, ["scripts/indexnow_ping.py", "--dry-run", "--base", "http://127.0.0.1:9/benefits"], { encoding: "utf8" });
+  assert.equal(r.status, 3);
+  assert.ok(!/Traceback/.test(r.stderr), r.stderr);
+  assert.match(r.stderr, /could not fetch/i);
+});

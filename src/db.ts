@@ -60,8 +60,9 @@ function persist(resolved: string): void {
 /** Today's calendar date in US Eastern time (YYYY-MM-DD). Bank offers state deadlines as US dates
  *  (typically 11:59 PM ET), so an offer valid through 9/30 must still be served all day on 9/30 —
  *  a UTC date would hide it from 8pm ET. */
+const ET_DATE = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }); // built once: construction is the cost
 export function todayISO(now: Date = new Date()): string {
-  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }).format(now);
+  return ET_DATE.format(now);
 }
 
 /** An offer is servable unless marked expired or its stated end date is before today.
@@ -106,12 +107,13 @@ export interface SearchFilters {
 }
 
 /** Deterministic, commission-independent ordering: value desc, then id asc. */
-const byValue = (a: Bonus, b: Bonus): number =>
+export const byValue = (a: Bonus, b: Bonus): number =>
   b.bonus_amount_usd - a.bonus_amount_usd || a.id.localeCompare(b.id);
 
 export function searchBonuses(f: SearchFilters = {}): Bonus[] {
   const s = getDb();
-  let out = s.bonuses.filter((b) => isServable(b));
+  const today = todayISO();
+  let out = s.bonuses.filter((b) => isServable(b, today));
   if (f.bonus_type) out = out.filter((b) => b.bonus_type === f.bonus_type);
   if (f.min_bonus_amount_usd != null) out = out.filter((b) => b.bonus_amount_usd >= (f.min_bonus_amount_usd as number));
   if (f.direct_deposit_required != null)
@@ -138,29 +140,32 @@ export function searchBonuses(f: SearchFilters = {}): Bonus[] {
 }
 
 export function getBonusById(id: string): Bonus | undefined {
-  return getDb().bonuses.find((b) => b.id === id && isServable(b));
+  const today = todayISO();
+  return getDb().bonuses.find((b) => b.id === id && isServable(b, today));
 }
 
 export function listAll(): Bonus[] {
+  const today = todayISO();
   return getDb()
-    .bonuses.filter((b) => isServable(b))
+    .bonuses.filter((b) => isServable(b, today))
     .sort((a, b) => a.bonus_type.localeCompare(b.bonus_type) || byValue(a, b));
 }
 
-function addDaysISO(days: number): string {
-  const d = new Date(`${todayISO()}T00:00:00Z`);
+function addDaysISO(days: number, from: string = todayISO()): string {
+  const d = new Date(`${from}T00:00:00Z`);
   d.setUTCDate(d.getUTCDate() + days);
   return d.toISOString().slice(0, 10);
+}
+
+/** The one definition of "expiring within N days" (used by expiringSoon, the SEO page and insights). */
+export function isExpiringWithin(b: Bonus, days: number, today: string = todayISO()): boolean {
+  return isServable(b, today) && b.expiry_date != null && b.expiry_date >= today && b.expiry_date <= addDaysISO(days, today);
 }
 
 /** Bonuses with a stated expiry date falling within the next `days` days, soonest first. */
 export function expiringSoon(days = 30): Bonus[] {
   const today = todayISO();
-  const cutoff = addDaysISO(days);
   return getDb()
-    .bonuses.filter(
-      (b) =>
-        isServable(b, today) && b.expiry_date != null && b.expiry_date >= today && b.expiry_date <= cutoff,
-    )
+    .bonuses.filter((b) => isExpiringWithin(b, days, today))
     .sort((a, b) => (a.expiry_date as string).localeCompare(b.expiry_date as string));
 }
