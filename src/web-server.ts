@@ -39,6 +39,7 @@ import { fileURLToPath } from "node:url";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { getBonusById, listAll } from "./db.js";
 import { resolveApplyUrl, toPublic } from "./links.js";
+import { changelog, changelogAtom, changelogJson } from "./changelog.js";
 import { openapiJson } from "./openapi.js";
 import { restById, restCompare, restExpiring, restSearch, type RestResult } from "./rest.js";
 import { API_VERSION, SERVER_VERSION, agentJson, authMd, serverCard, serverJson } from "./meta.js";
@@ -59,6 +60,7 @@ import {
   agentsPage,
   bp,
   browsePage,
+  changelogPage,
   contactPage,
   detailPage,
   disclosurePage,
@@ -326,6 +328,11 @@ const server = http.createServer((req, res) => {
       if (pathname === "/skill.md")
         return send(res, 200, "text/markdown; charset=utf-8", fs.readFileSync(path.join(ROOT, "skill", "benefits-city", "SKILL.md")));
       if (pathname === "/docs") return send(res, 200, "text/html; charset=utf-8", agentsPage(ctx));
+      if (pathname === "/changelog") return send(res, 200, "text/html; charset=utf-8", changelogPage(ctx, changelog()));
+      if (pathname === "/changelog.json")
+        return send(res, 200, "application/json; charset=utf-8", JSON.stringify(changelogJson(ctx.publicUrl, changelog()), null, 2));
+      if (pathname === "/feed.xml")
+        return send(res, 200, "application/atom+xml; charset=utf-8", changelogAtom(ctx.publicUrl, changelog()));
       if (pathname === "/openapi.json")
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(openapiJson(ctx.publicUrl), null, 2));
       if (pathname === "/.well-known/agent.json")

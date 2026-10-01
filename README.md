@@ -51,8 +51,14 @@ Claude Code, one line:
 claude mcp add --transport http benefits-city https://aiagentscity.com/benefits/mcp
 ```
 
-Discovery: `/server.json` (MCP registry manifest, also at `/.well-known/mcp.json`), `/auth.md`,
-`/llms.txt`, and a `skill://benefits-city/benefits-city/SKILL.md` resource.
+Discovery: `/server.json` (MCP registry manifest, also at `/.well-known/mcp.json`), `/.well-known/agent.json`,
+`/.well-known/mcp/server-card.json` (generated from the live tool list), `/openapi.json` (OpenAPI 3.1),
+`/auth.md`, `/llms.txt`, `/skill.md` (also served as a `skill://benefits-city/benefits-city/SKILL.md` MCP resource),
+`/docs` (alias of `/agents`), and `/changelog` (+ `/changelog.json`, `/feed.xml`; data in `changelog/changelog.json`).
+
+REST parity with the MCP tools: `GET /api/search`, `/api/expiring`, `/api/compare?ids=a,b`, `/api/bonuses/:id`,
+`/api/bonuses.json`, `/api/stats` — same filters, same public shaping, errors as
+`{"error":{"type","message","code?","param?"}}` (400 names the bad parameter; 404 for unknown/expired ids).
 
 Claude Code / Claude Desktop config (via `mcp-remote`):
 

@@ -31,6 +31,8 @@ test("agents page has per-client connect one-liners, example prompts, and discov
   assert.match(html, /server\.json/);
   assert.match(html, /Try asking/i);
   assert.doesNotMatch(html, /four tools/i); // now six
+  for (const frag of ["/openapi.json", "/.well-known/agent.json", "/skill.md", "/changelog", "/api/search", "/api/compare"])
+    assert.ok(html.includes(frag), frag);
   const llms = llmsText(ctx);
   assert.match(llms, /benefits_examples/);
   assert.match(llms, /savings/);

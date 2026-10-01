@@ -6,6 +6,7 @@
  * Data is rendered live from the real bonus database — nothing is hardcoded.
  */
 import { expiringSoon, getBonusById, listAll, searchBonuses } from "./db.js";
+import type { ChangelogEntry } from "./changelog.js";
 import { affiliateActive, disclosureShort, isSponsored, resolveApplyUrl } from "./links.js";
 import { daysUntil, formatDate, formatUsd, getStats } from "./stats.js";
 import type { Bonus } from "./types.js";
@@ -509,7 +510,12 @@ export function agentsPage(ctx: SiteContext): string {
     ${code("Endpoints", esc(`GET ${ctx.publicUrl}/api/bonuses.json   # full feed
 GET ${ctx.publicUrl}/api/bonuses/:id    # one offer
 GET ${ctx.publicUrl}/api/stats          # live counts, totals, expiring list
+GET ${ctx.publicUrl}/api/search?bonus_type=savings&state=TX&limit=5   # same filters as the MCP tool
+GET ${ctx.publicUrl}/api/expiring?days=14
+GET ${ctx.publicUrl}/api/compare?ids=a,b
 GET ${ctx.publicUrl}/api                # service descriptor`))}
+    <p>Errors are typed JSON — <code>{"error":{"type","message","param?"}}</code> — with a 400 naming the bad parameter or a 404 for an unknown or expired id. Full contract: <a href="${bp(ctx, "/openapi.json")}"><code>/openapi.json</code></a> (OpenAPI 3.1).</p>
+    <p>Manifests: <a href="${bp(ctx, "/.well-known/agent.json")}"><code>/.well-known/agent.json</code></a> · <a href="${bp(ctx, "/.well-known/mcp/server-card.json")}"><code>/.well-known/mcp/server-card.json</code></a> · skill: <a href="${bp(ctx, "/skill.md")}"><code>/skill.md</code></a> · what changed: <a href="${bp(ctx, "/changelog")}"><code>/changelog</code></a> (<a href="${bp(ctx, "/changelog.json")}">JSON</a>, <a href="${bp(ctx, "/feed.xml")}">Atom</a>).</p>
     ${code("Example", esc(`curl -s ${ctx.publicUrl}/api/stats`))}
 
     <h2 id="llms">llms.txt</h2>
@@ -524,6 +530,31 @@ npm run cli -- compare bmo-checking-600 sofi-checking-savings-400`))}
   </div></section>`;
 
   return shell(ctx, "For Agents — MCP + API Docs", "Connect an AI agent to the bank bonus feed: MCP endpoint, tool schemas, JSON feeds, llms.txt, and CLI.", body, "/agents");
+}
+
+
+/* ---------------- changelog ---------------- */
+
+const CHANGE_LABEL: Record<string, string> = {
+  added: "Added",
+  changed: "Changed",
+  renewed: "Renewed",
+  removed: "Ended",
+  feature: "Product",
+};
+
+export function changelogPage(ctx: SiteContext, entries: ChangelogEntry[]): string {
+  const rows = entries
+    .map((e) => {
+      const offer = e.offer_id && e.type !== "removed" ? ` <a href="${bp(ctx, `/bonuses/${esc(e.offer_id)}`)}">View offer →</a>` : "";
+      return `<li class="cl-entry"><div class="cl-meta"><span class="badge">${esc(CHANGE_LABEL[e.type] ?? e.type)}</span> <time datetime="${esc(e.date)}">${esc(formatDate(e.date))}</time></div><h3>${esc(e.title)}</h3><p>${esc(e.summary)}${offer}</p></li>`;
+    })
+    .join("\n");
+  const body = `<div class="wrap"><div class="page-head">
+    <h1>Changelog</h1>
+    <p>Offers added, changed, renewed or ended — and changes to the product. Machine-readable: <a href="${bp(ctx, "/changelog.json")}">changelog.json</a> · <a href="${bp(ctx, "/feed.xml")}">Atom feed</a>.</p>
+  </div><div class="prose"><ul class="cl-list" style="list-style:none;padding:0">${rows}</ul></div></div>`;
+  return shell(ctx, "Changelog", `What changed in ${SITE_NAME}: offers added, changed, renewed or ended.`, body, "/changelog");
 }
 
 /* ---------------- legal ---------------- */
@@ -629,7 +660,7 @@ Sitemap: ${base}/sitemap.xml
 
 export function sitemapText(ctx: SiteContext): string {
   const base = ctx.publicUrl.replace(/\/+$/, "");
-  const urls = ["/", "/bonuses", "/agents", "/about", "/disclosure", "/contact"]
+  const urls = ["/", "/bonuses", "/agents", "/changelog", "/about", "/disclosure", "/contact"]
     .map((p) => `  <url><loc>${base}${p}</loc></url>`);
   for (const b of listAll()) {
     if (b?.id) urls.push(`  <url><loc>${base}/bonuses/${b.id}</loc></url>`);
@@ -664,6 +695,12 @@ Every record carries source_url and last_verified_date. Card point values are es
 - Live stats: ${ctx.publicUrl}/api/stats
 - Service descriptor: ${ctx.publicUrl}/api
 - MCP registry manifest: ${ctx.publicUrl}/server.json
+- OpenAPI: ${ctx.publicUrl}/openapi.json
+- Agent manifest: ${ctx.publicUrl}/.well-known/agent.json
+- MCP server card: ${ctx.publicUrl}/.well-known/mcp/server-card.json
+- Skill (markdown): ${ctx.publicUrl}/skill.md
+- Changelog: ${ctx.publicUrl}/changelog  (JSON: /changelog.json, Atom: /feed.xml)
+- REST: ${ctx.publicUrl}/api/search , /api/expiring , /api/compare?ids=a,b
 - Credentials (none required): ${ctx.publicUrl}/auth.md
 
 ## Human site

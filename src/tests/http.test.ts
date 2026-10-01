@@ -168,3 +168,16 @@ test("BASE_PATH mount: new routes live under the prefix and 404 outside it", asy
     child2.kill();
   }
 });
+
+test("changelog: page, JSON and Atom feed are served", async () => {
+  const p = await fetch(url("/changelog"));
+  assert.equal(p.status, 200);
+  assert.match(await p.text(), /Changelog/);
+  const j = await fetch(url("/changelog.json"));
+  assert.equal(j.status, 200);
+  assert.ok((await j.json()).entries.length >= 5);
+  const f = await fetch(url("/feed.xml"));
+  assert.equal(f.status, 200);
+  assert.match(f.headers.get("content-type") ?? "", /atom\+xml/);
+  assert.ok((await f.text()).includes('<feed xmlns="http://www.w3.org/2005/Atom">'));
+});

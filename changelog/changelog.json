@@ -1,0 +1,72 @@
+[
+  {
+    "date": "2026-10-01",
+    "type": "feature",
+    "offer_id": null,
+    "title": "REST API, OpenAPI and agent manifests",
+    "summary": "Added /api/search, /api/expiring and /api/compare (same filters as the MCP tools, typed errors), /openapi.json, /.well-known/agent.json, an MCP server card, /skill.md, and this changelog with an Atom feed."
+  },
+  {
+    "date": "2026-09-30",
+    "type": "feature",
+    "offer_id": null,
+    "title": "Offers now record how they were checked",
+    "summary": "Offers re-checked on 2026-09-30 carry a verification record: whether we read the issuer's own page or several bonus trackers agreed, with the sources. A savings-account category was added."
+  },
+  {
+    "date": "2026-09-30",
+    "type": "added",
+    "offer_id": "barclays-tiered-savings-200",
+    "title": "Barclays Tiered Savings: $200 (first savings offer)",
+    "summary": "Open by 2026-10-31, fund $25,000 within 30 days and keep it for 120 days. Checked on Barclays' own page."
+  },
+  {
+    "date": "2026-09-30",
+    "type": "added",
+    "offer_id": "truist-one-checking-500",
+    "title": "Truist One Checking: $500",
+    "summary": "Two direct deposits totaling $2,000 and 20 debit-card purchases within 120 days; open through 2027-02-02 in eligible states. Checked on Truist's own page."
+  },
+  {
+    "date": "2026-09-30",
+    "type": "added",
+    "offer_id": "chase-freedom-flex-250",
+    "title": "Chase Freedom Flex: $250 bonus",
+    "summary": "$250 after spending $500 in the first 3 months; Chase labels it limited-time with no stated end date. Checked on Chase's own page."
+  },
+  {
+    "date": "2026-09-30",
+    "type": "added",
+    "offer_id": "citi-aadvantage-executive-125k",
+    "title": "Citi / AAdvantage Executive: 125,000 miles",
+    "summary": "125,000 miles after $15,000 in purchases within 5 months; $695 annual fee. Estimated value uses TPG's September 2026 valuation. Checked on the issuer page."
+  },
+  {
+    "date": "2026-09-30",
+    "type": "changed",
+    "offer_id": "chase-total-checking-400",
+    "title": "Chase Total Checking raised from $300 to $400",
+    "summary": "Now $400 for $1,000 or more in direct deposits within 90 days of enrollment; enroll by 2026-10-14. Confirmed by several bonus trackers."
+  },
+  {
+    "date": "2026-09-30",
+    "type": "changed",
+    "offer_id": "wells-fargo-everyday-checking-500",
+    "title": "Wells Fargo Everyday Checking: $500 replaces $400",
+    "summary": "$500 for $1,000 or more in qualifying electronic deposits within 90 days; open by 2026-10-06. Confirmed by several bonus trackers."
+  },
+  {
+    "date": "2026-09-30",
+    "type": "renewed",
+    "offer_id": "td-bank-beyond-checking-300",
+    "title": "TD Beyond Checking $300 extended to 2026-11-30",
+    "summary": "TD's own page now states the offer ends November 30, 2026."
+  },
+  {
+    "date": "2026-09-30",
+    "type": "removed",
+    "offer_id": "fifth-third-momentum-checking-300",
+    "title": "Offers that ended 2026-09-30 are no longer shown",
+    "summary": "Fifth Third Momentum Checking $300, Bank of America Advantage Plus $500, Huntington Perks Checking $400 and Marriott Bonvoy Brilliant 150,000 points ended on 2026-09-30 with no renewal found."
+  }
+]
