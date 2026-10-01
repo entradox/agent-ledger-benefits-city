@@ -81,3 +81,15 @@ test("M-e: a changelog link to an offer that is no longer served is dropped (fee
   assert.ok(!changelogAtom(U, list, () => false).includes("/bonuses/expired-since"));
   assert.ok(changelogAtom(U, list, () => true).includes("/bonuses/expired-since"));
 });
+
+test("M-e: by default the Atom feed checks the real store — an expired or unknown offer gets no link", async () => {
+  const { makeBonus, iso } = await import("./helpers.js");
+  const dbFile = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "cl-db-")), "b.json");
+  fs.writeFileSync(dbFile, JSON.stringify({ bonuses: [makeBonus({ id: "served-offer", expiry_date: iso(10) }), makeBonus({ id: "expired-offer", expiry_date: iso(-1) })] }));
+  process.env.BONUS_DB_PATH = dbFile;
+  const list = loadChangelog(tmp([e({ offer_id: "served-offer" }), e({ offer_id: "expired-offer" }), e({ offer_id: "never-existed" })]));
+  const atom = changelogAtom(U, list); // no predicate: real store
+  assert.ok(atom.includes("/bonuses/served-offer"));
+  assert.ok(!atom.includes("/bonuses/expired-offer"));
+  assert.ok(!atom.includes("/bonuses/never-existed"));
+});

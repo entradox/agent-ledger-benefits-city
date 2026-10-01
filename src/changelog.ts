@@ -6,6 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { getBonusById } from "./db.js";
 
 export type ChangeType = "added" | "changed" | "renewed" | "removed" | "feature";
 export interface ChangelogEntry {
@@ -53,12 +54,12 @@ export function xmlEscape(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 }
 
-/** `offerServed` decides whether an entry may link to its offer page (default: always). The route passes the
- *  real check so a link never points at an offer that has expired. */
+/** `offerServed` decides whether an entry may link to its offer page. Default: the offer must currently be
+ *  served (so the feed never links an expired offer). Tests inject a predicate. */
 export function changelogAtom(
   publicUrl: string,
   entries: ChangelogEntry[],
-  offerServed: (offerId: string) => boolean = () => true,
+  offerServed: (offerId: string) => boolean = (id) => Boolean(getBonusById(id)),
 ): string {
   const updated = `${entries[0]?.date ?? "1970-01-01"}T00:00:00Z`;
   const items = entries
