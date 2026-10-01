@@ -41,6 +41,7 @@ import { getBonusById, listAll } from "./db.js";
 import { resolveApplyUrl, toPublic } from "./links.js";
 import { changelog, changelogAtom, changelogJson } from "./changelog.js";
 import { badgeSvg } from "./badge.js";
+import { INDEXNOW_KEY } from "./indexnow.js";
 import { insights } from "./insights.js";
 import { openapiJson } from "./openapi.js";
 import { banksIndexPage, bestPage, expiringPage, issuerPage, statePage, statesIndexPage } from "./seo-pages.js";
@@ -351,6 +352,7 @@ const server = http.createServer((req, res) => {
         return send(res, 200, "application/atom+xml; charset=utf-8", changelogAtom(ctx.publicUrl, changelog()));
       if (pathname === "/.well-known/ai-plugin-manifest.json")
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(aiPluginManifest(ctx.publicUrl), null, 2));
+      if (pathname === `/${INDEXNOW_KEY}.txt`) return send(res, 200, "text/plain; charset=utf-8", INDEXNOW_KEY);
       if (pathname === "/badge.svg") {
         const all = listAll();
         const dates = all.map((b) => b.last_verified_date).filter((d): d is string => Boolean(d)).sort();

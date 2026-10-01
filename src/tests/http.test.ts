@@ -227,3 +227,10 @@ test("citation surfaces: insights JSON, ai-plugin manifest (every canonical URL 
   assert.match(b.headers.get("content-type") ?? "", /image\/svg\+xml/);
   assert.match(await b.text(), /3 offers/);
 });
+
+test("IndexNow key file is served exactly at /<key>.txt", async () => {
+  const { INDEXNOW_KEY } = await import("../indexnow.js");
+  const r = await fetch(url(`/${INDEXNOW_KEY}.txt`));
+  assert.equal(r.status, 200);
+  assert.equal((await r.text()).trim(), INDEXNOW_KEY);
+});
