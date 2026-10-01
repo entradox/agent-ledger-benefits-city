@@ -72,8 +72,10 @@ import {
   landingPage,
   llmsText,
   notFoundPage,
+  privacyPage,
   robotsText,
   sitemapText,
+  termsPage,
   type BrowseQuery,
   type SiteContext,
 } from "./site.js";
@@ -259,6 +261,9 @@ const server = http.createServer((req, res) => {
       }
       if (pathname === "/agents") return send(res, 200, "text/html; charset=utf-8", agentsPage(ctx));
       if (pathname === "/about") return send(res, 200, "text/html; charset=utf-8", aboutPage(ctx));
+      if (pathname === "/privacy")
+        return send(res, 200, "text/html; charset=utf-8", privacyPage(ctx));
+      if (pathname === "/terms") return send(res, 200, "text/html; charset=utf-8", termsPage(ctx));
       if (pathname === "/disclosure")
         return send(res, 200, "text/html; charset=utf-8", disclosurePage(ctx));
       if (pathname === "/contact") return send(res, 200, "text/html; charset=utf-8", contactPage(ctx));

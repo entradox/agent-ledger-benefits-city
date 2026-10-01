@@ -1,8 +1,10 @@
 [
   {
+    "annual_fee_usd": null,
     "application_url": "https://www.chase.com/personal/checking/total-checking",
     "bank_or_issuer": "Chase",
     "bonus_amount_usd": 400,
+    "bonus_points": null,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
     "expiry_date": "2026-10-14",
@@ -31,14 +33,16 @@
     }
   },
   {
+    "annual_fee_usd": null,
     "application_url": "https://usbank.com/splash/checking/2026-all-market-checking-offer.html",
     "bank_or_issuer": "U.S. Bank",
     "bonus_amount_usd": 450,
+    "bonus_points": null,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
     "expiry_date": "2026-11-10",
     "id": "us-bank-smartly-checking-450",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": 25,
     "product_name": "Smartly Checking",
     "requirements": [
@@ -53,14 +57,16 @@
     "states_available": "nationwide"
   },
   {
+    "annual_fee_usd": null,
     "application_url": "https://pnc.com/en/personal-banking/banking/checking/bonus-offer.html",
     "bank_or_issuer": "PNC",
     "bonus_amount_usd": 400,
+    "bonus_points": null,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
     "expiry_date": "2027-01-07",
     "id": "pnc-virtual-wallet-performance-select-400",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": null,
     "product_name": "Virtual Wallet with Performance Select",
     "requirements": [
@@ -87,14 +93,16 @@
     ]
   },
   {
+    "annual_fee_usd": null,
     "application_url": "https://sofi.com/banking/checking-offer/",
     "bank_or_issuer": "SoFi",
     "bonus_amount_usd": 400,
+    "bonus_points": null,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
     "expiry_date": "2026-12-31",
     "id": "sofi-checking-savings-400",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": null,
     "product_name": "Checking and Savings",
     "requirements": [
@@ -108,9 +116,11 @@
     "states_available": "nationwide"
   },
   {
+    "annual_fee_usd": null,
     "application_url": "https://www.doctorofcredit.com/il-wi-mn-in-az-fl-ks-mo-bmo-harris-350-checking-300-savings-bonus/",
     "bank_or_issuer": "BMO",
     "bonus_amount_usd": 600,
+    "bonus_points": null,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
     "expiry_date": "2026-12-15",
@@ -143,9 +153,11 @@
     ]
   },
   {
+    "annual_fee_usd": null,
     "application_url": "https://www.td.com/us/en/personal-banking/checking-bonus/pso/apply/beyond",
     "bank_or_issuer": "TD Bank",
     "bonus_amount_usd": 300,
+    "bonus_points": null,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
     "expiry_date": "2026-11-30",
@@ -188,14 +200,16 @@
     }
   },
   {
+    "annual_fee_usd": null,
     "application_url": "https://www.key.com/personal/checking/checking-account-bonus-offers.html",
     "bank_or_issuer": "KeyBank",
     "bonus_amount_usd": 300,
+    "bonus_points": null,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
     "expiry_date": "2026-12-11",
     "id": "keybank-key-smart-checking-300",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": 10,
     "product_name": "Key Smart Checking",
     "requirements": [
@@ -225,14 +239,16 @@
     ]
   },
   {
+    "annual_fee_usd": null,
     "application_url": "https://www.capitalone.com/bank/checking250/",
     "bank_or_issuer": "Capital One",
     "bonus_amount_usd": 250,
+    "bonus_points": null,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
     "expiry_date": null,
     "id": "capital-one-360-checking-250",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": null,
     "product_name": "360 Checking",
     "requirements": [
@@ -247,9 +263,11 @@
     "states_available": "nationwide"
   },
   {
+    "annual_fee_usd": null,
     "application_url": "https://campaigns.mtb.com/personal/banking/checking-cash-bonus",
     "bank_or_issuer": "M&T Bank",
     "bonus_amount_usd": 300,
+    "bonus_points": null,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
     "expiry_date": "2026-10-08",
@@ -287,28 +305,38 @@
     }
   },
   {
+    "annual_fee_usd": null,
     "application_url": "https://www.associatedbank.com/checking-account-bonus-offer-promotion",
     "bank_or_issuer": "Associated Bank",
-    "bonus_amount_usd": 600,
+    "bonus_amount_usd": 300,
+    "bonus_max_usd": 600,
+    "bonus_points": null,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
     "expiry_date": "2026-10-31",
     "id": "associated-bank-checking-600",
     "last_verified_date": "2026-09-20",
-    "min_deposit_usd": 100,
+    "min_deposit_usd": 25,
     "product_name": "Associated Choice Checking",
     "requirements": [
       "Open and fund a new personal Associated Bank checking account by October 31, 2026 (Associated Access Checking requires a $25 minimum opening deposit; Associated Balanced or Choice Checking requires $100)",
       "Receive recurring direct deposits totaling $500 or more within 90 days of account opening from an employer or government agency (person-to-person payments and transfers from existing or external accounts do not qualify)",
       "Bonus tier is determined by the average daily balance of all open Associated Bank deposit accounts for days 31-90: $1,000-$4,999.99 earns $300, $5,000-$9,999.99 earns $400, $10,000 and over earns $600",
       "Bonus is deposited into the new checking account within 120 days of account opening",
-      "Account must remain open for a minimum of 12 months or the bonus may be deducted at closing"
+      "Account must remain open for a minimum of 12 months or the bonus may be deducted at closing",
+      "IMPORTANT: the $600 figure is the TOP TIER ONLY and requires a $10,000+ average daily balance across all open Associated Bank deposit accounts for days 31-90. Completing only the direct-deposit requirement earns $300."
     ],
     "source_url": "https://www.associatedbank.com/checking-account-bonus-offer-promotion",
     "states_available": [
-      "WI",
+      "IA",
       "IL",
-      "MN"
+      "IN",
+      "KS",
+      "MI",
+      "MN",
+      "MO",
+      "OH",
+      "WI"
     ]
   },
   {

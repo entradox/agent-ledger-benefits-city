@@ -51,17 +51,26 @@
     "direct_deposit_required": false,
     "expiry_date": null,
     "id": "amex-platinum-175k",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": null,
     "product_name": "Platinum Card",
     "requirements": [
       "Apply and find out your offer; eligible applicants may earn as high as 175,000 Membership Rewards points after spending $12,000 in eligible purchases in the first 6 months of card membership",
       "Welcome offers vary by applicant and you may not be eligible for an offer; Amex shows your exact offer after a soft credit check",
       "Points valued up to ~$3,500 at 2.0 cents per point (TPG September 2026 Membership Rewards valuation)",
-      "Restricted to one welcome bonus per card per lifetime with American Express"
+      "Restricted to one welcome bonus per card per lifetime with American Express",
+      "Verification note: American Express serves welcome-offer figures only to a rendered browser, so this amount was confirmed 2026-10-01 against bonus trackers rather than a static read of the issuer page. Confirm your own offer on the issuer page before applying \u2014 Amex varies offers by applicant and channel."
     ],
-    "source_url": "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
-    "states_available": "nationwide"
+    "source_url": "https://www.americanexpress.com/us/credit-cards/card/platinum/",
+    "states_available": "nationwide",
+    "verification": {
+      "method": "aggregator_consensus",
+      "sources": [
+        "https://www.doctorofcredit.com/american-express-credit-card-offers/",
+        "https://thepointsguy.com/credit-cards/limited-time-card-offers/"
+      ],
+      "verified_at": "2026-10-01"
+    }
   },
   {
     "annual_fee_usd": 325,
@@ -73,43 +82,62 @@
     "direct_deposit_required": false,
     "expiry_date": null,
     "id": "amex-gold-100k",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": null,
     "product_name": "Gold Card",
     "requirements": [
       "Apply and find out your offer; eligible applicants may earn as high as 100,000 Membership Rewards points after spending $8,000 in eligible purchases in the first 6 months of card membership",
       "Welcome offers vary by applicant and you may not be eligible for an offer",
       "Points valued up to ~$2,000 at 2.0 cents per point (TPG September 2026 Membership Rewards valuation)",
-      "Restricted to one welcome bonus per card per lifetime with American Express"
+      "Restricted to one welcome bonus per card per lifetime with American Express",
+      "Verification note: American Express serves welcome-offer figures only to a rendered browser, so this amount was confirmed 2026-10-01 against bonus trackers rather than a static read of the issuer page. Confirm your own offer on the issuer page before applying \u2014 Amex varies offers by applicant and channel."
     ],
-    "source_url": "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
-    "states_available": "nationwide"
+    "source_url": "https://www.americanexpress.com/us/credit-cards/card/gold-card/",
+    "states_available": "nationwide",
+    "verification": {
+      "method": "aggregator_consensus",
+      "sources": [
+        "https://www.doctorofcredit.com/american-express-credit-card-offers/",
+        "https://thepointsguy.com/credit-cards/limited-time-card-offers/"
+      ],
+      "verified_at": "2026-10-01"
+    }
   },
   {
     "annual_fee_usd": 895,
-    "application_url": "https://www.americanexpress.com/us/credit-cards/business/business-credit-cards/american-express-business-platinum-credit-card-amex/64259/",
+    "application_url": "https://www.americanexpress.com/us/business/credit-cards/business-platinum/",
     "bank_or_issuer": "American Express",
-    "bonus_amount_usd": 6000,
-    "bonus_points": 300000,
+    "bonus_amount_usd": 4000,
+    "bonus_points": 200000,
     "bonus_type": "credit_card",
     "direct_deposit_required": false,
     "expiry_date": null,
     "id": "amex-business-platinum-300k",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": null,
     "product_name": "Business Platinum Card",
     "requirements": [
       "Apply and find out your offer; eligible applicants may earn as high as 300,000 Membership Rewards points after spending $20,000 in eligible purchases in the first 3 months of card membership",
       "Welcome offers vary by applicant and you may not be eligible for an offer",
       "Points valued up to ~$6,000 at 2.0 cents per point (TPG September 2026 Membership Rewards valuation)",
-      "Restricted to one welcome bonus per card per lifetime with American Express"
+      "Restricted to one welcome bonus per card per lifetime with American Express",
+      "The public offer confirmed 2026-10-01 is 200,000 points. Offers of 250,000-300,000 points are targeted/YMMV and are not available to every applicant; this record now tracks the public offer.",
+      "Verification note: American Express serves welcome-offer figures only to a rendered browser, so this amount was confirmed 2026-10-01 against bonus trackers rather than a static read of the issuer page. Confirm your own offer on the issuer page before applying \u2014 Amex varies offers by applicant and channel."
     ],
-    "source_url": "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
-    "states_available": "nationwide"
+    "source_url": "https://www.americanexpress.com/us/business/credit-cards/business-platinum/",
+    "states_available": "nationwide",
+    "verification": {
+      "method": "aggregator_consensus",
+      "sources": [
+        "https://www.doctorofcredit.com/american-express-credit-card-offers/",
+        "https://thepointsguy.com/credit-cards/limited-time-card-offers/"
+      ],
+      "verified_at": "2026-10-01"
+    }
   },
   {
     "annual_fee_usd": 375,
-    "application_url": "https://www.americanexpress.com/us/credit-cards/business/business-credit-cards/american-express-business-gold-credit-card-amex/",
+    "application_url": "https://www.americanexpress.com/us/business/credit-cards/business-gold/",
     "bank_or_issuer": "American Express",
     "bonus_amount_usd": 4000,
     "bonus_points": 200000,
@@ -117,17 +145,26 @@
     "direct_deposit_required": false,
     "expiry_date": null,
     "id": "amex-business-gold-200k",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": null,
     "product_name": "Business Gold Card",
     "requirements": [
       "Apply and find out your offer; eligible applicants may earn as high as 200,000 Membership Rewards points after spending $15,000 in eligible purchases in the first 3 months of card membership",
       "Welcome offers vary by applicant and you may not be eligible for an offer",
       "Points valued up to ~$4,000 at 2.0 cents per point (TPG September 2026 Membership Rewards valuation)",
-      "Restricted to one welcome bonus per card per lifetime with American Express"
+      "Restricted to one welcome bonus per card per lifetime with American Express",
+      "Verification note: American Express serves welcome-offer figures only to a rendered browser, so this amount was confirmed 2026-10-01 against bonus trackers rather than a static read of the issuer page. Confirm your own offer on the issuer page before applying \u2014 Amex varies offers by applicant and channel."
     ],
-    "source_url": "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
-    "states_available": "nationwide"
+    "source_url": "https://www.americanexpress.com/us/business/credit-cards/business-gold/",
+    "states_available": "nationwide",
+    "verification": {
+      "method": "aggregator_consensus",
+      "sources": [
+        "https://www.doctorofcredit.com/american-express-credit-card-offers/",
+        "https://thepointsguy.com/credit-cards/limited-time-card-offers/"
+      ],
+      "verified_at": "2026-10-01"
+    }
   },
   {
     "annual_fee_usd": 395,
@@ -139,7 +176,7 @@
     "direct_deposit_required": false,
     "expiry_date": null,
     "id": "capital-one-venture-x-75k",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": null,
     "product_name": "Venture X Rewards Credit Card",
     "requirements": [
@@ -148,12 +185,12 @@
       "$300 annual credit for bookings through Capital One Travel plus 10,000 anniversary bonus miles",
       "Not eligible if you opened or earned the Venture X bonus in the past 48 months"
     ],
-    "source_url": "https://financebuzz.com/landing-credit-card-venture-x",
+    "source_url": "https://www.capitalone.com/credit-cards/venture-x/",
     "states_available": "nationwide"
   },
   {
     "annual_fee_usd": 95,
-    "application_url": "https://www.capitalone.com/learn-grow/money-management/capital-one-venture-vs-venture-x/",
+    "application_url": "https://www.capitalone.com/credit-cards/venture/",
     "bank_or_issuer": "Capital One",
     "bonus_amount_usd": 1688,
     "bonus_points": 75000,
@@ -161,7 +198,7 @@
     "direct_deposit_required": false,
     "expiry_date": null,
     "id": "capital-one-venture-75k",
-    "last_verified_date": "2026-09-30",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": null,
     "product_name": "Venture Rewards Credit Card",
     "requirements": [
@@ -169,9 +206,10 @@
       "Plus receive a $300 credit for hotel and vacation rental bookings through Capital One Travel in the first cardholder year",
       "Miles valued ~$1,388 at 1.85 cents per mile (TPG September 2026 Capital One valuation); combined value ~$1,688 including the $300 travel credit",
       "Not eligible if you opened or earned the Venture or Venture X bonus in the past 48 months",
-      "Limited-time (from September 8, 2026): also includes a $300 Capital One Travel credit for hotel and vacation-rental bookings, valid one year; not included in the USD value shown here"
+      "Limited-time (from September 8, 2026): also includes a $300 Capital One Travel credit for hotel and vacation-rental bookings, valid one year; not included in the USD value shown here",
+      "Verification note: the 75,000-mile offer was confirmed against the issuer product page on 2026-10-01; the exact valuation and the $300 travel credit are per the trackers recorded in the verification block."
     ],
-    "source_url": "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
+    "source_url": "https://www.capitalone.com/credit-cards/venture/",
     "states_available": "nationwide",
     "verification": {
       "method": "aggregator_consensus",
@@ -186,7 +224,7 @@
   },
   {
     "annual_fee_usd": 95,
-    "application_url": "https://www.citi.com/credit-cards/citi-strata-premier-credit-card",
+    "application_url": "https://www.citi.com/credit-cards/citi-strata-premier-card",
     "bank_or_issuer": "Citi",
     "bonus_amount_usd": 1140,
     "bonus_points": 60000,
@@ -194,7 +232,7 @@
     "direct_deposit_required": false,
     "expiry_date": null,
     "id": "citi-strata-premier-60k",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": null,
     "product_name": "Strata Premier Card",
     "requirements": [
@@ -203,12 +241,12 @@
       "$100 annual hotel benefit on a single hotel stay of $500 or more booked through Citi Travel",
       "Bonus not available if you received a new account bonus for a Citi Premier or Citi Strata Premier account in the past 48 months"
     ],
-    "source_url": "https://awardwallet.com/news/citi-thankyou-rewards/japan-airlines-transfer-partner/",
+    "source_url": "https://www.citi.com/credit-cards/citi-strata-premier-card",
     "states_available": "nationwide"
   },
   {
     "annual_fee_usd": 595,
-    "application_url": "https://www.citi.com/credit-cards/citi-strata-elite-credit-card",
+    "application_url": "https://www.citi.com/credit-cards/citi-strata-elite-card",
     "bank_or_issuer": "Citi",
     "bonus_amount_usd": 1425,
     "bonus_points": 75000,
@@ -216,16 +254,16 @@
     "direct_deposit_required": false,
     "expiry_date": null,
     "id": "citi-strata-elite-75k",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": null,
     "product_name": "Strata Elite Card",
     "requirements": [
       "Earn 75,000 bonus ThankYou Points after spending $6,000 on purchases within the first 3 months from account opening",
       "Points valued ~$1,425 at 1.9 cents per point (TPG July 2026 ThankYou valuation)",
       "Up to $300 annual hotel benefit for stays of two nights or more booked through cititravel.com",
-      "Bonus not available if you received a new account bonus for a Citi Strata Elite account in the past 48 months"
+      "Eligibility: not available if you currently have or previously had a Citi Strata Elite account. The 48-month rule applies to the Citi Strata PREMIER card, not this one (corrected 2026-10-01)."
     ],
-    "source_url": "https://awardwallet.com/news/citi-thankyou-rewards/japan-airlines-transfer-partner/",
+    "source_url": "https://www.citi.com/credit-cards/citi-strata-elite-card",
     "states_available": "nationwide"
   },
   {
@@ -251,7 +289,7 @@
   },
   {
     "annual_fee_usd": 95,
-    "application_url": "https://www.bankofamerica.com/credit-cards/",
+    "application_url": "https://www.bankofamerica.com/credit-cards/products/premium-rewards-credit-card/",
     "bank_or_issuer": "Bank of America",
     "bonus_amount_usd": 600,
     "bonus_points": 60000,
@@ -259,7 +297,7 @@
     "direct_deposit_required": false,
     "expiry_date": null,
     "id": "bofa-premium-rewards-60k",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": null,
     "product_name": "Premium Rewards Credit Card",
     "requirements": [
@@ -267,7 +305,7 @@
       "Points worth a fixed 1 cent each toward cash back, travel, statement credits, or gift cards; no transfer partners available",
       "Up to $100 in airline incidental statement credits per calendar year"
     ],
-    "source_url": "https://www.bankofamerica.com/credit-cards/?graffiti=true",
+    "source_url": "https://www.bankofamerica.com/credit-cards/products/premium-rewards-credit-card/",
     "states_available": "nationwide"
   },
   {
@@ -293,24 +331,25 @@
   },
   {
     "annual_fee_usd": 0,
-    "application_url": "https://www.discover.com/credit-cards/",
+    "application_url": "https://www.discover.com/credit-cards/cash-back/it-card.html",
     "bank_or_issuer": "Discover",
-    "bonus_amount_usd": 525,
+    "bonus_amount_usd": 0,
     "bonus_points": null,
     "bonus_type": "credit_card",
     "direct_deposit_required": false,
     "expiry_date": null,
     "id": "discover-it-cash-back-match",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-01",
     "min_deposit_usd": null,
     "product_name": "it Cash Back",
     "requirements": [
       "Intro offer: Unlimited Cashback Match for all new cardmembers - Discover automatically matches all the cash back you earned at the end of your first year",
       "No minimum spending requirement and no maximum rewards cap; e.g., $300 earned becomes $600",
       "Bonus value estimated at ~$525 based on WalletHub's calculation of the average person's first-year match value; actual value is unlimited and spend-dependent",
-      "5% cash back on rotating quarterly categories on up to $1,500 in purchases (activation required); 1% on all other purchases"
+      "5% cash back on rotating quarterly categories on up to $1,500 in purchases (activation required); 1% on all other purchases",
+      "This card pays an UNCAPPED dollar-for-dollar cashback match on all cash back earned in the first year, with no purchase minimum and no maximum. Discover publishes no fixed dollar bonus, so there is no single headline amount (the previously stored $525 was a third-party average estimate)."
     ],
-    "source_url": "https://financebuzz.com/landing-credit-card-take-a-break-from-high-interest-it-cash-back-dcb-only",
+    "source_url": "https://www.discover.com/credit-cards/cash-back/it-card.html",
     "states_available": "nationwide"
   },
   {

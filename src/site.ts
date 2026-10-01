@@ -130,6 +130,8 @@ function footer(ctx: SiteContext): string {
       <div><h4>Trust</h4><ul>
         <li><a href="${bp(ctx, "/about")}">About</a></li>
         <li><a href="${bp(ctx, "/disclosure")}">Affiliate disclosure</a></li>
+        <li><a href="${bp(ctx, "/privacy")}">Privacy</a></li>
+        <li><a href="${bp(ctx, "/terms")}">Terms</a></li>
         <li><a href="${bp(ctx, "/contact")}">Contact</a></li>
       </ul></div>
     </div>
@@ -600,7 +602,7 @@ export function aboutPage(ctx: SiteContext): string {
     <ul>
       <li>Offers are checked against a named source (the issuer's page, or a bonus tracker where several agree) — never invented, never copied blindly from a single source.</li>
       <li>Every record carries <span class="mono">source_url</span> (where terms were confirmed) and <span class="mono">last_verified_date</span>.</li>
-      <li>Offers near expiry are re-checked weekly; the full feed on a rolling monthly cadence.</li>
+      <li>Offers near expiry are re-checked weekly; the full feed monthly. <strong>Not every offer is re-read on every pass</strong> — each record carries its own <span class="mono">last_verified_date</span>, and that date is the one to trust, not this page.</li>
       <li>Credit card point bonuses are converted to estimated USD using published per-point valuations; the basis is stated in each offer's requirements.</li>
       <li>We respect robots.txt and site terms — no scraping of sites that disallow automated access.</li>
     </ul>
@@ -638,6 +640,75 @@ export function disclosurePage(ctx: SiteContext): string {
     <p>Ask us anything about how we're paid: <a href="${bp(ctx, "/contact")}">contact page</a>.</p>
   </div><div style="height:40px"></div></div>`;
   return shell(ctx, "Affiliate Disclosure", "How ${SITE_NAME} makes money: affiliate disclosure in plain language.", body, "/disclosure");
+}
+
+export function privacyPage(ctx: SiteContext): string {
+  const body = `<div class="wrap"><div class="page-head">
+    <h1>Privacy</h1>
+    <p>What we collect, what we don't, and how long we keep it.</p>
+  </div><div class="prose">
+    <h2>Short version</h2>
+    <p>${SITE_NAME} does not ask you to sign up, does not set advertising cookies, does not sell or share personal data, and keeps no account or profile about you. The site works the same whether or not you tell us anything about yourself — which means you don't have to.</p>
+    <h2>What we record when you visit</h2>
+    <p>We count page views and Apply clicks so we know which offers are useful. That record is deliberately thin:</p>
+    <ul>
+      <li><strong>No personal data.</strong> No names, no email addresses, no raw IP addresses, no device identifiers.</li>
+      <li><strong>Salted hashes only.</strong> A visit is counted using a salted hash. The salt is regenerated every day and previous days' salts are deleted, so a hash cannot be linked back to you or followed across days.</li>
+      <li><strong>Searches are not stored.</strong> When you search or filter, we record only that "a search happened" — never the words you typed.</li>
+      <li><strong>Retention: 90 days.</strong> Usage records are deleted after 90 days.</li>
+      <li><strong>Opt-out is automatic.</strong> We honour <span class="mono">Do Not Track</span> and <span class="mono">Global Privacy Control</span>: when either is set, nothing about your visit is recorded.</li>
+      <li><strong>Automated crawlers are excluded</strong> from these counts.</li>
+    </ul>
+    <h2>Cookies</h2>
+    <p>The human site sets no advertising, tracking or analytics cookies. If a cookie is ever used it is strictly to make the site function, and this page will name it before any such change ships.</p>
+    <h2>What we send to other companies</h2>
+    <p>Nothing about you. The site loads no third-party analytics, advertising or social scripts. Apply buttons are ordinary links: when you click one you leave this site and the bank's own privacy policy applies from that point.</p>
+    <h2>The machine surfaces</h2>
+    <p>The MCP server, the JSON feeds and the REST API require no account, no key and no signup. Requests are counted the same thin, salted, 90-day way as page views so we can tell whether agents find the feed useful. No query text is stored.</p>
+    <h2>Email</h2>
+    <p>We do not currently run an email list and collect no email addresses. If a bonus-alert list launches, it will be <strong>double opt-in</strong>, it will state what it stores and for how long, and unsubscribing will delete the address rather than merely stop sending.</p>
+    <h2>Your rights and how to use them</h2>
+    <p>Because we hold no personal data about you, there is normally nothing to access, correct or delete. If you believe we hold something about you and want it erased, write to <a href="mailto:bonuses@aiagentscity.com">bonuses@aiagentscity.com</a> and we will act on it and confirm what we did.</p>
+    <h2>Children</h2>
+    <p>This site is for adults opening their own bank accounts. It is not directed at anyone under 18 and we knowingly collect nothing from them.</p>
+    <h2>Changes</h2>
+    <p>If this policy changes in a way that affects what is collected, the change is noted in the public <a href="${bp(ctx, "/changelog")}">changelog</a> and the date below moves.</p>
+    <p class="mono">Last updated: 2026-10-01</p>
+  </div><div style="height:40px"></div></div>`;
+  return shell(ctx, "Privacy", "What ${SITE_NAME} collects, what it refuses to collect, and how long records are kept.", body, "/privacy");
+}
+
+export function termsPage(ctx: SiteContext): string {
+  const body = `<div class="wrap"><div class="page-head">
+    <h1>Terms of use</h1>
+    <p>The rules for using this site and its data, in plain language.</p>
+  </div><div class="prose">
+    <h2>What this is</h2>
+    <p>${SITE_NAME} is an information service that tracks publicly advertised US bank account and credit card signup bonuses. It is a reference, not a bank, broker, lender, card issuer or adviser. We are not a party to any account you open.</p>
+    <h2>Not financial advice</h2>
+    <p>Nothing here is financial, legal, tax or investment advice, and nothing here is a recommendation that you open a particular account. Only the issuer's own terms and fee schedule govern your account. Read them before you apply. Bonus payments are generally taxable income in the US — talk to a qualified professional about your situation.</p>
+    <h2>Accuracy, and its limits</h2>
+    <p>We work hard to keep this accurate — each offer names the source it was checked against and the date it was last checked — but <strong>banks change and withdraw offers without notice</strong>, and an offer may be withdrawn, altered, or restricted to certain customers at any time. What you see here can be out of date the moment it is published. <strong>Always confirm the current terms on the issuer's own page before acting.</strong> We do not guarantee that any offer is available to you, that you qualify, or that you will be paid.</p>
+    <h2>Paying for this site</h2>
+    <p>Today no link on this site earns us anything. If affiliate partnerships go live, affected links will be marked <span class="mono">rel="sponsored"</span>, named on the <a href="${bp(ctx, "/disclosure")}">affiliate disclosure</a>, and commission will never affect which offers are listed or how they are ordered.</p>
+    <h2>Acceptable use of the site and the data</h2>
+    <ul>
+      <li>You may read, query and link to this site freely. The public JSON feed, REST API and MCP server require no key.</li>
+      <li><strong>Don't misrepresent us.</strong> Do not present this data as financial advice, as an endorsement of an offer, as your own dataset, or as authoritative when you know it is stale. If you surface our data in a product, keep the source and check date attached and say plainly what the limits are.</li>
+      <li>Don't attempt to break, overload, or gain unauthorised access to the service, and don't use it for anything unlawful.</li>
+      <li>Automated access is welcome — we publish the schema for it. We ask that you identify your client and don't hammer the service.</li>
+    </ul>
+    <h2>Trademarks and third-party material</h2>
+    <p>Bank, card and program names are the trademarks of their owners. We use them descriptively to identify the offers we are writing about, and we claim no affiliation with or endorsement by any bank, issuer, card network or partner program.</p>
+    <h2>Liability</h2>
+    <p>The service is provided "as is" and "as available", without warranties of any kind. To the fullest extent permitted by law we are not liable for any loss arising from your use of this site or reliance on its data — including a missed deadline, a denied bonus, or an account opened on the strength of an out-of-date record.</p>
+    <h2>Corrections</h2>
+    <p>If we have something wrong, tell us: <a href="mailto:bonuses@aiagentscity.com">bonuses@aiagentscity.com</a>. Corrections are a feature of this product, not a nuisance.</p>
+    <h2>Changes</h2>
+    <p>These terms may change; material changes are noted in the public <a href="${bp(ctx, "/changelog")}">changelog</a>.</p>
+    <p class="mono">Last updated: 2026-10-01</p>
+  </div><div style="height:40px"></div></div>`;
+  return shell(ctx, "Terms of use", "Terms for using ${SITE_NAME} and its data: not financial advice, accuracy limits, acceptable use.", body, "/terms");
 }
 
 export function contactPage(ctx: SiteContext): string {
@@ -688,7 +759,7 @@ Sitemap: ${base}/sitemap.xml
 
 export function sitemapText(ctx: SiteContext): string {
   const base = ctx.publicUrl.replace(/\/+$/, "");
-  const urls = ["/", "/bonuses", "/agents", "/changelog", "/about", "/disclosure", "/contact"]
+  const urls = ["/", "/bonuses", "/agents", "/changelog", "/about", "/disclosure", "/privacy", "/terms", "/contact"]
     .map((p) => `  <url><loc>${base}${p}</loc></url>`);
   for (const p of seoPaths()) urls.push(`  <url><loc>${base}${p}</loc></url>`);
   for (const b of listAll()) {
