@@ -1,6 +1,41 @@
 [
   {
     "date": "2026-10-01",
+    "type": "added",
+    "offer_id": "capital-one-savor-200",
+    "title": "Capital One Savor: $200 bonus",
+    "summary": "$200 after $500 in purchases within 3 months; no annual fee. Checked on Capital One's own pages."
+  },
+  {
+    "date": "2026-10-01",
+    "type": "added",
+    "offer_id": "capital-one-quicksilver-200",
+    "title": "Capital One Quicksilver: $200 bonus",
+    "summary": "$200 after $500 in purchases within 3 months; no annual fee. Checked on Capital One's own pages."
+  },
+  {
+    "date": "2026-10-01",
+    "type": "added",
+    "offer_id": "chase-freedom-unlimited-200",
+    "title": "Chase Freedom Unlimited: $200 bonus",
+    "summary": "$200 after $500 in purchases within 3 months; no annual fee. Checked on Chase's own page."
+  },
+  {
+    "date": "2026-10-01",
+    "type": "added",
+    "offer_id": "chase-ink-business-preferred-100k",
+    "title": "Chase Ink Business Preferred: 100,000 points",
+    "summary": "100,000 points after $8,000 in purchases within 3 months; $95 annual fee; business card. Estimated value uses TPG's July 2026 valuation. Checked on Chase's own page."
+  },
+  {
+    "date": "2026-10-01",
+    "type": "added",
+    "offer_id": "bofa-customized-cash-200",
+    "title": "Bank of America Customized Cash Rewards: $200 bonus",
+    "summary": "Online $200 cash rewards bonus after $1,000 in purchases within 90 days; no annual fee. Checked on Bank of America's own page."
+  },
+  {
+    "date": "2026-10-01",
     "type": "feature",
     "offer_id": null,
     "title": "REST API, OpenAPI and agent manifests",

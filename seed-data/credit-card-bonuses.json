@@ -386,5 +386,167 @@
       ],
       "verified_at": "2026-09-30"
     }
+  },
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": 0,
+    "application_url": "https://www.capitalone.com/credit-cards/savor/",
+    "bank_or_issuer": "Capital One",
+    "bonus_amount_usd": 200,
+    "bonus_points": null,
+    "bonus_type": "credit_card",
+    "direct_deposit_required": false,
+    "eligibility": null,
+    "expiry_date": null,
+    "id": "capital-one-savor-200",
+    "last_verified_date": "2026-10-01",
+    "min_deposit_usd": null,
+    "offer_history": [],
+    "product_name": "Savor",
+    "requirements": [
+      "Earn a one-time $200 cash bonus once you spend $500 on purchases within the first 3 months from account opening",
+      "No annual fee",
+      "Capital One notes the bonus is available by applying through its page and may not be available if you navigate away from or close that page"
+    ],
+    "source_url": "https://www.capitalone.com/credit-cards/savor/",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://www.capitalone.com/credit-cards/savor/",
+        "https://www.capitalone.com/credit-cards/compare/"
+      ],
+      "verified_at": "2026-10-01"
+    }
+  },
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": 0,
+    "application_url": "https://www.capitalone.com/credit-cards/quicksilver/",
+    "bank_or_issuer": "Capital One",
+    "bonus_amount_usd": 200,
+    "bonus_points": null,
+    "bonus_type": "credit_card",
+    "direct_deposit_required": false,
+    "eligibility": null,
+    "expiry_date": null,
+    "id": "capital-one-quicksilver-200",
+    "last_verified_date": "2026-10-01",
+    "min_deposit_usd": null,
+    "offer_history": [],
+    "product_name": "Quicksilver",
+    "requirements": [
+      "Earn a one-time $200 cash bonus once you spend $500 on purchases within the first 3 months from account opening",
+      "No annual fee",
+      "Capital One notes the bonus is available by applying through its page and may not be available if you navigate away from or close that page"
+    ],
+    "source_url": "https://www.capitalone.com/credit-cards/quicksilver/",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://www.capitalone.com/credit-cards/compare/",
+        "https://www.capitalone.com/credit-cards/quicksilver/"
+      ],
+      "verified_at": "2026-10-01"
+    }
+  },
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": 0,
+    "application_url": "https://creditcards.chase.com/cash-back-credit-cards/freedom/unlimited",
+    "bank_or_issuer": "Chase",
+    "bonus_amount_usd": 200,
+    "bonus_points": null,
+    "bonus_type": "credit_card",
+    "direct_deposit_required": false,
+    "eligibility": null,
+    "expiry_date": null,
+    "id": "chase-freedom-unlimited-200",
+    "last_verified_date": "2026-10-01",
+    "min_deposit_usd": null,
+    "offer_history": [],
+    "product_name": "Freedom Unlimited",
+    "requirements": [
+      "Earn a $200 bonus after you spend $500 on purchases in the first 3 months from account opening",
+      "No annual fee",
+      "Not available to current cardmembers of this card, or to previous cardmembers who received a new cardmember bonus for it within the last 24 months"
+    ],
+    "source_url": "https://creditcards.chase.com/cash-back-credit-cards/freedom/unlimited",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://creditcards.chase.com/cash-back-credit-cards/freedom/unlimited"
+      ],
+      "verified_at": "2026-10-01"
+    }
+  },
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": 95,
+    "application_url": "https://creditcards.chase.com/business-credit-cards/ink/business-preferred",
+    "bank_or_issuer": "Chase",
+    "bonus_amount_usd": 2050,
+    "bonus_points": 100000,
+    "bonus_type": "credit_card",
+    "direct_deposit_required": false,
+    "eligibility": null,
+    "expiry_date": null,
+    "id": "chase-ink-business-preferred-100k",
+    "last_verified_date": "2026-10-01",
+    "min_deposit_usd": null,
+    "offer_history": [],
+    "product_name": "Ink Business Preferred",
+    "requirements": [
+      "Earn 100,000 bonus points after you spend $8,000 on purchases in the first 3 months after account opening",
+      "Points valued ~$2,050 at 2.05 cents per point (TPG July 2026 Ultimate Rewards valuation)",
+      "Business card. Chase notes the offer is subject to change and availability may vary by application method"
+    ],
+    "source_url": "https://creditcards.chase.com/business-credit-cards/ink/business-preferred",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://creditcards.chase.com/business-credit-cards/ink/business-preferred"
+      ],
+      "verified_at": "2026-10-01"
+    }
+  },
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": 0,
+    "application_url": "https://www.bankofamerica.com/credit-cards/products/cash-back-credit-card/",
+    "bank_or_issuer": "Bank of America",
+    "bonus_amount_usd": 200,
+    "bonus_points": null,
+    "bonus_type": "credit_card",
+    "direct_deposit_required": false,
+    "eligibility": null,
+    "expiry_date": null,
+    "id": "bofa-customized-cash-200",
+    "last_verified_date": "2026-10-01",
+    "min_deposit_usd": null,
+    "offer_history": [],
+    "product_name": "Customized Cash Rewards",
+    "requirements": [
+      "Online $200 cash rewards bonus after making at least $1,000 in purchases in the first 90 days",
+      "No annual fee",
+      "Bank of America notes the offer may not be available elsewhere if you leave the application page"
+    ],
+    "source_url": "https://www.bankofamerica.com/credit-cards/products/cash-back-credit-card/",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://www.bankofamerica.com/credit-cards/products/cash-back-credit-card/"
+      ],
+      "verified_at": "2026-10-01"
+    }
   }
 ]
