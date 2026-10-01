@@ -49,6 +49,8 @@ test("disclosure wording flips when any affiliate link is live", () => {
   assert.equal(links.affiliateActive([makeBonus()]), false);
   assert.equal(links.affiliateActive([makeBonus({ affiliate_url: "https://p.example/1" })]), true);
   assert.match(links.disclosureShort(false), /earn us nothing/i);
+  assert.match(links.disclosureShort(false), /bonus tracker/i); // no false "official pages only" claim
+  assert.doesNotMatch(links.disclosureShort(false), /official pages/i);
   assert.match(links.disclosureShort(true), /commission/i);
   assert.match(links.disclosureShort(true), /never influence/i);
 });

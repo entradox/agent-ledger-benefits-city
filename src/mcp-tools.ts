@@ -36,7 +36,7 @@ get_bonus(id), expiring_soon(days?), compare_bonuses(ids[2..4]), benefits_api_do
 Every offer: id, bank_or_issuer, product_name, bonus_type (bank_account|credit_card|savings), bonus_amount_usd
 (cards: estimated USD value of points), expiry_date, requirements[], verification{method,verified_at,sources},
 last_verified_date, sponsored (bool), apply_url (tracked link), disclosure_url.
-Ordering: bonus value desc, id asc — never influenced by commissions. Expired offers are never returned.
+Ordering: bonus value descending (cards at estimated USD value from published third-party valuations), id ascending as tie-break; commission is never an input. Expired offers are never returned.
 Errors: {"error":{"type","message","code?","param?"}} with isError=true.`;
 
 const EXAMPLES = [

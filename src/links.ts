@@ -55,6 +55,6 @@ export function toPublic(b: Bonus): PublicBonus {
 /** One-sentence disclosure used on the landing box, llms.txt and MCP docs. Wording is Morgan-reviewed. */
 export function disclosureShort(live: boolean): string {
   return live
-    ? "Some Apply links are affiliate links: we earn a commission if you open an account through them, at no extra cost to you. Commissions never influence which offers we list or how we rank them."
-    : "Apply links currently go to issuers' official pages and earn us nothing. If affiliate links are added later they will be marked sponsored, and commissions will never influence which offers we list or how we rank them.";
+    ? "Some Apply links are affiliate links: we earn a commission if you open an account through them, at no extra cost to you. Commissions never influence which offers we list or how we order them."
+    : "Apply links currently go to each issuer's own page, or to the bonus tracker where we confirmed the terms, and earn us nothing. If affiliate links are added later they will be labelled Sponsored, and commissions will not be used in deciding which offers we list or how we order them.";
 }

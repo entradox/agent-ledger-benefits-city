@@ -190,7 +190,7 @@ export function landingPage(ctx: SiteContext): string {
     </div>
     <div class="stat-row">
       <div class="stat"><div class="v">${stats.total_offers}</div><div class="k">live offers tracked</div><div class="n">${stats.bank_account_offers} bank · ${stats.credit_card_offers} cards</div></div>
-      <div class="stat"><div class="v mint">${formatUsd(stats.total_bonus_usd)}</div><div class="k">total bonus value available</div><div class="n">card points at est. USD value</div></div>
+      <div class="stat"><div class="v mint">${formatUsd(stats.total_bonus_usd)}</div><div class="k">combined headline value of listed offers</div><div class="n">card points at est. USD value</div></div>
       <div class="stat"><div class="v">${stats.expiring_within_30d.length}</div><div class="k">expiring within 30 days</div><div class="n">act before the deadline</div></div>
       <div class="stat"><div class="v">${esc(stats.last_verified ?? "—")}</div><div class="k">last verification sweep</div><div class="n">checked by hand, not scraped</div></div>
     </div>
@@ -263,8 +263,9 @@ export function landingPage(ctx: SiteContext): string {
     <h2>Questions, answered honestly</h2>
     <div style="max-width:760px;margin-top:20px">
       <details class="faq"><summary>Is this free?</summary><p>Yes. No signup, no paywall, no account. Agents query the MCP server and JSON feeds free too — no API key.</p></details>
-      <details class="faq"><summary>Where does the data come from?</summary><p>Every offer is verified by hand against the bank's official offer page or a reputable bonus tracker. Each record carries a <span class="mono">source_url</span> and <span class="mono">last_verified_date</span>. Offers we can't verify don't get listed.</p></details>
+      <details class="faq"><summary>Where does the data come from?</summary><p>Every offer is checked against a named source — the issuer's own page where we can read it, otherwise a bonus tracker where several agree. Each record carries a <span class="mono">source_url</span>, a <span class="mono">verification</span> method and a <span class="mono">last_verified_date</span>. Offers we can't verify don't get listed.</p></details>
       <details class="faq"><summary>Are the Apply links affiliate links?</summary><p>${esc(disclosureShort(affiliateActive(listAll())))} See the <a href="${bp(ctx, "/disclosure")}">full disclosure</a>.</p></details>
+      <details class="faq"><summary>Are bonuses taxable?</summary><p>Bank bonuses are generally reported as interest income (Form 1099-INT); card rewards are generally treated differently. Check with a tax professional.</p></details>
       <details class="faq"><summary>How do credit card point values work?</summary><p>Points and miles are converted to USD using published per-point valuations so cards compare fairly with cash bonuses. The valuation basis is stated in each offer's requirements. Cash is cash; points are estimates.</p></details>
       <details class="faq"><summary>How often is the data re-verified?</summary><p>Offers near expiry are re-checked weekly; the full feed is re-verified on a rolling monthly cadence. Every record shows exactly when it was last confirmed.</p></details>
       <details class="faq"><summary>I'm an AI agent. How do I use this?</summary><p>Connect to the MCP server over Streamable HTTP, pull the JSON feeds, or read <a href="${bp(ctx, "/llms.txt")}">llms.txt</a>. Full copy-paste instructions are on the <a href="${bp(ctx, "/agents")}">For agents</a> page.</p></details>
@@ -535,10 +536,10 @@ export function aboutPage(ctx: SiteContext): string {
     <h2>What it is</h2>
     <p>${SITE_NAME} tracks US bank account opening bonuses and credit card signup bonuses — the HustlerMoneyBlog beat — and serves them two ways: a human-browsable site and a machine-queryable feed (MCP + JSON) that AI agents can use directly. Nothing else. No shopping deals, no coupons, no credit-score content.</p>
     <h2>Who runs it</h2>
-    <p>${SITE_NAME} is a project of <strong>AI Agent City</strong> (aiagentscity.com), an independent operation building infrastructure for AI agents. The feed is maintained by a small team: automated monitoring finds candidate offers, and a human confirms every offer's terms before it ships.</p>
+    <p>${SITE_NAME} is a project of <strong>AI Agent City</strong> (aiagentscity.com), an independent operation building infrastructure for AI agents. Every offer is checked against a named source before it is listed, and an automated freshness check re-reads those sources; a person reviews any offer flagged as changed or gone before it is removed.</p>
     <h2>Methodology</h2>
     <ul>
-      <li>Offers are verified against the bank's official offer page or a reputable bonus tracker — never invented, never copied blindly from a single source.</li>
+      <li>Offers are checked against a named source (the issuer's page, or a bonus tracker where several agree) — never invented, never copied blindly from a single source.</li>
       <li>Every record carries <span class="mono">source_url</span> (where terms were confirmed) and <span class="mono">last_verified_date</span>.</li>
       <li>Offers near expiry are re-checked weekly; the full feed on a rolling monthly cadence.</li>
       <li>Credit card point bonuses are converted to estimated USD using published per-point valuations; the basis is stated in each offer's requirements.</li>
@@ -565,10 +566,10 @@ export function disclosurePage(ctx: SiteContext): string {
       <p>${SITE_NAME} is reader-supported. ${live ? `<strong>Some Apply links are affiliate links</strong> and are marked <span class="mono">rel="sponsored"</span>. If you open an account through one we earn a commission, at no extra cost to you, and it never affects which bonuses we list or how we rank them.` : `<strong>Today, no link earns us anything</strong> — see Current status below. When affiliate partnerships go live, some Apply links will earn us a commission if you open an account through them — at no extra cost to you, and never affecting which bonuses we list or how we rank them.`}</p>
     </div>
     <h2>Current status</h2>
-    <p>${live ? `Apply links marked <span class="mono">rel="sponsored"</span> are affiliate links; all other Apply buttons link to the issuer's <strong>official offer page</strong> and earn us nothing. Ranking is by bonus value only, never by commission. Every record names its source in <span class="mono">source_url</span>.` : `As of today, Apply buttons link to each bank's <strong>official offer page</strong> — these are not affiliate links and earn us nothing. Where a bank's site blocks automated access and the offer page cannot be confirmed directly, the link goes to the <strong>reputable bonus tracker where the terms were confirmed</strong> instead; every record names its source in <span class="mono">source_url</span>. When affiliate partnerships go live, affected links will carry <span class="mono">rel="sponsored"</span> and this page will list the partner programs by name.`}</p>
+    <p>${live ? `Apply links marked <span class="mono">rel="sponsored"</span> are affiliate links; all other Apply buttons go to the issuer's page or the tracker named in <span class="mono">source_url</span>, and earn us nothing. Commission is never an input to ordering. Every record names its source in <span class="mono">source_url</span>.` : `As of today, Apply buttons link to each issuer's own page, or to the <strong>bonus tracker where the terms were confirmed</strong> — these are not affiliate links and earn us nothing. Where a bank's site blocks automated access and the offer page cannot be confirmed directly, the link goes to that tracker instead; every record names its source in <span class="mono">source_url</span>. When affiliate partnerships go live, affected links will carry <span class="mono">rel="sponsored"</span> and this page will list the partner programs by name.`}</p>
     <h2>What never changes</h2>
     <ul>
-      <li><strong>Ranking is by bonus value and deadline</strong> — never by commission rate. The MCP tools and JSON feeds expose the same ordering as the human site.</li>
+      <li><strong>Ordering ignores commission.</strong> Default order is by bonus value (cards at estimated USD value from published third-party valuations), or by deadline if you choose; commission is never an input. The MCP tools and JSON feeds expose the same ordering as the human site.</li>
       <li><strong>Verification is independent of monetization.</strong> An offer is listed because its terms check out, not because it pays.</li>
       <li><strong>Card valuations are disclosed.</strong> Estimated USD values for points/miles use published valuations, stated per offer.</li>
     </ul>
