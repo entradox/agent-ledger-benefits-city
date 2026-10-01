@@ -7,6 +7,7 @@
  */
 import { expiringSoon, getBonusById, listAll, searchBonuses } from "./db.js";
 import type { ChangelogEntry } from "./changelog.js";
+import { seoPaths } from "./seo.js";
 import { affiliateActive, disclosureShort, isSponsored, resolveApplyUrl } from "./links.js";
 import { daysUntil, formatDate, formatUsd, getStats } from "./stats.js";
 import type { Bonus } from "./types.js";
@@ -66,7 +67,7 @@ function amountHtml(b: Bonus, big = false): string {
   return `<div class="${cls}">${formatUsd(b.bonus_amount_usd)}${note}</div>`;
 }
 
-function bonusCard(ctx: SiteContext, b: Bonus): string {
+export function bonusCard(ctx: SiteContext, b: Bonus): string {
   const detail = bp(ctx, `/bonuses/${esc(b.id)}`);
   return `<article class="card">
     <div class="bank">${esc(b.bank_or_issuer)}</div>
@@ -92,6 +93,20 @@ function nav(ctx: SiteContext): string {
   </div></header>`;
 }
 
+/** Footer links to the SEO pages — only the ones that currently exist (no links to empty pages). */
+function seoFooterLinks(ctx: SiteContext): string {
+  const paths = new Set(seoPaths());
+  const links: [string, string][] = [
+    ["/banks", "Bonuses by bank"],
+    ["/best/bank-account", "Best bank account bonuses"],
+    ["/best/credit-card", "Best credit card bonuses"],
+    ["/best/savings", "Best savings bonuses"],
+    ["/states", "Bonuses by state"],
+    ["/expiring-soon", "Expiring soon"],
+  ];
+  return links.filter(([p]) => paths.has(p)).map(([p, t]) => `<li><a href="${bp(ctx, p)}">${t}</a></li>`).join("\n        ");
+}
+
 function footer(ctx: SiteContext): string {
   return `<footer class="footer"><div class="wrap">
     <div class="footer-grid">
@@ -104,6 +119,7 @@ function footer(ctx: SiteContext): string {
         <li><a href="${bp(ctx, "/bonuses?type=bank_account")}">Bank account bonuses</a></li>
         <li><a href="${bp(ctx, "/bonuses?type=credit_card")}">Credit card bonuses</a></li>
         <li><a href="${bp(ctx, "/agents")}">For agents</a></li>
+        ${seoFooterLinks(ctx)}
       </ul></div>
       <div><h4>Machine access</h4><ul>
         <li><a href="${bp(ctx, "/api/bonuses.json")}">JSON feed</a></li>
@@ -124,7 +140,7 @@ function footer(ctx: SiteContext): string {
   </div></footer>`;
 }
 
-function shell(ctx: SiteContext, title: string, desc: string, body: string, path = "/"): string {
+export function shell(ctx: SiteContext, title: string, desc: string, body: string, path = "/", extraHead = ""): string {
   // Canonical + og:url are derived from ctx.publicUrl (the PUBLIC_URL env), never from the
   // request Host header. That matters because this app is reachable on two hosts — the
   // Railway origin and aiagentscity.com/benefits through the reverse proxy — and they serve
@@ -150,6 +166,7 @@ function shell(ctx: SiteContext, title: string, desc: string, body: string, path
 <meta name="twitter:description" content="${esc(desc)}">
 <link rel="stylesheet" href="${bp(ctx, "/assets/site.css")}">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234F46E5'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='monospace' font-weight='bold'>B</text></svg>">
+${extraHead}
 </head>
 <body>
 ${nav(ctx)}
@@ -667,6 +684,7 @@ export function sitemapText(ctx: SiteContext): string {
   const base = ctx.publicUrl.replace(/\/+$/, "");
   const urls = ["/", "/bonuses", "/agents", "/changelog", "/about", "/disclosure", "/contact"]
     .map((p) => `  <url><loc>${base}${p}</loc></url>`);
+  for (const p of seoPaths()) urls.push(`  <url><loc>${base}${p}</loc></url>`);
   for (const b of listAll()) {
     if (b?.id) urls.push(`  <url><loc>${base}/bonuses/${b.id}</loc></url>`);
   }

@@ -187,3 +187,19 @@ test("changelog: page, JSON and Atom feed are served", async () => {
   assert.match(f.headers.get("content-type") ?? "", /atom\+xml/);
   assert.ok((await f.text()).includes('<feed xmlns="http://www.w3.org/2005/Atom">'));
 });
+
+test("SEO pages: real pages 200 with canonical + JSON-LD; empty/unknown are real 404s; sitemap advertises exactly the real ones", async () => {
+  for (const p of ["/banks", "/banks/test-bank", "/best/bank-account", "/expiring-soon"]) {
+    const r = await fetch(url(p));
+    assert.equal(r.status, 200, p);
+    const html = await r.text();
+    assert.ok(html.includes('rel="canonical"'), p);
+    assert.ok(html.includes("application/ld+json"), p);
+  }
+  // fixture has no regional offers, no savings/credit-card offers, and no such issuer
+  for (const p of ["/states", "/states/tx", "/best/savings", "/best/credit-card", "/best/crypto", "/banks/nope", "/banks/dead"])
+    assert.equal((await fetch(url(p))).status, 404, p);
+  const sm = await (await fetch(url("/sitemap.xml"))).text();
+  assert.ok(sm.includes("/banks/test-bank") && sm.includes("/best/bank-account"));
+  assert.ok(!sm.includes("/states") && !sm.includes("/best/savings"));
+});

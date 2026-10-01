@@ -41,6 +41,7 @@ import { getBonusById, listAll } from "./db.js";
 import { resolveApplyUrl, toPublic } from "./links.js";
 import { changelog, changelogAtom, changelogJson } from "./changelog.js";
 import { openapiJson } from "./openapi.js";
+import { banksIndexPage, bestPage, expiringPage, issuerPage, statePage, statesIndexPage } from "./seo-pages.js";
 import { restById, restCompare, restExpiring, restSearch, type RestResult } from "./rest.js";
 import { API_VERSION, SERVER_VERSION, agentJson, authMd, serverCard, serverJson } from "./meta.js";
 import { createMcpServer, describeMcpTools } from "./mcp-tools.js";
@@ -328,6 +329,19 @@ const server = http.createServer((req, res) => {
       if (pathname === "/skill.md")
         return send(res, 200, "text/markdown; charset=utf-8", fs.readFileSync(path.join(ROOT, "skill", "benefits-city", "SKILL.md")));
       if (pathname === "/docs") return send(res, 200, "text/html; charset=utf-8", agentsPage(ctx));
+      /* Programmatic SEO pages — each returns null (real 404) unless it has real offers. */
+      {
+        const seoHtml = (html: string | null) =>
+          html ? send(res, 200, "text/html; charset=utf-8", html) : send(res, 404, "text/html; charset=utf-8", notFoundPage(ctx));
+        if (pathname === "/banks") return seoHtml(banksIndexPage(ctx));
+        if (pathname === "/states") return seoHtml(statesIndexPage(ctx));
+        if (pathname === "/expiring-soon") return seoHtml(expiringPage(ctx));
+        const m = pathname.match(/^\/(banks|states|best)\/([A-Za-z0-9-]+)$/);
+        if (m) {
+          const html = m[1] === "banks" ? issuerPage(ctx, m[2]) : m[1] === "states" ? statePage(ctx, m[2]) : bestPage(ctx, m[2]);
+          return seoHtml(html);
+        }
+      }
       if (pathname === "/changelog") return send(res, 200, "text/html; charset=utf-8", changelogPage(ctx, changelog()));
       if (pathname === "/changelog.json")
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(changelogJson(ctx.publicUrl, changelog()), null, 2));
