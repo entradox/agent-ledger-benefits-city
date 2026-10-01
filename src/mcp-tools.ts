@@ -15,6 +15,7 @@ import { z } from "zod";
 import { expiringSoon, getBonusById, searchBonuses } from "./db.js";
 import { compareBonuses } from "./compare.js";
 import { recordMcpCall } from "./metrics.js";
+import { BONUS_TYPES, LIMITS, errorEnvelope } from "./contract.js";
 import { toPublic } from "./links.js";
 import { SERVER_VERSION, SKILL_URI } from "./meta.js";
 
@@ -24,10 +25,7 @@ function textResult(obj: unknown) {
 
 /** Typed error envelope agents can self-correct from: {error:{type,message,code?,param?}}. */
 function errorResult(type: string, message: string, param?: string, code?: string) {
-  const error: Record<string, string> = { type, message };
-  if (code) error.code = code;
-  if (param) error.param = param;
-  return { content: [{ type: "text" as const, text: JSON.stringify({ error }, null, 2) }], isError: true };
+  return { content: [{ type: "text" as const, text: JSON.stringify(errorEnvelope(type, message, param, code), null, 2) }], isError: true };
 }
 
 const SKILL_FILE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "skill", "benefits-city", "SKILL.md");
@@ -58,7 +56,7 @@ const bonusSchema = z.object({
   id: z.string(),
   bank_or_issuer: z.string(),
   product_name: z.string(),
-  bonus_type: z.enum(["bank_account", "credit_card", "savings"]),
+  bonus_type: z.enum(BONUS_TYPES),
   bonus_amount_usd: z.number(),
   bonus_points: z.number().nullable(),
   annual_fee_usd: z.number().nullable(),
@@ -188,7 +186,7 @@ export function createMcpServer(): McpServer {
         "Use when a user wants to find a US bank account, savings, or credit card signup bonus, or asks which offers are worth opening. Returns matching offers sorted by bonus value, highest first.",
       inputSchema: {
         bonus_type: z
-          .enum(["bank_account", "credit_card", "savings"])
+          .enum(BONUS_TYPES)
           .optional()
           .describe("Restrict to bank account bonuses, credit card signup bonuses, or savings account bonuses."),
         state: z
@@ -211,7 +209,7 @@ export function createMcpServer(): McpServer {
           .string()
           .optional()
           .describe("Keyword matched against bank/issuer and product name, e.g. 'Chase' or 'Sapphire'."),
-        limit: z.number().int().min(1).max(100).default(25).describe("Max results to return."),
+        limit: z.number().int().min(LIMITS.limit.min).max(LIMITS.limit.max).default(LIMITS.limit.default).describe("Max results to return."),
       },
       outputSchema: searchOutput,
       annotations: READ_ONLY_OPEN,
@@ -250,9 +248,9 @@ export function createMcpServer(): McpServer {
         days: z
           .number()
           .int()
-          .min(1)
-          .max(365)
-          .default(30)
+          .min(LIMITS.days.min)
+          .max(LIMITS.days.max)
+          .default(LIMITS.days.default)
           .describe("Lookahead window in days (default 30)."),
       },
       outputSchema: expiringOutput,
@@ -272,8 +270,8 @@ export function createMcpServer(): McpServer {
       inputSchema: {
         ids: z
           .array(z.string())
-          .min(2)
-          .max(4)
+          .min(LIMITS.ids.min)
+          .max(LIMITS.ids.max)
           .describe(
             "2 to 4 bonus ids to compare, e.g. ['chase-total-checking-400', 'sofi-checking-savings-400'].",
           ),

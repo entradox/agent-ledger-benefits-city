@@ -12,7 +12,7 @@ Both reviewers: isolated read-only subagents. Range 605c207..e42316c (Morgan, co
 
 ## Turing — PASS-WITH-CONDITIONS
 - I-1 agent.json endpoints root-relative (resolve outside /benefits) — FIXED: absolute URLs; BASE_PATH test now requests every advertised capability under the mount.
-- I-2 duplicated error envelope / limits — PARTIAL: new src/contract.ts (BONUS_TYPES, LIMITS, errorEnvelope) now used by REST, OpenAPI, db, seed; guard test ties every MCP search/expiring parameter NAME to REST. **MCP (src/mcp-tools.ts) still carries its own copy**: that file has uncommitted edits from another session (D-1530, ChatGPT plugin work); adopting contract.ts there is a small follow-up once D-1530 lands.
+- I-2 duplicated error envelope / limits — FIXED: src/contract.ts (BONUS_TYPES, LIMITS, errorEnvelope) is now used by MCP, REST, OpenAPI, db and seed; a guard test ties every MCP search/expiring parameter NAME to REST and checks the MCP schema bounds against LIMITS. (Initially partial while another session, D-1530, had uncommitted edits in mcp-tools.ts; closed once it landed.)
 - M-e (re-graded Important by effect: dead "View offer" links after Oct 6/Oct 14) — FIXED: page and feed link only currently-served offers.
 - Deferred minors: M-a REST stricter than MCP (state/query/min/distinct ids); M-b unknown/repeated params ignored (comment reworded); M-c non-matching /api/* paths return HTML 404; M-d restCompare maps any exception to 404; M-f changelog dates shape-only, positional ids, no feed <author>, no fail-fast at boot; M-g server-card drift test compares generator to itself; M-h discovery hits not recorded in metrics; M-i /.well-known files only under /benefits (origin-root proxy rule).
 
