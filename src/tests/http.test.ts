@@ -111,3 +111,16 @@ test("REST parity: /api/search, /api/expiring, /api/compare return public JSON; 
   assert.equal(nf.status, 404);
   assert.equal((await nf.json()).error.type, "not_found");
 });
+
+test("agent.json and server-card.json are served and consistent with the MCP endpoint", async () => {
+  const a = await fetch(url("/.well-known/agent.json"));
+  assert.equal(a.status, 200);
+  const aj = await a.json();
+  assert.equal(aj.mcp.url, `http://localhost:${PORT}/mcp`);
+  assert.equal(aj.auth.type, "none");
+  const c = await fetch(url("/.well-known/mcp/server-card.json"));
+  assert.equal(c.status, 200);
+  const cj = await c.json();
+  assert.equal(cj.tools.length, 6);
+  assert.equal(cj.authentication.required, false);
+});

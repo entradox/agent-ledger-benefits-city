@@ -29,3 +29,51 @@ export function authMd(publicUrl: string): string {
 - Apply links: use the \`apply_url\` field (our tracked link). When \`sponsored\` is true it is an affiliate link — see \`${publicUrl}/disclosure\`. Ranking never depends on commissions.
 `;
 }
+
+export function agentJson(publicUrl: string): object {
+  return {
+    schema_version: "1.0",
+    name: "Benefits City",
+    description:
+      "US bank-account, savings and credit-card signup bonuses, each checked against a named source, with expiry dates. Search, compare and time-check offers over MCP or REST.",
+    url: publicUrl,
+    api_base: `${publicUrl}/api`,
+    openapi: `${publicUrl}/openapi.json`,
+    mcp: { url: `${publicUrl}/mcp`, transport: "streamable-http", server_card: `${publicUrl}/.well-known/mcp/server-card.json` },
+    skill: `${publicUrl}/skill.md`,
+    docs: `${publicUrl}/agents`,
+    auth: {
+      type: "none",
+      description: `No credential is required; the API is open and read-only. See ${publicUrl}/auth.md.`,
+    },
+    pricing: { model: "free", amount_usd: 0, description: "Free. No signup, no API key, no paywall." },
+    capabilities: [
+      { id: "search_bonuses", description: "Search offers by type, state, minimum value, direct-deposit requirement or keyword; sorted by bonus value.", endpoint: "/api/search", method: "GET", free: true },
+      { id: "expiring_soon", description: "Offers whose stated expiry falls within the next N days, soonest first.", endpoint: "/api/expiring", method: "GET", free: true },
+      { id: "compare_bonuses", description: "Side-by-side comparison of 2 to 4 offers (?ids=a,b).", endpoint: "/api/compare", method: "GET", free: true },
+      { id: "get_bonus", description: "Full detail for one offer.", endpoint: "/api/bonuses/{id}", method: "GET", free: true },
+      { id: "bonuses_feed", description: "The full list of currently served offers.", endpoint: "/api/bonuses.json", method: "GET", free: true },
+      { id: "stats", description: "Live counts, combined headline value, and offers expiring soon.", endpoint: "/api/stats", method: "GET", free: true },
+    ],
+    contact: "bonuses@aiagentscity.com",
+    legal: "AI Agent City. Information only, not financial advice. Some Apply links may become affiliate links; see /disclosure.",
+  };
+}
+
+export function serverCard(
+  publicUrl: string,
+  tools: { name: string; description?: string; inputSchema: unknown }[],
+): object {
+  return {
+    serverInfo: { name: "Benefits City", version: SERVER_VERSION },
+    authentication: {
+      required: false,
+      schemes: [],
+      description: `No authentication. Connect to ${publicUrl}/mcp (Streamable HTTP). See ${publicUrl}/auth.md.`,
+    },
+    tools,
+    resources: [
+      { uri: SKILL_URI, name: "benefits-skill", mimeType: "text/markdown", description: "How to finish the job with Benefits City" },
+    ],
+  };
+}

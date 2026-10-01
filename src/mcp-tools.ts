@@ -5,6 +5,8 @@
  * (src/web-server.ts, POST /mcp) connect through this single tool definition,
  * so the contract can never drift between transports.
  */
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import fs from "node:fs";
 import path from "node:path";
@@ -184,4 +186,32 @@ export function createMcpServer(): McpServer {
   );
 
   return server;
+}
+
+export interface McpToolInfo {
+  name: string;
+  description?: string;
+  inputSchema: unknown;
+}
+
+let toolsCache: McpToolInfo[] | null = null;
+
+/** The live tool list, read from the real server over an in-memory MCP client. server-card.json and
+ *  the OpenAPI/docs are generated from this, so they cannot drift from what the server serves. */
+export async function describeMcpTools(): Promise<McpToolInfo[]> {
+  if (toolsCache) return toolsCache;
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  const server = createMcpServer();
+  await server.connect(a);
+  const client = new Client({ name: "manifest", version: "0" });
+  await client.connect(b);
+  const tools = (await client.listTools()).tools.map((t) => ({
+    name: t.name,
+    description: t.description,
+    inputSchema: t.inputSchema,
+  }));
+  await client.close();
+  await server.close();
+  toolsCache = tools;
+  return tools;
 }
