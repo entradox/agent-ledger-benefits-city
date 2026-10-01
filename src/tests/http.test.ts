@@ -136,3 +136,35 @@ test("/openapi.json is served and EVERY documented path really exists (no doc/ro
     assert.ok([200, 302].includes(res.status), `${p} -> ${res.status}`);
   }
 });
+
+test("/skill.md is the product skill; /docs is the agent docs page", async () => {
+  const s = await fetch(url("/skill.md"));
+  assert.equal(s.status, 200);
+  assert.match(s.headers.get("content-type") ?? "", /text\/markdown/);
+  assert.match(await s.text(), /^---\nname: benefits-city/);
+  const d = await fetch(url("/docs"));
+  assert.equal(d.status, 200);
+  assert.match(await d.text(), /For agents/);
+});
+
+test("BASE_PATH mount: new routes live under the prefix and 404 outside it", async () => {
+  const PORT2 = PORT + 1000;
+  const child2 = spawn(process.execPath, ["dist/web-server.js"], {
+    env: { ...process.env, PORT: String(PORT2), BONUS_DB_PATH: dbFile, BASE_PATH: "/benefits", PUBLIC_URL: `http://localhost:${PORT2}/benefits` },
+    stdio: "ignore",
+  });
+  try {
+    const u2 = (p: string) => `http://localhost:${PORT2}${p}`;
+    for (let i = 0; i < 50; i++) {
+      try { if ((await fetch(u2("/benefits/healthz"))).ok) break; } catch { /* not up */ }
+      await new Promise((r) => setTimeout(r, 100));
+    }
+    for (const p of ["/skill.md", "/docs", "/openapi.json", "/.well-known/agent.json", "/.well-known/mcp/server-card.json", "/api/search"])
+      assert.equal((await fetch(u2(`/benefits${p}`))).status, 200, p);
+    assert.equal((await fetch(u2("/skill.md"))).status, 404);
+    const aj = await (await fetch(u2("/benefits/.well-known/agent.json"))).json();
+    assert.equal(aj.mcp.url, `http://localhost:${PORT2}/benefits/mcp`);
+  } finally {
+    child2.kill();
+  }
+});

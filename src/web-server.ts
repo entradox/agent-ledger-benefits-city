@@ -323,6 +323,9 @@ const server = http.createServer((req, res) => {
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(serverJson(ctx.publicUrl), null, 2));
       if (pathname === "/auth.md")
         return send(res, 200, "text/markdown; charset=utf-8", authMd(ctx.publicUrl));
+      if (pathname === "/skill.md")
+        return send(res, 200, "text/markdown; charset=utf-8", fs.readFileSync(path.join(ROOT, "skill", "benefits-city", "SKILL.md")));
+      if (pathname === "/docs") return send(res, 200, "text/html; charset=utf-8", agentsPage(ctx));
       if (pathname === "/openapi.json")
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(openapiJson(ctx.publicUrl), null, 2));
       if (pathname === "/.well-known/agent.json")
