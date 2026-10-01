@@ -8,6 +8,7 @@ const db = await setupDb([
   makeBonus({ id: "chase-b", bank_or_issuer: "Chase", product_name: "Freedom Flex", bonus_type: "credit_card", bonus_amount_usd: 250, expiry_date: null }),
   makeBonus({ id: "boa-a", bank_or_issuer: "Bank of America", product_name: "Advantage Plus", bonus_amount_usd: 300, expiry_date: iso(100) }),
   makeBonus({ id: "truist-a", bank_or_issuer: "Truist", product_name: "One Checking", bonus_amount_usd: 500, states_available: ["TX", "FL"], expiry_date: iso(200) }),
+  makeBonus({ id: "tx-only", bank_or_issuer: "Lone Star CU", product_name: "Checking", bonus_amount_usd: 150, states_available: ["TX"], expiry_date: iso(50) }),
   makeBonus({ id: "barc-a", bank_or_issuer: "Barclays", product_name: "Tiered Savings", bonus_type: "savings", bonus_amount_usd: 200, expiry_date: iso(25) }),
   makeBonus({ id: "evil-a", bank_or_issuer: "Evil </script><b>Bank", product_name: "X</script>", bonus_amount_usd: 100, expiry_date: iso(60) }),
   makeBonus({ id: "amex-a", bank_or_issuer: "Amex", product_name: "Platinum", bonus_type: "credit_card", bonus_amount_usd: 2000, expiry_date: iso(300) }),
@@ -30,7 +31,7 @@ test("slugify is stable and URL-safe", () => {
 
 test("issuer groups: served offers only, grouped by issuer, sorted by name", () => {
   const g = seo.issuerGroups();
-  assert.deepEqual(g.map((x) => x.slug), ["amex", "bank-of-america", "barclays", "chase", "evil-script-b-bank", "truist"]);
+  assert.deepEqual(g.map((x) => x.slug), ["amex", "bank-of-america", "barclays", "chase", "evil-script-b-bank", "lone-star-cu", "truist"]);
   assert.equal(seo.issuerBySlug("chase")!.offers.length, 2);
   assert.equal(seo.issuerBySlug("deadbank"), null); // expired-only issuer has no page
   assert.equal(seo.issuerBySlug("nope"), null);
@@ -39,7 +40,7 @@ test("issuer groups: served offers only, grouped by issuer, sorted by name", () 
 test("state pages exist ONLY for states with a regional offer (no duplicate nationwide pages)", () => {
   assert.deepEqual(seo.regionalStates().map((s) => s.code).sort(), ["FL", "TX"]);
   const tx = seo.stateOffers("tx")!;
-  assert.deepEqual(tx.regional.map((b) => b.id), ["truist-a"]);
+  assert.deepEqual(tx.regional.map((b) => b.id), ["truist-a", "tx-only"]);
   assert.ok(tx.nationwide.length >= 3);
   assert.equal(seo.stateOffers("CA"), null);
   assert.equal(seo.stateOffers("ZZ"), null);
@@ -56,6 +57,7 @@ test("seoPaths lists exactly the pages that really exist (and no empty ones)", (
   for (const p of ["/banks", "/banks/chase", "/states", "/states/tx", "/best/bank-account", "/best/credit-card", "/best/savings", "/expiring-soon"])
     assert.ok(paths.includes(p), p);
   assert.ok(!paths.includes("/banks/deadbank") && !paths.includes("/states/ca"));
+  assert.ok(!paths.includes("/states/fl"), "FL has one regional offer: its page exists for users but is not advertised to search engines");
   assert.equal(new Set(paths).size, paths.length);
 });
 
@@ -145,6 +147,17 @@ test("Morgan C6: an issuer page whose top offer is a card keeps the 'estimated v
   const html = pages.issuerPage(ctx, "amex")!;
   const desc = html.match(/<meta name="description" content="([^"]*)"/)![1];
   assert.match(desc, /estimated value/i);
+});
+
+test("duplicate-content guard: a state page is indexable only with >=2 regional offers AND a regional set no other state shares", () => {
+  const idx = seo.indexableStates().map((s) => s.code);
+  assert.deepEqual(idx, ["TX"]);
+  const tx = pages.statePage(ctx, "tx")!;
+  assert.doesNotMatch(tx, /<meta name="robots"/);
+  const fl = pages.statePage(ctx, "fl")!; // exists for users...
+  assert.match(fl, /<meta name="robots" content="noindex,follow">/); // ...but is kept out of the index
+  assert.ok(!seo.seoPaths().includes("/states/fl"));
+  assert.ok(seo.seoPaths().includes("/states")); // hub advertised because at least one state page is indexable
 });
 
 test("zero-offer state of the world: no empty index pages are advertised", async () => {

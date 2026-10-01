@@ -77,6 +77,18 @@ export function regionalStates(): RegionalState[] {
     .sort((a, b) => a.code.localeCompare(b.code));
 }
 
+/** Duplicate-content guard. A state page is worth a search engine's attention only when it adds something the
+ *  others don't: at least 2 regional offers AND a regional set that no other state shares (otherwise 6 states
+ *  that all share one offer would be 6 near-identical pages differing only by the state's name). The other state
+ *  pages still exist for visitors (and are linked from /states) but are noindex and out of the sitemap. */
+export function indexableStates(): RegionalState[] {
+  const all = regionalStates();
+  const key = (s: RegionalState) => s.offers.map((o) => o.id).sort().join("|");
+  const counts = new Map<string, number>();
+  for (const s of all) counts.set(key(s), (counts.get(key(s)) ?? 0) + 1);
+  return all.filter((s) => s.offers.length >= 2 && counts.get(key(s)) === 1);
+}
+
 export function stateOffers(code: string): { code: string; name: string; regional: Bonus[]; nationwide: Bonus[] } | null {
   const up = code.toUpperCase();
   const st = regionalStates().find((s) => s.code === up);
@@ -107,7 +119,7 @@ export function seoPaths(): string[] {
   const groups = issuerGroups();
   if (groups.length === 0) return [];
   const paths = ["/banks", ...groups.map((g) => `/banks/${g.slug}`)];
-  const states = regionalStates();
+  const states = indexableStates();
   if (states.length) paths.push("/states", ...states.map((s) => `/states/${s.code.toLowerCase()}`));
   for (const slug of Object.keys(BEST_TYPES)) if (bestOffers(slug)) paths.push(`/best/${slug}`);
   if (expiringWithin30().length) paths.push("/expiring-soon");

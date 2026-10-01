@@ -5,7 +5,7 @@
  * markup would misrepresent the page.
  */
 import {
-  BEST_TYPES, bestOffers, expiringWithin30, issuerBySlug, issuerGroups, regionalStates, stateOffers,
+  BEST_TYPES, bestOffers, expiringWithin30, indexableStates, issuerBySlug, issuerGroups, regionalStates, stateOffers,
 } from "./seo.js";
 import { checkRange } from "./checks.js";
 import { listAll } from "./db.js";
@@ -18,6 +18,8 @@ import type { Bonus } from "./types.js";
 function ldScript(obj: unknown): string {
   return `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, "\\u003c")}</script>`;
 }
+
+const NOINDEX = `<meta name="robots" content="noindex,follow">`;
 
 function base(ctx: SiteContext): string {
   return ctx.publicUrl.replace(/\/+$/, "");
@@ -80,8 +82,9 @@ function page(
   offers: Bonus[],
   crumbs: [string, string][],
   extraSections = "",
+  noindex = false,
 ): string {
-  const ld = ldScript(itemList(ctx, h1, offers)) + "\n" + ldScript(breadcrumb(ctx, crumbs));
+  const ld = ldScript(itemList(ctx, h1, offers)) + "\n" + ldScript(breadcrumb(ctx, crumbs)) + (noindex ? `\n${NOINDEX}` : "");
   const body = `<div class="wrap"><div class="page-head">
     <div class="crumb"><a href="${bp(ctx, "/")}">Home</a>${crumbs.map(([n, c]) => ` · <a href="${bp(ctx, c)}">${esc(n)}</a>`).join("")}</div>
     <h1>${esc(h1)}</h1>
@@ -131,7 +134,7 @@ export function statesIndexPage(ctx: SiteContext): string | null {
   const rows = states
     .map((s) => `<li><a href="${bp(ctx, `/states/${s.code.toLowerCase()}`)}"><strong>${esc(s.name)}</strong></a> — ${plural(s.offers.length, "regional offer", "regional offers")}</li>`)
     .join("");
-  const ld = ldScript(breadcrumb(ctx, [["Bonuses by state", "/states"]]));
+  const ld = ldScript(breadcrumb(ctx, [["Bonuses by state", "/states"]])) + (indexableStates().length ? "" : `\n${NOINDEX}`);
   const body = `<div class="wrap"><div class="page-head">
     <div class="crumb"><a href="${bp(ctx, "/")}">Home</a> · Bonuses by state</div>
     <h1>Bank bonuses that depend on where you live</h1>
@@ -153,6 +156,8 @@ export function statePage(ctx: SiteContext, code: string): string | null {
     `${plural(s.regional.length, "offer is", "offers are")} limited to ${esc(s.name)} (shown first). The rest are nationwide and also available there. ${factLine(all)}`,
     all,
     [["Bonuses by state", "/states"], [s.name, `/states/${s.code.toLowerCase()}`]],
+    "",
+    !indexableStates().some((x) => x.code === s.code),
   );
 }
 
