@@ -39,6 +39,7 @@ import { fileURLToPath } from "node:url";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { getBonusById, listAll } from "./db.js";
 import { resolveApplyUrl, toPublic } from "./links.js";
+import { openapiJson } from "./openapi.js";
 import { restById, restCompare, restExpiring, restSearch, type RestResult } from "./rest.js";
 import { API_VERSION, SERVER_VERSION, agentJson, authMd, serverCard, serverJson } from "./meta.js";
 import { createMcpServer, describeMcpTools } from "./mcp-tools.js";
@@ -322,6 +323,8 @@ const server = http.createServer((req, res) => {
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(serverJson(ctx.publicUrl), null, 2));
       if (pathname === "/auth.md")
         return send(res, 200, "text/markdown; charset=utf-8", authMd(ctx.publicUrl));
+      if (pathname === "/openapi.json")
+        return send(res, 200, "application/json; charset=utf-8", JSON.stringify(openapiJson(ctx.publicUrl), null, 2));
       if (pathname === "/.well-known/agent.json")
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(agentJson(ctx.publicUrl), null, 2));
       if (pathname === "/.well-known/mcp/server-card.json")

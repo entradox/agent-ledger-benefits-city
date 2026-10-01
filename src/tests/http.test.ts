@@ -124,3 +124,15 @@ test("agent.json and server-card.json are served and consistent with the MCP end
   assert.equal(cj.tools.length, 6);
   assert.equal(cj.authentication.required, false);
 });
+
+test("/openapi.json is served and EVERY documented path really exists (no doc/route drift)", async () => {
+  const r = await fetch(url("/openapi.json"));
+  assert.equal(r.status, 200);
+  const doc = await r.json();
+  assert.equal(doc.servers[0].url, `http://localhost:${PORT}`);
+  for (const p of Object.keys(doc.paths)) {
+    const concrete = p.replace("{id}", "live-plain") + (p === "/api/compare" ? "?ids=live-plain,live-aff" : "");
+    const res = await fetch(url(concrete), { redirect: "manual" });
+    assert.ok([200, 302].includes(res.status), `${p} -> ${res.status}`);
+  }
+});
