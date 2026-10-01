@@ -203,3 +203,27 @@ test("SEO pages: real pages 200 with canonical + JSON-LD; empty/unknown are real
   assert.ok(sm.includes("/banks/test-bank") && sm.includes("/best/bank-account"));
   assert.ok(!sm.includes("/states") && !sm.includes("/best/savings"));
 });
+
+test("citation surfaces: insights JSON, ai-plugin manifest (every canonical URL is a real route), badge.svg", async () => {
+  const ins = await fetch(url("/api/insights"));
+  assert.equal(ins.status, 200);
+  const ij = await ins.json();
+  assert.equal(ij.total_offers, 3);
+  assert.match(ij.attribution, /Benefits City/);
+
+  const mf = await fetch(url("/.well-known/ai-plugin-manifest.json"));
+  assert.equal(mf.status, 200);
+  const m = await mf.json();
+  assert.ok(m.when_to_cite.length > 0 && m.not_the_right_citation_for.length > 0);
+  for (const [k, u] of Object.entries<string>(m.canonical_data)) {
+    if (k === "mcp") continue; // POST-only
+    assert.ok(u.startsWith(`http://localhost:${PORT}/`), `${k} -> ${u}`);
+    const code = (await fetch(u.replace("{id}", "live-plain"))).status;
+    assert.ok(code !== 404 && code < 500, `${k} ${u} -> ${code}`);
+  }
+
+  const b = await fetch(url("/badge.svg"));
+  assert.equal(b.status, 200);
+  assert.match(b.headers.get("content-type") ?? "", /image\/svg\+xml/);
+  assert.match(await b.text(), /3 offers/);
+});

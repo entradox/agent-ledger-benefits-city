@@ -101,6 +101,13 @@ export function openapiJson(publicUrl: string): object {
           responses: { "200": { description: "All offers", content: json(bonusArray) } },
         },
       },
+      "/api/insights": {
+        get: {
+          operationId: "getInsights",
+          summary: "Original statistics computed live from the served offers (counts, medians, shares) with denominators and an as_of date",
+          responses: { "200": { description: "Insights", content: json({ type: "object", additionalProperties: true }) } },
+        },
+      },
       "/api/stats": {
         get: {
           operationId: "getStats",

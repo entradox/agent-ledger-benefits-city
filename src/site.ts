@@ -540,6 +540,11 @@ GET ${ctx.publicUrl}/api                # service descriptor`))}
     <p>Manifests: <a href="${bp(ctx, "/.well-known/agent.json")}"><code>/.well-known/agent.json</code></a> · <a href="${bp(ctx, "/.well-known/mcp/server-card.json")}"><code>/.well-known/mcp/server-card.json</code></a> · skill: <a href="${bp(ctx, "/skill.md")}"><code>/skill.md</code></a> · what changed: <a href="${bp(ctx, "/changelog")}"><code>/changelog</code></a> (<a href="${bp(ctx, "/changelog.json")}">JSON</a>, <a href="${bp(ctx, "/feed.xml")}">Atom</a>).</p>
     ${code("Example", esc(`curl -s ${ctx.publicUrl}/api/stats`))}
 
+    <h2 id="cite">Cite and embed</h2>
+    <p>Original statistics (counts, medians, shares — each with its denominator and a data date) are at <a href="${bp(ctx, "/api/insights")}"><code>/api/insights</code></a>. When to cite this dataset, and when not to, is machine-readable at <a href="${bp(ctx, "/.well-known/ai-plugin-manifest.json")}"><code>/.well-known/ai-plugin-manifest.json</code></a>. Suggested attribution: <em>Source: Benefits City (${esc(ctx.publicUrl)}), data as of {as_of}</em>.</p>
+    <p><strong>Embed the live badge</strong> on your own page:</p>
+    ${code("HTML", esc(`<a href="${ctx.publicUrl}/"><img src="${ctx.publicUrl}/badge.svg" alt="Benefits City: live count of verified signup bonuses" height="22"></a>`))}
+
     <h2 id="llms">llms.txt</h2>
     <p>Crawlers and agents that prefer a single manifest: <a href="${bp(ctx, "/llms.txt")}"><code>${esc(ctx.publicUrl)}/llms.txt</code></a> describes the service, feeds, MCP endpoint, and data schema.</p>
 
@@ -723,6 +728,10 @@ Every record carries source_url and last_verified_date. Card point values are es
 - MCP server card: ${ctx.publicUrl}/.well-known/mcp/server-card.json
 - Skill (markdown): ${ctx.publicUrl}/skill.md
 - Changelog: ${ctx.publicUrl}/changelog  (JSON: /changelog.json, Atom: /feed.xml)
+- Citable statistics: ${ctx.publicUrl}/api/insights
+- When to cite: ${ctx.publicUrl}/.well-known/ai-plugin-manifest.json
+- Badge: ${ctx.publicUrl}/badge.svg
+- Pages: ${ctx.publicUrl}/banks , /states , /best/bank-account , /best/credit-card , /best/savings , /expiring-soon
 - REST: ${ctx.publicUrl}/api/search , /api/expiring , /api/compare?ids=a,b
 - Credentials (none required): ${ctx.publicUrl}/auth.md
 

@@ -48,3 +48,12 @@ test("M-e: changelog page links only offers that are currently served", async ()
   assert.ok(!html.includes("/bonuses/long-gone-offer"));
   assert.ok(html.includes("T-b")); // the entry itself still shows; only the dead link is dropped
 });
+
+test("agents page offers an embeddable badge snippet that links back to the site", async () => {
+  const { agentsPage } = await import("../site.js");
+  const ctx = { basePath: "/benefits", publicUrl: "https://aiagentscity.com/benefits" };
+  const html = agentsPage(ctx);
+  assert.ok(html.includes("/badge.svg"));
+  assert.ok(html.includes("Embed the live badge"));
+  assert.ok(html.includes("/api/insights"));
+});

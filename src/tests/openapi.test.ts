@@ -24,7 +24,7 @@ test("every agent.json capability endpoint is documented, and every path declare
     if (p === "/go/{id}") continue; // redirect
     const responses = item.get.responses;
     assert.ok(responses["200"], `${p} 200`);
-    if (p !== "/api/bonuses.json" && p !== "/api/stats") assert.ok(responses["400"] || responses["404"], `${p} error response`);
+    if (!["/api/bonuses.json", "/api/stats", "/api/insights"].includes(p)) assert.ok(responses["400"] || responses["404"], `${p} error response`);
   }
   assert.equal(doc.components.schemas.Error.properties.error.required.includes("type"), true);
 });

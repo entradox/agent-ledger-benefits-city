@@ -40,10 +40,12 @@ import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/
 import { getBonusById, listAll } from "./db.js";
 import { resolveApplyUrl, toPublic } from "./links.js";
 import { changelog, changelogAtom, changelogJson } from "./changelog.js";
+import { badgeSvg } from "./badge.js";
+import { insights } from "./insights.js";
 import { openapiJson } from "./openapi.js";
 import { banksIndexPage, bestPage, expiringPage, issuerPage, statePage, statesIndexPage } from "./seo-pages.js";
 import { restById, restCompare, restExpiring, restSearch, type RestResult } from "./rest.js";
-import { API_VERSION, SERVER_VERSION, agentJson, authMd, serverCard, serverJson } from "./meta.js";
+import { API_VERSION, SERVER_VERSION, agentJson, aiPluginManifest, authMd, serverCard, serverJson } from "./meta.js";
 import { createMcpServer, describeMcpTools } from "./mcp-tools.js";
 import {
   closeMetrics,
@@ -347,6 +349,23 @@ const server = http.createServer((req, res) => {
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(changelogJson(ctx.publicUrl, changelog()), null, 2));
       if (pathname === "/feed.xml")
         return send(res, 200, "application/atom+xml; charset=utf-8", changelogAtom(ctx.publicUrl, changelog()));
+      if (pathname === "/.well-known/ai-plugin-manifest.json")
+        return send(res, 200, "application/json; charset=utf-8", JSON.stringify(aiPluginManifest(ctx.publicUrl), null, 2));
+      if (pathname === "/badge.svg") {
+        const all = listAll();
+        const dates = all.map((b) => b.last_verified_date).filter((d): d is string => Boolean(d)).sort();
+        res.writeHead(200, {
+          "content-type": "image/svg+xml; charset=utf-8",
+          "access-control-allow-origin": "*",
+          "cache-control": "public, max-age=3600",
+          "x-api-version": API_VERSION,
+        });
+        return res.end(badgeSvg(all.length, dates.length ? dates[dates.length - 1] : null));
+      }
+      if (pathname === "/api/insights") {
+        recordFeedHit(req, "api/insights");
+        return send(res, 200, "application/json; charset=utf-8", JSON.stringify(insights(), null, 2));
+      }
       if (pathname === "/openapi.json")
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(openapiJson(ctx.publicUrl), null, 2));
       if (pathname === "/.well-known/agent.json")
