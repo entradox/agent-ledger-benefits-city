@@ -27,7 +27,7 @@ test("tools list includes docs + examples; outputs are public-shaped and never e
   const names = (await c.listTools()).tools.map((t) => t.name);
   for (const n of ["search_bonuses", "get_bonus", "expiring_soon", "compare_bonuses", "benefits_api_docs", "benefits_examples"])
     assert.ok(names.includes(n), n);
-  const res = JSON.parse(text(await c.callTool({ name: "search_bonuses", arguments: {} })));
+  const res = JSON.parse(text(await c.callTool({ name: "search_bonuses", arguments: {} }))).bonuses;
   assert.deepEqual(res.map((r: { id: string }) => r.id), ["one", "two"]); // expired 'old' absent
   assert.equal(res[0].sponsored, true);
   assert.equal(res[0].apply_url, "https://aiagentscity.com/benefits/go/one");
@@ -49,7 +49,7 @@ test("errors use the typed envelope", async () => {
 test("docs/examples tools and the skill resource are served", async () => {
   const c = await connect();
   assert.match(text(await c.callTool({ name: "benefits_api_docs", arguments: {} })), /search_bonuses/);
-  const ex = JSON.parse(text(await c.callTool({ name: "benefits_examples", arguments: {} })));
+  const ex = JSON.parse(text(await c.callTool({ name: "benefits_examples", arguments: {} }))).examples;
   assert.ok(Array.isArray(ex) && ex.length >= 3 && ex[0].tool);
   const skill = await c.readResource({ uri: "skill://benefits-city/benefits-city/SKILL.md" });
   assert.match((skill.contents[0] as { text: string }).text, /^---\nname: benefits-city/);

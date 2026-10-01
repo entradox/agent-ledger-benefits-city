@@ -32,6 +32,105 @@ function errorResult(type: string, message: string, param?: string, code?: strin
 
 const SKILL_FILE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "skill", "benefits-city", "SKILL.md");
 
+/* ---- OpenAI plugin tool metadata ------------------------------------------------------------
+ * ChatGPT plugin review requires a `title` and three safety hints per tool, and recommends an
+ * output schema so the model and the reviewer can see the result shape without calling it.
+ *
+ * readOnlyHint  — every tool here fetches/looks up/computes. None creates, updates, deletes,
+ *                 sends, enqueues or logs. So true for all six, and destructiveHint false for all
+ *                 six (no irreversible side effect exists on this server).
+ * openWorldHint — true: results describe public US banking offers sourced from issuers and
+ *                 aggregators on the open internet. Per ChatGPT's own worked example, web search is
+ *                 openWorldHint:true even though it is read-only, so readOnly does NOT imply
+ *                 bounded. This is the counter-intuitive one and it is deliberate.
+ * ------------------------------------------------------------------------------------------- */
+const READ_ONLY_OPEN = {
+  readOnlyHint: true,
+  openWorldHint: true,
+  destructiveHint: false,
+} as const;
+
+/**
+ * Shape of one public offer as returned by toPublic(). Mirrors the OpenAPI Bonus schema, which a
+ * test asserts lists EXACTLY the fields toPublic returns — so this must stay exact, not approximate.
+ */
+const bonusSchema = z.object({
+  id: z.string(),
+  bank_or_issuer: z.string(),
+  product_name: z.string(),
+  bonus_type: z.enum(["bank_account", "credit_card", "savings"]),
+  bonus_amount_usd: z.number(),
+  bonus_points: z.number().nullable(),
+  annual_fee_usd: z.number().nullable(),
+  requirements: z.array(z.string()),
+  min_deposit_usd: z.number().nullable(),
+  direct_deposit_required: z.boolean(),
+  expiry_date: z.string().nullable(),
+  states_available: z.union([z.string(), z.array(z.string())]),
+  application_url: z.string().nullable(),
+  source_url: z.string().nullable(),
+  last_verified_date: z.string().nullable(),
+  offer_history: z.array(
+    z.object({
+      amount_usd: z.number(),
+      valid_from: z.string().nullable(),
+      valid_to: z.string().nullable(),
+    }),
+  ),
+  verification: z
+    .object({
+      method: z.enum(["issuer_page", "aggregator_consensus"]),
+      verified_at: z.string(),
+      sources: z.array(z.string()),
+    })
+    .nullable(),
+  status: z.enum(["active", "expired", "needs_review"]),
+  eligibility: z
+    .object({
+      new_to_bank: z.boolean().nullable(),
+      once_per_lifetime: z.boolean().nullable(),
+      cooldown_months: z.number().nullable(),
+      issuer_rules: z.array(z.string()),
+    })
+    .nullable(),
+  sponsored: z.boolean(),
+  /** OUR tracked /go/:id link. The raw affiliate URL is never published. */
+  apply_url: z.string().nullable(),
+  disclosure_url: z.string(),
+});
+
+const searchOutput = z.object({ bonuses: z.array(bonusSchema) });
+const singleOutput = z.object({ bonus: bonusSchema });
+const expiringOutput = z.object({ bonuses: z.array(bonusSchema) });
+const compareOutput = z.object({
+  bonuses: z.array(bonusSchema),
+  summary: z.object({
+    highest_bonus_usd: z.string(),
+    earliest_expiry: z.string().nullable(),
+  }),
+});
+const examplesOutput = z.object({
+  examples: z.array(
+    z.object({ title: z.string(), tool: z.string(), arguments: z.record(z.string(), z.unknown()) }),
+  ),
+});
+const docsOutput = z.object({ docs: z.string() });
+
+/**
+ * A tool result that satisfies BOTH audiences.
+ *
+ * The SDK refuses a tool that declares `outputSchema` but returns no `structuredContent`, so the
+ * structured form is mandatory. The text form is kept because it preserves the exact readable
+ * payload every existing caller and test already consumes — dropping it would be a gratuitous
+ * breaking change for anything that just prints `content[0].text`.
+ */
+function structured<T extends Record<string, unknown>>(obj: T) {
+  return {
+    structuredContent: obj,
+    content: [{ type: "text" as const, text: JSON.stringify(obj, null, 2) }],
+  };
+}
+
 const API_DOCS = `# Benefits City MCP
 Tools: search_bonuses(bonus_type?, state?, min_bonus_amount_usd?, direct_deposit_required?, query?, limit?),
 get_bonus(id), expiring_soon(days?), compare_bonuses(ids[2..4]), benefits_api_docs(), benefits_examples().
@@ -81,99 +180,140 @@ function timed<A extends Record<string, unknown>, R>(
 export function createMcpServer(): McpServer {
   const server = new McpServer({ name: "benefits-city", version: SERVER_VERSION });
 
-  server.tool(
+  server.registerTool(
     "search_bonuses",
-    "Search US bank account opening bonuses and credit card signup bonuses. Returns matching offers sorted by bonus amount (highest first).",
     {
-      bonus_type: z
-        .enum(["bank_account", "credit_card", "savings"])
-        .optional()
-        .describe("Restrict to bank account bonuses, credit card signup bonuses, or savings account bonuses."),
-      state: z
-        .string()
-        .optional()
-        .describe(
-          "2-letter US state code, e.g. 'TX'. Nationwide offers always match; regional offers match only their states.",
-        ),
-      min_bonus_amount_usd: z
-        .number()
-        .optional()
-        .describe(
-          "Minimum bonus value in USD. For credit cards this is the estimated USD value of the points/miles bonus.",
-        ),
-      direct_deposit_required: z
-        .boolean()
-        .optional()
-        .describe("Filter on whether the bonus requires a qualifying direct deposit."),
-      query: z
-        .string()
-        .optional()
-        .describe("Keyword matched against bank/issuer and product name, e.g. 'Chase' or 'Sapphire'."),
-      limit: z.number().int().min(1).max(100).default(25).describe("Max results to return."),
+      title: "Search bank and credit card signup bonuses",
+      description:
+        "Use when a user wants to find a US bank account, savings, or credit card signup bonus, or asks which offers are worth opening. Returns matching offers sorted by bonus value, highest first.",
+      inputSchema: {
+        bonus_type: z
+          .enum(["bank_account", "credit_card", "savings"])
+          .optional()
+          .describe("Restrict to bank account bonuses, credit card signup bonuses, or savings account bonuses."),
+        state: z
+          .string()
+          .optional()
+          .describe(
+            "2-letter US state code, e.g. 'TX'. Nationwide offers always match; regional offers match only their states.",
+          ),
+        min_bonus_amount_usd: z
+          .number()
+          .optional()
+          .describe(
+            "Minimum bonus value in USD. For credit cards this is the estimated USD value of the points/miles bonus.",
+          ),
+        direct_deposit_required: z
+          .boolean()
+          .optional()
+          .describe("Filter on whether the bonus requires a qualifying direct deposit."),
+        query: z
+          .string()
+          .optional()
+          .describe("Keyword matched against bank/issuer and product name, e.g. 'Chase' or 'Sapphire'."),
+        limit: z.number().int().min(1).max(100).default(25).describe("Max results to return."),
+      },
+      outputSchema: searchOutput,
+      annotations: READ_ONLY_OPEN,
     },
-    timed("search_bonuses", async (args) => textResult(searchBonuses(args).map(toPublic))),
+    timed("search_bonuses", async (args) =>
+      structured({ bonuses: searchBonuses(args).map(toPublic) }),
+    ),
   );
 
-  server.tool(
+  server.registerTool(
     "get_bonus",
-    "Get the full detail of one bonus offer: requirements, minimum deposit, expiry date, state availability, application and source URLs, and the date the terms were last verified.",
     {
-      id: z.string().describe("Bonus id, e.g. 'chase-total-checking-400'. Use search_bonuses to find ids."),
+      title: "Get one bonus offer in full",
+      description:
+        "Use before recommending an offer, to read its exact requirements, minimum deposit, direct-deposit rules, expiry date, state availability and the date its terms were last verified. Quote the requirements rather than paraphrasing money amounts.",
+      inputSchema: {
+        id: z.string().describe("Bonus id, e.g. 'chase-total-checking-400'. Use search_bonuses to find ids."),
+      },
+      outputSchema: singleOutput,
+      annotations: READ_ONLY_OPEN,
     },
     timed("get_bonus", async ({ id }) => {
       const bonus = getBonusById(id);
       if (!bonus) return errorResult("not_found", `Unknown bonus id: ${id}`, "id");
-      return textResult(toPublic(bonus));
+      return structured({ bonus: toPublic(bonus) });
     }),
   );
 
-  server.tool(
+  server.registerTool(
     "expiring_soon",
-    "List bonus offers whose stated expiry date falls within the next N days, soonest expiry first. Offers with no stated end date are not included.",
     {
-      days: z
-        .number()
-        .int()
-        .min(1)
-        .max(365)
-        .default(30)
-        .describe("Lookahead window in days (default 30)."),
+      title: "List bonuses expiring soon",
+      description:
+        "Use when timing matters — a user asking what is about to end, or whether to act now. Offers with no stated end date are never included here.",
+      inputSchema: {
+        days: z
+          .number()
+          .int()
+          .min(1)
+          .max(365)
+          .default(30)
+          .describe("Lookahead window in days (default 30)."),
+      },
+      outputSchema: expiringOutput,
+      annotations: READ_ONLY_OPEN,
     },
-    timed("expiring_soon", async ({ days }) => textResult(expiringSoon(days).map(toPublic))),
+    timed("expiring_soon", async ({ days }) =>
+      structured({ bonuses: expiringSoon(days).map(toPublic) }),
+    ),
   );
 
-  server.tool(
+  server.registerTool(
     "compare_bonuses",
-    "Compare 2-4 bonus offers side by side. Returns each offer's key fields plus a summary naming the highest bonus and the earliest expiry.",
     {
-      ids: z
-        .array(z.string())
-        .min(2)
-        .max(4)
-        .describe("2 to 4 bonus ids to compare, e.g. ['chase-total-checking-400', 'sofi-checking-savings-400']."),
+      title: "Compare 2-4 bonuses side by side",
+      description:
+        "Use when a user is choosing between specific offers. Returns each offer's key fields plus a summary naming the highest bonus and the earliest expiry.",
+      inputSchema: {
+        ids: z
+          .array(z.string())
+          .min(2)
+          .max(4)
+          .describe(
+            "2 to 4 bonus ids to compare, e.g. ['chase-total-checking-400', 'sofi-checking-savings-400'].",
+          ),
+      },
+      outputSchema: compareOutput,
+      annotations: READ_ONLY_OPEN,
     },
     timed("compare_bonuses", async ({ ids }) => {
       try {
         const r = compareBonuses(ids);
-        return textResult({ ...r, bonuses: r.bonuses.map(toPublic) });
+        return structured({ ...r, bonuses: r.bonuses.map(toPublic) });
       } catch (err) {
         return errorResult("not_found", (err as Error).message, "ids");
       }
     }),
   );
 
-  server.tool(
+  server.registerTool(
     "benefits_api_docs",
-    "Self-serve documentation for this server: tools, record fields, ordering guarantees, error format.",
-    {},
-    timed("benefits_api_docs", async () => ({ content: [{ type: "text" as const, text: API_DOCS }] })),
+    {
+      title: "Read this server's documentation",
+      description:
+        "Use when you need field definitions, ordering guarantees or the error format before calling another tool.",
+      inputSchema: {},
+      outputSchema: docsOutput,
+      annotations: READ_ONLY_OPEN,
+    },
+    timed("benefits_api_docs", async () => structured({ docs: API_DOCS })),
   );
 
-  server.tool(
+  server.registerTool(
     "benefits_examples",
-    "Runnable example tool calls (title, tool, arguments) an agent can copy.",
-    {},
-    timed("benefits_examples", async () => textResult(EXAMPLES)),
+    {
+      title: "Get runnable example calls",
+      description: "Use to copy a working example call instead of guessing tool arguments.",
+      inputSchema: {},
+      outputSchema: examplesOutput,
+      annotations: READ_ONLY_OPEN,
+    },
+    timed("benefits_examples", async () => structured({ examples: EXAMPLES })),
   );
 
   server.resource(
@@ -190,8 +330,11 @@ export function createMcpServer(): McpServer {
 
 export interface McpToolInfo {
   name: string;
+  title?: string;
   description?: string;
   inputSchema: unknown;
+  outputSchema?: unknown;
+  annotations?: Record<string, unknown>;
 }
 
 let toolsCache: McpToolInfo[] | null = null;
@@ -207,8 +350,11 @@ export async function describeMcpTools(): Promise<McpToolInfo[]> {
   await client.connect(b);
   const tools = (await client.listTools()).tools.map((t) => ({
     name: t.name,
+    title: t.title,
     description: t.description,
     inputSchema: t.inputSchema,
+    outputSchema: t.outputSchema,
+    annotations: t.annotations as Record<string, unknown> | undefined,
   }));
   await client.close();
   await server.close();

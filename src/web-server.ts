@@ -340,6 +340,17 @@ const server = http.createServer((req, res) => {
       if (pathname === "/.well-known/mcp/server-card.json")
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(serverCard(ctx.publicUrl, await describeMcpTools()), null, 2));
 
+      /* OpenAI plugin domain verification.
+       * The submission portal issues a token and requires it served verbatim (and ONLY it — no JSON,
+       * no list) at /.well-known/openai-apps-challenge on the MCP host or a parent origin.
+       * We deliberately serve nothing until the operator sets the env var: a placeholder here would
+       * be a false claim of verified ownership. */
+      if (pathname === "/.well-known/openai-apps-challenge") {
+        const token = (process.env.OPENAI_APPS_CHALLENGE_TOKEN ?? "").trim();
+        if (!token) return send(res, 404, "text/plain; charset=utf-8", "not configured\n");
+        return send(res, 200, "text/plain; charset=utf-8", token);
+      }
+
       /* JSON APIs */
       if (pathname === "/api") {
         return send(
