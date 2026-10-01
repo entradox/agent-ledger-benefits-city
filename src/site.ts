@@ -574,7 +574,7 @@ export function disclosurePage(ctx: SiteContext): string {
       <li><strong>Card valuations are disclosed.</strong> Estimated USD values for points/miles use published valuations, stated per offer.</li>
     </ul>
     <h2>Analytics</h2>
-    <p>We count page views and Apply clicks so we know which offers are useful. <strong>No personal data is stored</strong> — no names, no email addresses, no raw IP addresses. Counting uses a salted hash that is regenerated every day and cannot be linked back to you or followed across days. We honour your browser's <span class="mono">Do Not Track</span> and <span class="mono">Global Privacy Control</span> signals: when either is set, nothing about your visit is recorded. Automated crawlers are excluded from these counts.</p>
+    <p>We count page views and Apply clicks so we know which offers are useful. <strong>No personal data is stored</strong> — no names, no email addresses, no raw IP addresses. Counting uses a salted hash; the salt is regenerated every day and previous days\' salts are deleted, so a hash cannot be linked back to you or followed across days. A search you type is recorded only as "a search happened", never the words. Usage records are kept for 90 days, then deleted. We honour your browser's <span class="mono">Do Not Track</span> and <span class="mono">Global Privacy Control</span> signals: when either is set, nothing about your visit is recorded. Automated crawlers are excluded from these counts.</p>
     <h2>Questions</h2>
     <p>Ask us anything about how we're paid: <a href="${bp(ctx, "/contact")}">contact page</a>.</p>
   </div><div style="height:40px"></div></div>`;

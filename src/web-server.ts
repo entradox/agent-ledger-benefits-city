@@ -42,6 +42,7 @@ import {
   closeMetrics,
   dashboardData,
   initMetrics,
+  browseFilterSummary,
   recordApplyClick,
   recordFeedHit,
   recordPageView,
@@ -282,13 +283,9 @@ const server = http.createServer((req, res) => {
           q: url.searchParams.get("q") ?? "",
           sort: url.searchParams.get("sort") === "expiry" ? "expiry" : "value",
         };
-        // A filtered browse is recorded as filter_use (with the filter string, not the
-        // free-text search box content verbatim beyond its own param); a plain browse is
-        // a page_view.
-        const filterStr = ["type", "state", "min", "dd", "q", "sort"]
-          .filter((k) => k !== "sort" && (url.searchParams.get(k) ?? "") !== "")
-          .map((k) => `${k}=${(url.searchParams.get(k) ?? "").slice(0, 40)}`)
-          .join("&");
+        // A filtered browse is recorded as filter_use (enumerated filters only; the free-text
+        // search box is recorded as present, never verbatim); a plain browse is a page_view.
+        const filterStr = browseFilterSummary(url.searchParams);
         recordPageView(req, "/bonuses", filterStr || undefined);
         return send(res, 200, "text/html; charset=utf-8", browsePage(ctx, q));
       }

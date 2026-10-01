@@ -155,7 +155,7 @@ function open(): Database.Database | null {
 }
 
 export function initMetrics(): void {
-  open();
+  if (open()) purgeOldEvents();
 }
 
 function utcDay(d: Date): string {
@@ -172,6 +172,9 @@ function dailySalt(database: Database.Database, day: string): string {
   if (row) return row.v;
   const salt = crypto.randomBytes(16).toString("hex");
   database.prepare("INSERT OR REPLACE INTO meta (k, v) VALUES (?, ?)").run(key, salt);
+  // Delete every earlier day's salt: with the salt gone, past session hashes can no longer be
+  // brute-forced back to an IP, which is what makes "not linkable across days" actually true.
+  database.prepare("DELETE FROM meta WHERE k LIKE 'salt:%' AND k < ?").run(key);
   return salt;
 }
 
@@ -193,6 +196,27 @@ export function sessionHash(req: IncomingMessage): string {
   } catch {
     return "";
   }
+}
+
+/** Raw usage events are kept this many days, then deleted (stated on the /disclosure page). */
+export const EVENT_RETENTION_DAYS = 90;
+
+/** Delete events older than `days`. Returns the number of rows removed. Aggregates (rollup_daily)
+ *  hold no personal data and are kept. */
+export function purgeOldEvents(days: number = EVENT_RETENTION_DAYS): number {
+  const database = open();
+  if (!database) return 0;
+  const cutoff = new Date(Date.now() - days * 86_400_000).toISOString().slice(0, 10);
+  return database.prepare("DELETE FROM events WHERE day < ?").run(cutoff).changes;
+}
+
+/** Browse-filter summary for the funnel. Enumerated filters are kept; the free-text search box is
+ *  recorded only as present (q=1), never verbatim — a search phrase can identify a person. */
+export function browseFilterSummary(sp: URLSearchParams): string {
+  return ["type", "state", "min", "dd", "q"]
+    .filter((k) => (sp.get(k) ?? "") !== "")
+    .map((k) => (k === "q" ? "q=1" : `${k}=${(sp.get(k) ?? "").slice(0, 40)}`))
+    .join("&");
 }
 
 /* ------------------------------------------------------- fire-and-forget queue */
