@@ -24,7 +24,7 @@ Tracks about 34 US bank, savings and credit-card signup bonuses. Each offer show
 
 ## Example prompts (3)
 
-1. Which checking bonuses over $300 need no direct deposit in Texas?
+1. Which checking bonuses over $300 are available in Texas, and how much direct deposit does each require?
 2. What bonuses expire in the next 14 days?
 3. Compare the Chase and Wells Fargo checking bonuses
 

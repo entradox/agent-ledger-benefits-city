@@ -14,7 +14,7 @@ For ChatGPT or Muse without MCP, the prompts tell the agent to use the public RE
 
 ## Prompt 1: Find offers
 
-Use Benefits City (https://aiagentscity.com/benefits). Which checking bonuses over $300 need no direct deposit in Texas? For each result, give the bonus, the source it was checked against and the check date. If the data does not answer part of the question, say so instead of guessing.
+Use Benefits City (https://aiagentscity.com/benefits). Which checking bonuses over $300 are available in Texas, and how much direct deposit does each one require? For each result, give the bonus, the source it was checked against and the check date. If the data does not answer part of the question, say so instead of guessing.
 
 ## Prompt 2: Expiring soon
 

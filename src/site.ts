@@ -484,7 +484,7 @@ export function agentsPage(ctx: SiteContext): string {
 
     <h3>Try asking</h3>
     <ul>
-      <li>“Which checking bonuses over $300 need no direct deposit, available in Texas?”</li>
+      <li>“Which checking bonuses over $300 are available in Texas, and how much direct deposit does each one need?”</li>
       <li>“What bonuses expire in the next 14 days?”</li>
       <li>“Compare the Chase and Wells Fargo checking bonuses.”</li>
     </ul>

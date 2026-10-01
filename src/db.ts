@@ -24,6 +24,15 @@ function normalize(raw: Bonus): Bonus {
     requirements: Array.isArray(raw.requirements) ? raw.requirements : [],
     states_available: raw.states_available ?? "nationwide",
     direct_deposit_required: raw.direct_deposit_required === true,
+    // Optional-by-intent fields. MCP validates EVERY declared outputSchema property as required, so
+    // an absent key fails the whole structured-content response with -32602 — an empty result where
+    // a caller asked a plain question. Default them here rather than trusting every seed record.
+    bonus_points: raw.bonus_points ?? null,
+    annual_fee_usd: raw.annual_fee_usd ?? null,
+    expiry_date: raw.expiry_date ?? null,
+    min_deposit_usd: raw.min_deposit_usd ?? null,
+    source_url: raw.source_url ?? null,
+    last_verified_date: raw.last_verified_date ?? null,
     affiliate_url: raw.affiliate_url ?? null,
     offer_history: Array.isArray(raw.offer_history) ? raw.offer_history : [],
     verification: raw.verification ?? null,

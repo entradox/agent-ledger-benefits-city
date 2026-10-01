@@ -139,11 +139,15 @@ Ordering: bonus value descending (cards at estimated USD value from published th
 Errors: {"error":{"type","message","code?","param?"}} with isError=true.`;
 
 const EXAMPLES = [
-  { title: "Top checking bonuses without direct deposit", tool: "search_bonuses", arguments: { bonus_type: "bank_account", direct_deposit_required: false, limit: 5 } },
+  { title: "Biggest bank-account bonuses overall", tool: "search_bonuses", arguments: { bonus_type: "bank_account", min_bonus_amount_usd: 300, limit: 5 } },
   { title: "What expires in the next two weeks", tool: "expiring_soon", arguments: { days: 14 } },
-  { title: "Best savings bonuses in Texas", tool: "search_bonuses", arguments: { bonus_type: "savings", state: "TX" } },
+  { title: "Biggest checking bonuses in Texas", tool: "search_bonuses", arguments: { bonus_type: "bank_account", state: "TX", limit: 5 } },
   { title: "Head-to-head", tool: "compare_bonuses", arguments: { ids: ["chase-total-checking-400", "sofi-checking-savings-400"] } },
 ];
+
+// A published example that returns nothing is worse than no example: it teaches an agent
+// the dataset is empty. Every example must return at least one offer against the seed.
+export const exampleArgsForTest = EXAMPLES.map((e) => ({ title: e.title, tool: e.tool, arguments: e.arguments }));
 
 /**
  * Wrap an MCP tool handler so every call is counted, with its latency.
