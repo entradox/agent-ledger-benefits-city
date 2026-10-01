@@ -314,28 +314,6 @@
     "states_available": "nationwide"
   },
   {
-    "annual_fee_usd": 650,
-    "application_url": "https://www.americanexpress.com/us/credit-cards/card/marriott-bonvoy-brilliant/",
-    "bank_or_issuer": "American Express",
-    "bonus_amount_usd": 1150,
-    "bonus_points": 150000,
-    "bonus_type": "credit_card",
-    "direct_deposit_required": false,
-    "expiry_date": "2026-09-30",
-    "id": "marriott-bonvoy-brilliant-150k",
-    "last_verified_date": "2026-09-20",
-    "min_deposit_usd": null,
-    "product_name": "Marriott Bonvoy Brilliant Card",
-    "requirements": [
-      "Earn 150,000 Marriott Bonvoy bonus points plus a $250 statement credit after spending $6,000 on purchases in the first 6 months of card membership",
-      "Offer ends 09/30/2026",
-      "Points valued ~$900 at 0.6 cents per point; combined value ~$1,150 including the $250 statement credit",
-      "Complimentary Marriott Bonvoy Platinum Elite status and 1 Free Night Award (up to 85,000 points) each year after renewal"
-    ],
-    "source_url": "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
-    "states_available": "nationwide"
-  },
-  {
     "affiliate_url": null,
     "annual_fee_usd": 0,
     "application_url": "https://creditcards.chase.com/cash-back-credit-cards/freedom/flex",
