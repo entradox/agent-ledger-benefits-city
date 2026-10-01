@@ -50,3 +50,28 @@ test("the shipped changelog is valid and every offer id it names exists in the s
     for (const b of JSON.parse(fs.readFileSync(path.join(root, "seed-data", f), "utf8"))) seedIds.add(b.id);
   for (const x of list) if (x.offer_id && x.type !== "removed") assert.ok(seedIds.has(x.offer_id), `${x.id}: ${x.offer_id}`);
 });
+
+test("Morgan C3/C4: Atom links removed/product entries to /changelog (never a dead offer page), summaries are dated, feed carries rights", () => {
+  const list = loadChangelog(tmp([
+    e({ type: "removed", offer_id: "gone-offer", title: "Ended", summary: "reached end date" }),
+    e({ type: "added", offer_id: "live-offer", title: "Added", summary: "new" }),
+    e({ type: "feature", offer_id: null, title: "Feat", summary: "f" }),
+  ]));
+  const atom = changelogAtom(U, list);
+  assert.ok(!atom.includes("/bonuses/gone-offer"), "removed offer must not link to its (404) page");
+  assert.ok(atom.includes(`${U}/bonuses/live-offer`));
+  assert.ok(atom.includes("<summary>As of 2026-09-30: new</summary>"));
+  assert.ok(atom.includes("<rights>"));
+  assert.match(atom, /Check the issuer's own page|Check the issuer&apos;s own page/);
+});
+
+test("Morgan C1/C2/C5: shipped changelog never states more than we saw (no 'confirmed'/'raised'/'replaces'/'ended with no renewal'), and names disqualifiers", () => {
+  const all = JSON.stringify(loadChangelog());
+  for (const bad of ["Confirmed by several", "raised from", "replaces $400", "ended on 2026-09-30 with no renewal"]) assert.ok(!all.includes(bad), bad);
+  const byId = (id: string) => loadChangelog().find((x) => x.offer_id === id)!;
+  assert.match(byId("chase-total-checking-400").summary, /not read on Chase's own page/);
+  assert.match(byId("wells-fargo-everyday-checking-500").summary, /not read on Wells Fargo's own page/);
+  assert.match(byId("truist-one-checking-500").summary, /New Truist checking clients only/);
+  assert.match(byId("barclays-tiered-savings-200").summary, /New Barclays savings customers only/);
+  assert.match(byId("fifth-third-momentum-checking-300").summary, /reached their stated end date/);
+});

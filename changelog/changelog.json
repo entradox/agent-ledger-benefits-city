@@ -18,14 +18,14 @@
     "type": "added",
     "offer_id": "barclays-tiered-savings-200",
     "title": "Barclays Tiered Savings: $200 (first savings offer)",
-    "summary": "Open by 2026-10-31, fund $25,000 within 30 days and keep it for 120 days. Checked on Barclays' own page."
+    "summary": "Open by 2026-10-31, fund $25,000 within 30 days and keep it for 120 days. Checked on Barclays' own page. New Barclays savings customers only."
   },
   {
     "date": "2026-09-30",
     "type": "added",
     "offer_id": "truist-one-checking-500",
     "title": "Truist One Checking: $500",
-    "summary": "Two direct deposits totaling $2,000 and 20 debit-card purchases within 120 days; open through 2027-02-02 in eligible states. Checked on Truist's own page."
+    "summary": "Two direct deposits totaling $2,000 and 20 debit-card purchases within 120 days; open through 2027-02-02 in eligible states. Checked on Truist's own page. New Truist checking clients only; the promo code must be applied at account opening."
   },
   {
     "date": "2026-09-30",
@@ -45,15 +45,15 @@
     "date": "2026-09-30",
     "type": "changed",
     "offer_id": "chase-total-checking-400",
-    "title": "Chase Total Checking raised from $300 to $400",
-    "summary": "Now $400 for $1,000 or more in direct deposits within 90 days of enrollment; enroll by 2026-10-14. Confirmed by several bonus trackers."
+    "title": "Chase Total Checking: now $400 (was $300)",
+    "summary": "Now listed at $400 for $1,000 or more in direct deposits within 90 days of enrollment; enroll by 2026-10-14. New Chase checking customers only. Reported consistently by four bonus-tracking sites; not read on Chase's own page."
   },
   {
     "date": "2026-09-30",
     "type": "changed",
     "offer_id": "wells-fargo-everyday-checking-500",
-    "title": "Wells Fargo Everyday Checking: $500 replaces $400",
-    "summary": "$500 for $1,000 or more in qualifying electronic deposits within 90 days; open by 2026-10-06. Confirmed by several bonus trackers."
+    "title": "Wells Fargo Everyday Checking: now $500 (was $400)",
+    "summary": "Now listed at $500 for $1,000 or more in qualifying electronic deposits within 90 days; open by 2026-10-06. New Wells Fargo checking customers only. Reported consistently by four bonus-tracking sites; not read on Wells Fargo's own page."
   },
   {
     "date": "2026-09-30",
@@ -66,7 +66,7 @@
     "date": "2026-09-30",
     "type": "removed",
     "offer_id": "fifth-third-momentum-checking-300",
-    "title": "Offers that ended 2026-09-30 are no longer shown",
-    "summary": "Fifth Third Momentum Checking $300, Bank of America Advantage Plus $500, Huntington Perks Checking $400 and Marriott Bonvoy Brilliant 150,000 points ended on 2026-09-30 with no renewal found."
+    "title": "Offers that reached their stated 2026-09-30 end date are no longer shown",
+    "summary": "Fifth Third Momentum Checking $300, Bank of America Advantage Plus $500, Huntington Perks Checking $400 and Marriott Bonvoy Brilliant 150,000 points reached their stated end date of 2026-09-30. As of that date we had not found a renewal; if one appears, we will re-list it."
   }
 ]

@@ -62,8 +62,8 @@ export function changelogAtom(publicUrl: string, entries: ChangelogEntry[]): str
     <title>${xmlEscape(e.title)}</title>
     <updated>${e.date}T00:00:00Z</updated>
     <category term="${xmlEscape(e.type)}"/>
-    <summary>${xmlEscape(e.summary)}</summary>
-    <link rel="alternate" href="${xmlEscape(e.offer_id ? `${publicUrl}/bonuses/${e.offer_id}` : `${publicUrl}/changelog`)}"/>
+    <summary>${xmlEscape(e.offer_id ? `As of ${e.date}: ${e.summary}` : e.summary)}</summary>
+    <link rel="alternate" href="${xmlEscape(e.offer_id && e.type !== "removed" ? `${publicUrl}/bonuses/${e.offer_id}` : `${publicUrl}/changelog`)}"/>
   </entry>`,
     )
     .join("\n");
@@ -72,6 +72,7 @@ export function changelogAtom(publicUrl: string, entries: ChangelogEntry[]): str
   <id>${xmlEscape(`${publicUrl}/changelog`)}</id>
   <title>Benefits City — changelog</title>
   <subtitle>Bank and credit-card signup bonuses: offers added, changed, renewed or removed.</subtitle>
+  <rights>Offer terms change and end without notice; each entry reflects what we saw on its date. Check the issuer's own page before applying. Information only, not financial advice.</rights>
   <updated>${updated}</updated>
   <link rel="self" href="${xmlEscape(`${publicUrl}/feed.xml`)}"/>
   <link rel="alternate" href="${xmlEscape(`${publicUrl}/changelog`)}"/>

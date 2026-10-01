@@ -56,7 +56,7 @@ export function agentJson(publicUrl: string): object {
       { id: "stats", description: "Live counts, combined headline value, and offers expiring soon.", endpoint: "/api/stats", method: "GET", free: true },
     ],
     contact: "bonuses@aiagentscity.com",
-    legal: "AI Agent City. Information only, not financial advice. Some Apply links may become affiliate links; see /disclosure.",
+    legal: "AI Agent City. Information only, not financial advice. Offer terms can change; confirm with the issuer before applying. See /disclosure for how this site is paid.",
   };
 }
 
