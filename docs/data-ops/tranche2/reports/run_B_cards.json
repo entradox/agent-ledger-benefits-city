@@ -1,0 +1,216 @@
+[
+ {
+  "id": "amex-business-platinum-300k",
+  "checked_at": "2026-10-01",
+  "method": "aggregator_consensus",
+  "sources": [
+   "https://www.doctorofcredit.com/best-current-credit-card-sign-bonuses/",
+   "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
+   "https://www.doctorofcredit.com/targeted-american-express-business-platinum-300000-po",
+   "https://www.americanexpress.com/us/credit-cards/business/business-credit-cards/american-express-business-platinum-credit-card-amex/64259/"
+  ],
+  "http_status": 200,
+  "offer_still_live": true,
+  "bonus_points": 200000,
+  "bonus_amount_usd": 4000,
+  "public_offer_confirmed": "PUBLIC offer confirmed today = 200,000 Membership Rewards points after $20,000 in eligible purchases in the first 3 months (Doctor of Credit 'Best Current Sign Up Bonuses', 2026-10-01: 'American Express Business Platinum - 200,000 ... $895 annual fee. 200,000 points signup bonus requires $20,000 in spend within 3 months. Some people are finding an offer for 250,000 or 300,000.'). 300,000 is NOT the public offer; Doctor of Credit lists 'American Express Business Platinum 250,000-300,000 Points' under a separate 'YMMV/Targeted Offers' section. TPG's limited-time-offers page (2026-10-01) does headline 'as high as 300,000 bonus points after spending $20,000' but hedges '(Welcome offers vary, and you may not be eligible for an offer.)'. American Express' own product page (HTTP 200) renders the welcome-offer figure client-side and served only the generic prefix 'Welcome Offer: Find out your offer, which could be ...' to this bot request, so the number could not be read from issuer terms.",
+  "targeted_or_incognito_only": true,
+  "spend_requirement": "$20,000 in eligible purchases in the first 3 months (public 200,000 offer; same spend window cited for the targeted 300,000)",
+  "annual_fee_usd": 895,
+  "expiry_date_shown": null,
+  "eligibility_notes": "Business card. Open to sole proprietors (SSN acceptable) and registered businesses (EIN); Amex business cards generally do not report to personal credit bureaus but a hard inquiry occurs at application. Welcome bonus is limited to once per card per lifetime ('lifetime language'); targeted/No-Lifetime-Language offers occasionally exist. The 300,000 figure is only reachable via a targeted/incognito application, not a public link.",
+  "gotchas": [
+   "300,000 points is a TARGETED/YMMV offer (DoC's 'Targeted Offers' section), not the standard public welcome offer - a public visitor should expect 200,000.",
+   "Amex welcome-offer amounts are variable by applicant; the issuer states 'welcome offers vary and you may not be eligible for an offer'.",
+   "Once-per-lifetime bonus restriction on this card (unless an NLL/targeted offer is used).",
+   "Hard credit pull at application; Amex uses a soft pull only for pre-qualified-offer previews.",
+   "The stored '$6,000' valuation assumes 2.0 cents/point (TPG Sept-2026 MR valuation); at the public 200,000 that dollar value is ~$4,000."
+  ],
+  "mismatches_vs_stored": [
+   "bonus_points: stored 300,000 vs public 200,000 confirmed today - the 300,000 is a targeted/YMMV-only offer, not the public offer.",
+   "bonus_amount_usd: stored 6,000 (300,000 pts @ 2.0 cpp) does not correspond to any public offer; the public 200,000 is worth ~$4,000 on the same valuation."
+  ],
+  "confidence": "high",
+  "notes": "Card, fee ($895) and $20,000/3-month spend window reproduce. Only the headline 300,000 number is not publicly reproducible - it is the ceiling of a variable/targeted offer. Recommend the dataset present 200,000 as the public figure and label 250,000-300,000 as targeted-only."
+ },
+ {
+  "id": "amex-business-gold-200k",
+  "checked_at": "2026-10-01",
+  "method": "aggregator_consensus",
+  "sources": [
+   "https://www.doctorofcredit.com/best-current-credit-card-sign-bonuses/",
+   "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
+   "https://www.americanexpress.com/us/credit-cards/business/business-credit-cards/american-express-business-gold-credit-card-amex/"
+  ],
+  "http_status": 200,
+  "offer_still_live": true,
+  "bonus_points": 200000,
+  "bonus_amount_usd": 4000,
+  "public_offer_confirmed": "200,000 Membership Rewards points after $15,000 in eligible purchases in the first 3 months is confirmed as the current public offer today (Doctor of Credit, 2026-10-01: 'American Express Business Gold 200,000 Points ... Should now show for everybody when using certain referral links.'; TPG 2026-10-01: 'Find out your offer and see if you are eligible for as high as 200,000 bonus points after spending $15,000 on purchases in the first three months of card membership.'). American Express' own page (HTTP 200) served only the generic 'find out your offer' prefix to the bot and did not render a number.",
+  "targeted_or_incognito_only": false,
+  "spend_requirement": "$15,000 in eligible purchases in the first 3 months",
+  "annual_fee_usd": 375,
+  "expiry_date_shown": null,
+  "eligibility_notes": "Business card (sole prop via SSN or entity via EIN). Once-per-lifetime bonus per card. DoC notes the 200,000 may require applying through 'certain referral links' rather than the plain product page - so a public but link-dependent elevation rather than a strictly public headline. Amex has also circulated No-Lifetime-Language variants historically.",
+  "gotchas": [
+   "Per Doctor of Credit the 200,000 is reachable 'when using certain referral links', so it may not appear on the bare issuer page for every visitor.",
+   "Amex welcome offers are variable by applicant ('as high as').",
+   "Once-per-lifetime bonus restriction on this card (NLL variants are the exception, not the rule).",
+   "Hard credit pull at application.",
+   "$375 annual fee; 4x points on top two spending categories (auto-selected monthly), capped at $150,000 combined per calendar year."
+  ],
+  "mismatches_vs_stored": [],
+  "confidence": "high",
+  "notes": "Stored 200,000 / $15,000 / $375 all reproduce against two independent trackers today. Only nuance: the 200k may be referral-link-gated rather than shown on the plain public page."
+ },
+ {
+  "id": "amex-platinum-175k",
+  "checked_at": "2026-10-01",
+  "method": "aggregator_consensus",
+  "sources": [
+   "https://www.doctorofcredit.com/best-current-credit-card-sign-bonuses/",
+   "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
+   "https://www.americanexpress.com/us/credit-cards/card/platinum/"
+  ],
+  "http_status": 200,
+  "offer_still_live": true,
+  "bonus_points": 175000,
+  "bonus_amount_usd": 3500,
+  "public_offer_confirmed": "Up to 175,000 Membership Rewards points after $12,000 in eligible purchases in the first 6 months is confirmed as the current listed offer today (Doctor of Credit 2026-10-01: 'American Express Platinum 175,000 ... $895 annual fee. Up to 175,000 points after $12,000 spend within 6 months.'; TPG 2026-10-01: 'Find out your offer and see if you are eligible for as high as 175,000 bonus points after spending $12,000 on purchases in the first six months of card membership.'). American Express' own page (HTTP 200) served only the generic prefix, but the copy visible to this bot read 'Welcome Offer: Find out your offer, which could be 150,000 points' - i.e. the issuer's generic/default text shows 150,000, BELOW the 175,000 the trackers list.",
+  "targeted_or_incognito_only": false,
+  "spend_requirement": "$12,000 in eligible purchases in the first 6 months",
+  "annual_fee_usd": 895,
+  "expiry_date_shown": null,
+  "eligibility_notes": "Personal card, nationwide. Variable offer by applicant. Once-per-lifetime bonus per card. Soft pull for the 'see your offer' preview; hard pull at application.",
+  "gotchas": [
+   "Amex welcome offers are variable by applicant; the issuer's page default text ('which could be 150,000 points') sits below the 175,000 the trackers quote - so not every applicant will see 175,000.",
+   "Once-per-lifetime bonus restriction on this card.",
+   "Hard credit pull at application; Amex soft-pulls only to preview your offer.",
+   "$895 annual fee; large statement-credit stack ($200 airline, $200 Uber, $240 digital entertainment, etc.) requires enrollment and is use-it-or-lose-it monthly.",
+   "Stored $3,500 valuation assumes 2.0 cents/point (TPG Sept-2026 MR valuation), an aggregator figure, not issuer-provided."
+  ],
+  "mismatches_vs_stored": [],
+  "confidence": "high",
+  "notes": "175,000 pts / $12,000 / 6 months reproduces against DoC and TPG today. Minor flag: the issuer's own generic offer text read 150,000 for this bot, so 175,000 is the elevated/variable figure rather than a fixed public headline."
+ },
+ {
+  "id": "amex-gold-100k",
+  "checked_at": "2026-10-01",
+  "method": "aggregator_consensus",
+  "sources": [
+   "https://upgradedpoints.com/news/amex-gold-card-100k-sign-up-bonus/",
+   "https://wallethub.com/answers/cc/american-express-gold-card-promotions-1000418-2140765488/",
+   "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
+   "https://www.americanexpress.com/us/credit-cards/card/gold-card/"
+  ],
+  "http_status": 200,
+  "offer_still_live": true,
+  "bonus_points": 100000,
+  "bonus_amount_usd": 2000,
+  "public_offer_confirmed": "As high as 100,000 Membership Rewards points after $8,000 in eligible purchases in the first 6 months is corroborated by multiple independent trackers dated to today's window (WalletHub 2026-09-10: 'You may be eligible to earn as high as 100,000 points for spending $8,000 on eligible purchases within the first 6 months (welcome offers vary...)'; UpgradedPoints: 'The Amex Gold card has welcome offers as high as 100,000 points right now'; mycarddeals card page states 'verified October 2026' - 100K welcome bonus; TPG amex-gold current-offer page values the offer at up to $2,000 on TPG's Aug-2026 MR valuation, i.e. ~100k @ 2.0 cpp). This is a variable Amex 'as high as' offer; a single tracker (Wallethacks, dated Sep-2025) cites a lower $6,000 spend variant, so the spend tier is not fully settled across sources. Could NOT be read from issuer terms: americanexpress.com Gold page (HTTP 200) served only the generic prefix 'Welcome Offer: Find out your offer, which could be ...'.",
+  "targeted_or_incognito_only": null,
+  "spend_requirement": "$8,000 in eligible purchases in the first 6 months (per the current 100,000-point offer; one older tracker cites $6,000, so treat the spend tier as 'as high as' variable)",
+  "annual_fee_usd": 325,
+  "expiry_date_shown": null,
+  "eligibility_notes": "Personal card, nationwide. Variable offer by applicant. Once-per-lifetime bonus per card. Soft-pull preview / hard pull at application.",
+  "gotchas": [
+   "Amount is variable ('as high as' 100,000); not every applicant receives it.",
+   "Spend tier varies across sources ($8,000 vs $6,000 in first 6 months) - the higher-spend $8,000 tier corresponds to the 100,000 offer, the $6,000 tier to a lower offer.",
+   "Once-per-lifetime bonus restriction on this card.",
+   "Hard credit pull at application.",
+   "$325 annual fee; stored $2,000 valuation is a TPG 2.0 cents/point figure, not issuer-provided."
+  ],
+  "mismatches_vs_stored": [],
+  "confidence": "medium",
+  "notes": "100,000 pts is well corroborated by three trackers within the current window, and $325 is the current published Amex Gold annual fee, so the stored row reproduces. Confidence is medium rather than high only because American Express itself would not serve the number to this bot and the spend tier differs between sources ($8,000/6mo is the consensus for the 100k)."
+ },
+ {
+  "id": "chase-sapphire-reserve-100k",
+  "checked_at": "2026-10-01",
+  "method": "issuer_page",
+  "sources": [
+   "https://creditcards.chase.com/rewards-credit-cards/sapphire/reserve"
+  ],
+  "http_status": 200,
+  "offer_still_live": true,
+  "bonus_points": 100000,
+  "bonus_amount_usd": 2050,
+  "public_offer_confirmed": "Issuer page, fetched 2026-10-01: 'Earn 100,000 points after you spend $6,000 in purchases in the first 3 months from account opening.' Offer Details block confirms: 'New Cardmember Bonus - 100,000 Points: To qualify, you must make $6,000 in purchases during the first 3 months from account opening.' Issuer advertises '$2,000 value of 100,000 points for select flights and hotels through Chase Travel'; stored $2,050 uses TPG's 2.05 cents/point Ultimate Rewards valuation. $795 annual fee and $195 per authorized user confirmed on page.",
+  "targeted_or_incognito_only": false,
+  "spend_requirement": "$6,000 in purchases in the first 3 months from account opening",
+  "annual_fee_usd": 795,
+  "expiry_date_shown": null,
+  "eligibility_notes": "Personal card; standard public offer shown on the issuer's own page (not targeted/incognito - the stored value is directly reproducible). Bonus unavailable if you currently hold this card or have previously held it / received its new-cardmember bonus. Chase's broader 5/24 rule and the Sapphire 48-month window on previous Sapphire bonuses apply. Hard credit pull at application.",
+  "gotchas": [
+   "Not eligible for the bonus if you previously held the card or received its bonus ('lifetime'-style language, but Chase measures the prior Sapphire bonus on a 48-month clock).",
+   "Chase 5/24 rule: you are generally denied if you have opened 5+ cards (any issuer) in the last 24 months.",
+   "Cannot hold the Sapphire Reserve and Sapphire Preferred bonuses concurrently in practice - product/bonus eligibility interacts.",
+   "Hard credit pull at application.",
+   "$795 annual fee includes a $300 annual travel credit; stored $2,050 valuation is the TPG 2.05 cpp basis - the issuer's own stated value is $2,000."
+  ],
+  "mismatches_vs_stored": [],
+  "confidence": "high",
+  "notes": "Fully reproduced verbatim from the issuer page: 100,000 points / $6,000 / 3 months / $795. Valuation basis differs only in cents-per-point (issuer $2,000 vs TPG-derived $2,050)."
+ },
+ {
+  "id": "chase-sapphire-preferred-75k",
+  "checked_at": "2026-10-01",
+  "method": "issuer_page",
+  "sources": [
+   "https://creditcards.chase.com/rewards-credit-cards/sapphire/preferred"
+  ],
+  "http_status": 200,
+  "offer_still_live": true,
+  "bonus_points": 75000,
+  "bonus_amount_usd": 1538,
+  "public_offer_confirmed": "Issuer page, fetched 2026-10-01: 'Earn 75,000 points after you spend $5,000 in purchases in the first 3 months from account opening.' Offer Details block confirms: 'New Cardmember Bonus - 75,000 Points: To qualify, you must make $5,000 in purchases during the first 3 months from account opening.' $95 annual fee confirmed on page. Stored $1,538 uses TPG's 2.05 cents/point; Chase's own redemption floor is 1.5 cpp via Chase Travel ($1,125).",
+  "targeted_or_incognito_only": false,
+  "spend_requirement": "$5,000 in purchases in the first 3 months from account opening",
+  "annual_fee_usd": 95,
+  "expiry_date_shown": null,
+  "eligibility_notes": "Personal card; standard public offer on the issuer's own page (directly reproducible, not targeted). Bonus unavailable if you currently hold the card, previously held it or received its bonus, or received a Sapphire new-cardmember bonus in the past 48 months. Chase 5/24 applies. Hard credit pull at application.",
+  "gotchas": [
+   "48-month Sapphire-bonus rule: no new bonus if you received a Sapphire cardmember bonus in the past 48 months.",
+   "Chase 5/24 rule applies.",
+   "No first-year annual-fee waiver.",
+   "Hard credit pull at application.",
+   "Stored $1,538 valuation is the TPG 2.05 cpp figure; worth 1.5 cpp ($1,125) when redeemed for travel through Chase Travel, 1.25 cpp via Chase travel portal for this card tier is the common floor."
+  ],
+  "mismatches_vs_stored": [],
+  "confidence": "high",
+  "notes": "Fully reproduced verbatim from the issuer page: 75,000 points / $5,000 / 3 months / $95. Only valuation basis (2.05 cpp TPG) is an aggregator assumption."
+ },
+ {
+  "id": "discover-it-cash-back-match",
+  "checked_at": "2026-10-01",
+  "method": "issuer_page",
+  "sources": [
+   "https://www.discover.com/credit-cards/",
+   "https://www.discover.com/credit-cards/cash-back/it-card/"
+  ],
+  "http_status": 200,
+  "offer_still_live": true,
+  "bonus_points": null,
+  "bonus_amount_usd": null,
+  "public_offer_confirmed": "Issuer pages, fetched 2026-10-01: Discover it Cash Back's new-cardmember offer is the 'Unlimited Cashback Match' - 'Cashback Match: We'll match all the cash back you've earned on your credit card from the day your new account is approved through your first 365 days and add it to your rewards account within two billing periods.' Footnote confirms 'No purchase minimums.' The it-card FAQ adds: 'No, there's no limit to how much we'll match at the end of your first year.' $0 annual fee confirmed ('No, there is no annual fee for the Discover it Card.'). There is NO issuer-stated fixed dollar bonus for this card - the value is uncapped and spend-dependent, so no public dollar figure can be confirmed. (A separate 'one-time $200 bonus after $500 spend' offer appears on a DIFFERENT Discover card in the same page's offer blocks, not on the it Cash Back.)",
+  "targeted_or_incognito_only": false,
+  "spend_requirement": "None - no minimum purchase requirement (footnote: 'No purchase minimums.'); match period runs from account approval through the first 365 days",
+  "annual_fee_usd": 0,
+  "expiry_date_shown": null,
+  "eligibility_notes": "Personal cash-back card, nationwide. Offer is standard/public ('exclusively for new cardholders'; 'This promotional offer may not be available in the future'). No minimum spend, no cap on the match. Hard credit pull at application. Stored '$525' figure is a WalletHub estimate of the average person's first-year match value, not an issuer-stated bonus.",
+  "gotchas": [
+   "The 'bonus' is an uncapped dollar-for-dollar match of cash back earned in year 1, so its dollar value is spend-dependent and cannot be reduced to a single public number.",
+   "The stored $525 is a THIRD-PARTY (WalletHub) average estimate, not a Discover-published figure.",
+   "5% cash back applies only to rotating quarterly categories and requires activation each quarter; rate drops to 1% on other purchases (and to 1% once the quarterly cap is exceeded).",
+   "Cash back earned via certain transfers/statement credits is excluded from the match; match forfeited if the account is closed.",
+   "Hard credit pull at application.",
+   "Stored source_url is a FinanceBuzz affiliate landing page, not Discover - the authoritative terms are on discover.com."
+  ],
+  "mismatches_vs_stored": [
+   "bonus_amount_usd: stored 525 is a WalletHub estimate of average first-year match value; Discover publishes no fixed dollar bonus for this card, so 525 cannot be reproduced as an issuer (or even a specific public) value.",
+   "source_url: stored value points to a financebuzz.com affiliate landing page rather than the issuer; the reproducible terms are on discover.com."
+  ],
+  "confidence": "high",
+  "notes": "The offer MECHANISM reproduces exactly (unlimited match, no minimum, $0 annual fee, 5% rotating). The stored $525 dollar figure is an estimate, not a confirmable public bonus amount - recommend presenting the Discover offer as 'unlimited Cashback Match (value varies)' with the $525 clearly labelled as an estimate."
+ }
+]

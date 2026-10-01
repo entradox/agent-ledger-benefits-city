@@ -1,0 +1,191 @@
+[
+ {
+  "id": "associated-bank-checking-600",
+  "checked_at": "2026-10-01",
+  "method": "issuer_page",
+  "sources": ["https://www.associatedbank.com/checking-account-bonus-offer-promotion"],
+  "http_status": null,
+  "offer_still_live": true,
+  "bonus_amount_usd": 600,
+  "bonus_points": null,
+  "requirements_summary": "Open and fund a new personal checking account by Oct 31, 2026 (min opening deposit $25 Access Checking / $100 Balanced or Choice Checking); receive recurring direct deposits totaling $500+ within 90 days from an employer or government agency; bonus is tiered by the average daily balance of all Associated deposit accounts for days 31-90: $1,000-$4,999.99 = $300, $5,000-$9,999.99 = $400, $10,000+ = $600.",
+  "expiry_date_shown": "2026-10-31",
+  "minimum_deposit_usd": 25,
+  "direct_deposit_required": true,
+  "eligibility_notes": "New personal checking accounts opened and funded through Oct 31, 2026. Online new-customer availability limited to IA, IL, IN, KS, MI, MN, MO, OH, WI. Not available if you received a new personal checking monetary bonus in the last 24 months or had an Associated checking account in the last 12 months. One per customer; primary owner 18+; valid email required.",
+  "gotchas": [
+    "THE HEADLINE $600 IS THE TOP TIER AND NEEDS A $10,000+ AVERAGE DAILY BALANCE IN ALL ASSOCIATED DEPOSIT ACCOUNTS. The $500 direct deposit alone earns $300. Ranking this as a $600 offer overstates the realistic value for most applicants.",
+    "Account must remain open 12 months or Associated reserves the right to deduct the bonus prior to closing",
+    "Bonus is tiered on the average daily balance of ALL Associated deposit accounts for days 31-90; balances under $1,000 earn $0",
+    "Bonus paid within 120 days of account opening",
+    "Direct deposit must be recurring payroll/government; P2P and internal/external transfers do not qualify",
+    "Monthly maintenance fee can still be charged independently of bonus qualification"
+  ],
+  "mismatches_vs_stored": [
+    "states_available stored [WI, IL, MN] but issuer page lists online new-customer availability in IA, IL, IN, KS, MI, MN, MO, OH, WI",
+    "min_deposit_usd stored 100; page states $25 (Access Checking) or $100 (Balanced/Choice Checking)",
+    "bonus_amount_usd stored 600 is the TOP TIER ONLY; the base qualifying action (direct deposits) earns $300"
+  ],
+  "confidence": "high",
+  "notes": "Issuer page fetched and independently re-verified by Hermes 2026-10-01: the tier table ($1,000-$4,999.99=$300 / $5,000-$9,999.99=$400 / $10,000+=$600) and the $500/90-day direct-deposit requirement are both confirmed verbatim on the page."
+ },
+
+ {
+  "id": "bmo-checking-600",
+  "checked_at": "2026-10-01",
+  "method": "aggregator_consensus",
+  "sources": [
+    "https://www.bmo.com/en-us/main/personal/checking-accounts/digital-offer/",
+    "https://www.doctorofcredit.com/il-wi-mn-in-az-fl-ks-mo-bmo-harris-350-checking-300-savings-bonus/",
+    "https://bigbankbonuses.com/article/bmo-600-checking-bonus-2026"
+  ],
+  "http_status": 0,
+  "offer_still_live": true,
+  "bonus_amount_usd": 600,
+  "bonus_points": null,
+  "requirements_summary": "Open a new BMO Smart Money, Smart Advantage, or Relationship Checking account between Sept 9 and Dec 15, 2026 (min opening deposit $25); receive cumulative qualifying direct deposits of $1,000+ each consecutive month, beginning the month after account opening, for up to 6 months to earn $100/month ($600 total).",
+  "expiry_date_shown": "2026-12-15",
+  "minimum_deposit_usd": 25,
+  "direct_deposit_required": true,
+  "eligibility_notes": "Primary applicant must reside in AZ, CA, CO, FL, IA, IL, IN, MN, NM, NV, OR, UT, WA, WI at application. Not for existing BMO personal checking clients or those who closed one in the past 12 months (includes signers/joint owners). One per client.",
+  "gotchas": [
+    "Issuer page could NOT be fetched live (curl 000, browser ERR_HTTP2_PROTOCOL_ERROR, proxies 522); web_extract served a STALE page showing the EXPIRED $400 June 30-Sept 8, 2026 offer",
+    "$50 early account termination fee if closed within 90 days",
+    "Requires $1,000+ direct deposits each month for 6 CONSECUTIVE months; a missed month forfeits that month's $100 but not later months",
+    "Paid monthly ~10 days after each month, not as a lump sum",
+    "Soft credit pull; ChexSystems used",
+    "Smart Advantage has no monthly fee; Smart Money/Relationship may carry a $25 avoidable monthly fee",
+    "Qualifying DD excludes Zelle/Venmo, bank transfers, mobile check deposits, merchant payouts"
+  ],
+  "mismatches_vs_stored": [],
+  "confidence": "medium",
+  "notes": "Current $600 / Sept 9-Dec 15, 2026 terms confirmed only by Doctor of Credit and Big Bank Bonuses plus the search-index title for the same issuer URL. The issuer page itself was unretrievable today and its cached copy showed expired terms. Needs an issuer-page re-check before the data is presented as issuer-verified."
+ },
+
+ {
+  "id": "us-bank-smartly-checking-450",
+  "checked_at": "2026-10-01",
+  "method": "issuer_page",
+  "sources": ["https://usbank.com/splash/checking/2026-all-market-checking-offer.html"],
+  "http_status": 200,
+  "offer_still_live": true,
+  "bonus_amount_usd": 450,
+  "bonus_points": null,
+  "requirements_summary": "Apply through the promotional offer page Sept 10-Nov 10, 2026; fund with $25+ within 60 days; enroll in the U.S. Bank Mobile App/online banking within 90 days; make 2+ direct deposits within 90 days totaling $2,000-$4,999.99 ($250), $5,000-$7,999.99 ($350), or $8,000+ ($450).",
+  "expiry_date_shown": "2026-11-10",
+  "minimum_deposit_usd": 25,
+  "direct_deposit_required": true,
+  "eligibility_notes": "Available to anyone who has not had a U.S. Bank consumer checking account in the last 12 months; must open online through this promo page.",
+  "gotchas": [
+    "Bonus paid as an 'adjusted interest' credit within 30 days of completing activities; account must be open with a positive balance",
+    "$12 monthly maintenance fee applies (waivable)",
+    "Three-tier DD structure: the top $450 tier needs $8,000 deposited within 90 days"
+  ],
+  "mismatches_vs_stored": [],
+  "confidence": "high",
+  "notes": "Fetched live via curl (HTTP 200, 126,332 bytes) and web_extract; offer window, tiers, and $25 minimum confirmed on the issuer page."
+ },
+
+ {
+  "id": "pnc-virtual-wallet-performance-select-400",
+  "checked_at": "2026-10-01",
+  "method": "issuer_page",
+  "sources": ["https://pnc.com/en/personal-banking/banking/checking/bonus-offer.html"],
+  "http_status": null,
+  "offer_still_live": true,
+  "bonus_amount_usd": 400,
+  "bonus_points": null,
+  "requirements_summary": "Open a new Virtual Wallet with Performance Select online via the offer page links Sept 1, 2026-Jan 7, 2027; set up and receive total qualifying direct deposits of $5,000+ into the Spend account within the first 60 days ($500 for base Virtual Wallet = $100).",
+  "expiry_date_shown": "2027-01-07",
+  "minimum_deposit_usd": null,
+  "direct_deposit_required": true,
+  "eligibility_notes": "Not eligible if you have an existing PNC consumer checking account, closed one in the past 12 months, or received a PNC promotional premium in the past 24 months.",
+  "gotchas": [
+    "Reward credited 60-90 days after all conditions are met",
+    "Must remain in the Performance Select product to receive the corresponding reward",
+    "Qualifying DD excludes wires, P2P, account transfers, branch/ATM/mobile deposits",
+    "Issuer page does NOT state geographic availability - the stored 12-state list is unconfirmed from source"
+  ],
+  "mismatches_vs_stored": [],
+  "confidence": "medium",
+  "notes": "Issuer page fetched live via web_extract; amount, window, and DD requirement confirmed. State availability not stated on the page."
+ },
+
+ {
+  "id": "sofi-checking-savings-400",
+  "checked_at": "2026-10-01",
+  "method": "issuer_page",
+  "sources": ["https://sofi.com/banking/checking-offer/"],
+  "http_status": null,
+  "offer_still_live": true,
+  "bonus_amount_usd": 400,
+  "bonus_points": null,
+  "requirements_summary": "Open a SoFi Checking and Savings account; set up your first eligible direct deposit of $1+ received on or before Dec 31, 2026; SoFi totals eligible DDs received within 25 calendar days of the first one: $1,000-$4,999.99 = $50, $5,000+ = $400.",
+  "expiry_date_shown": "2026-12-31",
+  "minimum_deposit_usd": null,
+  "direct_deposit_required": true,
+  "eligibility_notes": "New and existing SoFi members who have never set up direct deposit with SoFi. One bonus per member; for joint accounts activity counts only toward the primary holder.",
+  "gotchas": [
+    "Only a 25-CALENDAR-DAY window from the first eligible DD counts toward the total",
+    "Bonus paid within 7 business days of completing requirements",
+    "Deposits under $1,000 earn $0",
+    "Eligible DD = recurring ACH from employer/payroll/benefits/government; excludes check deposits, P2P (Zelle/PayPal/Venmo), merchant transactions, wires, IRS refunds",
+    "No monthly fees; promotion runs 5/15/2026-12/31/2026"
+  ],
+  "mismatches_vs_stored": [],
+  "confidence": "high",
+  "notes": "Issuer page fetched live via web_extract; bonus tiers, window, and DD definition confirmed."
+ },
+
+ {
+  "id": "keybank-key-smart-checking-300",
+  "checked_at": "2026-10-01",
+  "method": "issuer_page",
+  "sources": ["https://www.key.com/personal/checking/checking-account-bonus-offers.html"],
+  "http_status": 0,
+  "offer_still_live": true,
+  "bonus_amount_usd": 300,
+  "bonus_points": null,
+  "requirements_summary": "Open a Key Smart Checking account online by Dec 11, 2026 (min opening deposit $10) and make total eligible direct deposits of $2,000+ within 90 days.",
+  "expiry_date_shown": "2026-12-11",
+  "minimum_deposit_usd": 10,
+  "direct_deposit_required": true,
+  "eligibility_notes": "Not available to individuals who were a primary account owner of a KeyBank personal checking account in the last 12 months. Online only; non-residents must open in branch.",
+  "gotchas": [
+    "Bonus deposited within 60 days of meeting requirements; reported on 1099-INT",
+    "Eligible DD = electronic ACH (payroll, Social Security, pension, government); teller/ATM/mobile deposits do not qualify",
+    "Account must not be closed at the time of gift payment",
+    "Key Select Checking carries a $25 monthly fee (waived first 3 months), avoidable via $15,000 balance or $3,000/mo DD; Key Smart has $0 monthly fee",
+    "Limit one account-opening gift per individual"
+  ],
+  "mismatches_vs_stored": [],
+  "confidence": "high",
+  "notes": "curl to key.com returned 000 (bot-blocked); issuer page retrieved live via web_extract. Terms match stored. Same page also advertises a separate Key Select Checking $500 bonus (an offer we do not track)."
+ },
+
+ {
+  "id": "capital-one-360-checking-250",
+  "checked_at": "2026-10-01",
+  "method": "issuer_page",
+  "sources": ["https://www.capitalone.com/bank/checking250/"],
+  "http_status": 0,
+  "offer_still_live": true,
+  "bonus_amount_usd": 250,
+  "bonus_points": null,
+  "requirements_summary": "Open a 360 Checking account using promo code CHECKING250; set up and receive at least 2 qualifying direct deposits, each of $500+, within 75 days of account opening.",
+  "expiry_date_shown": null,
+  "minimum_deposit_usd": null,
+  "direct_deposit_required": true,
+  "eligibility_notes": "Ineligible if you have or had an open 360 Checking, Simply Checking, or Total Control Checking account as a primary or secondary holder on or after Jan 1, 2024.",
+  "gotchas": [
+    "Bonus posted up to 60 days after the 75-day window (up to ~135 days from account opening); account must be open and in good standing",
+    "No fixed expiration date shown - Capital One can end or change the offer at any time",
+    "Qualifying DD excludes wires, ACH credits, and transfers initiated via Capital One",
+    "One promo code per account; cannot combine with other 360 Checking offers; 1099-INT",
+    "No monthly fee and no minimum balance"
+  ],
+  "mismatches_vs_stored": [],
+  "confidence": "high",
+  "notes": "curl returned 200 with 0 bytes (connection reset); issuer page retrieved live via web_extract. Offer has no printed expiration date (stored null is correct)."
+ }
+]

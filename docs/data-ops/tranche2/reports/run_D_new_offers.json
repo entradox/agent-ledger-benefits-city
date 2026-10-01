@@ -1,0 +1,363 @@
+[
+  {
+    "proposed_id": "huntington-perks-checking-400",
+    "bank_or_issuer": "Huntington Bank",
+    "product_name": "Perks Checking / Platinum Perks Checking",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 600,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "$400 tier: qualifying direct deposit of $500+ within 90 days. $600 tier: $25,000 in total deposits within 60 days on Platinum Perks.",
+    "expiry_date_shown": "2026-09-30",
+    "eligibility_notes": "New checking customers only. Online applicants must reside in AL, AR, CO, FL, GA, IL, IN, KY, LA, MI, MN, MS, MO, NC, OH, OK, PA, SC, TN, TX, WV or WI (expanded after Cadence Bank acquisition). Not available to existing checking customers or those with a checking account closed in the last 6 months.",
+    "gotchas": [
+      "$10/mo fee on Perks (waived with $1,000/mo deposits or $5,000 relationship balance); $25/mo on Platinum Perks (waived with $25,000 relationship balance)",
+      "Account must stay open at least 90 days before bonus is paid",
+      "Limit one account-related gift incentive per rolling 12-month period",
+      "Bonus is taxable as interest (1099-INT)",
+      "Expiry date shown on the Doctor of Credit post had already passed (2026-09-30) at time of capture - re-verify the live window"
+    ],
+    "confidence": "high",
+    "notes": "Source is the Doctor of Credit post page (offers, tiers, availability, fees, expiry all read directly from the fetched page). The page title also shows extended state history, so the promo is recurring. Issuer page huntington.com/checking-account-promotions-bonuses-offers advertises up to $600. Tracker-sourced, not issuer-confirmed."
+  },
+  {
+    "proposed_id": "fifth-third-essential-checking-300",
+    "bank_or_issuer": "Fifth Third Bank",
+    "product_name": "Essential Checking",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 300,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Direct deposits totaling $500 or more within 90 days of account opening.",
+    "expiry_date_shown": "2026-09-30",
+    "eligibility_notes": "Only in FL, GA, IL, IN, KY, MI, NC, OH, TN, WV, SC (may require being within ~50 miles of a branch); CA and TX now have branches. Not available to existing checking or Express Banking customers or those with such an account closed in the last 13 months.",
+    "gotchas": [
+      "Often requires opening in branch",
+      "Limit one new-account gift incentive per calendar year",
+      "Bonus is taxable as interest (1099-INT)",
+      "Doctor of Credit notes these offers frequently expire earlier than the stated date"
+    ],
+    "confidence": "high",
+    "notes": "Fetched the Doctor of Credit post. The post title/most recent update states $300 (expires 9/30/26); the bonus has alternated $300-$400 through 2026 and the $400 tier appeared in the offer copy, so treat $300 as the current public amount. Tracker-sourced."
+  },
+  {
+    "proposed_id": "citizens-one-deposit-checking-400",
+    "bank_or_issuer": "Citizens Bank",
+    "product_name": "One Deposit Checking",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 400,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "One direct deposit of $1,000 or more within 60 days; plus $2 per debit card purchase up to $100 in the same 60 days.",
+    "expiry_date_shown": null,
+    "eligibility_notes": "Available in CT, DE, MA, MI, NH, NJ, NY, OH, PA, RI, VT, VA, D.C., MD and FL. Primary signer must not have been a signer on any Citizens personal checking account in the previous 6 months.",
+    "gotchas": [
+      "$9.99/mo fee, waived with one deposit per statement period (any deposit counts)",
+      "$3/mo paper-statement fee unless you enroll in online statements",
+      "In-branch variants have run at $500 and $750 in select markets - check the branch offer",
+      "Bonus is taxable as interest"
+    ],
+    "confidence": "high",
+    "notes": "Fetched the Doctor of Credit post (offer breakdown, state list, fee structure, eligibility). The post also documents recurring $500 in-branch links and a $750 select-branch offer. Tracker-sourced."
+  },
+  {
+    "proposed_id": "regions-lifegreen-checking-400",
+    "bank_or_issuer": "Regions Bank",
+    "product_name": "LifeGreen Checking",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 400,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Register by 12/31/2026, open by 1/31/2027, enroll in online banking within 90 days, and make $1,000+ in qualifying ACH direct deposits within 90 days of opening.",
+    "expiry_date_shown": "2026-12-31",
+    "eligibility_notes": "Residents of AL, AR, FL, GA, IL, IN, IA, KY, LA, MS, MO, NC, SC, TN, TX. Persons who held a personal Regions checking account within one year prior are ineligible. Online opening sometimes requires living within 50 miles of a branch.",
+    "gotchas": [
+      "$8/mo fee with eStatements, waived with $500 single or $1,000 combined direct deposits",
+      "$25 early account closure fee if closed within 180 days",
+      "A $50 referral bonus can stack, bringing the total to $450 (works in the past, not guaranteed)",
+      "Bonus is taxable as interest"
+    ],
+    "confidence": "high",
+    "notes": "Fetched the Doctor of Credit post. The bank-bonus roundup also lists 'Regions Bank $400 Checking Bonus + $50' as a current top offer and notes it is churnable every 12 months. Tracker-sourced."
+  },
+  {
+    "proposed_id": "bofa-advantage-plus-checking-500",
+    "bank_or_issuer": "Bank of America",
+    "product_name": "Advantage Plus Banking (checking)",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 500,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Tiered on total qualifying direct deposits within 90 days: $2,000 earns $100; $5,000-$9,999 earns $300; $10,000+ earns $500.",
+    "expiry_date_shown": null,
+    "eligibility_notes": "New consumer checking customers. Nationwide. Requires qualifying direct deposits from regular monthly income.",
+    "gotchas": [
+      "Monthly fee $4.95-$25 depending on the Advantage Banking tier chosen",
+      "The $500 tier requires a high $10,000 in cumulative direct deposits",
+      "Bonus is taxable as interest",
+      "Offer terms have been renewed repeatedly with shifting end dates - confirm the live window"
+    ],
+    "confidence": "high",
+    "notes": "Bank of America checking is a distinct product from the tracked bofa-customized-cash-200 / bofa-premium-rewards cards and is not in the tracked id list. Read from the Doctor of Credit bank-bonus roundup (fetched) which lists 'Bank of America $100-$500 Bonus'; the dedicated post URL is doctorofcredit.com/bank-of-america-100-500-checking-bonus/ (confirmed to exist, last updated 2026-09-02 per search index). Tracker-sourced."
+  },
+  {
+    "proposed_id": "citi-checking-325",
+    "bank_or_issuer": "Citibank",
+    "product_name": "Citi personal checking",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 325,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "$325 tier requires a direct deposit of $1,500+; a $475 tier exists and may be limited to NY, CT, MD, VA, DC, CA, NV, NJ and select FL/IL markets.",
+    "expiry_date_shown": null,
+    "eligibility_notes": "Nationwide where Citi branches exist; the higher $475 tier is market-limited.",
+    "gotchas": [
+      "Amount depends on market - $325 vs $475",
+      "No credit card funding",
+      "Bonus is taxable as interest",
+      "Citi also runs a separate large-deposit offer (up to $2,000) that is a different product"
+    ],
+    "confidence": "medium",
+    "notes": "Read from the Doctor of Credit bank-bonus roundup (fetched 2026-10-01), which lists 'Citi $325/$475' with a $1,500+ direct deposit requirement and points to doctorofcredit.com/citi-300-checking-bonus/. I did not fetch the dedicated Citi post, so the exact tier amounts are tracker-relayed, not page-verified. Citi the issuer is already tracked (3 cards) but Citi CHECKING is not."
+  },
+  {
+    "proposed_id": "four-leaf-fcu-free-checking-550",
+    "bank_or_issuer": "Four Leaf Federal Credit Union (formerly Bethpage FCU)",
+    "product_name": "Free / Smart / Student Checking",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 550,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "$350 on a qualifying direct deposit of $500+ within 90 days; +$100 if direct deposit continues 12 consecutive months; +$100 at 24 consecutive months.",
+    "expiry_date_shown": "2026-12-31",
+    "eligibility_notes": "Nationwide - no geographic or employer restriction. Must not have an existing FourLeaf checking account as primary holder and must not have previously received a FourLeaf new-checking bonus. Must open between 2/2/2026 and 12/31/2026.",
+    "gotchas": [
+      "ChexSystems sensitive - reader datapoints say approval depends on having 0 or 1 recent account inquiries",
+      "The full $550 requires keeping the direct deposit running for 24 months; only $350 is near-term",
+      "One new-checking bonus per person",
+      "Bonus is taxable as interest"
+    ],
+    "confidence": "high",
+    "notes": "Fetched the Doctor of Credit post (tier breakdown, dates, eligibility, ChexSystems sensitivity). Genuinely nationwide open-membership credit union - the strongest CU candidate for a general audience. Tracker-sourced."
+  },
+  {
+    "proposed_id": "psecu-checking-300",
+    "bank_or_issuer": "PSECU (Pennsylvania State Employees Credit Union)",
+    "product_name": "PSECU checking",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 300,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Use promo code 300PROMO, sign up and log into digital banking, and receive two qualifying payroll direct deposits of $500+ each.",
+    "expiry_date_shown": "2026-12-31",
+    "eligibility_notes": "Membership is nominally PA-only, but the credit union is available nationwide if you join the Pennsylvania Recreation and Park Society (PRPS) for a $20 membership (a portion is rebated). This is the standard route for out-of-state applicants.",
+    "gotchas": [
+      "Not eligible if you have EVER received any PSECU new-member incentive, regardless of when - this is a one-shot offer",
+      "Direct deposits must remain active 6 consecutive months or PSECU may recall the bonus",
+      "Account must not be closed within the first year",
+      "Bonus is taxable as interest"
+    ],
+    "confidence": "high",
+    "notes": "Fetched the Doctor of Credit post (offer mechanics, availability + PRPS route, restrictions). The roundup page lists PSECU $300 as a current top offer. Tracker-sourced."
+  },
+  {
+    "proposed_id": "farmers-insurance-fcu-high-yield-checking-250",
+    "bank_or_issuer": "Farmers Insurance Federal Credit Union (FIGFCU)",
+    "product_name": "High Yield Checking",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 250,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Promo code GHYCHECK. $100 tier: 3+ separate ACH direct deposits totaling $3,000-$14,999 in the first 90 days. $250 tier: 3+ direct deposits totaling $15,000+ in the first 90 days.",
+    "expiry_date_shown": null,
+    "eligibility_notes": "Nationwide - Doctor of Credit states anybody can join via membership in the American Consumer Council (ACC).",
+    "gotchas": [
+      "Very high direct deposit bar for the top tier ($15,000 in 90 days)",
+      "$5 monthly inactivity fee",
+      "ChexSystems is pulled",
+      "Bonus is taxable as interest"
+    ],
+    "confidence": "high",
+    "notes": "Fetched the Doctor of Credit post (tiers, promo code, ACC membership route, fees). Tracker-sourced. Issuer landing page figfcu.org/cashback-checking-google is linked from the post but was not fetched."
+  },
+  {
+    "proposed_id": "connexus-xtraordinary-checking-300",
+    "bank_or_issuer": "Connexus Credit Union",
+    "product_name": "Xtraordinary Checking",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 300,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Promo code XTRABONUS. Meet Xtraordinary Checking requirements for two months (not necessarily consecutive) within 120 days: 15 debit card purchases or $500 debit spend, subscribe to eStatements. Balance-tiered bonus: $100 at $1,000-$4,999 average, $200 at $5,000-$9,999, $300 at $10,000+.",
+    "expiry_date_shown": null,
+    "eligibility_notes": "Open nationwide - join the Connexus Association with a one-time $5 donation, or join free if you live in select counties in MN, NH, OH or WI. Not valid for existing Connexus members with any Connexus checking account open.",
+    "gotchas": [
+      "No direct deposit required, which is unusual and attractive",
+      "The $300 tier requires averaging a $10,000 balance over two months",
+      "The dedicated Doctor of Credit post is titled '[Expired]' while Investopedia and other trackers describe the $300 bonus as live as of late 2026 - verify before relying on it",
+      "$5 inactivity fee; bonus is taxable as interest"
+    ],
+    "confidence": "medium",
+    "notes": "CONFLICTING EVIDENCE: the Doctor of Credit post doctorofcredit.com/connexus-credit-union-300-checking-bonus/ is flagged '[Expired]', the DC bank-bonus-changes log shows '[6/18/26] Added Connexus Credit Union $250 Checking Bonus, Direct Deposit Not Required', and a recent Investopedia article describes a live $300 cash bonus on the same account. Bonus amount may be $250 in the current cycle, not $300. Treat as tracker-only and re-verify on the issuer promotions page."
+  },
+  {
+    "proposed_id": "capital-one-360-performance-savings-1500",
+    "bank_or_issuer": "Capital One",
+    "product_name": "360 Performance Savings",
+    "bonus_type": "savings",
+    "bonus_amount_usd": 1500,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Promo code BONUS1500. Deposit new money within 15 days of opening and hold 90 days: $20,000 earns $300, $50,000 earns $750, $100,000+ earns $1,500.",
+    "expiry_date_shown": null,
+    "eligibility_notes": "Nationwide. Not eligible if you held a 360 Performance Savings, 360 Savings, 360 Money Market, Savings Now or Confidence Savings account as primary or secondary holder on or after January 1, 2024.",
+    "gotchas": [
+      "Funds must come from an external institution - transfers between Capital One accounts do not qualify",
+      "Dropping into a lower balance tier reduces the bonus; dropping below $20,000 forfeits it",
+      "Cannot be combined with other 360 Performance Savings opening offers",
+      "Bonus is taxable as interest"
+    ],
+    "confidence": "high",
+    "notes": "Fetched the Doctor of Credit post (all tiers, promo code, funding/hold rules, improved 2024 lookback). This is a SAVINGS product and is a different product from the tracked capital-one-360-checking-250. Tracker-sourced. Note the DC post's own 'offer at a glance' still shows a stale 2023-expiry string, so confirm the code is live on capitalone.com."
+  },
+  {
+    "proposed_id": "etrade-premium-savings-800",
+    "bank_or_issuer": "E*TRADE (Morgan Stanley)",
+    "product_name": "Premium Savings Account",
+    "bonus_type": "savings",
+    "bonus_amount_usd": 800,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Promo code SAVE800. Deposit within 30 days of opening and maintain for 45 further days: $20,000 earns $400; $100,000 earns $800.",
+    "expiry_date_shown": "2027-01-10",
+    "eligibility_notes": "Nationwide, new Premium Savings Account only. Excludes non-US residents. Not valid for checking, Max-Rate Checking, line of credit, or IRA/non-IRA brokerage accounts.",
+    "gotchas": [
+      "Lifetime maximum of two new Premium Savings cash bonus offers per customer",
+      "Net-new funds must come from outside E*TRADE/Morgan Stanley affiliates",
+      "One promotional code per account; cannot be combined with other PSA offers",
+      "Bonus is taxable as interest"
+    ],
+    "confidence": "high",
+    "notes": "Fetched the Doctor of Credit post. Extended to 1/10/27 with code SAVE800 and an added $800 tier at $100,000. Also carries a 4.00% intro APY for 6 months on balances up to $10M. This is the deposit/savings side, distinct from the E*TRADE brokerage bonus below. Tracker-sourced."
+  },
+  {
+    "proposed_id": "ally-bank-savings-referral-100",
+    "bank_or_issuer": "Ally Bank",
+    "product_name": "Ally Bank Savings Account (Refer-a-Friend)",
+    "bonus_type": "savings",
+    "bonus_amount_usd": 100,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Enroll by 12/31/2026, open a new Ally Bank Savings Account within 30 days, then complete at least 3 back-to-back monthly automated recurring transfers. No direct deposit required.",
+    "expiry_date_shown": "2026-12-31",
+    "eligibility_notes": "Referred person must be a 'New Friend': not currently an Ally Bank deposit customer AND not have had any Ally Bank deposit account since January 1, 2024. Customers who hold only an Ally Auto loan or Ally Invest account (with no deposit account) still qualify as New Friends.",
+    "gotchas": [
+      "Requires a referral link from an existing Ally customer - the new member gets $100, the referrer gets $50",
+      "Bonus depends on three consecutive monthly recurring transfers, not a lump deposit",
+      "Only one Welcome Bonus per person",
+      "Bonus is taxable interest"
+    ],
+    "confidence": "high",
+    "notes": "Fetched the Doctor of Credit post (offer mechanics, 12/31/26 window, updated 'Excluded Friend' definition). This is a SAVINGS-account product and helps close the near-zero savings coverage in the dataset. Tracker-sourced."
+  },
+  {
+    "proposed_id": "etrade-brokerage-6000",
+    "bank_or_issuer": "E*TRADE (Morgan Stanley)",
+    "product_name": "E*TRADE self-directed brokerage",
+    "bonus_type": "brokerage",
+    "bonus_amount_usd": 6000,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Apply promo code at signup and deposit cash or securities within 60 days. Tiers: $1,000->$50; $5,000->$150; $20,000->$300; $100,000->$600; $200,000->$1,000; $500,000->$1,500; $1M->$3,000; $1.5M->$5,000; $2M->$6,000; $5M->$10,000.",
+    "expiry_date_shown": "2026-10-31",
+    "eligibility_notes": "Nationwide, new E*TRADE brokerage accounts. Lifetime maximum of two new-account offers across all client accounts.",
+    "gotchas": [
+      "Funds must be maintained (minus trading losses) for a full year or the credit may be surrendered",
+      "The $50 tier with only $1,000 deposited is the only low-capital entry point",
+      "The listed maximum in the post title ($3,500) is stale versus the offer body ($6,000 at $2M / $10,000 at $5M)",
+      "Taxable as income"
+    ],
+    "confidence": "high",
+    "notes": "Fetched the Doctor of Credit post; it was extended to 10/31/26 with improved tiers under code OFFER26. Brokerage bonuses are entirely absent from the current dataset. Tracker-sourced."
+  },
+  {
+    "proposed_id": "public-brokerage-1pct-match",
+    "bank_or_issuer": "Public.com",
+    "product_name": "Public brokerage / IRA transfer match",
+    "bonus_type": "brokerage",
+    "bonus_amount_usd": 10000,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Unlimited 1% match on assets transferred in. Example tiers: $5,000->$150; $25,000->$250; $100,000->$600; $250,000->$1,000; $500,000->$2,000; $1M->$4,000; $5M+->$10,000.",
+    "expiry_date_shown": null,
+    "eligibility_notes": "Open to new and existing Public customers. Works for brokerage transfers, IRA transfers and IRA rollovers.",
+    "gotchas": [
+      "Five-year hold on transferred funds - the longest lockup of any candidate here",
+      "ACAT transfers only; plain cash transfers do not qualify",
+      "Public charges a $75 ACAT-out fee if you later leave (about $25 to another APEX-clearing broker)",
+      "May be denied if you previously took a Public bonus and transferred substantially all funds back out"
+    ],
+    "confidence": "high",
+    "notes": "Fetched the Doctor of Credit post. As of 1/19/26 the offer is an uncapped 1% match with a 5-year hold; the tier table on the page reflects the older capped structure, so the 1% rate is the operative term. Tracker-sourced."
+  },
+  {
+    "proposed_id": "merrill-edge-brokerage-1000",
+    "bank_or_issuer": "Merrill Edge (Bank of America)",
+    "product_name": "Merrill Edge self-directed CMA / IRA",
+    "bonus_type": "brokerage",
+    "bonus_amount_usd": 1000,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Promo code 1000BR and an asset transfer: $20,000+ earns $100; $50,000+ earns $200; $100,000+ earns $400; $250,000+ earns $1,000.",
+    "expiry_date_shown": null,
+    "eligibility_notes": "New individual Merrill IRAs or Cash Management Accounts. Limited to one CMA and one IRA per accountholder. Eligible IRAs: Rollover, Traditional, Roth, Sole-Proprietor SEP.",
+    "gotchas": [
+      "The $1,000 tier requires a 180-day hold (the standard $600 offer only needs 90 days)",
+      "Must fund within 45 days with money originating outside Bank of America and Merrill",
+      "Funds cannot come from a 401(k) administered by Merrill Lynch",
+      "Not available for business, corporate, investment club or partnership accounts"
+    ],
+    "confidence": "high",
+    "notes": "Fetched the Doctor of Credit post (tiers, promo code, hold period, source-of-funds rules). Higher tiers up to $7,500 exist via a Merrill agent. Tracker-sourced."
+  },
+  {
+    "proposed_id": "citi-wealth-management-brokerage-5000",
+    "bank_or_issuer": "Citi",
+    "product_name": "Citi Wealth Management self-directed brokerage",
+    "bonus_type": "brokerage",
+    "bonus_amount_usd": 5000,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Deposit tiered assets; deposits must be maintained for three months after account opening (funding can occur within two months, so funds may be in for roughly one month).",
+    "expiry_date_shown": null,
+    "eligibility_notes": "Nationwide; works for self-directed accounts. Brokerage or IRA.",
+    "gotchas": [
+      "Account setup is entirely manual and, per Doctor of Credit, extremely slow",
+      "Exact tier thresholds are not spelled out on the roundup page - must be read from the dedicated post",
+      "Taxable as income"
+    ],
+    "confidence": "high",
+    "notes": "Read from the Doctor of Credit best-brokerage-bonuses roundup (fetched 2026-10-01), which lists 'Citi Wealth Management - Up To $5,000 (1-3 Month Hold)' and links doctorofcredit.com/citi-wealth-management-up-to-3500-bonus/. The bonus has grown from $3,500 to $5,000 - the dedicated post URL still holds the old $3,500 figure, so the tier table should be read from the live post. Short hold period is the standout feature. Tracker-sourced."
+  },
+  {
+    "proposed_id": "raisin-savebetter-deposit-bonus",
+    "bank_or_issuer": "Raisin (Savebetter)",
+    "product_name": "Raisin cash account deposit bonus (covers partner CDs and savings)",
+    "bonus_type": "cd",
+    "bonus_amount_usd": 1000,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Register with promo code (recent codes have been STACK / SUMMER26), deposit into partner-bank products and hold 90 days. Tiered: $10,000->$40; $25,000->$100; $50,000->$200; $100,000->$425; $200,000+->$900. An optional multi-category boost adds $10-$100 for spreading funds across a savings AND a CD product.",
+    "expiry_date_shown": "2026-09-30",
+    "eligibility_notes": "New Raisin customers only. Open nationwide. Requires depositing through the Raisin platform into partner banks/credit unions.",
+    "gotchas": [
+      "The promo code window is monthly and rolls - the published Sep 1-30, 2026 window had closed at capture time, so the next cycle's code must be used",
+      "Funds must be held continuously for 90 days; falling below a tier drops you to the lower tier",
+      "Cannot be combined with other Raisin bonus offers",
+      "Doctor of Credit notes the bonus is small relative to the deposit (about 0.8% annualized) and that a Topcashback route sometimes stacks"
+    ],
+    "confidence": "medium",
+    "notes": "TWO SOURCES, ONE PARTLY STALE. The Doctor of Credit October bank-bonus roundup (fetched 2026-10-01) lists 'Raisin/Savebetter + Topcashback: Up To $2,250 Savings' as currently live, while the dedicated DC post's headline was 'Up To $2,000'. The tier table above is read from the issuer's own landing page raisin.com/en-us/cd-accounts/ whose terms show the September window. This is the ONLY live CD-family bonus found; all issuer-direct CD bonus pages located were expired. Tracker + issuer page; re-verify the current monthly code."
+  },
+  {
+    "proposed_id": "delta-community-cu-12mo-cd-100",
+    "bank_or_issuer": "Delta Community Credit Union",
+    "product_name": "12-month Certificate of Deposit (CD bonus)",
+    "bonus_type": "cd",
+    "bonus_amount_usd": 100,
+    "bonus_points": null,
+    "spend_or_deposit_requirement": "Open and fund a new 12-month consumer CD with an opening balance of $10,000 or more. Opening deposit must be made the same day if opened in branch/by mail, or within 30 days if opened online.",
+    "expiry_date_shown": "2026-03-31",
+    "eligibility_notes": "Delta Community CU membership (largely Atlanta/Georgia metro area, plus select employer and association groups). This is the issuer's own published CD promotion page.",
+    "gotchas": [
+      "VERIFY: the published window was February 1 - March 31, 2026, so this specific promotion has expired and a new cycle must be confirmed before proposing it",
+      "Excludes 12-month IRA CDs and does not apply to existing CDs that renew during the promotion",
+      "Bonus is paid into the member's Savings account within 60 days of CD funding",
+      "One redemption per member; early withdrawal penalty of 90 days' interest on the 12-month CD"
+    ],
+    "confidence": "low",
+    "notes": "Included ONLY as the single issuer-direct CD-bonus page found (deltacommunitycu.com/home/cd-bonus.html), to document that CD bonuses exist as a real product category worth a dedicated sweep. The captured window is EXPIRED. Do not add to the dataset without confirming the current cycle. This is the weakest candidate in this run."
+  }
+]
