@@ -76,3 +76,9 @@ test("stats and healthz count only servable offers", async () => {
   assert.equal((await (await fetch(url("/healthz"))).json()).offers, 3);
   assert.equal((await (await fetch(url("/api/stats"))).json()).total_offers, 3);
 });
+
+test("/api/stats (highest_bonus, expiring list) never exposes affiliate_url", async () => {
+  const body = await (await fetch(url("/api/stats"))).text();
+  assert.ok(!body.includes("partner.example"), "raw affiliate URL leaked via /api/stats");
+  assert.ok(!body.includes("affiliate_url"));
+});

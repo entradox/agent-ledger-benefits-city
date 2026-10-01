@@ -5,6 +5,7 @@
  */
 import { expiringSoon, listAll, todayISO } from "./db.js";
 import { liveCounters } from "./metrics.js";
+import { toPublic, type PublicBonus } from "./links.js";
 import type { Bonus } from "./types.js";
 
 export interface Stats {
@@ -14,8 +15,8 @@ export interface Stats {
   savings_offers: number;
   /** Sum of bonus_amount_usd across all offers (credit cards are estimated USD values). */
   total_bonus_usd: number;
-  highest_bonus: Bonus | null;
-  expiring_within_30d: Bonus[];
+  highest_bonus: PublicBonus | null;
+  expiring_within_30d: PublicBonus[];
   /** Max last_verified_date across records, or null. */
   last_verified: string | null;
   /** Rolling 24h usage counters. All three are 0 when metrics are disabled. */
@@ -44,8 +45,8 @@ export function getStats(): Stats {
     credit_card_offers: cards.length,
     savings_offers: bonuses.filter((b) => b.bonus_type === "savings").length,
     total_bonus_usd: Math.round(total),
-    highest_bonus: highest,
-    expiring_within_30d: expiringSoon(30),
+    highest_bonus: highest ? toPublic(highest) : null,
+    expiring_within_30d: expiringSoon(30).map(toPublic),
     last_verified: verified.length ? verified[verified.length - 1] : null,
     ...liveCounters(),
     generated_at: todayISO(),
