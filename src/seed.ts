@@ -9,6 +9,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { BONUS_TYPES } from "./contract.js";
 import { allRecords, getDb, removeBonus, upsertBonus } from "./db.js";
 import type { Bonus, BonusStatus, BonusType, SeedBonus } from "./types.js";
 
@@ -16,7 +17,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const SEED_DIR = path.join(ROOT, "seed-data");
 
-const TYPES: BonusType[] = ["bank_account", "credit_card", "savings"];
+const TYPES: readonly string[] = BONUS_TYPES;
 const STATUSES: BonusStatus[] = ["active", "expired", "needs_review"];
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -42,7 +43,7 @@ export function validate(raw: SeedBonus, file: string, idx: number): Bonus {
     fail(`${where}: missing string "bank_or_issuer"`);
   if (!raw.product_name || typeof raw.product_name !== "string")
     fail(`${where}: missing string "product_name"`);
-  if (!TYPES.includes(raw.bonus_type as BonusType))
+  if (!TYPES.includes(raw.bonus_type))
     fail(`${where}: "bonus_type" must be one of ${TYPES.join(", ")}`);
   if (typeof raw.bonus_amount_usd !== "number" || Number.isNaN(raw.bonus_amount_usd))
     fail(`${where}: "bonus_amount_usd" must be a number`);

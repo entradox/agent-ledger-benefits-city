@@ -80,3 +80,33 @@ test("by-id: found is public-shaped, missing is a typed 404", () => {
   assert.equal(err(m).type, "not_found");
   assert.equal(err(rest.restById("old")).type, "not_found"); // expired is not served
 });
+
+test("I-2 guard: every MCP search/expiring parameter name is honoured by REST (a rename in one place cannot pass silently)", async () => {
+  const { describeMcpTools } = await import("../mcp-tools.js");
+  const tools = new Map((await describeMcpTools()).map((t) => [t.name, t.inputSchema as { properties: Record<string, unknown> }]));
+  const badValue: Record<string, string> = {
+    bonus_type: "nope", state: "Texas", min_bonus_amount_usd: "abc", direct_deposit_required: "maybe", query: "x".repeat(101), limit: "0", days: "0",
+  };
+  for (const name of Object.keys(tools.get("search_bonuses")!.properties)) {
+    const r = rest.restSearch(sp(`${name}=${badValue[name]}`));
+    assert.equal(r.status, 400, `REST ignores MCP param ${name}`);
+    assert.equal(err(r).param, name);
+  }
+  for (const name of Object.keys(tools.get("expiring_soon")!.properties)) {
+    const r = rest.restExpiring(sp(`${name}=${badValue[name]}`));
+    assert.equal(r.status, 400, `REST ignores MCP param ${name}`);
+    assert.equal(err(r).param, name);
+  }
+});
+
+test("I-2: shared contract — one error envelope and one set of limits used by MCP, REST and OpenAPI", async () => {
+  const { errorEnvelope, LIMITS, BONUS_TYPES } = await import("../contract.js");
+  assert.deepEqual(errorEnvelope("not_found", "m", "id"), { error: { type: "not_found", message: "m", param: "id" } });
+  assert.deepEqual(errorEnvelope("x", "m"), { error: { type: "x", message: "m" } });
+  const { describeMcpTools } = await import("../mcp-tools.js");
+  const search = (await describeMcpTools()).find((t) => t.name === "search_bonuses")!.inputSchema as any;
+  assert.equal(search.properties.limit.maximum, LIMITS.limit.max);
+  assert.equal(search.properties.limit.minimum, LIMITS.limit.min);
+  assert.equal(search.properties.limit.default, LIMITS.limit.default);
+  assert.deepEqual([...search.properties.bonus_type.enum].sort(), [...BONUS_TYPES].sort());
+});

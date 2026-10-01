@@ -546,7 +546,7 @@ const CHANGE_LABEL: Record<string, string> = {
 export function changelogPage(ctx: SiteContext, entries: ChangelogEntry[]): string {
   const rows = entries
     .map((e) => {
-      const offer = e.offer_id && e.type !== "removed" ? ` <a href="${bp(ctx, `/bonuses/${esc(e.offer_id)}`)}">View offer →</a>` : "";
+      const offer = e.offer_id && e.type !== "removed" && getBonusById(e.offer_id) ? ` <a href="${bp(ctx, `/bonuses/${esc(e.offer_id)}`)}">View offer →</a>` : "";
       return `<li class="cl-entry"><div class="cl-meta"><span class="badge">${esc(CHANGE_LABEL[e.type] ?? e.type)}</span> <time datetime="${esc(e.date)}">${esc(formatDate(e.date))}</time></div><h3>${esc(e.title)}</h3><p>${esc(e.summary)}${offer}</p></li>`;
     })
     .join("\n");

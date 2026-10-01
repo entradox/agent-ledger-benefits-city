@@ -53,7 +53,13 @@ export function xmlEscape(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 }
 
-export function changelogAtom(publicUrl: string, entries: ChangelogEntry[]): string {
+/** `offerServed` decides whether an entry may link to its offer page (default: always). The route passes the
+ *  real check so a link never points at an offer that has expired. */
+export function changelogAtom(
+  publicUrl: string,
+  entries: ChangelogEntry[],
+  offerServed: (offerId: string) => boolean = () => true,
+): string {
   const updated = `${entries[0]?.date ?? "1970-01-01"}T00:00:00Z`;
   const items = entries
     .map(
@@ -63,7 +69,7 @@ export function changelogAtom(publicUrl: string, entries: ChangelogEntry[]): str
     <updated>${e.date}T00:00:00Z</updated>
     <category term="${xmlEscape(e.type)}"/>
     <summary>${xmlEscape(e.offer_id ? `As of ${e.date}: ${e.summary}` : e.summary)}</summary>
-    <link rel="alternate" href="${xmlEscape(e.offer_id && e.type !== "removed" ? `${publicUrl}/bonuses/${e.offer_id}` : `${publicUrl}/changelog`)}"/>
+    <link rel="alternate" href="${xmlEscape(e.offer_id && e.type !== "removed" && offerServed(e.offer_id) ? `${publicUrl}/bonuses/${e.offer_id}` : `${publicUrl}/changelog`)}"/>
   </entry>`,
     )
     .join("\n");

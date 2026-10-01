@@ -3,6 +3,7 @@
  * Drift is guarded by src/tests/openapi.test.ts (parameter names vs the MCP tool schemas, Bonus
  * fields vs toPublic(), capability endpoints vs paths) and by an HTTP test that requests every path.
  */
+import { BONUS_TYPES, LIMITS } from "./contract.js";
 import { SERVER_VERSION } from "./meta.js";
 
 const errorRef = { $ref: "#/components/schemas/Error" };
@@ -32,12 +33,12 @@ export function openapiJson(publicUrl: string): object {
           operationId: "searchBonuses",
           summary: "Search offers (same filters as the MCP search_bonuses tool)",
           parameters: [
-            { name: "bonus_type", in: "query", schema: { type: "string", enum: ["bank_account", "credit_card", "savings"] } },
+            { name: "bonus_type", in: "query", schema: { type: "string", enum: [...BONUS_TYPES] } },
             { name: "state", in: "query", description: "2-letter US state code; nationwide offers always match", schema: { type: "string", pattern: "^[A-Za-z]{2}$" } },
             { name: "min_bonus_amount_usd", in: "query", description: "Cards: estimated USD value of points", schema: { type: "number", minimum: 0 } },
             { name: "direct_deposit_required", in: "query", schema: { type: "boolean" } },
-            { name: "query", in: "query", description: "Keyword on bank/issuer and product name", schema: { type: "string", maxLength: 100 } },
-            { name: "limit", in: "query", schema: { type: "integer", minimum: 1, maximum: 100, default: 25 } },
+            { name: "query", in: "query", description: "Keyword on bank/issuer and product name", schema: { type: "string", maxLength: LIMITS.query.max } },
+            { name: "limit", in: "query", schema: { type: "integer", minimum: LIMITS.limit.min, maximum: LIMITS.limit.max, default: LIMITS.limit.default } },
           ],
           responses: {
             "200": { description: "Offers, highest bonus first", content: json(bonusArray) },
@@ -49,7 +50,7 @@ export function openapiJson(publicUrl: string): object {
         get: {
           operationId: "expiringSoon",
           summary: "Offers expiring within N days, soonest first",
-          parameters: [{ name: "days", in: "query", schema: { type: "integer", minimum: 1, maximum: 365, default: 30 } }],
+          parameters: [{ name: "days", in: "query", schema: { type: "integer", minimum: LIMITS.days.min, maximum: LIMITS.days.max, default: LIMITS.days.default } }],
           responses: {
             "200": { description: "Offers with a stated expiry inside the window", content: json(bonusArray) },
             "400": errorResponse("invalid_param"),
@@ -61,7 +62,7 @@ export function openapiJson(publicUrl: string): object {
           operationId: "compareBonuses",
           summary: "Compare 2 to 4 offers",
           parameters: [
-            { name: "ids", in: "query", required: true, description: "Comma-separated, 2 to 4 distinct ids", schema: { type: "string" } },
+            { name: "ids", in: "query", required: true, description: `Comma-separated, ${LIMITS.ids.min} to ${LIMITS.ids.max} distinct ids`, schema: { type: "string" } },
           ],
           responses: {
             "200": {
@@ -141,7 +142,7 @@ export function openapiJson(publicUrl: string): object {
             id: { type: "string" },
             bank_or_issuer: { type: "string" },
             product_name: { type: "string" },
-            bonus_type: { type: "string", enum: ["bank_account", "credit_card", "savings"] },
+            bonus_type: { type: "string", enum: [...BONUS_TYPES] },
             bonus_amount_usd: { type: "number", description: "Cards: estimated USD value of points" },
             bonus_points: { type: ["number", "null"] },
             annual_fee_usd: { type: ["number", "null"] },

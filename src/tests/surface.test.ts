@@ -38,3 +38,13 @@ test("agents page has per-client connect one-liners, example prompts, and discov
   assert.match(llms, /savings/);
   assert.match(llms, /auth\.md/);
 });
+
+test("M-e: changelog page links only offers that are currently served", async () => {
+  const { changelogPage } = await import("../site.js");
+  const ctx = { basePath: "/benefits", publicUrl: "https://aiagentscity.com/benefits" };
+  const mk = (id: string, offer_id: string | null) => ({ id, date: "2026-09-30", type: "added" as const, offer_id, title: `T-${id}`, summary: "S" });
+  const html = changelogPage(ctx, [mk("a", "bank-1"), mk("b", "long-gone-offer"), mk("c", null)]);
+  assert.ok(html.includes("/bonuses/bank-1"));
+  assert.ok(!html.includes("/bonuses/long-gone-offer"));
+  assert.ok(html.includes("T-b")); // the entry itself still shows; only the dead link is dropped
+});

@@ -23,7 +23,8 @@ test("agent.json: city schema, honest auth/pricing (none/free), every capability
   assert.equal(a.mcp.url, `${U}/mcp`);
   const ends = a.capabilities.map((c: { endpoint: string }) => c.endpoint);
   for (const e of ["/api/search", "/api/expiring", "/api/compare", "/api/bonuses/{id}", "/api/stats"])
-    assert.ok(ends.includes(e), e);
+    assert.ok(ends.includes(`${U}${e}`), `${e} must be an ABSOLUTE url under the mount`);
+  assert.ok(ends.every((x: string) => x.startsWith(`${U}/`)), "no root-relative endpoints (they resolve outside /benefits)");
   for (const c of a.capabilities) {
     assert.equal(c.method, "GET");
     assert.equal(c.free, true);

@@ -19,7 +19,7 @@ test("openapi 3.1 envelope: version, server url, info", () => {
 });
 
 test("every agent.json capability endpoint is documented, and every path declares the typed error response", () => {
-  for (const c of (agentJson(U) as any).capabilities) assert.ok(doc.paths[c.endpoint], c.endpoint);
+  for (const c of (agentJson(U) as any).capabilities) assert.ok(doc.paths[c.endpoint.replace(U, "")], c.endpoint);
   for (const [p, item] of Object.entries<any>(doc.paths)) {
     if (p === "/go/{id}") continue; // redirect
     const responses = item.get.responses;

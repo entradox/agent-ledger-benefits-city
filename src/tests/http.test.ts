@@ -164,6 +164,12 @@ test("BASE_PATH mount: new routes live under the prefix and 404 outside it", asy
     assert.equal((await fetch(u2("/skill.md"))).status, 404);
     const aj = await (await fetch(u2("/benefits/.well-known/agent.json"))).json();
     assert.equal(aj.mcp.url, `http://localhost:${PORT2}/benefits/mcp`);
+    // every advertised capability endpoint must actually answer under the production mount
+    for (const c of aj.capabilities) {
+      const ep = c.endpoint.replace("{id}", "live-plain") + (c.id === "compare_bonuses" ? "?ids=live-plain,live-aff" : "");
+      assert.ok(ep.startsWith(`http://localhost:${PORT2}/benefits/`), ep);
+      assert.equal((await fetch(ep)).status, 200, c.id);
+    }
   } finally {
     child2.kill();
   }

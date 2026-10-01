@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { LIMITS } from "./contract.js";
 import type { Bonus, BonusType } from "./types.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -132,7 +133,7 @@ export function searchBonuses(f: SearchFilters = {}): Bonus[] {
     );
   }
   out.sort(byValue);
-  const limit = Math.min(Math.max(f.limit ?? 25, 1), 100);
+  const limit = Math.min(Math.max(f.limit ?? LIMITS.limit.default, LIMITS.limit.min), LIMITS.limit.max);
   return out.slice(0, limit);
 }
 
