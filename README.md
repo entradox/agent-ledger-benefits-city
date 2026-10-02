@@ -17,7 +17,7 @@ computed from the real data — they can't go stale.
 
 ```bash
 cd ~/workspace/bank-bonus-agent
-npm install --ignore-scripts   # pure-JS deps; --ignore-scripts avoids native/binary postinstalls
+npm install                    # builds better-sqlite3 (metrics); with --ignore-scripts run `npm rebuild better-sqlite3`
 npm run build                  # tsc -> dist/
 npm run test                   # tsc + node:test suite (dist/tests)
 npm run freshness              # daily source check -> data/review-queue.json (see REFRESH_PLAN.md)
@@ -171,7 +171,7 @@ Credit page for both URL fields. Swap in true bank URLs / affiliate links later.
 ## Deploy
 
 The app is Railway-ready (`start` script, `PORT` respected, `engines: node >= 20`,
-zero native deps, `prestart` seeds the DB). It lives at `aiagentscity.com/benefits`
+one native dep (better-sqlite3, prebuilt binaries), `prestart` seeds the DB). It lives at `aiagentscity.com/benefits`
 via reverse proxy with `BASE_PATH=/benefits`. Foolproof steps:
 **[RAILWAY_DEPLOY.md](RAILWAY_DEPLOY.md)**.
 

@@ -5,7 +5,7 @@
  * A malformed VALUE for a known parameter is a 400 naming it (never a 500). Unknown parameter names are ignored.
  */
 import { compareBonuses } from "./compare.js";
-import { BONUS_TYPES, LIMITS, errorEnvelope } from "./contract.js";
+import { BONUS_TYPES, LIMITS, errorEnvelope, isUsStateCode } from "./contract.js";
 import { expiringSoon, getBonusById, searchBonuses, type SearchFilters } from "./db.js";
 import { toPublic } from "./links.js";
 import type { BonusType } from "./types.js";
@@ -42,7 +42,7 @@ export function restSearch(sp: URLSearchParams): RestResult {
   }
   const state = sp.get("state");
   if (state) {
-    if (!/^[A-Za-z]{2}$/.test(state)) return badParam("state", "state must be a 2-letter US state code, e.g. TX");
+    if (!isUsStateCode(state)) return badParam("state", "state must be a 2-letter US state code, e.g. TX");
     f.state = state;
   }
   const min = sp.get("min_bonus_amount_usd");

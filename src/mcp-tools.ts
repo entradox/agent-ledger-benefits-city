@@ -15,7 +15,7 @@ import { z } from "zod";
 import { expiringSoon, getBonusById, searchBonuses } from "./db.js";
 import { compareBonuses } from "./compare.js";
 import { recordMcpCall } from "./metrics.js";
-import { BONUS_TYPES, LIMITS, errorEnvelope } from "./contract.js";
+import { BONUS_TYPES, LIMITS, errorEnvelope, isUsStateCode } from "./contract.js";
 import { toPublic } from "./links.js";
 import { SERVER_VERSION, SKILL_URI } from "./meta.js";
 
@@ -196,12 +196,14 @@ export function createMcpServer(): McpServer {
           .describe("Restrict to bank account bonuses, credit card signup bonuses, or savings account bonuses."),
         state: z
           .string()
+          .refine(isUsStateCode, "state must be a 2-letter US state code, e.g. TX")
           .optional()
           .describe(
             "2-letter US state code, e.g. 'TX'. Nationwide offers always match; regional offers match only their states.",
           ),
         min_bonus_amount_usd: z
           .number()
+          .nonnegative()
           .optional()
           .describe(
             "Minimum bonus value in USD. For credit cards this is the estimated USD value of the points/miles bonus.",
@@ -277,6 +279,7 @@ export function createMcpServer(): McpServer {
           .array(z.string())
           .min(LIMITS.ids.min)
           .max(LIMITS.ids.max)
+          .refine((ids) => new Set(ids).size === ids.length, "ids must be distinct")
           .describe(
             "2 to 4 bonus ids to compare, e.g. ['chase-total-checking-400', 'sofi-checking-savings-400'].",
           ),

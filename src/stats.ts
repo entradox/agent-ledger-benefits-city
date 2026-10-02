@@ -65,6 +65,11 @@ export function formatUsd(n: number): string {
   return "$" + n.toLocaleString("en-US");
 }
 
+/** Headline bonus label; an offer with no fixed dollar amount (e.g. an uncapped match) reads "Varies", not "$0". */
+export function formatBonus(n: number): string {
+  return n > 0 ? formatUsd(n) : "Varies";
+}
+
 export function formatDate(iso: string | null): string {
   if (!iso) return "No stated end date";
   const [y, m, d] = iso.split("-").map(Number);

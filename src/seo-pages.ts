@@ -11,7 +11,7 @@ import { checkRange } from "./checks.js";
 import { listAll } from "./db.js";
 import { affiliateActive, disclosureShort } from "./links.js";
 import { bonusCard, bp, esc, shell, type SiteContext } from "./site.js";
-import { daysUntil, formatDate, formatUsd } from "./stats.js";
+import { daysUntil, formatBonus, formatDate } from "./stats.js";
 import type { Bonus } from "./types.js";
 
 /** JSON-LD must not be able to close its own <script>; escape every "<". */
@@ -66,7 +66,7 @@ function top(offers: Bonus[]): Bonus {
 function factLine(offers: Bonus[]): string {
   const t = top(offers);
   const checked = checkRange(offers).newest;
-  return `${plural(offers.length, "current offer", "current offers")}; the highest is ${formatUsd(t.bonus_amount_usd)} (${esc(t.bank_or_issuer)} ${esc(t.product_name)}${t.bonus_type === "credit_card" ? ", estimated value" : ""}).${checked ? ` Most recent source check: ${esc(formatDate(checked))}.` : ""}`;
+  return `${plural(offers.length, "current offer", "current offers")}; the highest is ${formatBonus(t.bonus_amount_usd)} (${esc(t.bank_or_issuer)} ${esc(t.product_name)}${t.bonus_type === "credit_card" ? ", estimated value" : ""}).${checked ? ` Most recent source check: ${esc(formatDate(checked))}.` : ""}`;
 }
 
 const HOW =
@@ -102,7 +102,7 @@ export function banksIndexPage(ctx: SiteContext): string | null {
   if (!groups.length) return null;
   const total = groups.reduce((n, g) => n + g.offers.length, 0);
   const rows = groups
-    .map((g) => `<li><a href="${bp(ctx, `/banks/${esc(g.slug)}`)}"><strong>${esc(g.name)}</strong></a> — ${plural(g.offers.length, "offer", "offers")}, up to ${formatUsd(g.offers[0].bonus_amount_usd)}</li>`)
+    .map((g) => `<li><a href="${bp(ctx, `/banks/${esc(g.slug)}`)}"><strong>${esc(g.name)}</strong></a> — ${plural(g.offers.length, "offer", "offers")}, up to ${formatBonus(g.offers[0].bonus_amount_usd)}</li>`)
     .join("");
   const ld = ldScript(breadcrumb(ctx, [["Banks and issuers", "/banks"]]));
   const body = `<div class="wrap"><div class="page-head">
@@ -120,7 +120,7 @@ export function issuerPage(ctx: SiteContext, slug: string): string | null {
     ctx,
     `/banks/${g.slug}`,
     `${g.name} signup bonuses (${plural(g.offers.length, "current offer", "current offers")})`,
-    `${plural(g.offers.length, "current offer", "current offers")} from ${g.name}; highest ${formatUsd(top(g.offers).bonus_amount_usd)}${top(g.offers).bonus_type === "credit_card" ? " (estimated value)" : ""}. Requirements, expiry dates and sources.`,
+    `${plural(g.offers.length, "current offer", "current offers")} from ${g.name}; highest ${formatBonus(top(g.offers).bonus_amount_usd)}${top(g.offers).bonus_type === "credit_card" ? " (estimated value)" : ""}. Requirements, expiry dates and sources.`,
     `${g.name} signup bonuses`,
     `${esc(g.name)}: ${factLine(g.offers)}`,
     g.offers,

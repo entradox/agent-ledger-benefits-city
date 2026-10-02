@@ -54,3 +54,17 @@ test("docs/examples tools and the skill resource are served", async () => {
   const skill = await c.readResource({ uri: "skill://benefits-city/benefits-city/SKILL.md" });
   assert.match((skill.contents[0] as { text: string }).text, /^---\nname: benefits-city/);
 });
+
+test("input validation matches REST: unknown state, negative minimum, duplicate compare ids are rejected", async () => {
+  const c = await connect();
+  for (const [name, args] of [
+    ["search_bonuses", { state: "ZZ" }],
+    ["search_bonuses", { min_bonus_amount_usd: -5 }],
+    ["compare_bonuses", { ids: ["one", "one"] }],
+  ] as const) {
+    const r = await c.callTool({ name, arguments: args });
+    assert.equal((r as { isError?: boolean }).isError, true, `${name} ${JSON.stringify(args)}`);
+  }
+  const ok = JSON.parse(text(await c.callTool({ name: "search_bonuses", arguments: { state: "tx" } }))).bonuses;
+  assert.ok(ok.length > 0);
+});

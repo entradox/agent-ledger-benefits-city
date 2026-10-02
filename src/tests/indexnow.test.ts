@@ -6,7 +6,7 @@ import os from "node:os";
 import path from "node:path";
 
 const { INDEXNOW_KEY } = await import("../indexnow.js");
-const PY = "/opt/miniconda3/bin/python3";
+const PY = process.env.PYTHON ?? "python3";
 
 test("IndexNow key is a public 32-hex token (the key file is public by design — not a secret)", () => {
   assert.match(INDEXNOW_KEY, /^[a-f0-9]{32}$/);

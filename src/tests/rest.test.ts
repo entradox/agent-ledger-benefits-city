@@ -30,6 +30,7 @@ test("search: bad params give a typed 400 naming the param — never a 500 or a 
   for (const [q, param] of [
     ["bonus_type=crypto", "bonus_type"],
     ["state=Texas", "state"],
+    ["state=ZZ", "state"],
     ["min_bonus_amount_usd=abc", "min_bonus_amount_usd"],
     ["min_bonus_amount_usd=-5", "min_bonus_amount_usd"],
     ["direct_deposit_required=maybe", "direct_deposit_required"],
