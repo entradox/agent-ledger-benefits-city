@@ -486,6 +486,14 @@ export function agentsPage(ctx: SiteContext): string {
   }
 }`))}
 
+    <h3>Add it to your assistant</h3>
+    <ul>
+      <li><strong>Claude (web / desktop):</strong> Settings → Connectors → Add custom connector → paste <code>${esc(mcpUrl)}</code>. No auth.</li>
+      <li><strong>Muse (Meta):</strong> ask Muse to <em>“create a Custom Connector to ${esc(ctx.publicUrl)}”</em> — it reads the API contract from <a href="${bp(ctx, "/openapi.json")}"><code>/openapi.json</code></a> and <a href="${bp(ctx, "/llms.txt")}"><code>/llms.txt</code></a> itself.</li>
+      <li><strong>Any MCP client / agent runtime:</strong> the same endpoint, or the <code>mcp-remote</code> block above.</li>
+    </ul>
+    <p>Listed in the <a href="https://registry.modelcontextprotocol.io/v0.1/servers?search=benefits-city">MCP Registry</a> as <code>io.github.entradox/benefits-city</code>, so registry-aware clients find it without a URL.</p>
+
     <h3>Try asking</h3>
     <ul>
       <li>“Which checking bonuses over $300 are available in Texas, and how much direct deposit does each one need?”</li>
