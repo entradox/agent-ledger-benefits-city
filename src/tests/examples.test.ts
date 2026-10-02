@@ -5,6 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
+import { STATE_NAMES } from "../contract.js";
 import { setupDb } from "./helpers.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
@@ -93,7 +94,8 @@ test("the site's published 'Try asking' prompts are answerable by the shipped se
   assert.ok(prompts.length >= 3, "expected the site's Try asking list to publish prompts");
   const c = await connect();
   for (const p of prompts) {
-    const state = p.match(/\bin ([A-Z][a-z]+)\b/)?.[1];
+    const stateName = p.match(/\bin ([A-Z][a-z]+(?: [A-Z][a-z]+)?)\b/)?.[1];
+    const state = Object.entries(STATE_NAMES).find(([, name]) => name === stateName)?.[0];
     const type: string | undefined = /checking|bank account/i.test(p)
       ? "bank_account"
       : /savings/i.test(p)
@@ -103,7 +105,7 @@ test("the site's published 'Try asking' prompts are answerable by the shipped se
           : undefined;
     if (!type) continue; // non-search prompts (changelog, compare) are covered elsewhere
     const args: Record<string, unknown> = { bonus_type: type, limit: 5 };
-    if (state) args.state = state.slice(0, 2).toUpperCase();
+    if (state) args.state = state;
     const res = (await call(c, { tool: "search_bonuses", arguments: args })).bonuses;
     assert.ok(
       Array.isArray(res) && res.length > 0,

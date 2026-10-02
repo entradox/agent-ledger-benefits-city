@@ -193,6 +193,13 @@ const server = http.createServer((req, res) => {
         pathname = pathname.slice(BASE_PATH.length) || "/";
       }
 
+      // One canonical URL per page: /bonuses/ -> /bonuses (query preserved).
+      if (pathname.length > 1 && pathname.endsWith("/") && (req.method === "GET" || req.method === "HEAD")) {
+        res.writeHead(301, { location: `${BASE_PATH}${pathname.replace(/\/+$/, "") || "/"}${url.search}` });
+        res.end();
+        return;
+      }
+
       const ctx = ctxFor(req);
 
       /* Health check — for Railway / uptime monitors. No data beyond counts. */
@@ -237,7 +244,8 @@ const server = http.createServer((req, res) => {
         } catch {
           return send(res, 404, "text/html; charset=utf-8", notFoundPage(ctx));
         }
-        recordApplyClick(req, offer.id, destHost);
+        // HEAD is a link checker / unfurler / prefetcher, not a person clicking Apply.
+        if (req.method === "GET") recordApplyClick(req, offer.id, destHost);
         // 302 so the hop is not cached; no-store so a repeat click still counts.
         res.writeHead(302, {
           location: dest,

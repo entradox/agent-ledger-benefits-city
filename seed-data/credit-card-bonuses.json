@@ -105,7 +105,7 @@
   },
   {
     "annual_fee_usd": 895,
-    "application_url": "https://www.americanexpress.com/us/business/credit-cards/business-platinum/",
+    "application_url": "https://www.americanexpress.com/us/credit-cards/business/business-credit-cards/american-express-business-platinum-credit-card-amex/",
     "bank_or_issuer": "American Express",
     "bonus_amount_usd": 4000,
     "bonus_points": 200000,
@@ -124,7 +124,7 @@
       "The public offer confirmed 2026-10-01 is 200,000 points. Offers of 250,000-300,000 points are targeted/YMMV and are not available to every applicant; this record now tracks the public offer.",
       "Verification note: American Express serves welcome-offer figures only to a rendered browser, so this amount was confirmed 2026-10-01 against bonus trackers rather than a static read of the issuer page. Confirm your own offer on the issuer page before applying \u2014 Amex varies offers by applicant and channel."
     ],
-    "source_url": "https://www.americanexpress.com/us/business/credit-cards/business-platinum/",
+    "source_url": "https://www.americanexpress.com/us/credit-cards/business/business-credit-cards/american-express-business-platinum-credit-card-amex/",
     "states_available": "nationwide",
     "verification": {
       "method": "aggregator_consensus",
@@ -137,7 +137,7 @@
   },
   {
     "annual_fee_usd": 375,
-    "application_url": "https://www.americanexpress.com/us/business/credit-cards/business-gold/",
+    "application_url": "https://www.americanexpress.com/us/credit-cards/business/business-credit-cards/american-express-business-gold-card-amex/",
     "bank_or_issuer": "American Express",
     "bonus_amount_usd": 4000,
     "bonus_points": 200000,
@@ -155,7 +155,7 @@
       "Restricted to one welcome bonus per card per lifetime with American Express",
       "Verification note: American Express serves welcome-offer figures only to a rendered browser, so this amount was confirmed 2026-10-01 against bonus trackers rather than a static read of the issuer page. Confirm your own offer on the issuer page before applying \u2014 Amex varies offers by applicant and channel."
     ],
-    "source_url": "https://www.americanexpress.com/us/business/credit-cards/business-gold/",
+    "source_url": "https://www.americanexpress.com/us/credit-cards/business/business-credit-cards/american-express-business-gold-card-amex/",
     "states_available": "nationwide",
     "verification": {
       "method": "aggregator_consensus",
@@ -192,7 +192,7 @@
     "annual_fee_usd": 95,
     "application_url": "https://www.capitalone.com/credit-cards/venture/",
     "bank_or_issuer": "Capital One",
-    "bonus_amount_usd": 1688,
+    "bonus_amount_usd": 1388,
     "bonus_points": 75000,
     "bonus_type": "credit_card",
     "direct_deposit_required": false,
@@ -204,7 +204,7 @@
     "requirements": [
       "Earn 75,000 bonus miles after spending $4,000 on purchases in the first 3 months from account opening",
       "Plus receive a $300 credit for hotel and vacation rental bookings through Capital One Travel in the first cardholder year",
-      "Miles valued ~$1,388 at 1.85 cents per mile (TPG September 2026 Capital One valuation); combined value ~$1,688 including the $300 travel credit",
+      "Miles valued ~$1,388 at 1.85 cents per mile (TPG September 2026 Capital One valuation)",
       "Not eligible if you opened or earned the Venture or Venture X bonus in the past 48 months",
       "Limited-time (from September 8, 2026): also includes a $300 Capital One Travel credit for hotel and vacation-rental bookings, valid one year; not included in the USD value shown here",
       "Verification note: the 75,000-mile offer was confirmed against the issuer product page on 2026-10-01; the exact valuation and the $300 travel credit are per the trackers recorded in the verification block."
@@ -310,7 +310,7 @@
   },
   {
     "annual_fee_usd": 550,
-    "application_url": "https://www.bankofamerica.com/credit-cards/",
+    "application_url": "https://www.bankofamerica.com/credit-cards/products/premium-rewards-elite-credit-card/",
     "bank_or_issuer": "Bank of America",
     "bonus_amount_usd": 750,
     "bonus_points": 75000,

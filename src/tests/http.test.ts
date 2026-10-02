@@ -234,3 +234,10 @@ test("IndexNow key file is served exactly at /<key>.txt", async () => {
   assert.equal(r.status, 200);
   assert.equal((await r.text()).trim(), INDEXNOW_KEY);
 });
+
+test("trailing-slash URLs 301 to the canonical path, query preserved", async () => {
+  const r = await fetch(url("/bonuses/?type=savings"), { redirect: "manual" });
+  assert.equal(r.status, 301);
+  assert.equal(r.headers.get("location"), "/bonuses?type=savings");
+  assert.equal((await fetch(url("/"), { redirect: "manual" })).status, 200);
+});

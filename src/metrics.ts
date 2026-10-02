@@ -32,6 +32,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import Database from "better-sqlite3";
 import type { IncomingMessage } from "node:http";
+import { BONUS_TYPES, isUsStateCode } from "./contract.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = path.resolve(__dirname, "..");
@@ -178,15 +179,30 @@ function dailySalt(database: Database.Database, day: string): string {
   return salt;
 }
 
+/**
+ * Client IP for the session hash. Proxies APPEND to X-Forwarded-For, so only entries added by our
+ * own edge are trustworthy and anything to their left is client-written. TRUSTED_PROXY_HOPS is the
+ * number of proxies in front of this service (default 1: the Railway edge); the client is the entry
+ * that many places from the right. With no XFF, the TCP peer is used.
+ */
+export function clientIp(req: IncomingMessage): string {
+  const hops = Math.max(1, Number.parseInt(process.env.TRUSTED_PROXY_HOPS ?? "1", 10) || 1);
+  const xff = req.headers["x-forwarded-for"];
+  const entries = String(Array.isArray(xff) ? xff.join(",") : (xff ?? ""))
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  if (entries.length) return entries[Math.max(0, entries.length - hops)].slice(0, 45);
+  return req.socket?.remoteAddress ?? "";
+}
+
 /** Opaque, day-scoped session token. Not reversible, not stable across days. */
 export function sessionHash(req: IncomingMessage): string {
   const database = open();
   if (!database) return "";
   try {
     const day = utcDay(new Date());
-    const ip = String(req.headers["x-forwarded-for"] ?? req.socket.remoteAddress ?? "")
-      .split(",")[0]
-      .trim();
+    const ip = clientIp(req);
     const ua = String(req.headers["user-agent"] ?? "");
     return crypto
       .createHash("sha256")
@@ -222,12 +238,20 @@ export function maybePurgeOldEvents(now: Date = new Date()): boolean {
   return true;
 }
 
-/** Browse-filter summary for the funnel. Enumerated filters are kept; the free-text search box is
- *  recorded only as present (q=1), never verbatim — a search phrase can identify a person. */
+/** Browse-filter summary for the funnel. Only values from the filters' fixed vocabularies are kept
+ *  verbatim; anything else is recorded as `invalid`. The free-text search box is recorded only as
+ *  present (q=1), never verbatim — a search phrase can identify a person. */
 export function browseFilterSummary(sp: URLSearchParams): string {
-  return ["type", "state", "min", "dd", "q"]
+  const clean: Record<string, (v: string) => string> = {
+    type: (v) => ((BONUS_TYPES as readonly string[]).includes(v) ? v : "invalid"),
+    state: (v) => (isUsStateCode(v) ? v.toUpperCase() : "invalid"),
+    min: (v) => (/^\d{1,6}$/.test(v) ? v : "invalid"),
+    dd: (v) => (v === "yes" || v === "no" ? v : "invalid"),
+    q: () => "1",
+  };
+  return Object.keys(clean)
     .filter((k) => (sp.get(k) ?? "") !== "")
-    .map((k) => (k === "q" ? "q=1" : `${k}=${(sp.get(k) ?? "").slice(0, 40)}`))
+    .map((k) => `${k}=${clean[k](sp.get(k) ?? "")}`)
     .join("&");
 }
 

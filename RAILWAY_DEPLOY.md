@@ -6,7 +6,7 @@ service inside your existing Railway hub, served at
 **`https://aiagentscity.com/benefits`**.
 
 No code changes needed. The repo is a standard Node 20+ service: one build
-command, one start command, zero native deps, stateless apart from a JSON file
+command, one start command, one native dep (better-sqlite3, for metrics), stateless apart from a JSON file
 it seeds itself.
 
 **What "done" looks like:**
@@ -66,6 +66,7 @@ on every boot via the `prestart` hook. Nothing to hand-manage.
    | `BASE_PATH` | `/benefits` | **Required.** Every internal link, asset path, form action, and the MCP/API routes follow this. Requests outside the prefix 404. |
    | `PUBLIC_URL` | `https://aiagentscity.com/benefits` | **Required.** Canonical public URL baked into the agent docs, `llms.txt`, and the `/api` descriptor. Without it, docs show the Railway origin URL. |
    | `PORT` | *(leave alone)* | Railway injects it. |
+   | `TRUSTED_PROXY_HOPS` | `2` when served through the aiagentscity.com hub (hub edge + this service's edge); `1` (default) for direct traffic | Number of proxies that append to `X-Forwarded-For`. Metrics take the client IP that many entries from the right; entries further left are client-written and ignored. |
    | `BONUS_DB_PATH` | *(leave unset)* | Only if you want the JSON store somewhere other than `data/bonuses.json`. |
 
 5. Deploy. Note the Railway origin URL
@@ -82,7 +83,7 @@ curl -s https://<railway-origin>.up.railway.app/benefits/api/stats | head -c 200
 ```
 
 **Already handled in the repo:** `start` script, `PORT` respected,
-`engines: node >= 20`, pure-JS deps (no native builds), `prestart` seeds the DB.
+`engines: node >= 20`, `prestart` seeds the DB.
 
 ## 3. Reverse-proxy `aiagentscity.com/benefits` → Railway
 

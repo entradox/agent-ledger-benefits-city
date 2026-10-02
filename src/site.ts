@@ -7,9 +7,10 @@
  */
 import { expiringSoon, getBonusById, listAll, searchBonuses } from "./db.js";
 import type { ChangelogEntry } from "./changelog.js";
+import { isUsStateCode } from "./contract.js";
 import { seoPaths } from "./seo.js";
 import { affiliateActive, disclosureShort, isSponsored, resolveApplyUrl } from "./links.js";
-import { daysUntil, formatDate, formatUsd, getStats } from "./stats.js";
+import { daysUntil, formatBonus, formatDate, formatUsd, getStats } from "./stats.js";
 import type { Bonus } from "./types.js";
 
 /** Product display name — rename here and it follows everywhere the site renders. */
@@ -64,7 +65,7 @@ function amountHtml(b: Bonus, big = false): string {
   const cls = big ? "amount" : "amount";
   const note =
     b.bonus_type === "credit_card" ? ` <small>est. value</small>` : ` <small>bonus</small>`;
-  return `<div class="${cls}">${formatUsd(b.bonus_amount_usd)}${note}</div>`;
+  return `<div class="${cls}">${formatBonus(b.bonus_amount_usd)}${note}</div>`;
 }
 
 export function bonusCard(ctx: SiteContext, b: Bonus): string {
@@ -191,7 +192,7 @@ export function landingPage(ctx: SiteContext): string {
       .map(
         (b) => `<tr>
           <td><a href="${bp(ctx, `/bonuses/${esc(b.id)}`)}"><strong>${esc(b.bank_or_issuer)}</strong> ${esc(b.product_name)}</a></td>
-          <td class="amt">${formatUsd(b.bonus_amount_usd)}${b.bonus_type === "credit_card" ? " <span class='badge'>est.</span>" : ""}</td>
+          <td class="amt">${formatBonus(b.bonus_amount_usd)}${b.bonus_type === "credit_card" ? " <span class='badge'>est.</span>" : ""}</td>
           <td>${expiryBadge(b)}</td>
         </tr>`,
       )
@@ -319,7 +320,7 @@ export function browsePage(ctx: SiteContext, query: BrowseQuery): string {
     filters.min_bonus_amount_usd = minNum;
   if (query.dd === "yes") filters.direct_deposit_required = true;
   if (query.dd === "no") filters.direct_deposit_required = false;
-  if (query.state.trim()) filters.state = query.state.trim().toUpperCase();
+  if (isUsStateCode(query.state.trim())) filters.state = query.state.trim().toUpperCase();
   if (query.q.trim()) filters.query = query.q.trim();
   filters.limit = 100;
 
@@ -446,7 +447,8 @@ export function detailPage(ctx: SiteContext, id: string): string | null {
     </div>
     <div style="height:40px"></div>
   </div>`;
-  return shell(ctx, `${b.bank_or_issuer} ${b.product_name} — ${formatUsd(b.bonus_amount_usd)} Bonus`, `Full terms, requirements and expiry for the ${b.bank_or_issuer} ${b.product_name} ${formatUsd(b.bonus_amount_usd)} bonus.`, body, `/bonuses/${b.id}`);
+  const headline = b.bonus_amount_usd > 0 ? `${formatUsd(b.bonus_amount_usd)} Bonus` : "Signup Offer";
+  return shell(ctx, `${b.bank_or_issuer} ${b.product_name} — ${headline}`, `Full terms, requirements and expiry for the ${b.bank_or_issuer} ${b.product_name} ${headline.toLowerCase()}.`, body, `/bonuses/${b.id}`);
 }
 
 /* ---------------- agents ---------------- */
