@@ -67,6 +67,7 @@ on every boot via the `prestart` hook. Nothing to hand-manage.
    | `PUBLIC_URL` | `https://aiagentscity.com/benefits` | **Required.** Canonical public URL baked into the agent docs, `llms.txt`, and the `/api` descriptor. Without it, docs show the Railway origin URL. |
    | `PORT` | *(leave alone)* | Railway injects it. |
    | `TRUSTED_PROXY_HOPS` | `2` when served through the aiagentscity.com hub (hub edge + this service's edge); `1` (default) for direct traffic | Number of proxies that append to `X-Forwarded-For`. Metrics take the client IP that many entries from the right; entries further left are client-written and ignored. |
+   | `RATE_LIMIT_PER_MIN` | `0` (off) unless set; e.g. `120` | Per-visitor request cap per minute; over-cap requests get `429` + `Retry-After`. **Set this only together with the correct `TRUSTED_PROXY_HOPS`** — keys come from the same XFF logic, so with hops unset every hub-proxied visitor shares one bucket and the limit throttles everyone together. `/healthz` is exempt. |
    | `BONUS_DB_PATH` | *(leave unset)* | Only if you want the JSON store somewhere other than `data/bonuses.json`. |
 
 5. Deploy. Note the Railway origin URL

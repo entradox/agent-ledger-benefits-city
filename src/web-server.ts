@@ -29,7 +29,9 @@
  *
  * Run:  npm run web        (PORT env, default 3000)
  * Env:  PORT, BASE_PATH ("" default), PUBLIC_URL (optional canonical URL),
- *       BONUS_DB_PATH (optional override of data/bonuses.json)
+ *       BONUS_DB_PATH (optional override of data/bonuses.json),
+ *       TRUSTED_PROXY_HOPS (proxy count for client IP, default 1),
+ *       RATE_LIMIT_PER_MIN (per-visitor cap, 0 = off — set with TRUSTED_PROXY_HOPS)
  */
 import { timingSafeEqual } from "node:crypto";
 import fs from "node:fs";
@@ -50,6 +52,7 @@ import { restById, restCompare, restExpiring, restSearch, type RestResult } from
 import { API_VERSION, SERVER_VERSION, agentJson, aiPluginManifest, authMd, serverCard, serverJson } from "./meta.js";
 import { createMcpServer, describeMcpTools } from "./mcp-tools.js";
 import {
+  clientIp,
   closeMetrics,
   dashboardData,
   initMetrics,
@@ -58,6 +61,7 @@ import {
   recordFeedHit,
   recordPageView,
 } from "./metrics.js";
+import { RateLimiter, configuredLimit } from "./rate-limit.js";
 import { internalDashboard } from "./internal-dashboard.js";
 import { getStats } from "./stats.js";
 import {
@@ -119,6 +123,11 @@ function publicUrlFor(req: http.IncomingMessage): string {
 function ctxFor(req: http.IncomingMessage): SiteContext {
   return { basePath: BASE_PATH, publicUrl: publicUrlFor(req) };
 }
+
+/* Per-visitor rate limit — null unless RATE_LIMIT_PER_MIN > 0. Enable together
+ * with TRUSTED_PROXY_HOPS (RAILWAY_DEPLOY.md): keys come from clientIp(), so
+ * with the wrong hop count all proxied visitors share one bucket. */
+const rateLimiter = configuredLimit() > 0 ? new RateLimiter(configuredLimit()) : null;
 
 const CONTENT_TYPES: Record<string, string> = {
   ".css": "text/css; charset=utf-8",
@@ -215,6 +224,22 @@ const server = http.createServer((req, res) => {
             time: new Date().toISOString(),
           }),
         );
+
+      /* Per-visitor rate limit. /healthz stays exempt above so uptime monitors
+         and Railway health checks can never be throttled out. */
+      if (rateLimiter) {
+        const verdict = rateLimiter.check(clientIp(req) || "unknown");
+        if (!verdict.allowed) {
+          res.writeHead(429, {
+            "content-type": "text/plain; charset=utf-8",
+            "retry-after": String(verdict.retryAfterSeconds),
+            "cache-control": "no-store",
+            "x-api-version": API_VERSION,
+          });
+          res.end("rate limit exceeded");
+          return;
+        }
+      }
 
       /* MCP — Streamable HTTP (stateless; POST only) */
       if (pathname === "/mcp") {

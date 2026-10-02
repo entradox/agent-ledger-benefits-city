@@ -117,7 +117,7 @@
   },
   {
     "annual_fee_usd": null,
-    "application_url": "https://www.bmo.com/en-us/main/personal/bank-accounts/checking-accounts/",
+    "application_url": "https://www.bmo.com/en-us/main/personal/checking-accounts/digital-offer/",
     "bank_or_issuer": "BMO",
     "bonus_amount_usd": 600,
     "bonus_points": null,
@@ -125,7 +125,7 @@
     "direct_deposit_required": true,
     "expiry_date": "2026-12-15",
     "id": "bmo-checking-600",
-    "last_verified_date": "2026-09-20",
+    "last_verified_date": "2026-10-02",
     "min_deposit_usd": 25,
     "product_name": "Smart Advantage Checking",
     "requirements": [
@@ -134,7 +134,16 @@
       "Beginning the month following account opening, earn a $100 cash bonus each consecutive month (up to 6 months, $600 total) you have a cumulative total of $1,000 or more in qualifying direct deposits posted to the account",
       "Account must be funded with at least $25 to open"
     ],
-    "source_url": "https://www.doctorofcredit.com/il-wi-mn-in-az-fl-ks-mo-bmo-harris-350-checking-300-savings-bonus/",
+    "source_url": "https://www.bmo.com/en-us/main/personal/checking-accounts/digital-offer/",
+    "verification": {
+     "method": "aggregator_consensus",
+     "sources": [
+      "https://www.bmo.com/en-us/main/personal/checking-accounts/digital-offer/",
+      "https://www.bankrate.com/banking/best-bank-account-bonuses-and-promotions/",
+      "https://thebonusstack.com/bonuses/bmo-smart-advantage-checking"
+     ],
+     "verified_at": "2026-10-02"
+    },
     "states_available": [
       "AZ",
       "CA",
