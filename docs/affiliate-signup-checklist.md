@@ -35,6 +35,21 @@ don't pay affiliates for checking applications. SoFi is the realistic first doll
 Tier C listings are still an asset — "we list offers that pay us nothing" is part of
 the trust story.
 
+### Status log
+
+- **2026-10-02 — Impact account created, marketplace access DECLINED.** Site
+  verified (`impact-site-verification` meta served via `SITE_VERIFICATION_TAGS`
+  env — keep it set; networks re-check). Decline reason: standard new-property
+  call — no traffic history, no connected channels. Fix: connect social/newsletter
+  channels on the account, build traffic (directory listings + launch assets),
+  reapply after a few weeks of real visits.
+- **SoFi is not Impact-exclusive.** Listings show it on FlexOffers and CJ too
+  (plus `refer.sofi.com`, consumer referral). Alternate path to the same first
+  dollar; verify inside each dashboard once those accounts exist.
+- **Revised order:** CJ / Rakuten / FlexOffers / Awin accounts first → Tier A
+  applications on each (Capital One, Discover are the most permissive) → launch
+  drives traffic → Impact reapplication for SoFi.
+
 ## 2. What to have ready (typical reviewer asks — verify per program)
 - [ ] Live site URL: `aiagentscity.com/benefits` (deployed, not localhost).
 - [ ] Disclosure page: `/disclosure` (names partners once approved), `/about`, `/contact` working.
