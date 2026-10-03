@@ -49,7 +49,7 @@ import { insights } from "./insights.js";
 import { openapiJson } from "./openapi.js";
 import { banksIndexPage, bestPage, expiringPage, issuerPage, statePage, statesIndexPage } from "./seo-pages.js";
 import { restById, restCompare, restExpiring, restSearch, type RestResult } from "./rest.js";
-import { API_VERSION, SERVER_VERSION, agentJson, aiPluginManifest, authMd, serverCard, serverJson } from "./meta.js";
+import { API_VERSION, SERVER_VERSION, agentJson, aiPluginManifest, authMd, pricingMd, serverCard, serverJson } from "./meta.js";
 import { createMcpServer, describeMcpTools } from "./mcp-tools.js";
 import {
   clientIp,
@@ -76,6 +76,7 @@ import {
   landingPage,
   llmsText,
   notFoundPage,
+  okfIndexMd,
   privacyPage,
   robotsText,
   sitemapText,
@@ -368,6 +369,11 @@ const server = http.createServer((req, res) => {
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(serverJson(ctx.publicUrl), null, 2));
       if (pathname === "/auth.md")
         return send(res, 200, "text/markdown; charset=utf-8", authMd(ctx.publicUrl));
+      if (pathname === "/pricing.md")
+        return send(res, 200, "text/markdown; charset=utf-8", pricingMd(ctx.publicUrl));
+      /* OKF agent-readable index — a map to the machine surfaces, not a page clone. */
+      if (pathname === "/okf" || pathname === "/okf/" || pathname === "/okf/index.md")
+        return send(res, 200, "text/markdown; charset=utf-8", okfIndexMd(ctx));
       if (pathname === "/skill.md")
         return send(res, 200, "text/markdown; charset=utf-8", fs.readFileSync(path.join(ROOT, "skill", "benefits-city", "SKILL.md")));
       if (pathname === "/docs") return send(res, 200, "text/html; charset=utf-8", agentsPage(ctx));

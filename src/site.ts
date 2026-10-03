@@ -36,6 +36,11 @@ export function esc(s: string | number | null | undefined): string {
     .replace(/'/g, "&#39;");
 }
 
+/** JSON-LD must not be able to close its own <script>; escape every "<". */
+export function ldScript(obj: unknown): string {
+  return `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, "\\u003c")}</script>`;
+}
+
 function typeBadge(b: Bonus): string {
   if (b.bonus_type === "bank_account") return `<span class="badge badge-type-bank">Bank account</span>`;
   if (b.bonus_type === "savings") return `<span class="badge badge-type-bank">Savings</span>`;
@@ -301,7 +306,44 @@ export function landingPage(ctx: SiteContext): string {
     </div>
   </div></section>`;
 
-  return shell(ctx, "US Bank & Credit Card Signup Bonuses, Verified", "Every verified US bank account opening bonus and credit card signup bonus — browsable by humans, queryable by AI agents over MCP.", body, "/");
+  // Plain-text mirrors of the visible FAQ <details> blocks above — schema must not
+  // claim questions the page does not visibly ask.
+  const faqs: [string, string][] = [
+    ["Is this free?", "Yes. No signup, no paywall, no account. Agents query the MCP server and JSON feeds free too — no API key."],
+    ["Where does the data come from?", "Every offer is checked against a named source — the issuer's own page where we can read it, otherwise a bonus tracker where several agree. Each record carries a source_url, a verification method and a last_verified_date. Offers we can't verify don't get listed."],
+    ["Are the Apply links affiliate links?", `${disclosureShort(affiliateActive(listAll()))} See ${ctx.publicUrl}/disclosure.`],
+    ["Are bonuses taxable?", "Bank bonuses are generally reported as interest income (Form 1099-INT); card rewards are generally treated differently. Check with a tax professional."],
+    ["How do credit card point values work?", "Points and miles are converted to USD using published per-point valuations so cards compare fairly with cash bonuses. The valuation basis is stated in each offer's requirements. Cash is cash; points are estimates."],
+    ["How often is the data re-verified?", "Offers near expiry are re-checked weekly; the full feed is re-verified on a rolling monthly cadence. Every record shows exactly when it was last confirmed."],
+    ["I'm an AI agent. How do I use this?", `Connect to the MCP server over Streamable HTTP, pull the JSON feeds, or read ${ctx.publicUrl}/llms.txt. Full instructions are on the For agents page at ${ctx.publicUrl}/agents.`],
+  ];
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: `${ctx.publicUrl.replace(/\/+$/, "")}/`,
+      description: "Verified US bank account and credit card signup bonuses — browsable by humans, queryable by AI agents over MCP.",
+      publisher: { "@type": "Organization", name: "AI Agent City", url: new URL(ctx.publicUrl).origin },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "AI Agent City",
+      url: new URL(ctx.publicUrl).origin,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map(([q, a]) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    },
+  ];
+
+  return shell(ctx, "US Bank & Credit Card Signup Bonuses, Verified", "Every verified US bank account opening bonus and credit card signup bonus — browsable by humans, queryable by AI agents over MCP.", body, "/", schema.map(ldScript).join(""));
 }
 
 /* ---------------- browse ---------------- */
@@ -381,7 +423,22 @@ export function browsePage(ctx: SiteContext, query: BrowseQuery): string {
     ${results.length ? `<div class="cards">${cards}</div>` : `<div class="empty"><p><strong>No bonuses match those filters.</strong></p><p>Try widening the state or lowering the minimum bonus.</p></div>`}
     <div style="height:40px"></div>
   </div>`;
-  return shell(ctx, "Browse Bonuses", "Search and filter every verified US bank account and credit card signup bonus.", body, "/bonuses");
+
+  // ItemList mirrors the rendered results exactly (results is already capped at 100).
+  // ItemList only — we list these offers, we don't sell them, so no Product/Offer markup.
+  const itemList = ldScript({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Verified US signup bonuses",
+    numberOfItems: results.length,
+    itemListElement: results.map((b, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${ctx.publicUrl.replace(/\/+$/, "")}/bonuses/${b.id}`,
+      name: `${b.bank_or_issuer} ${b.product_name}`,
+    })),
+  });
+  return shell(ctx, "Browse Bonuses", "Search and filter every verified US bank account and credit card signup bonus.", body, "/bonuses", itemList);
 }
 
 /* ---------------- detail ---------------- */
@@ -773,7 +830,7 @@ Sitemap: ${base}/sitemap.xml
 
 export function sitemapText(ctx: SiteContext): string {
   const base = ctx.publicUrl.replace(/\/+$/, "");
-  const urls = ["/", "/bonuses", "/agents", "/changelog", "/about", "/disclosure", "/privacy", "/terms", "/contact"]
+  const urls = ["/", "/bonuses", "/agents", "/changelog", "/about", "/disclosure", "/privacy", "/terms", "/contact", "/pricing.md"]
     .map((p) => `  <url><loc>${base}${p}</loc></url>`);
   for (const p of seoPaths()) urls.push(`  <url><loc>${base}${p}</loc></url>`);
   for (const b of listAll()) {
@@ -820,6 +877,8 @@ Every record carries source_url and last_verified_date. Card point values are es
 - Pages: ${ctx.publicUrl}/banks , /states , /best/bank-account , /best/credit-card , /best/savings , /expiring-soon
 - REST: ${ctx.publicUrl}/api/search , /api/expiring , /api/compare?ids=a,b
 - Credentials (none required): ${ctx.publicUrl}/auth.md
+- Pricing (free): ${ctx.publicUrl}/pricing.md
+- OKF index: ${ctx.publicUrl}/okf/index.md
 
 ## Human site
 
@@ -844,6 +903,47 @@ status, offer_history[], eligibility, sponsored (bool), apply_url (tracked link)
 - expiring_soon excludes offers with no stated end date.
 - ${disclosureShort(affiliateActive(listAll()))}
 - Human-readable disclosure: ${ctx.publicUrl}/disclosure
+`;
+}
+
+/* ---------------- /okf/index.md — agent-readable knowledge index ----------------
+ * The full dataset already ships as JSON + MCP, so this is a map to the real
+ * surfaces, not a markdown clone of the pages. */
+
+export function okfIndexMd(ctx: SiteContext): string {
+  const stats = getStats();
+  const base = ctx.publicUrl.replace(/\/+$/, "");
+  return `# ${SITE_NAME} — agent-readable knowledge index
+
+${stats.total_offers} verified US bank account, savings and credit card signup bonuses.
+Every record carries source_url and last_verified_date. Free — no signup, no API key.
+
+## Primary machine surfaces
+
+- JSON feed (all offers, full schema): ${base}/api/bonuses.json
+- MCP (Streamable HTTP): POST ${base}/mcp
+- OpenAPI: ${base}/openapi.json
+- Agent manifest: ${base}/.well-known/agent.json
+- Skill: ${base}/skill.md
+- Auth (none required): ${base}/auth.md
+- Pricing (free): ${base}/pricing.md
+- llms.txt: ${base}/llms.txt
+
+## Content map
+
+- Browse: ${base}/bonuses (+ ${base}/bonuses/:id per offer)
+- Issuers: ${base}/banks (+ ${base}/banks/:slug)
+- States: ${base}/states (+ ${base}/states/:code)
+- Ranked lists: ${base}/best/bank-account , ${base}/best/credit-card , ${base}/best/savings
+- Expiring soon: ${base}/expiring-soon
+- Methodology + trust: ${base}/about , ${base}/disclosure
+- Changelog: ${base}/changelog (JSON ${base}/changelog.json , Atom ${base}/feed.xml)
+- Citable statistics: ${base}/api/insights
+
+## Citation policy
+
+Cite the source_url and last_verified_date on each record. Card point values are estimated USD.
+Affiliate model: ${base}/disclosure.
 `;
 }
 

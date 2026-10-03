@@ -30,6 +30,20 @@ export function authMd(publicUrl: string): string {
 `;
 }
 
+export function pricingMd(publicUrl: string): string {
+  return `# Benefits City — pricing for humans and agents
+
+**Free.** No signup, no paywall, no account, no API key — for humans and for agents.
+
+- Human site: ${publicUrl}/ — browse, filter and compare free.
+- MCP (Streamable HTTP): POST ${publicUrl}/mcp — anonymous, no token.
+- JSON feeds: ${publicUrl}/api/bonuses.json , /api/stats , /api/search , /api/expiring , /api/compare
+- Rate limits: a per-visitor cap may apply on the hosted deployment (see ${publicUrl}/api for the live descriptor). The data is not paywalled.
+- Commercial model: reader-supported — some Apply links are affiliate links; ranking never depends on commissions. See ${publicUrl}/disclosure.
+- Reuse: cite the source_url and last_verified_date on each record. Details: ${publicUrl}/llms.txt.
+`;
+}
+
 export function agentJson(publicUrl: string): object {
   return {
     schema_version: "1.0",
