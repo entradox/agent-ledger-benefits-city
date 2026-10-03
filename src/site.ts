@@ -151,6 +151,9 @@ export function shell(ctx: SiteContext, title: string, desc: string, body: strin
   // ITSELF canonical, which is the duplicate-content problem rather than the fix.
   // ctx.publicUrl already carries the /benefits base, so no bp() here.
   const canonical = `${ctx.publicUrl.replace(/\/+$/, "")}${path === "/" ? "/" : path}`;
+  // Operator-pasted site-verification tags (affiliate networks, directories) — injected
+  // verbatim so a new verification is a Railway env set, not a deploy. Trusted input only.
+  const verificationTags = (process.env.SITE_VERIFICATION_TAGS ?? "").trim();
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -170,6 +173,7 @@ export function shell(ctx: SiteContext, title: string, desc: string, body: strin
 <link rel="stylesheet" href="${bp(ctx, "/assets/site.css")}">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234F46E5'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='monospace' font-weight='bold'>B</text></svg>">
 ${extraHead}
+${verificationTags}
 </head>
 <body>
 ${nav(ctx)}

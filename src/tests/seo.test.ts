@@ -166,3 +166,16 @@ test("zero-offer state of the world: no empty index pages are advertised", async
   assert.equal(pages.expiringPage(ctx), null);
   assert.equal(pages.bestPage(ctx, "savings"), null);
 });
+
+test("SITE_VERIFICATION_TAGS injects operator meta verbatim into <head>, empty when unset", () => {
+  const before = site.landingPage(ctx);
+  assert.ok(!before.includes("test-verify"));
+  process.env.SITE_VERIFICATION_TAGS = '<meta name="test-verify" content="abc123">';
+  try {
+    const html = site.landingPage(ctx);
+    assert.match(html, /<meta name="test-verify" content="abc123">/);
+    assert.ok(html.indexOf("test-verify") < html.indexOf("</head>"));
+  } finally {
+    delete process.env.SITE_VERIFICATION_TAGS;
+  }
+});
