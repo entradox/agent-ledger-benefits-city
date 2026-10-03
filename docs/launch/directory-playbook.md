@@ -4,13 +4,13 @@ Researched by Alan, all pages fetched live 2026-10-01 (access date for every sou
 
 ## Summary table
 
-| Directory | Method | Remote (streamable-http) | Cost | Key requirement | Status 2026-10-01 |
+| Directory | Method | Remote (streamable-http) | Cost | Key requirement | Status |
 |---|---|---|---|---|---|
-| Official MCP Registry | CLI `mcp-publisher publish` | Yes (`remotes`) | none stated | namespace proven by auth; description <=100 chars | Open (preview) |
-| Smithery | URL publish at smithery.ai/new or `smithery mcp publish` | Yes (requires Streamable HTTP) | none stated | allow `SmitheryBot/1.0` through WAF or serve `/.well-known/mcp/server-card.json` | Open |
-| Glama | auto-index / add flow | Listed as "remote-capable" | UNVERIFIED | UNVERIFIED | Submission page not retrievable |
-| PulseMCP | form | n/a | n/a | n/a | **Paused** since 2026-09-03; will ingest official-registry listings |
-| mcp.so | web form /submit | Yes ("Remote Server" type) | Free tier exists; $39 one-time for instant publish + badge | Repository URL field required | Open |
+| Official MCP Registry | CLI `mcp-publisher publish` | Yes (`remotes`) | none stated | namespace proven by auth; description <=100 chars | **PUBLISHED 2026-10-02** — `io.github.entradox/benefits-city` v0.3.0, verified `status: active` |
+| Smithery | `smithery mcp publish https://aiagentscity.com/benefits/mcp -n entradox/benefits-city` | Yes (requires Streamable HTTP) | none stated | **needs Smithery API key** (free at smithery.ai/account/api-keys — account creation is manual) | Blocked on key |
+| Glama | "Add Server" flow on glama.ai/mcp/servers | Listed as "remote-capable" | UNVERIFIED | signed-in account (GitHub auth) | Blocked on account |
+| PulseMCP | form | n/a | n/a | n/a | **Auto-ingests official-registry listings** — no action needed, will pick up the registry entry |
+| mcp.so | web form /submit | Yes ("Remote Server" type) | Free tier exists; $39 one-time for instant publish + badge | Repository URL field required — **repo is private**, likely fails their check | Blocked on repo visibility or $39 (needs approval) |
 | awesome-mcp-servers | PR | **No** (public GitHub repo, self-run servers only) | free | public GitHub repo | Open |
 | awesome-remote-mcp-servers | PR | Yes | free | Glama connector badge, `initialize` must respond, star repo | Open |
 | Cursor | UNVERIFIED | UNVERIFIED | UNVERIFIED | `/marketplace/publish` exists, content not retrievable | UNVERIFIED |

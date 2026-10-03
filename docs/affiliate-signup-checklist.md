@@ -11,6 +11,30 @@ Bank and card affiliate programs are usually run through a network, or directly 
 - [ ] Note whether it is **open**, **invite-only**, or **not offered** — then ask the program manager, don't assume.
 - [ ] Record what it pays and on what event (account opened vs. funded vs. approved card) — in a private note, not on the public site.
 
+### Research pass 2026-10-02 (verify on the network's own pages before relying)
+
+**Network accounts first — these gate everything:** Impact, CJ Affiliate, Rakuten
+Advertising, FlexOffers, Awin.
+
+| Tier | Issuer | Network | Payout / notes |
+|---|---|---|---|
+| A — apply now | SoFi | Impact | ~$50–300 per funded account; active program, formal Impact compliance setup |
+| A | M&T Bank | own/network | ~$50 per qualifying account |
+| A | Discover Bank | FlexOffers | ~$40 savings/MM/CD, ~$8 checking — FlexOffers page flags "not currently offered"; verify in dashboard |
+| A | Capital One | CJ / partner platform | per approved card; public program but states it wants high-volume partners |
+| B — selective | Chase | Rakuten Advertising | per approved card; discretionary approval |
+| B | American Express | CJ Affiliate | ~$200–300 per approved card; region-gated (find the US program inside CJ) |
+| B | Citi | CJ | CPA on approved applications |
+| C — none found | U.S. Bank | — | confirmed inactive public program |
+| C | Wells Fargo, BofA, PNC, TD, Truist, KeyBank, Huntington, Associated, BMO US, Barclays US | — | no open consumer-deposit program; they buy through closed comparison networks (Bankrate/CardRatings tier) |
+| C | Fifth Third | — | mortgage program only (~$50), not deposits |
+
+Honest shape of the niche: the big national banks run bonus marketing in-house and
+don't pay affiliates for checking applications. SoFi is the realistic first dollar
+(and already on the site); card issuers pay more per conversion but gate harder.
+Tier C listings are still an asset — "we list offers that pay us nothing" is part of
+the trust story.
+
 ## 2. What to have ready (typical reviewer asks — verify per program)
 - [ ] Live site URL: `aiagentscity.com/benefits` (deployed, not localhost).
 - [ ] Disclosure page: `/disclosure` (names partners once approved), `/about`, `/contact` working.
