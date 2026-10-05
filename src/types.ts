@@ -64,6 +64,15 @@ export interface Bonus {
   verification: Verification | null;
   status: BonusStatus;
   eligibility: Eligibility | null;
+  /** Served shape only — set by `toPublic()` in src/links.ts (isSponsored: true when affiliate_url
+   *  is a valid http(s) URL). Never stored in seed data or the JSON db. */
+  sponsored?: boolean;
+  /** Served shape only — set by `toPublic()` in src/links.ts as `${publicBase()}/go/${id}` when
+   *  resolveApplyUrl() finds a target. Never stored in seed data or the JSON db. */
+  apply_url?: string | null;
+  /** Served shape only — set by `toPublic()` in src/links.ts as `${publicBase()}/disclosure`
+   *  (publicBase() reads the PUBLIC_URL env). Never stored in seed data or the JSON db. */
+  disclosure_url?: string;
 }
 
 /** Raw shape accepted from seed JSON files (some fields optional, defaults applied). */
