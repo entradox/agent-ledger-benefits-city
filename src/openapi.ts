@@ -3,7 +3,7 @@
  * Drift is guarded by src/tests/openapi.test.ts (parameter names vs the MCP tool schemas, Bonus
  * fields vs toPublic(), capability endpoints vs paths) and by an HTTP test that requests every path.
  */
-import { BONUS_TYPES, LIMITS } from "./contract.js";
+import { BONUS_TYPES, LIMITS, STATE_NAMES } from "./contract.js";
 import { SERVER_VERSION } from "./meta.js";
 
 const errorRef = { $ref: "#/components/schemas/Error" };
@@ -34,7 +34,7 @@ export function openapiJson(publicUrl: string): object {
           summary: "Search offers (same filters as the MCP search_bonuses tool)",
           parameters: [
             { name: "bonus_type", in: "query", schema: { type: "string", enum: [...BONUS_TYPES] } },
-            { name: "state", in: "query", description: "2-letter US state code; nationwide offers always match", schema: { type: "string", pattern: "^[A-Za-z]{2}$" } },
+            { name: "state", in: "query", description: "2-letter US state code (case-insensitive); nationwide offers always match", schema: { type: "string", enum: Object.keys(STATE_NAMES) } },
             { name: "min_bonus_amount_usd", in: "query", description: "Cards: estimated USD value of points", schema: { type: "number", minimum: 0 } },
             { name: "direct_deposit_required", in: "query", schema: { type: "boolean" } },
             { name: "query", in: "query", description: "Keyword on bank/issuer and product name", schema: { type: "string", maxLength: LIMITS.query.max } },
