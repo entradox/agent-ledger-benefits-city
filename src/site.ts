@@ -85,6 +85,109 @@ export function bonusCard(ctx: SiteContext, b: Bonus): string {
   </article>`;
 }
 
+/* ---------------- B2 offer grid (design approved 2026-10-05) ----------------
+ * Variant B: card grid, trust-forward, offers SEPARATED BY CATEGORY with Business as its own
+ * group. Every card carries its source_url and last-verified date (the trust stamp).
+ * Categorisation rule is deliberately narrow: business = product_name matches /business/i ONLY.
+ * Do NOT match on requirements[] — consumer accounts mention "business days" and that produced
+ * two false positives (Truist One Checking, SoFi) in the first pass.
+ */
+
+export type OfferCategory = "business" | "credit_card" | "bank_account" | "savings";
+
+export function categoryOf(b: Bonus): OfferCategory {
+  if (/business/i.test(b.product_name)) return "business";
+  return b.bonus_type;
+}
+
+const CATEGORY_META: { key: OfferCategory; title: string; blurb: string }[] = [
+  {
+    key: "business",
+    title: "Business",
+    blurb: "Business checking and business credit cards. Separate terms, separate underwriting.",
+  },
+  {
+    key: "credit_card",
+    title: "Credit cards",
+    blurb: "Point bonuses converted to estimated USD so cards compare with cash.",
+  },
+  {
+    key: "bank_account",
+    title: "Bank accounts",
+    blurb: "Cash bonuses on new checking and savings accounts.",
+  },
+  { key: "savings", title: "Savings", blurb: "Savings products paying a signup bonus." },
+];
+
+/** Two-letter issuer monogram for the wordmark tile (no third-party brand assets). */
+export function issuerMark(issuer: string): string {
+  const words = issuer
+    .replace(/[^A-Za-z ]/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter((w) => w && !/^(of|the|and|&)$/i.test(w));
+  if (words.length === 0) return issuer.slice(0, 2).toUpperCase();
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return (words[0][0] + words[1][0]).toUpperCase();
+}
+
+function kindLabel(b: Bonus): string {
+  if (categoryOf(b) === "business") return b.bonus_type === "credit_card" ? "business card" : "business account";
+  if (b.bonus_type === "credit_card") return "credit card";
+  if (b.bonus_type === "savings") return "savings";
+  return "bank account";
+}
+
+/** One B2 offer card: wordmark tile, hero bonus, name, two requirements, trust stamp. */
+export function offerCardB2(ctx: SiteContext, b: Bonus): string {
+  const detail = bp(ctx, `/bonuses/${esc(b.id)}`);
+  const est = b.bonus_type === "credit_card";
+  const reqs = (b.requirements ?? [])
+    .slice(0, 2)
+    .map((r) => `<li>${esc(r.length > 104 ? `${r.slice(0, 104)}…` : r)}</li>`)
+    .join("");
+  const src = b.source_url
+    ? `<a href="${esc(b.source_url)}" rel="nofollow noopener" target="_blank">Source</a>`
+    : `<span>Source on record</span>`;
+  const verified = b.last_verified_date ? `Verified ${esc(b.last_verified_date)}` : "Verified date on file";
+  return `<article class="offer">
+    <div class="offer-top">
+      <span class="offer-tile" aria-hidden="true">${esc(issuerMark(b.bank_or_issuer))}</span>
+      <span class="offer-kind">${esc(kindLabel(b))}</span>
+    </div>
+    <div class="offer-hero">${formatBonus(b.bonus_amount_usd)}<small>${est ? "est. value" : "cash bonus"}</small></div>
+    <div class="offer-name"><a href="${detail}">${esc(b.bank_or_issuer)} · ${esc(b.product_name)}</a></div>
+    ${reqs ? `<ul class="offer-reqs">${reqs}</ul>` : `<ul class="offer-reqs"></ul>`}
+    <div class="offer-stamp">${src}<span>${verified}</span></div>
+  </article>`;
+}
+
+/** Chips that jump to each category section (no JS — plain anchors). */
+export function categoryChips(offers: Bonus[]): string {
+  const present = CATEGORY_META.filter((m) => offers.some((b) => categoryOf(b) === m.key));
+  if (present.length < 2) return "";
+  const all = `<a class="chip" href="#offers">All</a>`;
+  return `<nav class="chips" aria-label="Jump to category">${all}${present
+    .map((m) => `<a class="chip" href="#cat-${m.key}">${m.title}</a>`)
+    .join("")}</nav>`;
+}
+
+/** Offers grouped into category sections, each with its own heading and count. */
+export function offerSections(ctx: SiteContext, offers: Bonus[]): string {
+  return CATEGORY_META.filter((m) => offers.some((b) => categoryOf(b) === m.key))
+    .map((m) => {
+      const rows = offers.filter((b) => categoryOf(b) === m.key);
+      return `<section class="offer-sec" id="cat-${m.key}">
+      <div class="offer-sec-head"><h2>${m.title}</h2><span class="offer-count mono">${rows.length} offer${
+        rows.length === 1 ? "" : "s"
+      }</span></div>
+      <p class="offer-sec-sub">${m.blurb}</p>
+      <div class="offer-grid">${rows.map((b) => offerCardB2(ctx, b)).join("")}</div>
+    </section>`;
+    })
+    .join("\n");
+}
+
 /* ---------------- shell ---------------- */
 
 function nav(ctx: SiteContext): string {
@@ -193,19 +296,12 @@ ${footer(ctx)}
 export function landingPage(ctx: SiteContext): string {
   const stats = getStats();
   const expiring = expiringSoon(30).slice(0, 5);
-  const topBank = searchBonuses({ bonus_type: "bank_account", limit: 4 });
-  const topCards = searchBonuses({ bonus_type: "credit_card", limit: 4 });
-
-  const rows = (list: Bonus[]) =>
-    list
-      .map(
-        (b) => `<tr>
-          <td><a href="${bp(ctx, `/bonuses/${esc(b.id)}`)}"><strong>${esc(b.bank_or_issuer)}</strong> ${esc(b.product_name)}</a></td>
-          <td class="amt">${formatBonus(b.bonus_amount_usd)}${b.bonus_type === "credit_card" ? " <span class='badge'>est.</span>" : ""}</td>
-          <td>${expiryBadge(b)}</td>
-        </tr>`,
-      )
-      .join("");
+  // Full served set, grouped by category (Business first). Sorted by bonus desc so the
+  // strongest offer leads each section.
+  const allOffers = listAll()
+    .filter((b) => b.status !== "expired")
+    .slice()
+    .sort((a, b) => b.bonus_amount_usd - a.bonus_amount_usd);
 
   const expiringCards = expiring.map((b) => bonusCard(ctx, b)).join("");
 
@@ -253,24 +349,11 @@ export function landingPage(ctx: SiteContext): string {
     </div>
   </div></section>
 
-  <section class="section-tight"><div class="wrap">
-    <h2>Top bank account bonuses</h2>
-    <p class="sub">Highest cash bonuses on new checking and savings accounts, right now.</p>
-    <div class="tbl-wrap"><table class="offers">
-      <thead><tr><th>Offer</th><th>Bonus</th><th>Expiry</th></tr></thead>
-      <tbody>${rows(topBank)}</tbody>
-    </table></div>
-    <p style="margin-top:14px"><a href="${bp(ctx, "/bonuses?type=bank_account")}">All ${stats.bank_account_offers} bank bonuses →</a></p>
-  </div></section>
-
-  <section class="section-tight"><div class="wrap">
-    <h2>Top credit card signup bonuses</h2>
-    <p class="sub">Point values converted to estimated USD so cards compare apples-to-apples with cash.</p>
-    <div class="tbl-wrap"><table class="offers">
-      <thead><tr><th>Offer</th><th>Est. value</th><th>Expiry</th></tr></thead>
-      <tbody>${rows(topCards)}</tbody>
-    </table></div>
-    <p style="margin-top:14px"><a href="${bp(ctx, "/bonuses?type=credit_card")}">All ${stats.credit_card_offers} card bonuses →</a></p>
+  <section class="section"><div class="wrap">
+    <h2>Every bonus, by category</h2>
+    <p class="sub">One card per offer, checked at the source. Filter chips jump you to a category; each card carries its source and verified date.</p>
+    ${categoryChips(allOffers)}
+    <div id="offers">${offerSections(ctx, allOffers)}</div>
   </div></section>
 
   ${expiring.length ? `<section class="section-tight"><div class="wrap">
@@ -382,7 +465,6 @@ export function browsePage(ctx: SiteContext, query: BrowseQuery): string {
 
   const sel = (name: string, value: string, current: string) =>
     value === current ? " selected" : "";
-  const cards = results.map((b) => bonusCard(ctx, b)).join("");
 
   const body = `
   <div class="wrap">
@@ -420,7 +502,11 @@ export function browsePage(ctx: SiteContext, query: BrowseQuery): string {
       </form>
     </div>
     <p class="result-count">${results.length} result${results.length === 1 ? "" : "s"}</p>
-    ${results.length ? `<div class="cards">${cards}</div>` : `<div class="empty"><p><strong>No bonuses match those filters.</strong></p><p>Try widening the state or lowering the minimum bonus.</p></div>`}
+    ${
+      results.length
+        ? `<div id="offers">${categoryChips(results)}${offerSections(ctx, results)}</div>`
+        : `<div class="empty"><p><strong>No bonuses match those filters.</strong></p><p>Try widening the state or lowering the minimum bonus.</p></div>`
+    }
     <div style="height:40px"></div>
   </div>`;
 
