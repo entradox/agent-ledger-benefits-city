@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Benefits City offer object, v1",
+  "description": "One offer object exactly as served by the HTTP/JSON surface (REST /api/*, MCP structuredContent, /api/bonuses.json feed) — the output of toPublic() in src/links.ts. The stored record (src/types.ts Bonus) additionally carries affiliate_url, which is NEVER served: its presence in a served object is a contract violation (additionalProperties is false and affiliate_url is deliberately undeclared). Derived from local seed-data/*.json, data/bonuses.json, and the code — no network fetch was used.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "bank_or_issuer",
+    "product_name",
+    "bonus_type",
+    "bonus_amount_usd",
+    "bonus_max_usd",
+    "bonus_points",
+    "annual_fee_usd",
+    "requirements",
+    "min_deposit_usd",
+    "direct_deposit_required",
+    "expiry_date",
+    "states_available",
+    "application_url",
+    "source_url",
+    "last_verified_date",
+    "offer_history",
+    "verification",
+    "status",
+    "eligibility",
+    "sponsored",
+    "apply_url",
+    "disclosure_url"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "nullable": false,
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "provenance": { "source": "seed", "note": "seed-data/*.json; required by SeedBonus in src/types.ts; non-empty string enforced by validate() in src/seed.ts" }
+    },
+    "bank_or_issuer": {
+      "type": "string",
+      "nullable": false,
+      "provenance": { "source": "seed", "note": "seed-data/*.json; required by SeedBonus; non-empty string enforced by validate() in src/seed.ts" }
+    },
+    "product_name": {
+      "type": "string",
+      "nullable": false,
+      "provenance": { "source": "seed", "note": "seed-data/*.json; required by SeedBonus; non-empty string enforced by validate() in src/seed.ts" }
+    },
+    "bonus_type": {
+      "type": "string",
+      "nullable": false,
+      "enum": ["bank_account", "credit_card", "savings"],
+      "provenance": { "source": "seed", "note": "seed-data/*.json; enum is BONUS_TYPES in src/contract.ts, enforced by validate() in src/seed.ts" }
+    },
+    "bonus_amount_usd": {
+      "type": "number",
+      "nullable": false,
+      "provenance": { "source": "seed", "note": "seed-data/*.json; required by SeedBonus; number enforced by validate() in src/seed.ts" }
+    },
+    "bonus_max_usd": {
+      "type": ["number", "null"],
+      "nullable": true,
+      "provenance": { "source": "seed", "note": "seed-data/*.json optional; defaulted to null by normalize() in src/db.ts" }
+    },
+    "bonus_points": {
+      "type": ["number", "null"],
+      "nullable": true,
+      "provenance": { "source": "seed", "note": "seed-data/*.json; defaulted to null by normalize() in src/db.ts" }
+    },
+    "annual_fee_usd": {
+      "type": ["number", "null"],
+      "nullable": true,
+      "provenance": { "source": "seed", "note": "seed-data/*.json; defaulted to null by normalize() in src/db.ts" }
+    },
+    "requirements": {
+      "type": "array",
+      "nullable": false,
+      "items": { "type": "string" },
+      "provenance": { "source": "seed", "note": "seed-data/*.json; defaulted to [] by normalize() in src/db.ts" }
+    },
+    "min_deposit_usd": {
+      "type": ["number", "null"],
+      "nullable": true,
+      "provenance": { "source": "seed", "note": "seed-data/*.json; defaulted to null by normalize() in src/db.ts" }
+    },
+    "direct_deposit_required": {
+      "type": "boolean",
+      "nullable": false,
+      "provenance": { "source": "seed", "note": "seed-data/*.json; coerced with === true by normalize() in src/db.ts" }
+    },
+    "expiry_date": {
+      "type": ["string", "null"],
+      "nullable": true,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "provenance": { "source": "seed", "note": "seed-data/*.json; YYYY-MM-DD-or-null enforced by validate() in src/seed.ts; defaulted null by normalize() in src/db.ts" }
+    },
+    "states_available": {
+      "nullable": false,
+      "oneOf": [
+        { "const": "nationwide" },
+        { "type": "array", "items": { "type": "string", "pattern": "^[A-Z]{2}$" } }
+      ],
+      "provenance": { "source": "seed", "note": "seed-data/*.json: literal \"nationwide\" or array of 2-letter US state codes; defaulted to \"nationwide\" by normalize() in src/db.ts" }
+    },
+    "application_url": {
+      "type": ["string", "null"],
+      "nullable": true,
+      "pattern": "^https?://",
+      "provenance": { "source": "seed", "note": "seed-data/*.json; http(s)-or-null enforced by httpUrlOrNull() in src/seed.ts" }
+    },
+    "source_url": {
+      "type": ["string", "null"],
+      "nullable": true,
+      "pattern": "^https?://",
+      "provenance": { "source": "seed", "note": "seed-data/*.json; http(s)-or-null enforced by httpUrlOrNull() in src/seed.ts; defaulted null by normalize() in src/db.ts" }
+    },
+    "last_verified_date": {
+      "type": ["string", "null"],
+      "nullable": true,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "provenance": { "source": "seed", "note": "seed-data/*.json; YYYY-MM-DD-or-null enforced by validate() in src/seed.ts; defaulted null by normalize() in src/db.ts" }
+    },
+    "offer_history": {
+      "type": "array",
+      "nullable": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["amount_usd", "valid_from", "valid_to"],
+        "properties": {
+          "amount_usd": { "type": "number" },
+          "valid_from": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+          "valid_to": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+        },
+        "provenance": { "source": "code", "note": "shape is OfferHistoryEntry in src/types.ts; every current seed record carries an empty array, so the item shape is declared by the type, not observed in data" }
+      },
+      "provenance": { "source": "seed", "note": "seed-data/*.json; array-ness enforced by validate() in src/seed.ts; defaulted to [] by normalize() in src/db.ts" }
+    },
+    "verification": {
+      "type": ["object", "null"],
+      "nullable": true,
+      "additionalProperties": false,
+      "required": ["method", "verified_at", "sources"],
+      "properties": {
+        "method": { "type": "string", "enum": ["issuer_page", "aggregator_consensus"] },
+        "verified_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "sources": { "type": "array", "items": { "type": "string" } }
+      },
+      "provenance": { "source": "seed", "note": "seed-data/*.json; method enum, verified_at date and sources array enforced by validate() in src/seed.ts; defaulted null by normalize() in src/db.ts" }
+    },
+    "status": {
+      "type": "string",
+      "nullable": false,
+      "enum": ["active", "expired", "needs_review"],
+      "provenance": { "source": "seed", "note": "seed-data/*.json optional; enum enforced by validate() in src/seed.ts; defaulted to \"active\" by normalize() in src/db.ts" }
+    },
+    "eligibility": {
+      "type": ["object", "null"],
+      "nullable": true,
+      "additionalProperties": false,
+      "required": ["new_to_bank", "once_per_lifetime", "cooldown_months", "issuer_rules"],
+      "properties": {
+        "new_to_bank": { "type": ["boolean", "null"] },
+        "once_per_lifetime": { "type": ["boolean", "null"] },
+        "cooldown_months": { "type": ["number", "null"] },
+        "issuer_rules": { "type": "array", "items": { "type": "string" } }
+      },
+      "provenance": { "source": "seed", "note": "seed-data/*.json; passed through (not shape-checked) by validate() in src/seed.ts; shape is Eligibility in src/types.ts; defaulted null by normalize() in src/db.ts" }
+    },
+    "sponsored": {
+      "type": "boolean",
+      "nullable": false,
+      "x-drift": "present in output, absent from src/types.ts",
+      "provenance": { "source": "derived", "note": "set by toPublic() in src/links.ts: isSponsored(b) = affiliate_url is a valid http(s) URL; the raw affiliate_url itself is never served" }
+    },
+    "apply_url": {
+      "type": ["string", "null"],
+      "nullable": true,
+      "x-drift": "present in output, absent from src/types.ts",
+      "provenance": { "source": "derived", "note": "set by toPublic() in src/links.ts as `${publicBase()}/go/${b.id}` when resolveApplyUrl() finds a target (affiliate_url, then application_url, then source_url); publicBase() reads the PUBLIC_URL env" }
+    },
+    "disclosure_url": {
+      "type": "string",
+      "nullable": false,
+      "x-drift": "present in output, absent from src/types.ts",
+      "provenance": { "source": "code", "note": "set by toPublic() in src/links.ts as `${publicBase()}/disclosure`; publicBase() reads the PUBLIC_URL env — a per-deployment constant, not derived from the record" }
+    }
+  }
+}
