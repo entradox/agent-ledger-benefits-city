@@ -323,9 +323,14 @@ details.faq p { color: var(--muted); margin: 10px 0 0; font-size: 15px; }
 .offer {
   background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px;
   display: grid; grid-template-rows: auto auto auto 1fr auto; gap: 12px; min-height: 250px;
+  position: relative; cursor: pointer;
   transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
 .offer:hover { border-color: var(--accent); box-shadow: 0 8px 28px rgba(27, 27, 24, 0.07); }
+/* Stretched link: the whole card is clickable (the name link's pseudo-element covers it),
+   while the external Source link sits above the overlay so it stays independently clickable. */
+.offer-name a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.offer-stamp a { position: relative; z-index: 2; }
 .offer-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .offer-tile {
   width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 11px;
