@@ -91,7 +91,9 @@ curl -s https://<railway-origin>.up.railway.app/benefits/api/stats | head -c 200
 The app expects the `/benefits` prefix (that's what `BASE_PATH` is for), so the
 proxy forwards the **full path unchanged** — no path rewriting. Set
 `x-forwarded-proto: https` so the app derives `https://` URLs correctly (belt
-and suspenders alongside `PUBLIC_URL`).
+and suspenders alongside `PUBLIC_URL`). The proxy must also **append** the client IP to
+`X-Forwarded-For` (as below); `TRUSTED_PROXY_HOPS=2` assumes it does, otherwise metrics see
+every visitor as the proxy.
 
 **Option A — Cloudflare Worker** (route `aiagentscity.com/benefits*`):
 
@@ -106,6 +108,9 @@ export default {
       );
       const headers = new Headers(request.headers);
       headers.set("x-forwarded-proto", "https");
+      const xff = request.headers.get("x-forwarded-for");
+      const ip = request.headers.get("cf-connecting-ip") ?? "";
+      headers.set("x-forwarded-for", xff ? `${xff}, ${ip}` : ip);
       headers.set("host", upstream.host);
       return fetch(
         new Request(upstream, {
@@ -128,6 +133,7 @@ location /benefits {
     proxy_pass https://<railway-origin>.up.railway.app;
     proxy_set_header Host $proxy_host;
     proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_http_version 1.1;
 }
 ```

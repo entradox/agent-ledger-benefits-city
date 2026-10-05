@@ -245,7 +245,11 @@ export function browseFilterSummary(sp: URLSearchParams): string {
   const clean: Record<string, (v: string) => string> = {
     type: (v) => ((BONUS_TYPES as readonly string[]).includes(v) ? v : "invalid"),
     state: (v) => (isUsStateCode(v) ? v.toUpperCase() : "invalid"),
-    min: (v) => (/^\d{1,6}$/.test(v) ? v : "invalid"),
+    min: (v) => {
+      const n = Number(v);
+      if (v.trim() === "" || !Number.isFinite(n) || n < 0) return "invalid";
+      return n >= 100000 ? "100000+" : String(Math.round(n));
+    },
     dd: (v) => (v === "yes" || v === "no" ? v : "invalid"),
     q: () => "1",
   };

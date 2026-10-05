@@ -48,10 +48,11 @@ test("browse filter summary never stores free-text search; enumerated filters ar
   assert.equal(m.browseFilterSummary(new URLSearchParams("")), "");
 });
 
-test("browse filter summary keeps only known filter values; anything else is recorded as invalid", () => {
+test("browse filter summary keeps only known filter values; anything else is recorded as invalid; large mins are bucketed", () => {
   const s = m.browseFilterSummary(new URLSearchParams("type=x&state=john.doe@mail.com&min=5551234567&dd=maybe"));
-  assert.equal(s, "type=invalid&state=invalid&min=invalid&dd=invalid");
+  assert.equal(s, "type=invalid&state=invalid&min=100000+&dd=invalid");
   assert.equal(m.browseFilterSummary(new URLSearchParams("state=tx&min=300&dd=yes")), "state=TX&min=300&dd=yes");
+  assert.equal(m.browseFilterSummary(new URLSearchParams("min=1000000")), "min=100000+");
 });
 
 test("client IP trusts only proxy-appended X-Forwarded-For entries", () => {
