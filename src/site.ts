@@ -565,7 +565,7 @@ export function aboutPage(ctx: SiteContext): string {
     <p>What this is, who runs it, and how the data stays honest.</p>
   </div><div class="prose">
     <h2>What it is</h2>
-    <p>${SITE_NAME} tracks US bank account opening bonuses and credit card signup bonuses — the HustlerMoneyBlog beat — and serves them two ways: a human-browsable site and a machine-queryable feed (MCP + JSON) that AI agents can use directly. Nothing else. No shopping deals, no coupons, no credit-score content.</p>
+    <p>${SITE_NAME} tracks US bank account opening bonuses and credit card signup bonuses and serves them two ways: a human-browsable site and a machine-queryable feed (MCP + JSON) that AI agents can use directly. Nothing else. No shopping deals, no coupons, no credit-score content.</p>
     <h2>Who runs it</h2>
     <p>${SITE_NAME} is a project of <strong>AI Agent City</strong> (aiagentscity.com), an independent operation building infrastructure for AI agents. Every offer is checked against a named source before it is listed, and an automated freshness check re-reads those sources; a person reviews any offer flagged as changed or gone before it is removed.</p>
     <h2>Methodology</h2>
