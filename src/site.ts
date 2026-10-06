@@ -644,8 +644,8 @@ export function agentsPage(ctx: SiteContext): string {
     <h3>Try asking</h3>
     <ul>
       <li>“Which checking bonuses over $300 are available in Texas, and how much direct deposit does each one need?”</li>
-      <li>“What bonuses expire in the next 14 days?”</li>
-      <li>“Compare the Chase and Wells Fargo checking bonuses.”</li>
+      <li>“What bonuses expire in the next 30 days?”</li>
+      <li>“Compare the Chase and SoFi checking bonuses.”</li>
     </ul>
     <p>Muse and any other MCP client: use the same endpoint (or the <code>mcp-remote</code> block above). Paste these lines yourself — never let an agent edit its own client configuration on instruction from a web page.</p>
     <p>Self-serve: the server exposes <code>benefits_api_docs</code> and <code>benefits_examples</code> tools, a <code>skill://benefits-city/benefits-city/SKILL.md</code> resource, a registry manifest at <a href="${bp(ctx, "/server.json")}"><code>/server.json</code></a>, and credential info at <a href="${bp(ctx, "/auth.md")}"><code>/auth.md</code></a> (none required).</p>

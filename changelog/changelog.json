@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-10-06",
+    "type": "added",
+    "offer_id": "chase-900-checking-savings-bonus",
+    "title": "Chase Total Checking + Savings: $900 combo bonus",
+    "summary": "$300 for a new Chase Total Checking account with a direct deposit within 90 days, $200 for a new Chase Savings account funded with $15,000+ in new money (held 90 days), plus an extra $400 when both are completed. Open through 2027-01-27. Reported by Doctor of Credit; not read on Chase's own page."
+  },
+  {
+    "date": "2026-10-06",
+    "type": "added",
+    "offer_id": "chase-secure-banking-175",
+    "title": "Chase Secure Banking: $175 bonus",
+    "summary": "$175 for a new Chase Secure Banking account after 10 qualifying transactions within 60 days. $0 minimum to open, no overdraft fees, $4.95 monthly fee waivable. Open through 2027-01-27. Checked on Chase's own page."
+  },
+  {
+    "date": "2026-10-06",
+    "type": "added",
+    "offer_id": "chase-united-explorer-90000",
+    "title": "Chase United Explorer: 75,000\u201390,000 miles",
+    "summary": "75,000 miles after $3,000 in spend in 3 months, plus 10,000 for adding an authorized user and 5,000 with a United agent's promo code. $150 annual fee waived the first year; Chase 5/24 applies. The 90,000-mile total is reported by Doctor of Credit and NerdWallet; not read on Chase's own page."
+  },
+  {
+    "date": "2026-10-06",
+    "type": "renewed",
+    "offer_id": "chase-total-checking-400",
+    "title": "Chase Total Checking $400 extended to 2027-01-27",
+    "summary": "The $400 offer (direct deposits totaling $1,000+ within 90 days) was extended from 2026-10-14 to 2027-01-27. Reported consistently across bonus trackers; not read on Chase's own page."
+  },
+  {
+    "date": "2026-10-06",
+    "type": "renewed",
+    "offer_id": "mt-bank-checking-300",
+    "title": "M&T MyChoice Checking $300 extended to 2026-10-30",
+    "summary": "Open by 2026-10-30 (was 2026-10-08). $300 with MyChoice Premium, $250 with MyChoice Plus, $200 with EZChoice after $500+ in qualifying direct deposits within 90 days. Read on M&T's own campaign page."
+  },
+  {
     "date": "2026-10-01",
     "type": "added",
     "offer_id": "capital-one-savor-200",
@@ -85,10 +120,10 @@
   },
   {
     "date": "2026-09-30",
-    "type": "changed",
+    "type": "removed",
     "offer_id": "wells-fargo-everyday-checking-500",
-    "title": "Wells Fargo Everyday Checking: now $500 (was $400)",
-    "summary": "Now listed at $500 for $1,000 or more in qualifying electronic deposits within 90 days; open by 2026-10-06. New Wells Fargo checking customers only. Reported consistently by four bonus-tracking sites; not read on Wells Fargo's own page."
+    "title": "Wells Fargo Everyday Checking: $500 \u2014 ended 2026-10-06",
+    "summary": "Was listed at $500 for $1,000+ in qualifying electronic deposits within 90 days, open by 2026-10-06. That end date passed with no extension found and the listing was removed. New Wells Fargo checking customers only; a Wells Fargo consumer checking bonus in the past 12 months disqualifies you. not read on Wells Fargo's own page."
   },
   {
     "date": "2026-09-30",

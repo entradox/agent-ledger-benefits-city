@@ -587,5 +587,41 @@
       ],
       "verified_at": "2026-10-01"
     }
+  },
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": 150,
+    "application_url": "https://www.theexplorercard.com",
+    "bank_or_issuer": "Chase",
+    "bonus_amount_usd": 1305,
+    "bonus_points": 90000,
+    "bonus_type": "credit_card",
+    "direct_deposit_required": false,
+    "eligibility": null,
+    "expiry_date": null,
+    "id": "chase-united-explorer-90000",
+    "last_verified_date": "2026-10-06",
+    "min_deposit_usd": null,
+    "offer_history": [],
+    "product_name": "United Explorer Card",
+    "requirements": [
+      "Earn 75,000 bonus miles after you spend $3,000 on purchases in the first 3 months of account opening",
+      "Plus 10,000 bonus miles after adding an authorized user in the first 3 months",
+      "Plus 5,000 bonus miles when you use a United agent's promotional code (targeted; most applicants will not see this)",
+      "90,000 miles valued ~$1,305 at 1.45 cents per mile (TPG September 2026 valuation)",
+      "No card and no new Cardmember bonus for this card in the past 24 months; Chase 5/24 applies"
+    ],
+    "source_url": "https://www.doctorofcredit.com/chase-united-explorer-70000-85000-miles-signup-bonus/",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "aggregator_consensus",
+      "sources": [
+        "https://www.doctorofcredit.com/chase-united-explorer-70000-85000-miles-signup-bonus/",
+        "https://creditcards.chase.com/travel-credit-cards/united/united-explorer",
+        "https://www.nerdwallet.com/credit-cards/news/united-credit-cards-new-welcome-offers-october-2026"
+      ],
+      "verified_at": "2026-10-06"
+    }
   }
 ]
