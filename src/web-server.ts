@@ -57,6 +57,7 @@ import {
   dashboardData,
   initMetrics,
   browseFilterSummary,
+  isBot,
   recordApplyClick,
   recordFeedHit,
   recordPageView,
@@ -148,6 +149,15 @@ function serveAsset(pathname: string, res: http.ServerResponse): boolean {
   if (!fs.existsSync(file) || !fs.statSync(file).isFile()) return false;
   const ct = CONTENT_TYPES[path.extname(file).toLowerCase()] ?? "application/octet-stream";
   return send(res, 200, ct, fs.readFileSync(file)), true;
+}
+
+/* Every HTML page hit goes through here. Humans land in the funnel via page_view
+ * (which suppresses known bots, DNT, and UA-less requests internally). A bot/agent
+ * fetch of an HTML page is recorded as a feed hit instead — machine reads of the
+ * docs and SEO pages stay visible rather than being dropped by the bot filter. */
+function recordPageHit(req: http.IncomingMessage, name: string, query?: string): void {
+  if (isBot(req)) recordFeedHit(req, `page:${name}`);
+  else recordPageView(req, name, query);
 }
 
 /* ---- MCP over Streamable HTTP (stateless) ----
@@ -244,6 +254,10 @@ const server = http.createServer((req, res) => {
 
       /* MCP — Streamable HTTP (stateless; POST only) */
       if (pathname === "/mcp") {
+        /* Raw request count to the endpoint — covers initialize/tools-list probes and
+           405s that never reach a tool call. Tool calls additionally appear as
+           mcp_tool_call events, so treat this feed as "all MCP HTTP requests". */
+        recordFeedHit(req, "mcp");
         if (req.method === "POST") {
           await handleMcp(req, res);
           return;
@@ -271,7 +285,12 @@ const server = http.createServer((req, res) => {
           return send(res, 404, "text/html; charset=utf-8", notFoundPage(ctx));
         }
         // HEAD is a link checker / unfurler / prefetcher, not a person clicking Apply.
-        if (req.method === "GET") recordApplyClick(req, offer.id, destHost);
+        // A bot/agent following the tracked apply link out of the feed IS a
+        // conversion signal for the machine channel — record it as a feed hit.
+        if (req.method === "GET") {
+          if (isBot(req)) recordFeedHit(req, `go:${offer.id}`);
+          else recordApplyClick(req, offer.id, destHost);
+        }
         // 302 so the hop is not cached; no-store so a repeat click still counts.
         res.writeHead(302, {
           location: dest,
@@ -290,17 +309,33 @@ const server = http.createServer((req, res) => {
 
       /* Human pages */
       if (pathname === "/") {
-        recordPageView(req, "/");
+        recordPageHit(req, "/");
         return send(res, 200, "text/html; charset=utf-8", landingPage(ctx));
       }
-      if (pathname === "/agents") return send(res, 200, "text/html; charset=utf-8", agentsPage(ctx));
-      if (pathname === "/about") return send(res, 200, "text/html; charset=utf-8", aboutPage(ctx));
-      if (pathname === "/privacy")
+      if (pathname === "/agents") {
+        recordPageHit(req, "/agents");
+        return send(res, 200, "text/html; charset=utf-8", agentsPage(ctx));
+      }
+      if (pathname === "/about") {
+        recordPageHit(req, "/about");
+        return send(res, 200, "text/html; charset=utf-8", aboutPage(ctx));
+      }
+      if (pathname === "/privacy") {
+        recordPageHit(req, "/privacy");
         return send(res, 200, "text/html; charset=utf-8", privacyPage(ctx));
-      if (pathname === "/terms") return send(res, 200, "text/html; charset=utf-8", termsPage(ctx));
-      if (pathname === "/disclosure")
+      }
+      if (pathname === "/terms") {
+        recordPageHit(req, "/terms");
+        return send(res, 200, "text/html; charset=utf-8", termsPage(ctx));
+      }
+      if (pathname === "/disclosure") {
+        recordPageHit(req, "/disclosure");
         return send(res, 200, "text/html; charset=utf-8", disclosurePage(ctx));
-      if (pathname === "/contact") return send(res, 200, "text/html; charset=utf-8", contactPage(ctx));
+      }
+      if (pathname === "/contact") {
+        recordPageHit(req, "/contact");
+        return send(res, 200, "text/html; charset=utf-8", contactPage(ctx));
+      }
 
       /* Internal metrics dashboard — NOT public.
        * Not linked from any page, not in sitemap.xml, not in llms.txt, and it carries
@@ -337,7 +372,7 @@ const server = http.createServer((req, res) => {
         // A filtered browse is recorded as filter_use (enumerated filters only; the free-text
         // search box is recorded as present, never verbatim); a plain browse is a page_view.
         const filterStr = browseFilterSummary(url.searchParams);
-        recordPageView(req, "/bonuses", filterStr || undefined);
+        recordPageHit(req, "/bonuses", filterStr || undefined);
         return send(res, 200, "text/html; charset=utf-8", browsePage(ctx, q));
       }
       const detailMatch = pathname.match(/^\/bonuses\/([A-Za-z0-9_-]+)$/);
@@ -345,7 +380,7 @@ const server = http.createServer((req, res) => {
         const html = detailPage(ctx, detailMatch[1]);
         if (!html) return send(res, 404, "text/html; charset=utf-8", notFoundPage(ctx));
         // The path carries the offer id, which is what the funnel's detail stage counts.
-        recordPageView(req, `/bonuses/${detailMatch[1]}`);
+        recordPageHit(req, `/bonuses/${detailMatch[1]}`);
         return send(res, 200, "text/html; charset=utf-8", html);
       }
 
@@ -358,29 +393,50 @@ const server = http.createServer((req, res) => {
       /* Crawler surfaces. Both are built from PUBLIC_URL rather than the request host so
          the Railway origin cannot advertise itself as the canonical host for content that
          is also served under /benefits. */
-      if (pathname === "/robots.txt")
+      if (pathname === "/robots.txt") {
+        recordFeedHit(req, "robots.txt");
         return send(res, 200, "text/plain; charset=utf-8", robotsText(ctx));
+      }
 
-      if (pathname === "/sitemap.xml")
+      if (pathname === "/sitemap.xml") {
+        recordFeedHit(req, "sitemap.xml");
         return send(res, 200, "application/xml; charset=utf-8", sitemapText(ctx));
+      }
 
       /* Agent discovery: MCP registry manifest (also at the well-known path) and credential doc. */
-      if (pathname === "/server.json" || pathname === "/.well-known/mcp.json")
+      if (pathname === "/server.json" || pathname === "/.well-known/mcp.json") {
+        recordFeedHit(req, pathname.slice(1));
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(serverJson(ctx.publicUrl), null, 2));
-      if (pathname === "/auth.md")
+      }
+      if (pathname === "/auth.md") {
+        recordFeedHit(req, "auth.md");
         return send(res, 200, "text/markdown; charset=utf-8", authMd(ctx.publicUrl));
-      if (pathname === "/pricing.md")
+      }
+      if (pathname === "/pricing.md") {
+        recordFeedHit(req, "pricing.md");
         return send(res, 200, "text/markdown; charset=utf-8", pricingMd(ctx.publicUrl));
+      }
       /* OKF agent-readable index — a map to the machine surfaces, not a page clone. */
-      if (pathname === "/okf" || pathname === "/okf/" || pathname === "/okf/index.md")
+      if (pathname === "/okf" || pathname === "/okf/" || pathname === "/okf/index.md") {
+        recordFeedHit(req, pathname.slice(1));
         return send(res, 200, "text/markdown; charset=utf-8", okfIndexMd(ctx));
-      if (pathname === "/skill.md")
+      }
+      if (pathname === "/skill.md") {
+        recordFeedHit(req, "skill.md");
         return send(res, 200, "text/markdown; charset=utf-8", fs.readFileSync(path.join(ROOT, "skill", "benefits-city", "SKILL.md")));
-      if (pathname === "/docs") return send(res, 200, "text/html; charset=utf-8", agentsPage(ctx));
+      }
+      if (pathname === "/docs") {
+        recordPageHit(req, "/docs");
+        return send(res, 200, "text/html; charset=utf-8", agentsPage(ctx));
+      }
       /* Programmatic SEO pages — each returns null (real 404) unless it has real offers. */
       {
-        const seoHtml = (html: string | null) =>
-          html ? send(res, 200, "text/html; charset=utf-8", html) : send(res, 404, "text/html; charset=utf-8", notFoundPage(ctx));
+        const seoHtml = (html: string | null) => {
+          if (html) recordPageHit(req, pathname);
+          return html
+            ? send(res, 200, "text/html; charset=utf-8", html)
+            : send(res, 404, "text/html; charset=utf-8", notFoundPage(ctx));
+        };
         if (pathname === "/banks") return seoHtml(banksIndexPage(ctx));
         if (pathname === "/states") return seoHtml(statesIndexPage(ctx));
         if (pathname === "/expiring-soon") return seoHtml(expiringPage(ctx));
@@ -390,15 +446,30 @@ const server = http.createServer((req, res) => {
           return seoHtml(html);
         }
       }
-      if (pathname === "/changelog") return send(res, 200, "text/html; charset=utf-8", changelogPage(ctx, changelog()));
-      if (pathname === "/changelog.json")
+      if (pathname === "/changelog") {
+        recordPageHit(req, "/changelog");
+        return send(res, 200, "text/html; charset=utf-8", changelogPage(ctx, changelog()));
+      }
+      if (pathname === "/changelog.json") {
+        recordFeedHit(req, "changelog.json");
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(changelogJson(ctx.publicUrl, changelog()), null, 2));
-      if (pathname === "/feed.xml")
+      }
+      if (pathname === "/feed.xml") {
+        recordFeedHit(req, "feed.xml");
         return send(res, 200, "application/atom+xml; charset=utf-8", changelogAtom(ctx.publicUrl, changelog()));
-      if (pathname === "/.well-known/ai-plugin-manifest.json")
+      }
+      if (pathname === "/.well-known/ai-plugin-manifest.json") {
+        recordFeedHit(req, pathname.slice(1));
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(aiPluginManifest(ctx.publicUrl), null, 2));
-      if (pathname === `/${INDEXNOW_KEY}.txt`) return send(res, 200, "text/plain; charset=utf-8", INDEXNOW_KEY);
+      }
+      if (pathname === `/${INDEXNOW_KEY}.txt`) {
+        /* Verification probes from search engines — the key value itself is served
+           publicly anyway, but record a fixed label rather than the key. */
+        recordFeedHit(req, "indexnow-key");
+        return send(res, 200, "text/plain; charset=utf-8", INDEXNOW_KEY);
+      }
       if (pathname === "/badge.svg") {
+        recordFeedHit(req, "badge.svg");
         const all = listAll();
         res.writeHead(200, {
           "content-type": "image/svg+xml; charset=utf-8",
@@ -412,12 +483,18 @@ const server = http.createServer((req, res) => {
         recordFeedHit(req, "api/insights");
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(insights(listAll(), ctx.publicUrl), null, 2));
       }
-      if (pathname === "/openapi.json")
+      if (pathname === "/openapi.json") {
+        recordFeedHit(req, "openapi.json");
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(openapiJson(ctx.publicUrl), null, 2));
-      if (pathname === "/.well-known/agent.json")
+      }
+      if (pathname === "/.well-known/agent.json") {
+        recordFeedHit(req, pathname.slice(1));
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(agentJson(ctx.publicUrl), null, 2));
-      if (pathname === "/.well-known/mcp/server-card.json")
+      }
+      if (pathname === "/.well-known/mcp/server-card.json") {
+        recordFeedHit(req, pathname.slice(1));
         return send(res, 200, "application/json; charset=utf-8", JSON.stringify(serverCard(ctx.publicUrl, await describeMcpTools()), null, 2));
+      }
 
       /* OpenAI plugin domain verification.
        * The submission portal issues a token and requires it served verbatim (and ONLY it — no JSON,
@@ -425,6 +502,9 @@ const server = http.createServer((req, res) => {
        * We deliberately serve nothing until the operator sets the env var: a placeholder here would
        * be a false claim of verified ownership. */
       if (pathname === "/.well-known/openai-apps-challenge") {
+        /* Record the probe even when unconfigured — a 404 here is still the signal
+           that OpenAI's verifier came looking. */
+        recordFeedHit(req, pathname.slice(1));
         const token = (process.env.OPENAI_APPS_CHALLENGE_TOKEN ?? "").trim();
         if (!token) return send(res, 404, "text/plain; charset=utf-8", "not configured\n");
         return send(res, 200, "text/plain; charset=utf-8", token);
@@ -432,6 +512,7 @@ const server = http.createServer((req, res) => {
 
       /* JSON APIs */
       if (pathname === "/api") {
+        recordFeedHit(req, "api");
         return send(
           res,
           200,
@@ -495,6 +576,9 @@ const server = http.createServer((req, res) => {
       const apiMatch = pathname.match(/^\/api\/bonuses\/([A-Za-z0-9_-]+)$/);
       if (apiMatch) {
         const r = restById(apiMatch[1]);
+        /* Per-offer fetches name the offer — the strongest single signal of which
+           offers agents actually surface to their users. */
+        if (r.status === 200) recordFeedHit(req, `api/bonus:${apiMatch[1]}`);
         return send(res, r.status, "application/json; charset=utf-8", JSON.stringify(r.body, null, 2));
       }
 
