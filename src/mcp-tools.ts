@@ -141,7 +141,7 @@ Errors: {"error":{"type","message","code?","param?"}} with isError=true.`;
 
 const EXAMPLES = [
   { title: "Biggest bank-account bonuses overall", tool: "search_bonuses", arguments: { bonus_type: "bank_account", min_bonus_amount_usd: 300, limit: 5 } },
-  { title: "What expires in the next two weeks", tool: "expiring_soon", arguments: { days: 14 } },
+  { title: "What expires in the next 30 days", tool: "expiring_soon", arguments: { days: 30 } },
   { title: "Biggest checking bonuses in Texas", tool: "search_bonuses", arguments: { bonus_type: "bank_account", state: "TX", limit: 5 } },
   { title: "Head-to-head", tool: "compare_bonuses", arguments: { ids: ["chase-total-checking-400", "sofi-checking-savings-400"] } },
 ];

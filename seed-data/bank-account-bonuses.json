@@ -7,14 +7,14 @@
     "bonus_points": null,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
-    "expiry_date": "2026-10-14",
+    "expiry_date": "2027-01-27",
     "id": "chase-total-checking-400",
-    "last_verified_date": "2026-09-30",
+    "last_verified_date": "2026-10-06",
     "min_deposit_usd": null,
     "product_name": "Total Checking",
     "requirements": [
       "For new Chase checking customers only",
-      "Open a new Chase Total Checking account and enroll in the offer by October 14, 2026",
+      "Open a new Chase Total Checking account and enroll in the offer by January 27, 2027",
       "Set up and receive direct deposits totaling $1,000 or more within 90 days of offer enrollment",
       "Qualifying direct deposit is an electronic deposit of paycheck, pension, or government benefits (Zelle and other person-to-person payments do not qualify)",
       "Bonus is deposited within 15 days of completing requirements"
@@ -29,7 +29,7 @@
         "https://www.fatstacksacademy.com/blog/chase-total-checking-bonus",
         "https://www.moneycrashers.com/chase-bank-promotions/"
       ],
-      "verified_at": "2026-09-30"
+      "verified_at": "2026-10-06"
     }
   },
   {
@@ -279,13 +279,13 @@
     "bonus_points": null,
     "bonus_type": "bank_account",
     "direct_deposit_required": true,
-    "expiry_date": "2026-10-08",
+    "expiry_date": "2026-10-30",
     "id": "mt-bank-checking-300",
-    "last_verified_date": "2026-09-30",
+    "last_verified_date": "2026-10-06",
     "min_deposit_usd": null,
     "product_name": "MyChoice Premium Checking",
     "requirements": [
-      "Open an eligible M&T personal checking account (EZChoice Checking, MyChoice Plus, or MyChoice Premium) by October 8, 2026 using the promo code on the application page",
+      "Open an eligible M&T personal checking account (EZChoice Checking, MyChoice Plus, or MyChoice Premium) by October 30, 2026 using the promo code on the application page",
       "Set up and receive qualifying direct deposits totaling at least $500 within 90 days of account opening",
       "Bonus tier by account type: $300 with MyChoice Premium, $250 with MyChoice Plus, $200 with EZChoice",
       "Bonus is credited within 90 days of the account receiving the qualifying direct deposits"
@@ -310,7 +310,7 @@
       "sources": [
         "https://campaigns.mtb.com/personal/banking/checking-cash-bonus"
       ],
-      "verified_at": "2026-09-30"
+      "verified_at": "2026-10-06"
     }
   },
   {
@@ -347,51 +347,6 @@
       "OH",
       "WI"
     ]
-  },
-  {
-    "affiliate_url": null,
-    "annual_fee_usd": null,
-    "application_url": "https://www.wellsfargo.com/checking/everyday/",
-    "bank_or_issuer": "Wells Fargo",
-    "bonus_amount_usd": 500,
-    "bonus_points": null,
-    "bonus_type": "bank_account",
-    "direct_deposit_required": true,
-    "eligibility": {
-      "cooldown_months": 12,
-      "issuer_rules": [
-        "Not available if you received a Wells Fargo consumer checking bonus in the past 12 months"
-      ],
-      "new_to_bank": true,
-      "once_per_lifetime": null
-    },
-    "expiry_date": "2026-10-06",
-    "id": "wells-fargo-everyday-checking-500",
-    "last_verified_date": "2026-09-30",
-    "min_deposit_usd": 25,
-    "offer_history": [],
-    "product_name": "Everyday Checking",
-    "requirements": [
-      "New Wells Fargo consumer checking customers only; open a new account with the bonus offer code by October 6, 2026 (online or in branch)",
-      "Receive a total of $1,000 or more in qualifying electronic deposits within 90 calendar days of account opening",
-      "Transfers from one account to another, mobile deposits, Zelle, and deposits made at a branch or ATM do not count as qualifying deposits",
-      "Bonus is deposited within 30 calendar days after the requirements are met, and the new account must stay open until it is deposited",
-      "Not available to anyone who received a Wells Fargo consumer checking bonus within the past 12 months, or to Wells Fargo employees",
-      "Everyday Checking has a $15 monthly service fee, waivable (for example with $500+ in qualifying deposits or a $1,500 minimum daily balance)"
-    ],
-    "source_url": "https://www.doctorofcredit.com/wells-fargo-500-checking-bonus/",
-    "states_available": "nationwide",
-    "status": "active",
-    "verification": {
-      "method": "aggregator_consensus",
-      "sources": [
-        "https://www.doctorofcredit.com/wells-fargo-500-checking-bonus/",
-        "https://frequentmiler.com/earn-a-500-bonus-with-a-new-wells-fargo-checking-account/",
-        "https://www.uscreditcardguide.com/wells-fargo-everyday-checking-account/",
-        "https://www.creditdonkey.com/wells-fargo-checking-account-bonus.html"
-      ],
-      "verified_at": "2026-09-30"
-    }
   },
   {
     "affiliate_url": null,
@@ -453,6 +408,75 @@
         "https://www.truist.com/checking/lp/promos/open-checking"
       ],
       "verified_at": "2026-09-30"
+    }
+  },
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": null,
+    "application_url": "https://account.chase.com/consumer/banking/checkingandsavingsoffer",
+    "bank_or_issuer": "Chase",
+    "bonus_amount_usd": 900,
+    "bonus_points": null,
+    "bonus_type": "bank_account",
+    "direct_deposit_required": true,
+    "eligibility": null,
+    "expiry_date": "2027-01-27",
+    "id": "chase-900-checking-savings-bonus",
+    "last_verified_date": "2026-10-06",
+    "min_deposit_usd": 15000,
+    "offer_history": [],
+    "product_name": "Total Checking + Chase Savings combo bonus",
+    "requirements": [
+      "Open a new Chase Total Checking account and have a direct deposit post within 90 days of coupon enrollment ($300)",
+      "Open a new Chase Savings account in the same application, deposit $15,000 or more in new money within 30 days, then maintain a $15,000 balance for 90 days from coupon enrollment ($200)",
+      "Complete BOTH the checking and savings requirements (the accounts must be opened at the same time) to receive the extra $400",
+      "For new Chase checking and savings customers only; limited to one checking and one savings opening bonus every two years, and accounts closed within 90 days or with a negative balance in the last 3 years are ineligible",
+      "Both accounts must remain open and unrestricted at payout; bonuses are reported on IRS Form 1099-INT"
+    ],
+    "source_url": "https://www.doctorofcredit.com/targeted-chase-900-checking-savings-bonus/",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "aggregator_consensus",
+      "sources": [
+        "https://www.doctorofcredit.com/targeted-chase-900-checking-savings-bonus/"
+      ],
+      "verified_at": "2026-10-06"
+    }
+  },
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": null,
+    "application_url": "https://account.chase.com/consumer/banking/secure",
+    "bank_or_issuer": "Chase",
+    "bonus_amount_usd": 175,
+    "bonus_points": null,
+    "bonus_type": "bank_account",
+    "direct_deposit_required": false,
+    "eligibility": null,
+    "expiry_date": "2027-01-27",
+    "id": "chase-secure-banking-175",
+    "last_verified_date": "2026-10-06",
+    "min_deposit_usd": 0,
+    "offer_history": [],
+    "product_name": "Secure Banking",
+    "requirements": [
+      "For new Chase banking customers only; open a Chase Secure Banking account online or with a coupon at a branch",
+      "Complete 10 qualifying transactions within 60 days of coupon enrollment",
+      "Qualifying transactions include debit card purchases, Zelle, ACH credits, Chase QuickDeposit, and online bill payments",
+      "Bonus is deposited within 15 days of completing the requirements, and is taken back if the account is closed within 6 months",
+      "$4.95 monthly service fee; waived with $250+ in qualifying electronic deposits each statement period, or for an account owner age 17-24"
+    ],
+    "source_url": "https://account.chase.com/consumer/banking/secure",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://account.chase.com/consumer/banking/secure",
+        "https://www.hustlermoneyblog.com/chase-secure-banking-bonus/"
+      ],
+      "verified_at": "2026-10-06"
     }
   }
 ]
