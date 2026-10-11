@@ -2,6 +2,20 @@
    Tokens pulled from aiagentscity.com: indigo primary, mint + lavender accents,
    warm off-white light sections, near-black dark sections. */
 
+/* H6: one self-hosted subset variable font — no CDN, no third-party request at render time.
+   Archivo Variable, SIL Open Font License 1.1 (Archivo Project Authors / Omnibus-Type), sourced
+   from the google/fonts repository, normal width (wdth pinned), wght axis kept so one 28 KB file
+   serves every weight the stylesheet asks for. Subset = latin-1 + the punctuation the public
+   pages render (© · – — “ ” … ← →); scripts/build-fonts.sh regenerates it byte-identically.
+   font-display:swap paints the system stack first and upgrades when the file lands. */
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("archivo-latin.woff2") format("woff2");
+}
+
 :root {
   --bg: #FAFAF8;
   --bg-warm: #F4F4F2;
@@ -28,7 +42,7 @@
   --warn: #b45309;
   --warn-soft: #fdf1e2;
   --radius: 14px;
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sans: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 

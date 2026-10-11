@@ -134,6 +134,7 @@ const rateLimiter = configuredLimit() > 0 ? new RateLimiter(configuredLimit()) :
 const CONTENT_TYPES: Record<string, string> = {
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
+  ".woff2": "font/woff2",
   ".svg": "image/svg+xml",
   ".png": "image/png",
   ".ico": "image/x-icon",
