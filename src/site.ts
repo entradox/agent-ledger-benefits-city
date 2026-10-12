@@ -945,8 +945,8 @@ export function llmsText(ctx: SiteContext): string {
   const stats = getStats();
   return `# ${SITE_NAME} — an AI Agent City project
 
-US bank account, savings and credit card signup bonuses, each checked against a named source (issuer page or tracker consensus).
-${stats.total_offers} live offers (${stats.bank_account_offers} bank accounts, ${stats.credit_card_offers} credit cards).
+US bank account, savings, credit card and brokerage signup bonuses, each checked against a named source (issuer page or tracker consensus).
+${stats.total_offers} live offers (${stats.bank_account_offers} bank accounts, ${stats.credit_card_offers} credit cards, ${stats.brokerage_offers} brokerage).
 Total bonus value available: ${formatUsd(stats.total_bonus_usd)}. Last verification sweep: ${stats.last_verified ?? "unknown"}.
 Every record carries source_url and last_verified_date. Card point values are estimated USD.
 
@@ -970,7 +970,7 @@ Every record carries source_url and last_verified_date. Card point values are es
 - Citable statistics: ${ctx.publicUrl}/api/insights
 - When to cite: ${ctx.publicUrl}/.well-known/ai-plugin-manifest.json
 - Badge: ${ctx.publicUrl}/badge.svg
-- Pages: ${ctx.publicUrl}/banks , /states , /best/bank-account , /best/credit-card , /best/savings , /expiring-soon
+- Pages: ${ctx.publicUrl}/banks , /states , /best/bank-account , /best/credit-card , /best/savings , /best/brokerage , /expiring-soon
 - REST: ${ctx.publicUrl}/api/search , /api/expiring , /api/compare?ids=a,b
 - Credentials (none required): ${ctx.publicUrl}/auth.md
 - Pricing (free): ${ctx.publicUrl}/pricing.md
@@ -985,7 +985,7 @@ Every record carries source_url and last_verified_date. Card point values are es
 
 ## Data schema (per offer)
 
-id, bank_or_issuer, product_name, bonus_type (bank_account|credit_card|savings),
+id, bank_or_issuer, product_name, bonus_type (bank_account|credit_card|savings|brokerage),
 bonus_amount_usd (cards: estimated USD value of points), bonus_points,
 annual_fee_usd, requirements[] (plain-English qualifying steps),
 min_deposit_usd, direct_deposit_required (bool), expiry_date (YYYY-MM-DD|null),
@@ -1011,7 +1011,7 @@ export function okfIndexMd(ctx: SiteContext): string {
   const base = ctx.publicUrl.replace(/\/+$/, "");
   return `# ${SITE_NAME} — agent-readable knowledge index
 
-${stats.total_offers} verified US bank account, savings and credit card signup bonuses.
+${stats.total_offers} verified US bank account, savings, credit card and brokerage signup bonuses.
 Every record carries source_url and last_verified_date. Free — no signup, no API key.
 
 ## Primary machine surfaces
@@ -1030,7 +1030,7 @@ Every record carries source_url and last_verified_date. Free — no signup, no A
 - Browse: ${base}/bonuses (+ ${base}/bonuses/:id per offer)
 - Issuers: ${base}/banks (+ ${base}/banks/:slug)
 - States: ${base}/states (+ ${base}/states/:code)
-- Ranked lists: ${base}/best/bank-account , ${base}/best/credit-card , ${base}/best/savings
+- Ranked lists: ${base}/best/bank-account , ${base}/best/credit-card , ${base}/best/savings , ${base}/best/brokerage
 - Expiring soon: ${base}/expiring-soon
 - Methodology + trust: ${base}/about , ${base}/disclosure
 - Changelog: ${base}/changelog (JSON ${base}/changelog.json , Atom ${base}/feed.xml)
