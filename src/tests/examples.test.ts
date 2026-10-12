@@ -15,6 +15,7 @@ const seed = [
   ...JSON.parse(fs.readFileSync(path.join(ROOT, "seed-data", "bank-account-bonuses.json"), "utf8")),
   ...JSON.parse(fs.readFileSync(path.join(ROOT, "seed-data", "credit-card-bonuses.json"), "utf8")),
   ...JSON.parse(fs.readFileSync(path.join(ROOT, "seed-data", "savings-bonuses.json"), "utf8")),
+  ...JSON.parse(fs.readFileSync(path.join(ROOT, "seed-data", "brokerage-bonuses.json"), "utf8")),
 ];
 
 process.env.PUBLIC_URL = "https://aiagentscity.com/benefits";

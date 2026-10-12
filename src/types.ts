@@ -1,4 +1,4 @@
-export type BonusType = "bank_account" | "credit_card" | "savings";
+export type BonusType = "bank_account" | "credit_card" | "savings" | "brokerage";
 export type BonusStatus = "active" | "expired" | "needs_review";
 
 export interface OfferHistoryEntry {
@@ -24,7 +24,7 @@ export interface Eligibility {
   issuer_rules: string[];
 }
 
-/** A single bank account, savings account, or credit card signup bonus offer. */
+/** A single bank account, savings account, credit card, or brokerage signup bonus offer. */
 export interface Bonus {
   /** kebab-case unique id, e.g. "chase-total-checking-400" */
   id: string;

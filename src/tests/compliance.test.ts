@@ -7,7 +7,7 @@ import { setupDb } from "./helpers.js";
 import type { Bonus } from "../types.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
-const SEED_FILES = ["bank-account-bonuses.json", "credit-card-bonuses.json", "savings-bonuses.json"];
+const SEED_FILES = ["bank-account-bonuses.json", "credit-card-bonuses.json", "savings-bonuses.json", "brokerage-bonuses.json"];
 const readSeed = (f: string): Record<string, unknown>[] =>
   JSON.parse(fs.readFileSync(path.join(ROOT, "seed-data", f), "utf8"));
 
