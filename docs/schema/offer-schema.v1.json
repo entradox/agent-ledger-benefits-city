@@ -49,7 +49,7 @@
     "bonus_type": {
       "type": "string",
       "nullable": false,
-      "enum": ["bank_account", "credit_card", "savings"],
+      "enum": ["bank_account", "credit_card", "savings", "brokerage"],
       "provenance": { "source": "seed", "note": "seed-data/*.json; enum is BONUS_TYPES in src/contract.ts, enforced by validate() in src/seed.ts" }
     },
     "bonus_amount_usd": {

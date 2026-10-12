@@ -3,13 +3,14 @@
  * Benefits City — operator CLI. Same data and logic as the MCP server, JSON on stdout.
  * For agents/operators that prefer a shell over MCP.
  *
- *   npm run cli -- search [--type bank_account|credit_card|savings] [--state TX] [--min 300]
+ *   npm run cli -- search [--type bank_account|credit_card|savings|brokerage] [--state TX] [--min 300]
  *                        [--dd] [--no-dd] [--query chase] [--limit 25] [--pretty]
  *   npm run cli -- get <id> [--pretty]
  *   npm run cli -- expiring [--days 30] [--pretty]
  *   npm run cli -- compare <id1> <id2> [id3] [id4] [--pretty]
  */
 import { expiringSoon, getBonusById, searchBonuses } from "./db.js";
+import { BONUS_TYPES } from "./contract.js";
 import { toPublic } from "./links.js";
 import { compareBonuses } from "./compare.js";
 import type { BonusType } from "./types.js";
@@ -23,7 +24,7 @@ function usage(): never {
   console.error(
     [
       "usage:",
-      "  npm run cli -- search [--type bank_account|credit_card|savings] [--state TX] [--min 300] [--dd] [--no-dd] [--query chase] [--limit 25] [--pretty]",
+      "  npm run cli -- search [--type bank_account|credit_card|savings|brokerage] [--state TX] [--min 300] [--dd] [--no-dd] [--query chase] [--limit 25] [--pretty]",
       "  npm run cli -- get <id> [--pretty]",
       "  npm run cli -- expiring [--days 30] [--pretty]",
       "  npm run cli -- compare <id1> <id2> [id3] [id4] [--pretty]",
@@ -76,8 +77,8 @@ function main(): void {
   switch (cmd) {
     case "search": {
       const type = flags.type;
-      if (type !== undefined && type !== "bank_account" && type !== "credit_card" && type !== "savings") {
-        fail("--type must be bank_account, credit_card or savings");
+      if (type !== undefined && (typeof type !== "string" || !(BONUS_TYPES as readonly string[]).includes(type))) {
+        fail(`--type must be one of ${BONUS_TYPES.join(", ")}`);
       }
       const min = flags.min === undefined ? undefined : Number(flags.min);
       if (min !== undefined && Number.isNaN(min)) fail("--min must be a number");

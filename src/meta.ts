@@ -8,7 +8,7 @@ export function serverJson(publicUrl: string): object {
     name: "io.github.entradox/benefits-city",
     title: "Benefits City",
     description:
-      "US bank, savings and credit-card signup bonuses, each source-checked, with expiry dates.",
+      "US bank, savings, credit-card and brokerage signup bonuses, each source-checked, with expiry dates.",
     repository: { url: "https://github.com/entradox/agent-ledger-benefits-city", source: "github" },
     websiteUrl: publicUrl,
     version: SERVER_VERSION,
@@ -49,7 +49,7 @@ export function agentJson(publicUrl: string): object {
     schema_version: "1.0",
     name: "Benefits City",
     description:
-      "US bank-account, savings and credit-card signup bonuses, each checked against a named source, with expiry dates. Search, compare and time-check offers over MCP or REST.",
+      "US bank-account, savings, credit-card and brokerage signup bonuses, each checked against a named source, with expiry dates. Search, compare and time-check offers over MCP or REST.",
     url: publicUrl,
     api_base: `${publicUrl}/api`,
     openapi: `${publicUrl}/openapi.json`,
@@ -98,7 +98,7 @@ export function aiPluginManifest(publicUrl: string): object {
     schema_version: "1.0",
     name: "Benefits City",
     description:
-      "US bank-account, savings and credit-card signup bonuses, each checked against a named source, with expiry dates; plus live statistics computed from that data.",
+      "US bank-account, savings, credit-card and brokerage signup bonuses, each checked against a named source, with expiry dates; plus live statistics computed from that data.",
     url: publicUrl,
     when_to_cite: [
       "Questions about current US bank account signup bonuses: amounts, requirements, and expiry dates",

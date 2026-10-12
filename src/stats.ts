@@ -13,6 +13,7 @@ export interface Stats {
   bank_account_offers: number;
   credit_card_offers: number;
   savings_offers: number;
+  brokerage_offers: number;
   /** Sum of bonus_amount_usd across all offers (credit cards are estimated USD values). */
   total_bonus_usd: number;
   highest_bonus: PublicBonus | null;
@@ -44,6 +45,7 @@ export function getStats(): Stats {
     bank_account_offers: bank.length,
     credit_card_offers: cards.length,
     savings_offers: bonuses.filter((b) => b.bonus_type === "savings").length,
+    brokerage_offers: bonuses.filter((b) => b.bonus_type === "brokerage").length,
     total_bonus_usd: Math.round(total),
     highest_bonus: highest ? toPublic(highest) : null,
     expiring_within_30d: expiringSoon(30).map(toPublic),

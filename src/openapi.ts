@@ -23,7 +23,7 @@ export function openapiJson(publicUrl: string): object {
       title: "Benefits City API",
       version: SERVER_VERSION,
       description:
-        "Read-only, no-auth API for US bank-account, savings and credit-card signup bonuses. Same data and ordering as the MCP tools (value descending, never influenced by commission). Errors use {error:{type,message,code?,param?}}.",
+        "Read-only, no-auth API for US bank-account, savings, credit-card and brokerage signup bonuses. Same data and ordering as the MCP tools (value descending, never influenced by commission). Errors use {error:{type,message,code?,param?}}.",
       contact: { email: "bonuses@aiagentscity.com" },
     },
     servers: [{ url: publicUrl }],

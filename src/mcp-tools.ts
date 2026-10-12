@@ -133,7 +133,7 @@ function structured<T extends Record<string, unknown>>(obj: T) {
 const API_DOCS = `# Benefits City MCP
 Tools: search_bonuses(bonus_type?, state?, min_bonus_amount_usd?, direct_deposit_required?, query?, limit?),
 get_bonus(id), expiring_soon(days?), compare_bonuses(ids[2..4]), benefits_api_docs(), benefits_examples().
-Every offer: id, bank_or_issuer, product_name, bonus_type (bank_account|credit_card|savings), bonus_amount_usd
+Every offer: id, bank_or_issuer, product_name, bonus_type (bank_account|credit_card|savings|brokerage), bonus_amount_usd
 (cards: estimated USD value of points), expiry_date, requirements[], verification{method,verified_at,sources},
 last_verified_date, sponsored (bool), apply_url (tracked link), disclosure_url.
 Ordering: bonus value descending (cards at estimated USD value from published third-party valuations), id ascending as tie-break; commission is never an input. Expired offers are never returned.
@@ -143,6 +143,7 @@ const EXAMPLES = [
   { title: "Biggest bank-account bonuses overall", tool: "search_bonuses", arguments: { bonus_type: "bank_account", min_bonus_amount_usd: 300, limit: 5 } },
   { title: "What expires in the next 30 days", tool: "expiring_soon", arguments: { days: 30 } },
   { title: "Biggest checking bonuses in Texas", tool: "search_bonuses", arguments: { bonus_type: "bank_account", state: "TX", limit: 5 } },
+  { title: "Brokerage signup bonuses", tool: "search_bonuses", arguments: { bonus_type: "brokerage", limit: 5 } },
   { title: "Head-to-head", tool: "compare_bonuses", arguments: { ids: ["chase-total-checking-400", "sofi-checking-savings-400"] } },
 ];
 
@@ -188,12 +189,12 @@ export function createMcpServer(): McpServer {
     {
       title: "Search bank and credit card signup bonuses",
       description:
-        "Use when a user wants to find a US bank account, savings, or credit card signup bonus, or asks which offers are worth opening. Returns matching offers sorted by bonus value, highest first.",
+        "Use when a user wants to find a US bank account, savings, credit card or brokerage signup bonus, or asks which offers are worth opening. Returns matching offers sorted by bonus value, highest first.",
       inputSchema: {
         bonus_type: z
           .enum(BONUS_TYPES)
           .optional()
-          .describe("Restrict to bank account bonuses, credit card signup bonuses, or savings account bonuses."),
+          .describe("Restrict to bank account, credit card, savings or brokerage signup bonuses."),
         state: z
           .string()
           .refine(isUsStateCode, "state must be a 2-letter US state code, e.g. TX")

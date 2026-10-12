@@ -1,0 +1,46 @@
+[
+  {
+    "affiliate_url": null,
+    "annual_fee_usd": null,
+    "application_url": "https://www.schwab.com/referafriend",
+    "bank_or_issuer": "Charles Schwab",
+    "bonus_amount_usd": 100,
+    "bonus_max_usd": 1000,
+    "bonus_points": null,
+    "bonus_type": "brokerage",
+    "direct_deposit_required": false,
+    "eligibility": {
+      "cooldown_months": null,
+      "issuer_rules": [
+        "Referred client must be new to Schwab (has not been a Schwab client within the last 12 months)",
+        "Existing Schwab clients are not eligible; the referral must come from a current Schwab client"
+      ],
+      "new_to_bank": true,
+      "once_per_lifetime": null
+    },
+    "expiry_date": null,
+    "id": "schwab-referral-brokerage-100",
+    "last_verified_date": "2026-10-11",
+    "min_deposit_usd": 25000,
+    "offer_history": [],
+    "product_name": "Schwab Referral Offer",
+    "requirements": [
+      "Become a Schwab client through a referral from an existing Schwab client",
+      "Make a qualifying net deposit of at least $25,000 into the new Schwab account within 45 days of becoming a client",
+      "Bonus tier is set by the qualifying net deposit: $25,000-$49,999.99 earns $100, $50,000-$99,999.99 earns $300, $100,000-$499,999.99 earns $500, $500,000 and over earns $1,000",
+      "The award is credited to the enrolled account approximately one week after the 45-day qualification period",
+      "The deposit must remain in the account for at least one year or the award may be forfeited",
+      "The bonus is taxable and may be reported on Form 1099-MISC"
+    ],
+    "source_url": "https://www.schwab.com/referafriend",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://www.schwab.com/referafriend"
+      ],
+      "verified_at": "2026-10-11"
+    }
+  }
+]

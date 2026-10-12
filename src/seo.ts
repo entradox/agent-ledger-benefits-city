@@ -94,6 +94,7 @@ export const BEST_TYPES: Record<string, { type: BonusType; label: string }> = {
   "bank-account": { type: "bank_account", label: "bank account" },
   "credit-card": { type: "credit_card", label: "credit card" },
   savings: { type: "savings", label: "savings account" },
+  brokerage: { type: "brokerage", label: "brokerage" },
 };
 
 export function bestOffers(slug: string, limit = 10): Bonus[] | null {
