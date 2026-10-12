@@ -1,0 +1,116 @@
+[
+  {
+    "id": "associated-bank-checking-600",
+    "bank_or_issuer": "Associated Bank",
+    "product_name": "Associated Choice Checking",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 600,
+    "bonus_points": null,
+    "annual_fee_usd": null,
+    "expiry_date": "2026-10-31",
+    "states_available": [
+      "WI",
+      "IL",
+      "MN"
+    ],
+    "min_deposit_usd": 100,
+    "direct_deposit_required": true,
+    "requirements": [
+      "Open and fund a new personal Associated Bank checking account by October 31, 2026 (Associated Access Checking requires a $25 minimum opening deposit; Associated Balanced or Choice Checking requires $100)",
+      "Receive recurring direct deposits totaling $500 or more within 90 days of account opening from an employer or government agency (person-to-person payments and transfers from existing or external accounts do not qualify)",
+      "Bonus tier is determined by the average daily balance of all open Associated Bank deposit accounts for days 31-90: $1,000-$4,999.99 earns $300, $5,000-$9,999.99 earns $400, $10,000 and over earns $600",
+      "Bonus is deposited into the new checking account within 120 days of account opening",
+      "Account must remain open for a minimum of 12 months or the bonus may be deducted at closing"
+    ],
+    "application_url": "https://www.associatedbank.com/checking-account-bonus-offer-promotion",
+    "source_url": "https://www.associatedbank.com/checking-account-bonus-offer-promotion",
+    "last_verified_date": "2026-09-20"
+  },
+  {
+    "id": "sofi-checking-savings-400",
+    "bank_or_issuer": "SoFi",
+    "product_name": "Checking and Savings",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 400,
+    "bonus_points": null,
+    "annual_fee_usd": null,
+    "expiry_date": "2026-12-31",
+    "states_available": "nationwide",
+    "min_deposit_usd": null,
+    "direct_deposit_required": true,
+    "requirements": [
+      "Open a SoFi Checking and Savings account (new and existing members who have never set up direct deposit with SoFi are eligible)",
+      "Set up your first eligible direct deposit of $1 or more; SoFi must receive it on or before December 31, 2026",
+      "SoFi totals all eligible direct deposits received within 25 calendar days of the first eligible direct deposit: $1,000-$4,999.99 earns a $50 bonus, $5,000 or more earns a $400 bonus",
+      "Eligible direct deposits are deposits from an employer, payroll, or benefits provider via ACH (check deposits, P2P transfers such as Venmo/PayPal, and merchant transactions do not qualify)",
+      "Bonus is credited within 7 business days of meeting requirements"
+    ],
+    "application_url": "https://sofi.com/banking/checking-offer/",
+    "source_url": "https://sofi.com/banking/checking-offer/",
+    "last_verified_date": "2026-09-20"
+  },
+  {
+    "id": "amex-business-gold-200k",
+    "bank_or_issuer": "American Express",
+    "product_name": "Business Gold Card",
+    "bonus_type": "credit_card",
+    "bonus_amount_usd": 4000,
+    "bonus_points": 200000,
+    "annual_fee_usd": 375,
+    "expiry_date": null,
+    "states_available": "nationwide",
+    "min_deposit_usd": null,
+    "direct_deposit_required": false,
+    "requirements": [
+      "Apply and find out your offer; eligible applicants may earn as high as 200,000 Membership Rewards points after spending $15,000 in eligible purchases in the first 3 months of card membership",
+      "Welcome offers vary by applicant and you may not be eligible for an offer",
+      "Points valued up to ~$4,000 at 2.0 cents per point (TPG September 2026 Membership Rewards valuation)",
+      "Restricted to one welcome bonus per card per lifetime with American Express"
+    ],
+    "application_url": "https://www.americanexpress.com/us/credit-cards/business/business-credit-cards/american-express-business-gold-credit-card-amex/",
+    "source_url": "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
+    "last_verified_date": "2026-09-20"
+  },
+  {
+    "id": "chase-sapphire-preferred-75k",
+    "bank_or_issuer": "Chase",
+    "product_name": "Sapphire Preferred",
+    "bonus_type": "credit_card",
+    "bonus_amount_usd": 1538,
+    "bonus_points": 75000,
+    "annual_fee_usd": 95,
+    "expiry_date": null,
+    "states_available": "nationwide",
+    "min_deposit_usd": null,
+    "direct_deposit_required": false,
+    "requirements": [
+      "Earn 75,000 bonus points after spending $5,000 on purchases in the first 3 months from account opening",
+      "Points valued ~$1,538 at 2.05 cents per point (TPG July 2026 Ultimate Rewards valuation); worth 1.5 cents per point when redeemed for travel through Chase Travel",
+      "No annual fee waiver for first year; bonus not available if you received a Sapphire new cardmember bonus in the past 48 months"
+    ],
+    "application_url": "https://creditcards.chase.com/rewards-credit-cards/sapphire/preferred",
+    "source_url": "https://Creditcards.chase.com/rewards-credit-cards?iCELL=6H4S&CID=MKT3",
+    "last_verified_date": "2026-09-20"
+  },
+  {
+    "id": "wells-fargo-autograph-journey-60k",
+    "bank_or_issuer": "Wells Fargo",
+    "product_name": "Autograph Journey Card",
+    "bonus_type": "credit_card",
+    "bonus_amount_usd": 1050,
+    "bonus_points": 60000,
+    "annual_fee_usd": 95,
+    "expiry_date": null,
+    "states_available": "nationwide",
+    "min_deposit_usd": null,
+    "direct_deposit_required": false,
+    "requirements": [
+      "Earn 60,000 bonus points after spending $4,000 on purchases within the first 3 months from account opening",
+      "Points valued ~$1,050 at 1.75 cents per point (TPG September 2026 Wells Fargo Rewards valuation); issuer advertises $600 toward travel",
+      "$50 annual statement credit with a minimum $50 airline purchase"
+    ],
+    "application_url": "https://creditcards.wellsfargo.com/travel-credit-cards/",
+    "source_url": "https://creditcards.wellsfargo.com/travel-credit-cards/?sub_channel=WEB&vendor_code=WF&lp_cx_nm=RVAB00114_CSMHP_MC_RV",
+    "last_verified_date": "2026-09-20"
+  }
+]

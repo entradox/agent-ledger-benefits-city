@@ -1,0 +1,3976 @@
+{
+ "generated": "2026-10-11",
+ "count": 397,
+ "rows": [
+  {
+   "target_id": "axos-basic-business-checking",
+   "slug_name": "AxosBasicBusinessChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/bank/NQDpLbZ8C7XP4S0E8Nqs-AxosBasicBusinessChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "banner-bank-business",
+   "slug_name": "BannerBankBusiness",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/bank/mCk9rETJxEbSPq4pkZjL-BannerBankBusiness",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "blue-vine-business-checking",
+   "slug_name": "BlueVineBusinessChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/bank/z5bY8VAUIl3IHrLi8QuL-BlueVineBusinessChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "citizens-bank-business-checking",
+   "slug_name": "CitizensBankBusinessChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/bank/ZZgJSvDwGiyxv3ic94vv-CitizensBankBusinessChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "f-s-b-bank-business-checking",
+   "slug_name": "FSBBankBusinessChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/bank/2uhU1nvqi3aGpHjA1pLd-FSBBankBusinessChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "fulton-bank-business",
+   "slug_name": "FultonBankBusiness",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/bank/alt3C1Qm5SUov4zkxtFd-FultonBankBusiness",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "golden1-credit-union-business",
+   "slug_name": "Golden1CreditUnionBusiness",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/bank/FEbLFRHMf3FkrRQPBk6u-Golden1CreditUnionBusiness",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "guaranty-bank-business-checking",
+   "slug_name": "GuarantyBankBusinessChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/bank/d5FrxrPUxixz8rwq3x56-GuarantyBankBusinessChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "hudson-valley-credit-union-enhanced-business-checking",
+   "slug_name": "HudsonValleyCreditUnionEnhancedBusinessChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/bank/yHdmtqghkzG6wWScmGOe-HudsonValleyCreditUnionEnhancedBusinessChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "huntington-bank-business-checking",
+   "slug_name": "HuntingtonBankBusinessChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/bank/bXyWJJ2LDweCnuIgdDaT-HuntingtonBankBusinessChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "northshore-bank-business",
+   "slug_name": "NorthshoreBankBusiness",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/bank/veXr1TvE8akRiNiytUut-NorthshoreBankBusiness",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "albert",
+   "slug_name": "Albert",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/fZscMDzakT7JA6K7k3Vh-Albert",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "ark7",
+   "slug_name": "Ark7",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/AqEHUY8XG7TYtQ63eRn2-Ark7",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "betterment-investment-bonus",
+   "slug_name": "BettermentInvestmentBonus",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/wX0p8VjfKD9NY4gPnLxJ-BettermentInvestmentBonus",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "c-i-t-bank",
+   "slug_name": "CITBank",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/jo10iWKbKQwrtNhJmjSe-CITBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "charles-schwab",
+   "slug_name": "CharlesSchwab",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/UFMldOSGsLMHmJSW0DeW-CharlesSchwab",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "e-t-r-a-d-e",
+   "slug_name": "ETRADE",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/G7szkV4ngFD0WVK2LlBD-ETRADE",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "interactive-brokers",
+   "slug_name": "InteractiveBrokers",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/z7U3JeBX9BdeXYDF2caV-InteractiveBrokers",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "moomoo",
+   "slug_name": "Moomoo",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/6wLvLMXIoD7k6BbVAxEZ-Moomoo",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "ninja-trader",
+   "slug_name": "NinjaTrader",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/qcznZMtdM7UR9FZhjpJQ-NinjaTrader",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "plynk-dividend-match",
+   "slug_name": "PlynkDividendMatch",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/lz0NivIWtRhYPNzVfz2j-PlynkDividendMatch",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "public",
+   "slug_name": "Public",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/GKWCvl3Xgs44iysdj5gp-Public",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "robinhood",
+   "slug_name": "Robinhood",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/TWxhtFfyfi9uiN2w3bTl-Robinhood",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "silo-markets",
+   "slug_name": "SiloMarkets",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/jX94JCNf9dV8aDuNAg8m-SiloMarkets",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "stash",
+   "slug_name": "Stash",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/fERxVu1aKegNgbx5AxcD-Stash",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "tastytrade",
+   "slug_name": "Tastytrade",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/W6qcSuCxxqhbQOUaUPyT-Tastytrade",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "trade-station",
+   "slug_name": "TradeStation",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/vjCoXPJCHZfBTHpDxqNN-TradeStation",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "trade-up",
+   "slug_name": "TradeUp",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/fh4klyWbOObk8QL773rJ-TradeUp",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "webull",
+   "slug_name": "Webull",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/j1OH6HRa52IerKiVW1WU-Webull",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "e-toro",
+   "slug_name": "eToro",
+   "type": "brokerage",
+   "our_bonus_type": "brokerage",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/brokerage/5Ka6xkOxAr9Z2NAKd4aQ-eToro",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "hilton-honors-business",
+   "slug_name": "HiltonHonorsBusiness",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/card/HiltonBiz26hEs1XwY3z-HiltonHonorsBusiness",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "marriott-bonvoy-business",
+   "slug_name": "MarriottBonvoyBusiness",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "A",
+   "reference_url": "https://bankrewards.io/card/qzQKf52Lpi27VFnQsFTx-MarriottBonvoyBusiness",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "ally",
+   "slug_name": "Ally",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/fbnSx2NbCJRcXP2hj969-Ally",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "alwaysbank",
+   "slug_name": "Alwaysbank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/RJv0qq1mx0TlIui3gT4N-Alwaysbank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "american-bank-trust",
+   "slug_name": "AmericanBankTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/mZVZ7b1Pce89Kb1RPp8D-AmericanBankTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "ameriprise-checking",
+   "slug_name": "AmeripriseChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/OoZgkn4T6p7XTlVSAOwT-AmeripriseChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "ameriprise-savings",
+   "slug_name": "AmeripriseSavings",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/U2Zxct3n6akqgZzzUEfa-AmeripriseSavings",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "axos-one-checking-savings",
+   "slug_name": "AxosOneCheckingSavings",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/HEEFpBfWdLUXdbP5b8W3-AxosOneCheckingSavings",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "b-e-c-u",
+   "slug_name": "BECU",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/MYaf3Z7ntFo1cMyo9fWP-BECU",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "banner-bank",
+   "slug_name": "BannerBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/iRWBCfIzeZHBuPdaGyVV-BannerBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "c-i-t-bank6-month-c-d",
+   "slug_name": "CITBank6MonthCD",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/KT2ie8YD4h73dfl8stDB-CITBank6MonthCD",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "c-i-t-bank-no-penalty11month-c-d",
+   "slug_name": "CITBankNoPenalty11monthCD",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/yj0N6meuxxsEcqL8JQim-CITBankNoPenalty11monthCD",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "c-i-t-bank-platinum-savings",
+   "slug_name": "CITBankPlatinumSavings",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/GJyn7CozsJDHdzdPX5ci-CITBankPlatinumSavings",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "c-i-t-bank-savings-connect",
+   "slug_name": "CITBankSavingsConnect",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/RFXoxyYUa67ONwbXkfb6-CITBankSavingsConnect",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "chime",
+   "slug_name": "Chime",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/cQW01vixGxal1xqdP0eD-Chime",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "citizens-equity-first-credit-union",
+   "slug_name": "CitizensEquityFirstCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/AMeBTAtmZUQgI4FjGxE5-CitizensEquityFirstCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "citizens-quest-checkingand-savings",
+   "slug_name": "CitizensQuestCheckingandSavings",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/H3v2WWgI4SxAHud4a4Uf-CitizensQuestCheckingandSavings",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "current",
+   "slug_name": "Current",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/a3lUN0UkBkhfvYlUA3Yz-Current",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "e-t-r-a-d-e",
+   "slug_name": "ETRADE",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/brokerage/G7szkV4ngFD0WVK2LlBD-ETRADE",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "everbank",
+   "slug_name": "Everbank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/KpbFNouOEvONy2RMPBlO-Everbank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "fifth-third-bank",
+   "slug_name": "FifthThirdBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/o1dmtjPi7ShNSrqJljFv-FifthThirdBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "four-leaf-federal-credit-union",
+   "slug_name": "FourLeafFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/d0msAx5BN5v3QBcSRbOJ-FourLeafFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "grasshopper",
+   "slug_name": "Grasshopper",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/CcY0S9LRZ3h4PYQ1ib5t-Grasshopper",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "h-s-b-c-premier",
+   "slug_name": "HSBCPremier",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/2TjNxFR1lg6V6m1d97Tz-HSBCPremier",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "huntington-bank",
+   "slug_name": "HuntingtonBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/jNKRMi6rt2j25HCDf5RE-HuntingtonBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "live-oak-bank-member-f-d-i-c",
+   "slug_name": "LiveOakBankMemberFDIC",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/XY18GuGgEnaDZhqX6mIP-LiveOakBankMemberFDIC",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "money-lion",
+   "slug_name": "MoneyLion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/hSTvP1FAiGy4puYiFVDc-MoneyLion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "pen-fed-credit-union",
+   "slug_name": "PenFedCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/8ebca687d4a67d357a77-PenFedCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "public-employees-credit-union",
+   "slug_name": "PublicEmployeesCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/jCQCjmIZSou3ewlZCrE2-PublicEmployeesCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "raisin",
+   "slug_name": "Raisin",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/hlGWVggDgRLMLH7Q4C7n-Raisin",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "regions-bank",
+   "slug_name": "RegionsBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/sQYGLbglQ0Ue0XBhyOnC-RegionsBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "republic-bankof-chicago",
+   "slug_name": "RepublicBankofChicago",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/OCE6Pr5f9drMZPxfzOS6-RepublicBankofChicago",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "simmons-bank",
+   "slug_name": "SimmonsBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/G07p6EEUTokUajB0BEst-SimmonsBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "simmons-bank-youth-savings",
+   "slug_name": "SimmonsBankYouthSavings",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/mlUb37LsJK5i1creoiMm-SimmonsBankYouthSavings",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "southwest-debit-card",
+   "slug_name": "SouthwestDebitCard",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/XFpVyMFbq7PhME8WJ6gT-SouthwestDebitCard",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "u-f-b-portfolio-savings",
+   "slug_name": "UFBPortfolioSavings",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/AfD58m4VokOFlRPrJ5q9-UFBPortfolioSavings",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "united-heritage-credit-union",
+   "slug_name": "UnitedHeritageCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/HBplOAT8Wlxbm8rmBNqO-UnitedHeritageCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "united-mileage-plus-debit-card",
+   "slug_name": "UnitedMileagePlusDebitCard",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/DJdBa0lJqnwVAiUPaTEH-UnitedMileagePlusDebitCard",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "united-states-senate-federal-credit-union",
+   "slug_name": "UnitedStatesSenateFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/bank/SZe10LX31He15fbVA5L4-UnitedStatesSenateFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "a-advantage-executive",
+   "slug_name": "AAdvantageExecutive",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/gn7DcOt6We2VyvsOhro1-AAdvantageExecutive",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "a-advantage-mile-up",
+   "slug_name": "AAdvantageMileUp",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/eJcW9yqseu5Q8hke3suL-AAdvantageMileUp",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "a-advantage-platinum-select",
+   "slug_name": "AAdvantagePlatinumSelect",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/MeeRpSIL61qgiZ6UZJ6W-AAdvantagePlatinumSelect",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "aer-lingus-visa-signature",
+   "slug_name": "AerLingusVisaSignature",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/lqJEmp9kf14G2AAeGlgd-AerLingusVisaSignature",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "aeroplan",
+   "slug_name": "Aeroplan",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/tBqkPlxmEBANBBSWpHTa-Aeroplan",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "air-france-k-l-m-visa-signature",
+   "slug_name": "AirFranceKLMVisaSignature",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/5paXBKrp0GBz4OnHTXuM-AirFranceKLMVisaSignature",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "atmos-rewards-ascent",
+   "slug_name": "AtmosRewardsAscent",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/AtmAscent26bYm5RqS3x-AtmosRewardsAscent",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "atmos-rewards-summit",
+   "slug_name": "AtmosRewardsSummit",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/AtmSummit26aXk4QpR2w-AtmosRewardsSummit",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bilt-blue",
+   "slug_name": "BiltBlue",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/TNmDuxO6Rcd6aZTfp8RZ-BiltBlue",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bilt-obsidian",
+   "slug_name": "BiltObsidian",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/Y24GZZfj772JOwqcSqnW-BiltObsidian",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bilt-palladium",
+   "slug_name": "BiltPalladium",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/REMg8aUAVo5uno56LYTg-BiltPalladium",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "british-airways-visa-signature",
+   "slug_name": "BritishAirwaysVisaSignature",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/ZQJtCBf6HMkr8PlDWcen-BritishAirwaysVisaSignature",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "choice-privileges",
+   "slug_name": "ChoicePrivileges",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/9nP8tvbAKMWKhyXgCvr9-ChoicePrivileges",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "choice-privileges-select",
+   "slug_name": "ChoicePrivilegesSelect",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/UTG09GIdghOVlyMZrWOP-ChoicePrivilegesSelect",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "delta-skymiles-blue",
+   "slug_name": "DeltaSkymilesBlue",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/EIwkYMAvbZOqI4qcKSfb-DeltaSkymilesBlue",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "delta-skymiles-gold",
+   "slug_name": "DeltaSkymilesGold",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/SN8uToP1tBVObOH6lLAN-DeltaSkymilesGold",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "delta-skymiles-platinum",
+   "slug_name": "DeltaSkymilesPlatinum",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/q9UwqJ75H80W0fjj2TU7-DeltaSkymilesPlatinum",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "delta-skymiles-reserve",
+   "slug_name": "DeltaSkymilesReserve",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/B0cc3ji6LvviobYLMc37-DeltaSkymilesReserve",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "frontier-airlines-world-mastercard",
+   "slug_name": "FrontierAirlinesWorldMastercard",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/FrontierWM26gDr0WvX2-FrontierAirlinesWorldMastercard",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "hilton-aspire",
+   "slug_name": "HiltonAspire",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/hyypDEqgQsYHHMcI3SaA-HiltonAspire",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "hilton-honors",
+   "slug_name": "HiltonHonors",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/HiltonNoFee26dAo7TsU-HiltonHonors",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "hilton-surpass",
+   "slug_name": "HiltonSurpass",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/89bW4TrQY9zeu7Ks5EDQ-HiltonSurpass",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "i-h-g-one-rewards-premier",
+   "slug_name": "IHGOneRewardsPremier",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/vMEFK4saCLmvqOiXN4qD-IHGOneRewardsPremier",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "i-h-g-one-rewards-traveler",
+   "slug_name": "IHGOneRewardsTraveler",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/iMMTtoEJujHKSwvUMDkL-IHGOneRewardsTraveler",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "iberia-visa-signature",
+   "slug_name": "IberiaVisaSignature",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/Afh3zxgmVUejFbtRWEhX-IberiaVisaSignature",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "jet-blue-plus",
+   "slug_name": "JetBluePlus",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/JetBluPlus26fCq9VuW1-JetBluePlus",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "jet-blue-premier",
+   "slug_name": "JetBluePremier",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/JetBluPrem26cZn6SrT4-JetBluePremier",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "marriott-bonvoy-bevy",
+   "slug_name": "MarriottBonvoyBevy",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/hti3TW6NCMYthUWX6ySg-MarriottBonvoyBevy",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "marriott-bonvoy-bold",
+   "slug_name": "MarriottBonvoyBold",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/lAeCaE0tRCUkdWCh04ED-MarriottBonvoyBold",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "marriott-bonvoy-boundless",
+   "slug_name": "MarriottBonvoyBoundless",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/fNUPcgI5RLvSlUvGr5Rj-MarriottBonvoyBoundless",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "marriott-bonvoy-bountiful",
+   "slug_name": "MarriottBonvoyBountiful",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/2lcZrLcMiifQC4LxzrVF-MarriottBonvoyBountiful",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "marriott-bonvoy-brilliant",
+   "slug_name": "MarriottBonvoyBrilliant",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/3K02NPbhaRCZE7fKg13f-MarriottBonvoyBrilliant",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "one-key-card",
+   "slug_name": "OneKeyCard",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/GkihDmFvywtcwhjv3YkW-OneKeyCard",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "southwest-rapid-rewards-plus",
+   "slug_name": "SouthwestRapidRewardsPlus",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/vTQXpX0XgkNQofJvEiWC-SouthwestRapidRewardsPlus",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "southwest-rapid-rewards-premier",
+   "slug_name": "SouthwestRapidRewardsPremier",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/uhia3damLwt1YqPNt6B7-SouthwestRapidRewardsPremier",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "southwest-rapid-rewards-priority",
+   "slug_name": "SouthwestRapidRewardsPriority",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/piF716OYwaxQSguHg0Of-SouthwestRapidRewardsPriority",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "target",
+   "slug_name": "Target",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/olaGVciUBMjduG6173uq-Target",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "united-club",
+   "slug_name": "UnitedClub",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/f2berNCRYt4AefcQbfzh-UnitedClub",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "united-explorer",
+   "slug_name": "UnitedExplorer",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/BHbYZY24EMaCJXJMZoml-UnitedExplorer",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "united-gateway",
+   "slug_name": "UnitedGateway",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/xfWHJ2IgJVGNUTQPrwlR-UnitedGateway",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "united-quest",
+   "slug_name": "UnitedQuest",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/9dqGqMDLZTjYjduVbk5X-UnitedQuest",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "wyndham-rewards-earner",
+   "slug_name": "WyndhamRewardsEarner",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "B",
+   "reference_url": "https://bankrewards.io/card/WeOHjegvTFJroKh1SrmT-WyndhamRewardsEarner",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "1st-advantage-credit-union",
+   "slug_name": "1stAdvantageCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/gOPEKxr0XLt2o1NNdOOb-1stAdvantageCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "a-c-n-b-bank",
+   "slug_name": "ACNBBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/39wcJJ0ZxeAIx596zzcE-ACNBBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "a-c-n-b-bank-advantage-rewards-plus-checking",
+   "slug_name": "ACNBBankAdvantageRewardsPlusChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/YkJ5qDXQM8uHnjI7MyGv-ACNBBankAdvantageRewardsPlusChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "a-federal-credit-union",
+   "slug_name": "AFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/67Cijfzg4JHtPHbqTV7B-AFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "addition-financial",
+   "slug_name": "AdditionFinancial",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/uquGVdfv5lhRY3ktXU50-AdditionFinancial",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "adel-fi",
+   "slug_name": "AdelFi",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/F5YFrBzv0ghsmx2ay0WO-AdelFi",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "advantage-credit-union",
+   "slug_name": "AdvantageCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/kGPbU5YvLExlbvz6i68f-AdvantageCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "advia-credit-union",
+   "slug_name": "AdviaCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/fovQ7qIblRJpyIzo20Na-AdviaCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "air-academy-credit-union",
+   "slug_name": "AirAcademyCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/MWoGWsfv6qbMMtP7jygp-AirAcademyCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "alabama-credit-union",
+   "slug_name": "AlabamaCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/kw5GqguuzhrpdUxD2252-AlabamaCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "alero-financial",
+   "slug_name": "AleroFinancial",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/Uk1WdkTof6dlqii73Npo-AleroFinancial",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "alliant-credit-union",
+   "slug_name": "AlliantCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/DFWNDAPfLjsKWcCNyz9J-AlliantCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "alpena-alcona-area-credit-union",
+   "slug_name": "AlpenaAlconaAreaCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/H5vkOf5VLVLNOK7RWNvj-AlpenaAlconaAreaCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "america-first-credit-union",
+   "slug_name": "AmericaFirstCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/brjqC6mxW8y7LQCKsVRo-AmericaFirstCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "americas-credit-union",
+   "slug_name": "AmericasCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/b1y2iKvu4bhlm3Rme8Zb-AmericasCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "arizona-bank-trust",
+   "slug_name": "ArizonaBankTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/whRSh3AhVy1miKf5iDdy-ArizonaBankTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "ascent-credit-union",
+   "slug_name": "AscentCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/ZoQx7K5OzT8Hgvep5Ko0-AscentCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "avidia-bank",
+   "slug_name": "AvidiaBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/sG09jFDGd7mYtb1NvNDe-AvidiaBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "b-h-c-u",
+   "slug_name": "BHCU",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/jM7EUBkJY4d1L2WYrgAj-BHCU",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "b-m-i-federal-credit-union",
+   "slug_name": "BMIFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/oLrvMcKQ1aonNabt9Qnd-BMIFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "b-o-k-financial",
+   "slug_name": "BOKFinancial",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/nct5Krh9Vf2VQiTjbksd-BOKFinancial",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bank-five-nine",
+   "slug_name": "BankFiveNine",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/suzyGVO7fzriMIN6Z20a-BankFiveNine",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bankers-trust",
+   "slug_name": "BankersTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/TfRyxKZVJbX0gDaJ4XsD-BankersTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bankof-colorado",
+   "slug_name": "BankofColorado",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/T86owRtv7mgnnVDqPoNC-BankofColorado",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bankof-greene-county",
+   "slug_name": "BankofGreeneCounty",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/wjRJs2xzUAmyPceVixOn-BankofGreeneCounty",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bankof-hawaii",
+   "slug_name": "BankofHawaii",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/AhcR6PS5cCuF99f1y5BV-BankofHawaii",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bankof-hope",
+   "slug_name": "BankofHope",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/3ulLSw6lSI6M2HRVoePu-BankofHope",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bankof-new-hampshire",
+   "slug_name": "BankofNewHampshire",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/uXFrGwf67PGcvIN0nFJ0-BankofNewHampshire",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bar-harbor-bank-trust",
+   "slug_name": "BarHarborBankTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/3TK8wap7XvxAyGChGIny-BarHarborBankTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "barrington-bank-trust",
+   "slug_name": "BarringtonBankTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/pimFyV7YWk51440mHQOx-BarringtonBankTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bask-bank",
+   "slug_name": "BaskBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/FRAkvhzgjfzRWZ3BZsqI-BaskBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "beacon-bank-beacon-one-checking",
+   "slug_name": "BeaconBankBeaconOneChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/dQ1ttUj5V4CcunOTo3Cd-BeaconBankBeaconOneChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "believe-savings",
+   "slug_name": "BelieveSavings",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/hjoA9GwDyDNy7mkUu8jM-BelieveSavings",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bell-bank",
+   "slug_name": "BellBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/gfhcKkVdAaTVOYdgpbXF-BellBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "bellco-credit-union",
+   "slug_name": "BellcoCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/85mM8R55Ed1Ig6jdixf8-BellcoCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "beverly-bank-trust",
+   "slug_name": "BeverlyBankTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/3JfFJt6czA4Xm4QYjqMb-BeverlyBankTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "blaze-credit-union",
+   "slug_name": "BlazeCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/9aB8DuDDnPhXA3Zbv62v-BlazeCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "broadway-bank",
+   "slug_name": "BroadwayBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/7So2rZKNvZvm75pueEHZ-BroadwayBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "c-b-s-bank",
+   "slug_name": "CBSBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/BsHyT30S6teIseSYcnH3-CBSBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "c-i-b-c-u-s",
+   "slug_name": "CIBCUS",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/hbwZo7sKwoTsZfHog7iD-CIBCUS",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "california-bankand-trust",
+   "slug_name": "CaliforniaBankandTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/kzygYcA3Lsn4rjyhC6kR-CaliforniaBankandTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "california-coast-credit-union",
+   "slug_name": "CaliforniaCoastCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/iAF2T1oqqRv8dZ051c1F-CaliforniaCoastCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "california-credit-union",
+   "slug_name": "CaliforniaCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/t1z1IXMBpWw75XiB01vt-CaliforniaCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "cambridge-savings-bank",
+   "slug_name": "CambridgeSavingsBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/lJEBoAhOIlaWLygrIEzJ-CambridgeSavingsBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "campus-federal-credit-union",
+   "slug_name": "CampusFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/KWwZ7hUj6SuH8s9vhp8O-CampusFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "canandaigua-national-bank",
+   "slug_name": "CanandaiguaNationalBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/H7cZ2iXKaz78R5p9QGae-CanandaiguaNationalBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "canyon-view-credit-union",
+   "slug_name": "CanyonViewCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/ApBAQzbh4GRl22nBeSKN-CanyonViewCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "cape-coast-bank",
+   "slug_name": "CapeCoastBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/1DXk5CF7tKybG1uf5pNn-CapeCoastBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "carolina-trust-federal-credit-union",
+   "slug_name": "CarolinaTrustFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/Mb4GzvvJdlas0bWVcgbU-CarolinaTrustFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "charter-oak-credit-union",
+   "slug_name": "CharterOakCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/fdU7GiSO2gyS5ckh08bb-CharterOakCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "chickasaw-community-bank",
+   "slug_name": "ChickasawCommunityBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/ZOgnR6sGZENBKGzbQEup-ChickasawCommunityBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "citadel-credit-union",
+   "slug_name": "CitadelCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/WJUT7vNsvp2oEh0qY2I6-CitadelCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "citibank",
+   "slug_name": "Citibank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/cEHQXxQ7gsBNiX6jMi5T-Citibank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "city-national-bank",
+   "slug_name": "CityNationalBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/yR05QAv0arRuOkwyZMu6-CityNationalBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "clearview-federal-credit-union",
+   "slug_name": "ClearviewFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/C5UVabpcpl3D7HIenY5H-ClearviewFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "columbia-bank",
+   "slug_name": "ColumbiaBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/HA1enNrkXjVNnNJkWAUI-ColumbiaBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "columbia-bank-checking",
+   "slug_name": "ColumbiaBankChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/8MeVjtwhnrCZc8AnNirm-ColumbiaBankChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "commodore-perry-federal-credit-union",
+   "slug_name": "CommodorePerryFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/JeUXo2JIo0t8YQRxie6Q-CommodorePerryFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "common-wealth-central-credit-union",
+   "slug_name": "CommonWealthCentralCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/EB7xzESmvskZ8Od3iloi-CommonWealthCentralCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "common-wealth-one",
+   "slug_name": "CommonWealthOne",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/nNghVnrkrVRbUuXjZZRZ-CommonWealthOne",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "commonwealth-credit-union",
+   "slug_name": "CommonwealthCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/iFVxxzOPw1pi3y5hAonK-CommonwealthCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "community-america-credit-union",
+   "slug_name": "CommunityAmericaCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/43ttqyz2FcPCfxwMq7tK-CommunityAmericaCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "community-bank-trust",
+   "slug_name": "CommunityBankTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/cSj7PEkEgqCjx0NMj8iI-CommunityBankTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "community-first-credit-union",
+   "slug_name": "CommunityFirstCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/kmNMe4BmOJiMFj9NJ6ln-CommunityFirstCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "community-first-credit-unionof-florida",
+   "slug_name": "CommunityFirstCreditUnionofFlorida",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/5VIsCLqaFPqTt5gfM5wn-CommunityFirstCreditUnionofFlorida",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "community-state-bank",
+   "slug_name": "CommunityStateBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/2Ru3Z8FFU9G21IDYqocd-CommunityStateBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "compass-credit-union",
+   "slug_name": "CompassCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/Hg4MkF7lnBWpot0tD4U6-CompassCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "connexus-credit-union",
+   "slug_name": "ConnexusCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/N1dJ771rsQz2KX11Rz85-ConnexusCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "cooperative-teachers-credit-union",
+   "slug_name": "CooperativeTeachersCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/eVJyQc7BZwA7wqe9hKos-CooperativeTeachersCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "copper-state-credit-union",
+   "slug_name": "CopperStateCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/946mOFaw7LT50pA1eH9f-CopperStateCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "cornerstone-community-financial",
+   "slug_name": "CornerstoneCommunityFinancial",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/cJv1iekGXBewe9gAfXeS-CornerstoneCommunityFinancial",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "cornerstone-community-financial-credit-union",
+   "slug_name": "CornerstoneCommunityFinancialCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/H88dOnjA0hOU4XIKXMcc-CornerstoneCommunityFinancialCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "create-credit-union",
+   "slug_name": "CreateCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/XGi8MXD5CKBewRwPuj3I-CreateCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "credit-human",
+   "slug_name": "CreditHuman",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/WJRLbC0OX2HqFqexIjUf-CreditHuman",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "credit-union-one",
+   "slug_name": "CreditUnionOne",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/n2uwkHIT5m0bHsIRW9It-CreditUnionOne",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "credit-unionof-america",
+   "slug_name": "CreditUnionofAmerica",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/65A0BcX6YNjoZnDsJ9ZZ-CreditUnionofAmerica",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "credit-unionof-new-jersey",
+   "slug_name": "CreditUnionofNewJersey",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/ekvdKgLjJlm8ebn0Ug32-CreditUnionofNewJersey",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "credit-unionof-southern-california",
+   "slug_name": "CreditUnionofSouthernCalifornia",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/wsVmr27K2JBfcXYe2g7l-CreditUnionofSouthernCalifornia",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "credit-unionof-texas",
+   "slug_name": "CreditUnionofTexas",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/j4JmpzEpikqxbXKA4sFF-CreditUnionofTexas",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "crystal-lake-bank-trust",
+   "slug_name": "CrystalLakeBankTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/4LkH39T4LaZTMw8lPO0C-CrystalLakeBankTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "cyprus-credit-union",
+   "slug_name": "CyprusCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/lB10f5pc19aQZwkoA3Kk-CyprusCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "d-f-c-u",
+   "slug_name": "DFCU",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/NBtDlwl005ECKVoLzPdZ-DFCU",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "dedham-savings",
+   "slug_name": "DedhamSavings",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/wpp5eRdMNFPZhsYxSluP-DedhamSavings",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "deseret-first-credit-union",
+   "slug_name": "DeseretFirstCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/eDeu8eAV5yEnNw7A0Wmx-DeseretFirstCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "desert-financial-credit-union",
+   "slug_name": "DesertFinancialCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/i0KPLTpbvZnyCvUFaxzz-DesertFinancialCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "diversified-members-credit-union",
+   "slug_name": "DiversifiedMembersCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/eaEfQMsjmnvmHUc33xkj-DiversifiedMembersCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "du-page-credit-union",
+   "slug_name": "DuPageCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/VbJ8EJSoR0oR3M18zhzn-DuPageCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "eastern-bank",
+   "slug_name": "EasternBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/tArKM0Zb9wzh3zQ1qdJL-EasternBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "elgin-state-bank",
+   "slug_name": "ElginStateBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/eLbCmd4vZY06PwmIDxfC-ElginStateBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "elite-community-credit-union",
+   "slug_name": "EliteCommunityCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/KGe9HVyb4TZZaEKEj6tN-EliteCommunityCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "embassy-bank",
+   "slug_name": "EmbassyBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/uZgwBXbcWs55HfjSSX61-EmbassyBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "ent-credit-union",
+   "slug_name": "EntCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/4gnIzHd1860EumgroSL7-EntCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "envision-credit-union",
+   "slug_name": "EnvisionCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/QqdXFWxob79JvODbn7pb-EnvisionCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "equity-bank",
+   "slug_name": "EquityBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/86NbJkzXG2kf6knjbjDY-EquityBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "evanston-community-bank-trust",
+   "slug_name": "EvanstonCommunityBankTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/3hKw69Vrm39wG4tZXBpk-EvanstonCommunityBankTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "everwise-credit-union",
+   "slug_name": "EverwiseCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/HCBbwAytxvyXj56BLaCb-EverwiseCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "exchange-bank",
+   "slug_name": "ExchangeBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/sVCeGZN1krLSFVadB71Q-ExchangeBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "excite-credit-union",
+   "slug_name": "ExciteCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/9VFNRvTTXA7ylboFHbZH-ExciteCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "f-n-b-o",
+   "slug_name": "FNBO",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/DZBdFnCJKOZLkQW6nnmN-FNBO",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "farmers-insurance-federal-credit-union",
+   "slug_name": "FarmersInsuranceFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/rflQiDHLiQMkCLds0yv8-FarmersInsuranceFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "fibre-federal-credit-union",
+   "slug_name": "FibreFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/R29H1ttzv33QmiSyeFGt-FibreFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "financial-plus-credit-union",
+   "slug_name": "FinancialPlusCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/A6tDI03Wm8mJ2DrBX6HY-FinancialPlusCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "first-bank",
+   "slug_name": "FirstBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/8PV8JlsQBNcxYeRKIPCY-FirstBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "first-commonwealth-bank",
+   "slug_name": "FirstCommonwealthBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/5rSgdtyuTOylxA792bMS-FirstCommonwealthBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "first-commonwealth-federal-credit-union",
+   "slug_name": "FirstCommonwealthFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/6NGqZeYL2RuWDIP73VCU-FirstCommonwealthFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "first-community-bank",
+   "slug_name": "FirstCommunityBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/g2yDZuCIKMiSYANAgRAd-FirstCommunityBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "first-community-credit-union",
+   "slug_name": "FirstCommunityCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/MPQufbpBQXczlfEIupZs-FirstCommunityCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "first-entertainment-credit-union",
+   "slug_name": "FirstEntertainmentCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/EWQKiPiBHKqlKx0aYRIQ-FirstEntertainmentCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "first-federal-bank",
+   "slug_name": "FirstFederalBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/HnigSpIptypdcc8BDYqh-FirstFederalBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "first-financial-bank",
+   "slug_name": "FirstFinancialBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/HrFJ5odUc24iZBwJgA5f-FirstFinancialBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "first-horizon-bank",
+   "slug_name": "FirstHorizonBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/26K5kGRgLci8YdvEycEw-FirstHorizonBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "first-merchants-bank",
+   "slug_name": "FirstMerchantsBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/SDCSlD3in1GbcQ1V64TJ-FirstMerchantsBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "first-national-bank-you1st-checking",
+   "slug_name": "FirstNationalBankYou1stChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/6UmTi6FI7KtAYD2HJbZi-FirstNationalBankYou1stChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "first-service-credit-union",
+   "slug_name": "FirstServiceCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/WOa7f7Pc0SfA7AVC5l8Y-FirstServiceCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "first-u-s-community-credit-union",
+   "slug_name": "FirstUSCommunityCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/cBhjdKxtxAC7oqnSM6zN-FirstUSCommunityCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "firstrust-bank",
+   "slug_name": "FirstrustBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/jam53W0q7hbF26VBVFSI-FirstrustBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "firsttrust-bank",
+   "slug_name": "FirsttrustBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/AreG9hCgMpSbMuLRQkJj-FirsttrustBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "flagstar",
+   "slug_name": "Flagstar",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/waKARHHB9xDiSZ9Zp19r-Flagstar",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "flagstar-bank-ready-checking",
+   "slug_name": "FlagstarBankReadyChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/g7NNOty0wXVhCz5wPuaL-FlagstarBankReadyChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "flanagan-state-bank",
+   "slug_name": "FlanaganStateBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/sQzp6OVtmp6J44AEryeE-FlanaganStateBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "florida-credit-union",
+   "slug_name": "FloridaCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/4YO9St3B6aGuPeRPYlkD-FloridaCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "florida-west-coast-credit-union",
+   "slug_name": "FloridaWestCoastCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/zvxcNymHJ9kEtm5g2pIG-FloridaWestCoastCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "foothill-credit-union",
+   "slug_name": "FoothillCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/iOkbFkhuTv4jLzL9yc4s-FoothillCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "forbright-bank",
+   "slug_name": "ForbrightBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/1dnToTr5pwidePJwi5DW-ForbrightBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "forest-area-federal-credit-union",
+   "slug_name": "ForestAreaFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/dHtc98KX9TVb0UZKZ0Bp-ForestAreaFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "fort-bragg-federal-credit-union",
+   "slug_name": "FortBraggFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/VM8T3qUOaGJ8pu4AaAdo-FortBraggFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "fortifi-bank",
+   "slug_name": "FortifiBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/leC4I34fsYJ0z87WCZps-FortifiBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "found",
+   "slug_name": "Found",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/p8DGwLyZhWJc3BiGoyjc-Found",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "franklin-savings-bank",
+   "slug_name": "FranklinSavingsBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/6ZbuwJChamD7wwhwqCaY-FranklinSavingsBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "freedom-federal-credit-union",
+   "slug_name": "FreedomFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/5KFj0fGUXSVUFJsReaoZ-FreedomFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "fremont-bank",
+   "slug_name": "FremontBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/n4gA1kOb0vCFYvAAil0Z-FremontBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "g-e-c-u",
+   "slug_name": "GECU",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/gdUMKIY3dZaVFzexF44h-GECU",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "grand-bank",
+   "slug_name": "GrandBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/xzmqaWchsLSYxhIJmL4b-GrandBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "great-basin-federal-credit-union",
+   "slug_name": "GreatBasinFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/VGH0CfjutTeEWh3jE3d8-GreatBasinFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "greater-iowa-credit-union",
+   "slug_name": "GreaterIowaCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/dUhlTLRkgFGsRTuEnDWu-GreaterIowaCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "greater-nevada-credit-union",
+   "slug_name": "GreaterNevadaCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/TbWre2dU4W2jJ3BioUqO-GreaterNevadaCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "green-fi",
+   "slug_name": "GreenFi",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/Nr9ycEovVv4G9XCf3Wdr-GreenFi",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "grow-financial-federal-credit-union",
+   "slug_name": "GrowFinancialFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/3GULovkyGj0XQBroHdQj-GrowFinancialFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "guaranty-bank",
+   "slug_name": "GuarantyBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/qKR9b8tcE4BzoZkVYZFY-GuarantyBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "hancock-whitney",
+   "slug_name": "HancockWhitney",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/KxPRmfKt9Gpzo2nAwIMw-HancockWhitney",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "hanmi-bank",
+   "slug_name": "HanmiBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/KuH70CRbufp76otblF8G-HanmiBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "heartland-bankand-trust-company",
+   "slug_name": "HeartlandBankandTrustCompany",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/LRwnmYFac4PLOI6GuVfP-HeartlandBankandTrustCompany",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "holyoke-credit-union",
+   "slug_name": "HolyokeCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/ouW6qIMBVYxZJIYxHmky-HolyokeCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "hometown-bank",
+   "slug_name": "HometownBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/Oq5TiqjwPutR6OF3ClQv-HometownBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "horizon-credit-union",
+   "slug_name": "HorizonCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/2cpGkYJlAmMIWCWEZcHc-HorizonCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "hudson-river-community-credit-union",
+   "slug_name": "HudsonRiverCommunityCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/O3XvGGG3fv6IlXsWjyxU-HudsonRiverCommunityCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "illinois-state-credit-union",
+   "slug_name": "IllinoisStateCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/LpAX81qyIVXEb2izXgtM-IllinoisStateCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "indiana-members-credit-union",
+   "slug_name": "IndianaMembersCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/QfcnLVCeiTBl0I8UrXwT-IndianaMembersCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "inova-federal-credit-union",
+   "slug_name": "InovaFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/LspHqlphUQPOQqMZ9HOd-InovaFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "ion-bank",
+   "slug_name": "IonBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/QOQJK2ehGafDDPIdGM4E-IonBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "johnson-financial-group",
+   "slug_name": "JohnsonFinancialGroup",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/2vNvSJ1pa3senV0kYZ2i-JohnsonFinancialGroup",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "jovia-financial-credit-union",
+   "slug_name": "JoviaFinancialCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/LrKVs3HRMQ1x3do3j3fo-JoviaFinancialCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "kitsap-credit-union",
+   "slug_name": "KitsapCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/cRnKD3F1IdKCWGnXkas9-KitsapCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "la-capitol-federal-credit-union",
+   "slug_name": "LaCapitolFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/JEtyh0tcDltpPB9lMmPO-LaCapitolFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "lafayette-federal-credit-union",
+   "slug_name": "LafayetteFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/WRtR6ch1UWW0VRbrRmta-LafayetteFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "lake-ridge-bank",
+   "slug_name": "LakeRidgeBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/96m1Rwe6mCngikNsrj3j-LakeRidgeBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "langley-federal-credit-union-checking-savings",
+   "slug_name": "LangleyFederalCreditUnionCheckingSavings",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/mgaO9BBUCK9oHaKAhwfh-LangleyFederalCreditUnionCheckingSavings",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "lending-club",
+   "slug_name": "LendingClub",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/GdvTWdb31DXwmeEpNNb7-LendingClub",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "m-c-n-b-banks",
+   "slug_name": "MCNBBanks",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/C7dIKIeDchMb7m9i6lkA-MCNBBanks",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "m-i-d-f-l-o-r-i-d-a-credit-union",
+   "slug_name": "MIDFLORIDACreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/VXRGL5mctDH5EQAGH51I-MIDFLORIDACreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "magnolia-federal-credit-union",
+   "slug_name": "MagnoliaFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/Xu6m91fR8wLZi9Lwb5kO-MagnoliaFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "malvern-bank",
+   "slug_name": "MalvernBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/0c436JEu1SGiU7GfLdQW-MalvernBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "media-city-credit-union",
+   "slug_name": "MediaCityCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/BvSJzB0O3SLJNVqI9JLF-MediaCityCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "members-exchange-federal-credit-union",
+   "slug_name": "MembersExchangeFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/eK2txqo9ED27tac2JnWE-MembersExchangeFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "mid-first-bank",
+   "slug_name": "MidFirstBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/1xMSrlCe2mwFx6kEUksQ-MidFirstBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "middlesex-savings-bank",
+   "slug_name": "MiddlesexSavingsBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/hyh6VaK9UI7OpJtdOimq-MiddlesexSavingsBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "mutual-security-credit-union",
+   "slug_name": "MutualSecurityCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/62LAWkjxRKoDFikxfkNv-MutualSecurityCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "n-b-t-bank",
+   "slug_name": "NBTBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/H8Dn6PYScDxYnIK6fWIg-NBTBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "neighborhood-credit-union",
+   "slug_name": "NeighborhoodCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/KJUDrXq2JtYebbrfkSdy-NeighborhoodCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "netspend",
+   "slug_name": "Netspend",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/MkrAkCQwfgjPKf3oT6sW-Netspend",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "newtown-savings-bank",
+   "slug_name": "NewtownSavingsBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/AAeq3dshyTyXkEnT97Ny-NewtownSavingsBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "north-island-credit-union",
+   "slug_name": "NorthIslandCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/ViXHGw6eqaJcRMWfC617-NorthIslandCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "northwest-bank",
+   "slug_name": "NorthwestBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/ebLCfgPpwYcvP5sJEIee-NorthwestBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "notre-dame-federal-c-u",
+   "slug_name": "NotreDameFederalCU",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/gOJ14k52xRV6vqwmhJUV-NotreDameFederalCU",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "numerica",
+   "slug_name": "Numerica",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/vPdG1ECpTaIDQOncxlQO-Numerica",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "o-m-b-bank",
+   "slug_name": "OMBBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/NnQ9o9e4bGnlOYYvURMi-OMBBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "old-national",
+   "slug_name": "OldNational",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/8ViTfE98Uy0FTGT8Kd3Y-OldNational",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "old-national-bank",
+   "slug_name": "OldNationalBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/vTxWB2hSoRCMJxJPFiOt-OldNationalBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "old-second-bank",
+   "slug_name": "OldSecondBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/enU4R9n4WS7N9AivdKWZ-OldSecondBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "on-path-federal-credit-union",
+   "slug_name": "OnPathFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/tbDqEzniwL8jBxybypn4-OnPathFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "on-tap-credit-union",
+   "slug_name": "OnTapCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/D7GAeUsIUUP9gZbag7HL-OnTapCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "one",
+   "slug_name": "One",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/tVuhb7dJp19kiq0pl5BL-One",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "one-a-z-credit-union",
+   "slug_name": "OneAZCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/STYWX2LewhuxEaYDICO4-OneAZCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "orange-countys-credit-union",
+   "slug_name": "OrangeCountysCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/9OS4qZlRsIvkGPE1ucCz-OrangeCountysCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "oregon-state-credit-union",
+   "slug_name": "OregonStateCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/UlpVK36X2GeTZ8o6lJxM-OregonStateCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "oriental-bank",
+   "slug_name": "OrientalBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/cTRf5T2DQWNgb0Unt0XC-OrientalBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "orion-federal-credit-union",
+   "slug_name": "OrionFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/43Rbnd2nrxiKhOacxOJY-OrionFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "p-e-c-u",
+   "slug_name": "PECU",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/dYGUaWsn1jDOvcmnnbwl-PECU",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "p-s-e-c-u",
+   "slug_name": "PSECU",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/tO27LcUDSbnYonMG8ujX-PSECU",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "park-national-bank",
+   "slug_name": "ParkNationalBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/hwvnZwNIOvktUDQ0BunE-ParkNationalBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "partner-colorado-credit-union",
+   "slug_name": "PartnerColoradoCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/Sln32j90A0Sxlkhr6aIN-PartnerColoradoCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "penn-community-bank",
+   "slug_name": "PennCommunityBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/suuALQYcqYkYxXxe1kSK-PennCommunityBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "peoples-bancorp",
+   "slug_name": "PeoplesBancorp",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/z1r2BBAhuGFHXClambE2-PeoplesBancorp",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "peoples-bancorp-premier-checking",
+   "slug_name": "PeoplesBancorpPremierChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/TmliBiQuaZL0g5fXPHID-PeoplesBancorpPremierChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "peoples-bank",
+   "slug_name": "PeoplesBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/1ssl10rvSUmpMcWee9QB-PeoplesBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "percapita",
+   "slug_name": "Percapita",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/qesiDgFxtIfe7WJeMsah-Percapita",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "picatinny-credit-union",
+   "slug_name": "PicatinnyCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/SVQQu7t7uA6mrd5jPvl3-PicatinnyCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "piermont-bank",
+   "slug_name": "PiermontBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/Cj77e666KaIEz5n7GiMg-PiermontBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "pikes-peak-national-bank",
+   "slug_name": "PikesPeakNationalBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/oBZwd0OxuCIrSf3El2Tn-PikesPeakNationalBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "point-breeze-credit-union",
+   "slug_name": "PointBreezeCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/FwMXHzf6uCOIIhurBjtX-PointBreezeCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "poppy-bank",
+   "slug_name": "PoppyBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/h5a1s2mVTeDaeiOOdSgA-PoppyBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "power-financial-credit-union",
+   "slug_name": "PowerFinancialCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/fzyrXvyNLdNG3gB2Am2v-PowerFinancialCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "premier-america-credit-union",
+   "slug_name": "PremierAmericaCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/G1PBnW70Cb9N0gzyTXad-PremierAmericaCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "prestige-community-credit-union",
+   "slug_name": "PrestigeCommunityCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/Kwe20qrxCzARCMofA7n3-PrestigeCommunityCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "provident-credit-union",
+   "slug_name": "ProvidentCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/kYxPZYTr8EuMpHZB215T-ProvidentCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "purdue-f-c-u",
+   "slug_name": "PurdueFCU",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/GPNoVZbT7LTZUpzPHZ1j-PurdueFCU",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "quad-city-bankand-trust-q-c-b-t",
+   "slug_name": "QuadCityBankandTrustQCBT",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/wjgLllNbF5ooyDUeU76C-QuadCityBankandTrustQCBT",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "r-e-v-federal-credit-union",
+   "slug_name": "REVFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/tYmbHrwefyHYsQuyBX9c-REVFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "red-canoe-credit-union",
+   "slug_name": "RedCanoeCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/TQPGIjZBpeOzwyF9IGao-RedCanoeCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "redstone-federal-credit-union",
+   "slug_name": "RedstoneFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/3Q9PnKMn3vlQm1yCrYFJ-RedstoneFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "regent-bank",
+   "slug_name": "RegentBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/ZWlL6XGMMH3wTyppvQhn-RegentBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "reliant-community-credit-union",
+   "slug_name": "ReliantCommunityCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/eOf8VocRrA2mDIcOD0f8-ReliantCommunityCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "revolut",
+   "slug_name": "Revolut",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/RlDgfVGIT8LKbzbFWDR5-Revolut",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "rho",
+   "slug_name": "Rho",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/y3DD7XgX3YZ01c9klr0P-Rho",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "rize-credit-union-checking",
+   "slug_name": "RizeCreditUnionChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/GiCUeexB9OBgqV0dfqYs-RizeCreditUnionChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "s-e-c-u",
+   "slug_name": "SECU",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/K24kknnU9qH48g3NFXai-SECU",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "safe1-credit-union",
+   "slug_name": "Safe1CreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/AbkJi4tHPL2iPzbqH9KW-Safe1CreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "sage-credit-union",
+   "slug_name": "SageCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/BrpXlcmJurWIWm3Mh8zY-SageCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "santa-rosa-county-federal-credit-union",
+   "slug_name": "SantaRosaCountyFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/lSElPISknl4apnPq5F7V-SantaRosaCountyFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "santander",
+   "slug_name": "Santander",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/R95gBJgnUNU1ieU8hEMv-Santander",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "schertz-bank-trust",
+   "slug_name": "SchertzBankTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/DaHrB7bUg4SehA5sRnCe-SchertzBankTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "scient-federal-credit-union",
+   "slug_name": "ScientFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/pFhZNDpDZi8CoiSPakRw-ScientFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "seacoast-bank",
+   "slug_name": "SeacoastBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/DWLpHLmfyLtHIisCBOkn-SeacoastBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "seattle-credit-union",
+   "slug_name": "SeattleCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/0zS2k9A32q9vPfq29AgR-SeattleCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "service-credit-union",
+   "slug_name": "ServiceCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/qeb9fM1dL6R5aaHPCRzf-ServiceCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "shell-f-c-u",
+   "slug_name": "ShellFCU",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/WUnNwZwXH1m68DmiZW8E-ShellFCU",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "simplicity-credit-union",
+   "slug_name": "SimplicityCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/G0qLFHuNWVLKrrWDvMO7-SimplicityCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "south-state-bank",
+   "slug_name": "SouthStateBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/CpVodMj2BRIw5SIrDVLI-SouthStateBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "springs-valley-bank-trust",
+   "slug_name": "SpringsValleyBankTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/gHXjyjeOxzvXlHo6CCpa-SpringsValleyBankTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "stage-point-federal-credit-union",
+   "slug_name": "StagePointFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/YkGC6VX3IhSlw4yrt4Kn-StagePointFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "stanford-federal-credit-union",
+   "slug_name": "StanfordFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/MHyv0W0vzzcIOf6S6u6a-StanfordFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "state-bank",
+   "slug_name": "StateBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/JXiudI2OwNc6hYG8eqNZ-StateBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "suffolk-federal-credit-union",
+   "slug_name": "SuffolkFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/odwC8LWe2WZn7RM5Zusk-SuffolkFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "sun-west-creditunion",
+   "slug_name": "SunWestCreditunion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/TngiimfZZ0vOsgixUUCZ-SunWestCreditunion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "t-b-k-bank",
+   "slug_name": "TBKBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/cap3dvXlATY0SLcGJKxh-TBKBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "teachers-federal-credit-union",
+   "slug_name": "TeachersFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/7jg8CqPqIhLFKzrMFRIW-TeachersFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "telhio-credit-union",
+   "slug_name": "TelhioCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/K2QGRR9o6OXPnXUizFKT-TelhioCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "the-first-national-bankin-sioux-falls",
+   "slug_name": "TheFirstNationalBankinSiouxFalls",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/UYvSsnCXGh5FBAGQ4rUw-TheFirstNationalBankinSiouxFalls",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "think-bank",
+   "slug_name": "ThinkBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/g9x6SwcVyGkvUlpKvHuW-ThinkBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "together-credit-union",
+   "slug_name": "TogetherCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/KVnc90OUw9dCtEvpyCQg-TogetherCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "top-line-financial-credit-union",
+   "slug_name": "TopLineFinancialCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/l6YlJ3Dbhr1ESWVAhkAz-TopLineFinancialCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "torrington-savings-bank",
+   "slug_name": "TorringtonSavingsBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/IBNGn7zA8da9yzNtjgAf-TorringtonSavingsBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "tower-federal-credit-union",
+   "slug_name": "TowerFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/mvnHHPkz86mLZt7ayPng-TowerFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "town-bank",
+   "slug_name": "TownBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/mf36Wb2ntxLR3pFtIIS9-TownBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "town-country-credit-union",
+   "slug_name": "TownCountryCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/hIyxpSRhDFvbYAes0llB-TownCountryCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "travis-credit-union",
+   "slug_name": "TravisCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/EXZlRsjrE49Wp96lWYma-TravisCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "tru-north-bank",
+   "slug_name": "TruNorthBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/nYOHub3DDH2ykZE0LG0v-TruNorthBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "tru-stone-financial",
+   "slug_name": "TruStoneFinancial",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/oIRtcOYXtVdoKQjs31US-TruStoneFinancial",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "truity-credit-union",
+   "slug_name": "TruityCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/mEw2fDdO2ifQcsNjNlgs-TruityCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "u-first-credit-union",
+   "slug_name": "UFirstCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/jpEGNIV6Q7VykmCtqzWW-UFirstCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "u-s-f-credit-union",
+   "slug_name": "USFCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/I5h8hrp0fYhszQh4KDkX-USFCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "u-s-federal-credit-union",
+   "slug_name": "USFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/xjXs9zslunpxKUgx80Gl-USFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "u-x-federal-credit-union",
+   "slug_name": "UXFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/UraK95JgiHX4wPCfVGH9-UXFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "union-savings-bank",
+   "slug_name": "UnionSavingsBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/nPzJEDtzkAN8HhtXEMUA-UnionSavingsBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "unity-bank",
+   "slug_name": "UnityBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/zGUy3VfIeuy8hzybtGWT-UnityBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "universityof-kentucky-federal-credit-union-simple-checking",
+   "slug_name": "UniversityofKentuckyFederalCreditUnionSimpleChecking",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/Wqf6adIrjWTZfzex8him-UniversityofKentuckyFederalCreditUnionSimpleChecking",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "uof-i-community-credit-union",
+   "slug_name": "UofICommunityCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/5KrKYjaLRm5gbIUhSDLn-UofICommunityCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "valley-national-bank",
+   "slug_name": "ValleyNationalBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/KuGEruZ9A3mEUsZWAQI7-ValleyNationalBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "valley-star-credit-union",
+   "slug_name": "ValleyStarCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/LYyKQkLSfa2Jr7dDvTIK-ValleyStarCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "valley-strong-credit-union",
+   "slug_name": "ValleyStrongCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/okDhJtuJDUiAPWo4APQt-ValleyStrongCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "vantage-credit-union",
+   "slug_name": "VantageCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/JSC3Gq6I9SRE8uwXtweI-VantageCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "vervea-credit-union",
+   "slug_name": "VerveaCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/FuOx2AsjDDxgLhBnT6WL-VerveaCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "visions-federal-credit-union",
+   "slug_name": "VisionsFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/uxmVpNW1RYPWYVzBh4Yu-VisionsFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "w-e-c-u",
+   "slug_name": "WECU",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/RqEyBgE1u6LTrZfK2u0a-WECU",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "w-s-e-c-u",
+   "slug_name": "WSECU",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/edKBxZsMoxkpLJZQ8tN6-WSECU",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "walden-savings-bank",
+   "slug_name": "WaldenSavingsBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/OS1sj1qf0vGlxydUDcIH-WaldenSavingsBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "washington-trust",
+   "slug_name": "WashingtonTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/CNcHWxeLqGq1y17qSppN-WashingtonTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "water-stone-bank",
+   "slug_name": "WaterStoneBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/X9XqgLz5gO366Uw7ABXn-WaterStoneBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "waukesha-state-bank",
+   "slug_name": "WaukeshaStateBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/fRaD2raWo47MJdBfbpLv-WaukeshaStateBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "waveby-staley-credit-union",
+   "slug_name": "WavebyStaleyCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/qELfLMGpFCZndpVvqSIG-WavebyStaleyCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "webster-bank",
+   "slug_name": "WebsterBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/JuP1ES8Lhm7CXd6qI6eV-WebsterBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "wellby-financial",
+   "slug_name": "WellbyFinancial",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/bYXq2WgHQO7ziLbXDHaj-WellbyFinancial",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "weokie-federal-credit-union",
+   "slug_name": "WeokieFederalCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/FOqTiC0FcnTNefYWYkwR-WeokieFederalCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "western-state-bank",
+   "slug_name": "WesternStateBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/LHigmoIxK7WtPf6VffIP-WesternStateBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "westmark-credit-union",
+   "slug_name": "WestmarkCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/g2Lrt7DLpMBtso3PZqiK-WestmarkCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "wings-credit-union",
+   "slug_name": "WingsCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/5K4eqZfyLxXVbeEPJvBm-WingsCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "wintrust-bank",
+   "slug_name": "WintrustBank",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/C4UaaXPL1KfDbki8iqGG-WintrustBank",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "wisconsin-bank-trust",
+   "slug_name": "WisconsinBankTrust",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/flmFHyDxMp5ATMcH6hzw-WisconsinBankTrust",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "c-port-credit-union",
+   "slug_name": "cPortCreditUnion",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/L5mSsqHUfv7gnwOD08Nr-cPortCreditUnion",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "i-t-h-i-n-k-financial",
+   "slug_name": "iTHINKFinancial",
+   "type": "bank",
+   "our_bonus_type": "bank_account",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/bank/wi7tRC8N7z4DIyTXcBhf-iTHINKFinancial",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "a-a-a-daily-advantage-credit-card",
+   "slug_name": "AAADailyAdvantageCreditCard",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/card/zE5OX8dFmDoileFtMMFt-AAADailyAdvantageCreditCard",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "a-a-a-travel-advantage-credit-card",
+   "slug_name": "AAATravelAdvantageCreditCard",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/card/cEE2H1h6ag6c3XV9KQ2B-AAATravelAdvantageCreditCard",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "a-t-t-points-plus",
+   "slug_name": "ATTPointsPlus",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/card/sZCSpf3dHnTCPys1InH3-ATTPointsPlus",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "prime-visa",
+   "slug_name": "PrimeVisa",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/card/KxtP8aBb0JmYRQ7nAuro-PrimeVisa",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "upgrade-select-card",
+   "slug_name": "UpgradeSelectCard",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/card/OixR8oIYwsTP2PtxfZsT-UpgradeSelectCard",
+   "status": "todo",
+   "notes": ""
+  },
+  {
+   "target_id": "worldof-hyatt",
+   "slug_name": "WorldofHyatt",
+   "type": "card",
+   "our_bonus_type": "credit_card",
+   "tranche": "C",
+   "reference_url": "https://bankrewards.io/card/A4rfhShBsjqu4FLgbYSc-WorldofHyatt",
+   "status": "todo",
+   "notes": ""
+  }
+ ]
+}

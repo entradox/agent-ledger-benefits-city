@@ -1,0 +1,3217 @@
+{
+ "theirs": {
+  "bank": {
+   "MalvernBank": 1,
+   "SeattleCreditUnion": 1,
+   "CapeCoastBank": 3,
+   "CapitalOne": 3,
+   "ForbrightBank": 1,
+   "PeoplesBank": 1,
+   "MidFirstBank": 3,
+   "FirstHorizonBank": 1,
+   "CommunityStateBank": 1,
+   "HSBCPremier": 1,
+   "HorizonCreditUnion": 1,
+   "FSBBankBusinessChecking": 1,
+   "JohnsonFinancialGroup": 1,
+   "ACNBBank": 1,
+   "GrowFinancialFederalCreditUnion": 2,
+   "BeverlyBankTrust": 1,
+   "RedstoneFederalCreditUnion": 1,
+   "BarHarborBankTrust": 3,
+   "EvanstonCommunityBankTrust": 1,
+   "BankofHope": 1,
+   "OrionFederalCreditUnion": 1,
+   "CommunityAmericaCreditUnion": 1,
+   "ChaseTotalChecking": 1,
+   "CrystalLakeBankTrust": 1,
+   "FloridaCreditUnion": 1,
+   "AssociatedBank": 1,
+   "EntCreditUnion": 1,
+   "WingsCreditUnion": 1,
+   "FreedomFederalCreditUnion": 1,
+   "UofICommunityCreditUnion": 1,
+   "Citi": 2,
+   "CommunityFirstCreditUnionofFlorida": 1,
+   "FirstCommonwealthBank": 2,
+   "MutualSecurityCreditUnion": 1,
+   "CreditUnionofAmerica": 1,
+   "AFederalCreditUnion": 1,
+   "FirstCommonwealthFederalCreditUnion": 1,
+   "FirstNationalBankYou1stChecking": 1,
+   "FranklinSavingsBank": 1,
+   "BroadwayBank": 1,
+   "TeachersFederalCreditUnion": 1,
+   "BellcoCreditUnion": 1,
+   "EquityBank": 2,
+   "ColumbiaBankChecking": 1,
+   "FirstBank": 1,
+   "OldNational": 1,
+   "PenFedCreditUnion": 1,
+   "CopperStateCreditUnion": 1,
+   "LakeRidgeBank": 1,
+   "OrangeCountysCreditUnion": 1,
+   "ExciteCreditUnion": 1,
+   "BlazeCreditUnion": 1,
+   "WellsFargo": 4,
+   "USBank": 4,
+   "FinancialPlusCreditUnion": 1,
+   "NewtownSavingsBank": 2,
+   "CitizensEquityFirstCreditUnion": 2,
+   "Safe1CreditUnion": 1,
+   "UFBPortfolioSavings": 1,
+   "BankofHawaii": 2,
+   "ChaseCheckingSavingsCombo": 1,
+   "CanyonViewCreditUnion": 1,
+   "FirsttrustBank": 1,
+   "KeySmartChecking": 1,
+   "SageCreditUnion": 1,
+   "CBSBank": 1,
+   "MediaCityCreditUnion": 1,
+   "WintrustBank": 2,
+   "ClearviewFederalCreditUnion": 1,
+   "MCNBBanks": 1,
+   "WashingtonTrust": 2,
+   "Barclays": 1,
+   "Truist": 2,
+   "Grasshopper": 1,
+   "PiermontBank": 1,
+   "SouthStateBank": 1,
+   "OnTapCreditUnion": 1,
+   "AlliantCreditUnion": 2,
+   "UnitedMileagePlusDebitCard": 1,
+   "SeacoastBank": 3,
+   "FNBO": 1,
+   "SchertzBankTrust": 1,
+   "CommonWealthCentralCreditUnion": 1,
+   "FirstEntertainmentCreditUnion": 1,
+   "TravisCreditUnion": 2,
+   "AssociatedBankBusinessChecking": 1,
+   "AdelFi": 2,
+   "Golden1CreditUnionBusiness": 1,
+   "WeokieFederalCreditUnion": 1,
+   "BaskBank": 1,
+   "VerveaCreditUnion": 1,
+   "PointBreezeCreditUnion": 1,
+   "SimmonsBank": 1,
+   "SimplicityCreditUnion": 1,
+   "PremierAmericaCreditUnion": 1,
+   "MTBankBusiness": 1,
+   "CITBankPlatinumSavings": 1,
+   "PurdueFCU": 1,
+   "LendingClub": 1,
+   "RizeCreditUnionChecking": 1,
+   "CitizensQuestCheckingandSavings": 1,
+   "AlpenaAlconaAreaCreditUnion": 1,
+   "CanandaiguaNationalBank": 1,
+   "CornerstoneCommunityFinancialCreditUnion": 1,
+   "NBTBank": 1,
+   "ColumbiaBank": 1,
+   "UnitedHeritageCreditUnion": 1,
+   "EverwiseCreditUnion": 1,
+   "AxosOneCheckingSavings": 1,
+   "KeySelectChecking": 1,
+   "CompassCreditUnion": 1,
+   "FirstFederalBank": 1,
+   "KeyBankBusinessChecking": 1,
+   "FirstFinancialBank": 1,
+   "USFCreditUnion": 1,
+   "TorringtonSavingsBank": 1,
+   "LaCapitolFederalCreditUnion": 1,
+   "VantageCreditUnion": 1,
+   "StateBank": 1,
+   "CommodorePerryFederalCreditUnion": 1,
+   "WebsterBank": 1,
+   "SECU": 2,
+   "TelhioCreditUnion": 1,
+   "EliteCommunityCreditUnion": 1,
+   "NeighborhoodCreditUnion": 1,
+   "CITBank6MonthCD": 1,
+   "TogetherCreditUnion": 1,
+   "CampusFederalCreditUnion": 1,
+   "Everbank": 1,
+   "ValleyNationalBank": 1,
+   "HanmiBank": 2,
+   "PrestigeCommunityCreditUnion": 1,
+   "HancockWhitney": 2,
+   "cPortCreditUnion": 1,
+   "WesternStateBank": 1,
+   "HeartlandBankandTrustCompany": 1,
+   "ValleyStarCreditUnion": 1,
+   "IllinoisStateCreditUnion": 1,
+   "JoviaFinancialCreditUnion": 1,
+   "InovaFederalCreditUnion": 1,
+   "StanfordFederalCreditUnion": 1,
+   "FirstCommunityCreditUnion": 1,
+   "AirAcademyCreditUnion": 1,
+   "BECU": 1,
+   "CarolinaTrustFederalCreditUnion": 1,
+   "Netspend": 1,
+   "ConnexusCreditUnion": 1,
+   "DFCU": 1,
+   "AxosBasicBusinessChecking": 1,
+   "OMBBank": 1,
+   "GreenFi": 1,
+   "HudsonRiverCommunityCreditUnion": 1,
+   "RepublicBankofChicago": 1,
+   "WaldenSavingsBank": 1,
+   "AmeripriseChecking": 1,
+   "HometownBank": 1,
+   "MTBank": 2,
+   "IonBank": 1,
+   "IndianaMembersCreditUnion": 1,
+   "EnvisionCreditUnion": 1,
+   "FibreFederalCreditUnion": 1,
+   "Santander": 1,
+   "CITBankSavingsConnect": 1,
+   "Alwaysbank": 1,
+   "Revolut": 1,
+   "WECU": 1,
+   "FirstMerchantsBank": 2,
+   "OneAZCreditUnion": 1,
+   "PicatinnyCreditUnion": 1,
+   "UnitedStatesSenateFederalCreditUnion": 1,
+   "PartnerColoradoCreditUnion": 1,
+   "BankofColorado": 1,
+   "RedCanoeCreditUnion": 2,
+   "GreaterNevadaCreditUnion": 1,
+   "BankersTrust": 1,
+   "PeoplesBancorpPremierChecking": 1,
+   "SunWestCreditunion": 1,
+   "AmeripriseSavings": 1,
+   "TheFirstNationalBankinSiouxFalls": 1,
+   "AleroFinancial": 1,
+   "OregonStateCreditUnion": 1,
+   "UXFederalCreditUnion": 1,
+   "GreatBasinFederalCreditUnion": 1,
+   "AmericanExpressSavings": 1,
+   "FortBraggFederalCreditUnion": 1,
+   "MIDFLORIDACreditUnion": 1,
+   "DuPageCreditUnion": 1,
+   "NorthIslandCreditUnion": 1,
+   "CreditHuman": 1,
+   "CitadelCreditUnion": 1,
+   "FirstServiceCreditUnion": 1,
+   "LafayetteFederalCreditUnion": 1,
+   "ShellFCU": 1,
+   "UniversityofKentuckyFederalCreditUnionSimpleChecking": 1,
+   "WaterStoneBank": 1,
+   "SouthwestDebitCard": 1,
+   "CreateCreditUnion": 1,
+   "LiveOakBankMemberFDIC": 2,
+   "ETRADE": 1,
+   "MagnoliaFederalCreditUnion": 1,
+   "StagePointFederalCreditUnion": 1,
+   "ACNBBankAdvantageRewardsPlusChecking": 1,
+   "ChickasawCommunityBank": 1,
+   "TDBank": 1,
+   "RegentBank": 1,
+   "CitizensBankBusinessChecking": 1,
+   "USBankBusinessSavings": 1,
+   "AscentCreditUnion": 1,
+   "ChaseBusiness": 1,
+   "USBankBusinessChecking": 1,
+   "Current": 1,
+   "FultonBankBusiness": 1,
+   "AmericasCreditUnion": 1,
+   "HuntingtonBankBusinessChecking": 1,
+   "WellbyFinancial": 1,
+   "AmericaFirstCreditUnion": 1,
+   "BankofAmericaBusiness": 1,
+   "FirstUSCommunityCreditUnion": 1,
+   "Citibank": 1,
+   "CornerstoneCommunityFinancial": 1,
+   "Chime": 1,
+   "KitsapCreditUnion": 1,
+   "CommunityBankTrust": 1,
+   "OrientalBank": 1,
+   "TBKBank": 2,
+   "FourLeafFederalCreditUnion": 1,
+   "GuarantyBankBusinessChecking": 1,
+   "ForestAreaFederalCreditUnion": 1,
+   "BeaconBankBeaconOneChecking": 1,
+   "GreaterIowaCreditUnion": 1,
+   "PECU": 1,
+   "DeseretFirstCreditUnion": 1,
+   "MembersExchangeFederalCreditUnion": 1,
+   "ElginStateBank": 1,
+   "ReliantCommunityCreditUnion": 1,
+   "CooperativeTeachersCreditUnion": 1,
+   "DiversifiedMembersCreditUnion": 1,
+   "NorthwestBank": 2,
+   "WSECU": 1,
+   "CreditUnionofNewJersey": 1,
+   "OldSecondBank": 1,
+   "KeyPointBusinessChecking": 1,
+   "TDBankCompleteChecking": 1,
+   "WaukeshaStateBank": 1,
+   "BankofAmerica": 1,
+   "Ally": 1,
+   "CharterOakCreditUnion": 1,
+   "WisconsinBankTrust": 1,
+   "AdviaCreditUnion": 1,
+   "PowerFinancialCreditUnion": 1,
+   "WestmarkCreditUnion": 1,
+   "FirstCommunityBank": 1,
+   "FlagstarBankReadyChecking": 1,
+   "ThinkBank": 1,
+   "SpringsValleyBankTrust": 1,
+   "NotreDameFederalCU": 1,
+   "1stAdvantageCreditUnion": 1,
+   "KeyPoint": 1,
+   "GECU": 1,
+   "BellBank": 1,
+   "PNC": 2,
+   "PoppyBank": 1,
+   "TownCountryCreditUnion": 1,
+   "MoneyLion": 1,
+   "CIBCUS": 1,
+   "AmericanExpressRewardsChecking": 1,
+   "BelieveSavings": 1,
+   "Raisin": 1,
+   "ParkNationalBank": 1,
+   "MiddlesexSavingsBank": 1,
+   "DesertFinancialCreditUnion": 1,
+   "CaliforniaCoastCreditUnion": 1,
+   "CommonwealthCreditUnion": 1,
+   "FoothillCreditUnion": 1,
+   "BannerBank": 1,
+   "CreditUnionofTexas": 1,
+   "PublicEmployeesCreditUnion": 1,
+   "BHCU": 1,
+   "HuntingtonBank": 1,
+   "FirstrustBank": 1,
+   "UFirstCreditUnion": 1,
+   "BMOSmartAdvantageChecking": 1,
+   "AdvantageCreditUnion": 1,
+   "ProvidentCreditUnion": 1,
+   "CommunityFirstCreditUnion": 1,
+   "AlabamaCreditUnion": 1,
+   "CaliforniaBankandTrust": 1,
+   "TopLineFinancialCreditUnion": 1,
+   "CyprusCreditUnion": 1,
+   "CambridgeSavingsBank": 1,
+   "SantaRosaCountyFederalCreditUnion": 1,
+   "FortifiBank": 1,
+   "BannerBankBusiness": 1,
+   "TruityCreditUnion": 1,
+   "AmericanBankTrust": 1,
+   "TownBank": 1,
+   "LangleyFederalCreditUnionCheckingSavings": 1,
+   "SimmonsBankYouthSavings": 1,
+   "TowerFederalCreditUnion": 1,
+   "CreditUnionOne": 1,
+   "FremontBank": 1,
+   "CommonWealthOne": 1,
+   "UnionSavingsBank": 1,
+   "TruNorthBank": 1,
+   "BOKFinancial": 2,
+   "FifthThirdBank": 1,
+   "PikesPeakNationalBank": 1,
+   "TruStoneFinancial": 1,
+   "BMIFederalCreditUnion": 1,
+   "SuffolkFederalCreditUnion": 1,
+   "ValleyStrongCreditUnion": 1,
+   "HolyokeCreditUnion": 1,
+   "Found": 1,
+   "ScientFederalCreditUnion": 1,
+   "BarringtonBankTrust": 1,
+   "ChaseSavings": 1,
+   "WavebyStaleyCreditUnion": 1,
+   "GuarantyBank": 1,
+   "ServiceCreditUnion": 1,
+   "Percapita": 1,
+   "FarmersInsuranceFederalCreditUnion": 1,
+   "AvidiaBank": 1,
+   "RegionsBank": 1,
+   "FlanaganStateBank": 1,
+   "ExchangeBank": 1,
+   "PennCommunityBank": 1,
+   "BankFiveNine": 1,
+   "CaliforniaCreditUnion": 1,
+   "EasternBank": 1,
+   "PSECU": 1,
+   "One": 1,
+   "REVFederalCreditUnion": 1,
+   "OnPathFederalCreditUnion": 1,
+   "KeyBankBasicBusinessChecking": 1,
+   "BankofNewHampshire": 1,
+   "EmbassyBank": 1,
+   "AdditionFinancial": 1,
+   "VisionsFederalCreditUnion": 1,
+   "Numerica": 1,
+   "OldNationalBank": 1,
+   "NorthshoreBankBusiness": 1,
+   "Flagstar": 1,
+   "ArizonaBankTrust": 1,
+   "iTHINKFinancial": 1,
+   "BankofGreeneCounty": 1,
+   "QuadCityBankandTrustQCBT": 1,
+   "DedhamSavings": 1,
+   "CreditUnionofSouthernCalifornia": 1,
+   "USFederalCreditUnion": 1,
+   "SoFiCheckingandSavings": 1,
+   "GrandBank": 1,
+   "Rho": 1,
+   "HudsonValleyCreditUnionEnhancedBusinessChecking": 1,
+   "CityNationalBank": 1,
+   "CITBankNoPenalty11monthCD": 1,
+   "PeoplesBancorp": 1,
+   "BMO": 1,
+   "BlueVineBusinessChecking": 1,
+   "UnityBank": 1,
+   "FloridaWestCoastCreditUnion": 1
+  },
+  "card": {
+   "CitiStrata": 1,
+   "USBankAltitudeConnect": 1,
+   "MarriottBonvoyBountiful": 1,
+   "MarriottBonvoyBrilliant": 1,
+   "AirFranceKLMVisaSignature": 1,
+   "CapitalOneSavor": 1,
+   "HiltonSurpass": 1,
+   "BankofAmericaCustomizedCash": 1,
+   "UnitedQuest": 1,
+   "BankofAmericaTravelRewards": 1,
+   "ChoicePrivileges": 1,
+   "WorldofHyatt": 1,
+   "WellsFargoActiveCash": 1,
+   "IberiaVisaSignature": 1,
+   "AmericanExpressBusinessPlatinum": 1,
+   "AtmosRewardsAscent": 1,
+   "AtmosRewardsSummit": 1,
+   "DeltaSkymilesReserve": 1,
+   "UnitedExplorer": 1,
+   "ChaseFreedomUnlimited": 1,
+   "AmericanExpressPlatinum": 1,
+   "DeltaSkymilesBlue": 1,
+   "CapitalOneVenture": 1,
+   "FrontierAirlinesWorldMastercard": 1,
+   "OneKeyCard": 1,
+   "HiltonHonorsBusiness": 1,
+   "HiltonHonors": 1,
+   "USBankAltitudeGo": 1,
+   "JetBluePlus": 1,
+   "JetBluePremier": 1,
+   "PrimeVisa": 1,
+   "AAdvantagePlatinumSelect": 1,
+   "WellsFargoAutograph": 1,
+   "UpgradeSelectCard": 1,
+   "ChaseSapphirePreferred": 1,
+   "CitiStrataPremier": 1,
+   "AmericanExpressBlueCashEveryday": 1,
+   "AmericanExpressGold": 1,
+   "CapitalOneQuicksilver": 1,
+   "BiltPalladium": 1,
+   "DeltaSkymilesGold": 1,
+   "BiltBlue": 1,
+   "AmericanExpressBlueCashPreferred": 1,
+   "ChoicePrivilegesSelect": 1,
+   "WyndhamRewardsEarner": 2,
+   "BankofAmericaUnlimitedCash": 1,
+   "BiltObsidian": 1,
+   "BritishAirwaysVisaSignature": 1,
+   "AAATravelAdvantageCreditCard": 1,
+   "BankofAmericaPremiumRewardsElite": 1,
+   "AAdvantageMileUp": 1,
+   "USBankCash": 1,
+   "UnitedClub": 1,
+   "MarriottBonvoyBoundless": 1,
+   "AAdvantageExecutive": 1,
+   "MarriottBonvoyBevy": 1,
+   "HiltonAspire": 1,
+   "IHGOneRewardsTraveler": 1,
+   "ChaseFreedomFlex": 1,
+   "MarriottBonvoyBold": 1,
+   "AerLingusVisaSignature": 1,
+   "BankofAmericaPremiumRewards": 1,
+   "Target": 1,
+   "SouthwestRapidRewardsPriority": 1,
+   "DeltaSkymilesPlatinum": 1,
+   "MarriottBonvoyBusiness": 1,
+   "ATTPointsPlus": 1,
+   "ChaseSapphireReserve": 1,
+   "Aeroplan": 1,
+   "SouthwestRapidRewardsPremier": 1,
+   "IHGOneRewardsPremier": 1,
+   "SouthwestRapidRewardsPlus": 1,
+   "CapitalOneVentureX": 1,
+   "UnitedGateway": 1,
+   "AAADailyAdvantageCreditCard": 1
+  },
+  "brokerage": {
+   "eToro": 1,
+   "Moomoo": 1,
+   "Citi": 1,
+   "Ark7": 1,
+   "JPMorganChase": 1,
+   "ETRADE": 1,
+   "Public": 1,
+   "Robinhood": 1,
+   "CharlesSchwab": 1,
+   "Tastytrade": 1,
+   "Stash": 1,
+   "Albert": 1,
+   "TradeUp": 1,
+   "Webull": 1,
+   "SiloMarkets": 1,
+   "CITBank": 1,
+   "PlynkDividendMatch": 1,
+   "NinjaTrader": 1,
+   "TradeStation": 1,
+   "BettermentInvestmentBonus": 1,
+   "InteractiveBrokers": 1
+  }
+ },
+ "matched": [
+  {
+   "type": "bank",
+   "name": "CapitalOne",
+   "offers": 3,
+   "issuer": "Capital One"
+  },
+  {
+   "type": "bank",
+   "name": "ChaseTotalChecking",
+   "offers": 1,
+   "issuer": "Chase"
+  },
+  {
+   "type": "bank",
+   "name": "AssociatedBank",
+   "offers": 1,
+   "issuer": "Associated Bank"
+  },
+  {
+   "type": "bank",
+   "name": "Citi",
+   "offers": 2,
+   "issuer": "Citi"
+  },
+  {
+   "type": "bank",
+   "name": "WellsFargo",
+   "offers": 4,
+   "issuer": "Wells Fargo"
+  },
+  {
+   "type": "bank",
+   "name": "USBank",
+   "offers": 4,
+   "issuer": "U.S. Bank"
+  },
+  {
+   "type": "bank",
+   "name": "ChaseCheckingSavingsCombo",
+   "offers": 1,
+   "issuer": "Chase"
+  },
+  {
+   "type": "bank",
+   "name": "KeySmartChecking",
+   "offers": 1,
+   "issuer": "KeyBank"
+  },
+  {
+   "type": "bank",
+   "name": "Barclays",
+   "offers": 1,
+   "issuer": "Barclays"
+  },
+  {
+   "type": "bank",
+   "name": "Truist",
+   "offers": 2,
+   "issuer": "Truist"
+  },
+  {
+   "type": "bank",
+   "name": "AssociatedBankBusinessChecking",
+   "offers": 1,
+   "issuer": "Associated Bank"
+  },
+  {
+   "type": "bank",
+   "name": "MTBankBusiness",
+   "offers": 1,
+   "issuer": "M&T Bank"
+  },
+  {
+   "type": "bank",
+   "name": "KeySelectChecking",
+   "offers": 1,
+   "issuer": "KeyBank"
+  },
+  {
+   "type": "bank",
+   "name": "KeyBankBusinessChecking",
+   "offers": 1,
+   "issuer": "KeyBank"
+  },
+  {
+   "type": "bank",
+   "name": "MTBank",
+   "offers": 2,
+   "issuer": "M&T Bank"
+  },
+  {
+   "type": "bank",
+   "name": "AmericanExpressSavings",
+   "offers": 1,
+   "issuer": "American Express"
+  },
+  {
+   "type": "bank",
+   "name": "TDBank",
+   "offers": 1,
+   "issuer": "TD Bank"
+  },
+  {
+   "type": "bank",
+   "name": "USBankBusinessSavings",
+   "offers": 1,
+   "issuer": "U.S. Bank"
+  },
+  {
+   "type": "bank",
+   "name": "ChaseBusiness",
+   "offers": 1,
+   "issuer": "Chase"
+  },
+  {
+   "type": "bank",
+   "name": "USBankBusinessChecking",
+   "offers": 1,
+   "issuer": "U.S. Bank"
+  },
+  {
+   "type": "bank",
+   "name": "BankofAmericaBusiness",
+   "offers": 1,
+   "issuer": "Bank of America"
+  },
+  {
+   "type": "bank",
+   "name": "KeyPointBusinessChecking",
+   "offers": 1,
+   "issuer": "KeyBank"
+  },
+  {
+   "type": "bank",
+   "name": "TDBankCompleteChecking",
+   "offers": 1,
+   "issuer": "TD Bank"
+  },
+  {
+   "type": "bank",
+   "name": "BankofAmerica",
+   "offers": 1,
+   "issuer": "Bank of America"
+  },
+  {
+   "type": "bank",
+   "name": "KeyPoint",
+   "offers": 1,
+   "issuer": "KeyBank"
+  },
+  {
+   "type": "bank",
+   "name": "PNC",
+   "offers": 2,
+   "issuer": "PNC"
+  },
+  {
+   "type": "bank",
+   "name": "AmericanExpressRewardsChecking",
+   "offers": 1,
+   "issuer": "American Express"
+  },
+  {
+   "type": "bank",
+   "name": "BMOSmartAdvantageChecking",
+   "offers": 1,
+   "issuer": "BMO"
+  },
+  {
+   "type": "bank",
+   "name": "ChaseSavings",
+   "offers": 1,
+   "issuer": "Chase"
+  },
+  {
+   "type": "bank",
+   "name": "KeyBankBasicBusinessChecking",
+   "offers": 1,
+   "issuer": "KeyBank"
+  },
+  {
+   "type": "bank",
+   "name": "SoFiCheckingandSavings",
+   "offers": 1,
+   "issuer": "SoFi"
+  },
+  {
+   "type": "bank",
+   "name": "BMO",
+   "offers": 1,
+   "issuer": "BMO"
+  },
+  {
+   "type": "card",
+   "name": "CitiStrata",
+   "offers": 1,
+   "issuer": "Citi"
+  },
+  {
+   "type": "card",
+   "name": "USBankAltitudeConnect",
+   "offers": 1,
+   "issuer": "U.S. Bank"
+  },
+  {
+   "type": "card",
+   "name": "CapitalOneSavor",
+   "offers": 1,
+   "issuer": "Capital One"
+  },
+  {
+   "type": "card",
+   "name": "BankofAmericaCustomizedCash",
+   "offers": 1,
+   "issuer": "Bank of America"
+  },
+  {
+   "type": "card",
+   "name": "BankofAmericaTravelRewards",
+   "offers": 1,
+   "issuer": "Bank of America"
+  },
+  {
+   "type": "card",
+   "name": "WellsFargoActiveCash",
+   "offers": 1,
+   "issuer": "Wells Fargo"
+  },
+  {
+   "type": "card",
+   "name": "AmericanExpressBusinessPlatinum",
+   "offers": 1,
+   "issuer": "American Express"
+  },
+  {
+   "type": "card",
+   "name": "ChaseFreedomUnlimited",
+   "offers": 1,
+   "issuer": "Chase"
+  },
+  {
+   "type": "card",
+   "name": "AmericanExpressPlatinum",
+   "offers": 1,
+   "issuer": "American Express"
+  },
+  {
+   "type": "card",
+   "name": "CapitalOneVenture",
+   "offers": 1,
+   "issuer": "Capital One"
+  },
+  {
+   "type": "card",
+   "name": "USBankAltitudeGo",
+   "offers": 1,
+   "issuer": "U.S. Bank"
+  },
+  {
+   "type": "card",
+   "name": "WellsFargoAutograph",
+   "offers": 1,
+   "issuer": "Wells Fargo"
+  },
+  {
+   "type": "card",
+   "name": "ChaseSapphirePreferred",
+   "offers": 1,
+   "issuer": "Chase"
+  },
+  {
+   "type": "card",
+   "name": "CitiStrataPremier",
+   "offers": 1,
+   "issuer": "Citi"
+  },
+  {
+   "type": "card",
+   "name": "AmericanExpressBlueCashEveryday",
+   "offers": 1,
+   "issuer": "American Express"
+  },
+  {
+   "type": "card",
+   "name": "AmericanExpressGold",
+   "offers": 1,
+   "issuer": "American Express"
+  },
+  {
+   "type": "card",
+   "name": "CapitalOneQuicksilver",
+   "offers": 1,
+   "issuer": "Capital One"
+  },
+  {
+   "type": "card",
+   "name": "AmericanExpressBlueCashPreferred",
+   "offers": 1,
+   "issuer": "American Express"
+  },
+  {
+   "type": "card",
+   "name": "BankofAmericaUnlimitedCash",
+   "offers": 1,
+   "issuer": "Bank of America"
+  },
+  {
+   "type": "card",
+   "name": "BankofAmericaPremiumRewardsElite",
+   "offers": 1,
+   "issuer": "Bank of America"
+  },
+  {
+   "type": "card",
+   "name": "USBankCash",
+   "offers": 1,
+   "issuer": "U.S. Bank"
+  },
+  {
+   "type": "card",
+   "name": "ChaseFreedomFlex",
+   "offers": 1,
+   "issuer": "Chase"
+  },
+  {
+   "type": "card",
+   "name": "BankofAmericaPremiumRewards",
+   "offers": 1,
+   "issuer": "Bank of America"
+  },
+  {
+   "type": "card",
+   "name": "ChaseSapphireReserve",
+   "offers": 1,
+   "issuer": "Chase"
+  },
+  {
+   "type": "card",
+   "name": "CapitalOneVentureX",
+   "offers": 1,
+   "issuer": "Capital One"
+  },
+  {
+   "type": "brokerage",
+   "name": "Citi",
+   "offers": 1,
+   "issuer": "Citi"
+  },
+  {
+   "type": "brokerage",
+   "name": "JPMorganChase",
+   "offers": 1,
+   "issuer": "Chase"
+  }
+ ],
+ "missing": [
+  {
+   "type": "bank",
+   "name": "MalvernBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SeattleCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CapeCoastBank",
+   "offers": 3,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ForbrightBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PeoplesBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "MidFirstBank",
+   "offers": 3,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstHorizonBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CommunityStateBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "HSBCPremier",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "HorizonCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FSBBankBusinessChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "JohnsonFinancialGroup",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ACNBBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "GrowFinancialFederalCreditUnion",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BeverlyBankTrust",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "RedstoneFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BarHarborBankTrust",
+   "offers": 3,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "EvanstonCommunityBankTrust",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BankofHope",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "OrionFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CommunityAmericaCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CrystalLakeBankTrust",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FloridaCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "EntCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WingsCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FreedomFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "UofICommunityCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CommunityFirstCreditUnionofFlorida",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstCommonwealthBank",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "MutualSecurityCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CreditUnionofAmerica",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstCommonwealthFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstNationalBankYou1stChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FranklinSavingsBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BroadwayBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TeachersFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BellcoCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "EquityBank",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ColumbiaBankChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "OldNational",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PenFedCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CopperStateCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "LakeRidgeBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "OrangeCountysCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ExciteCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BlazeCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FinancialPlusCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "NewtownSavingsBank",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CitizensEquityFirstCreditUnion",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Safe1CreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "UFBPortfolioSavings",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BankofHawaii",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CanyonViewCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirsttrustBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SageCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CBSBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "MediaCityCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WintrustBank",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ClearviewFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "MCNBBanks",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WashingtonTrust",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Grasshopper",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PiermontBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SouthStateBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "OnTapCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AlliantCreditUnion",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "UnitedMileagePlusDebitCard",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SeacoastBank",
+   "offers": 3,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FNBO",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SchertzBankTrust",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CommonWealthCentralCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstEntertainmentCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TravisCreditUnion",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AdelFi",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Golden1CreditUnionBusiness",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WeokieFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BaskBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "VerveaCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PointBreezeCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SimmonsBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SimplicityCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PremierAmericaCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CITBankPlatinumSavings",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PurdueFCU",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "LendingClub",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "RizeCreditUnionChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CitizensQuestCheckingandSavings",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AlpenaAlconaAreaCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CanandaiguaNationalBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CornerstoneCommunityFinancialCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "NBTBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ColumbiaBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "UnitedHeritageCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "EverwiseCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AxosOneCheckingSavings",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CompassCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstFederalBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstFinancialBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "USFCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TorringtonSavingsBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "LaCapitolFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "VantageCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "StateBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CommodorePerryFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WebsterBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SECU",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TelhioCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "EliteCommunityCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "NeighborhoodCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CITBank6MonthCD",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TogetherCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CampusFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Everbank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ValleyNationalBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "HanmiBank",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PrestigeCommunityCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "HancockWhitney",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "cPortCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WesternStateBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "HeartlandBankandTrustCompany",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ValleyStarCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "IllinoisStateCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "JoviaFinancialCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "InovaFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "StanfordFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstCommunityCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AirAcademyCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BECU",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CarolinaTrustFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Netspend",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ConnexusCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "DFCU",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AxosBasicBusinessChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "OMBBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "GreenFi",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "HudsonRiverCommunityCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "RepublicBankofChicago",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WaldenSavingsBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AmeripriseChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "HometownBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "IonBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "IndianaMembersCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "EnvisionCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FibreFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Santander",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CITBankSavingsConnect",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Alwaysbank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Revolut",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WECU",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstMerchantsBank",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "OneAZCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PicatinnyCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "UnitedStatesSenateFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PartnerColoradoCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BankofColorado",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "RedCanoeCreditUnion",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "GreaterNevadaCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BankersTrust",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PeoplesBancorpPremierChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SunWestCreditunion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AmeripriseSavings",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TheFirstNationalBankinSiouxFalls",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AleroFinancial",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "OregonStateCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "UXFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "GreatBasinFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FortBraggFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "MIDFLORIDACreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "DuPageCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "NorthIslandCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CreditHuman",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CitadelCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstServiceCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "LafayetteFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ShellFCU",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "UniversityofKentuckyFederalCreditUnionSimpleChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WaterStoneBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SouthwestDebitCard",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CreateCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "LiveOakBankMemberFDIC",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ETRADE",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "MagnoliaFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "StagePointFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ACNBBankAdvantageRewardsPlusChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ChickasawCommunityBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "RegentBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CitizensBankBusinessChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AscentCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Current",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FultonBankBusiness",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AmericasCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "HuntingtonBankBusinessChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WellbyFinancial",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AmericaFirstCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstUSCommunityCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Citibank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CornerstoneCommunityFinancial",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Chime",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "KitsapCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CommunityBankTrust",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "OrientalBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TBKBank",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FourLeafFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "GuarantyBankBusinessChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ForestAreaFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BeaconBankBeaconOneChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "GreaterIowaCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PECU",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "DeseretFirstCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "MembersExchangeFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ElginStateBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ReliantCommunityCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CooperativeTeachersCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "DiversifiedMembersCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "NorthwestBank",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WSECU",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CreditUnionofNewJersey",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "OldSecondBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WaukeshaStateBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Ally",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CharterOakCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WisconsinBankTrust",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AdviaCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PowerFinancialCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WestmarkCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstCommunityBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FlagstarBankReadyChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ThinkBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SpringsValleyBankTrust",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "NotreDameFederalCU",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "1stAdvantageCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "GECU",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BellBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PoppyBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TownCountryCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "MoneyLion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CIBCUS",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BelieveSavings",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Raisin",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ParkNationalBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "MiddlesexSavingsBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "DesertFinancialCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CaliforniaCoastCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CommonwealthCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FoothillCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BannerBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CreditUnionofTexas",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PublicEmployeesCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BHCU",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "HuntingtonBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FirstrustBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "UFirstCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AdvantageCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ProvidentCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CommunityFirstCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AlabamaCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CaliforniaBankandTrust",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TopLineFinancialCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CyprusCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CambridgeSavingsBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SantaRosaCountyFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FortifiBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BannerBankBusiness",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TruityCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AmericanBankTrust",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TownBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "LangleyFederalCreditUnionCheckingSavings",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SimmonsBankYouthSavings",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TowerFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CreditUnionOne",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FremontBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CommonWealthOne",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "UnionSavingsBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TruNorthBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BOKFinancial",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FifthThirdBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PikesPeakNationalBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "TruStoneFinancial",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BMIFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "SuffolkFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ValleyStrongCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "HolyokeCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Found",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ScientFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BarringtonBankTrust",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "WavebyStaleyCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "GuarantyBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ServiceCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Percapita",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FarmersInsuranceFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AvidiaBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "RegionsBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FlanaganStateBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ExchangeBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PennCommunityBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BankFiveNine",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CaliforniaCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "EasternBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PSECU",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "One",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "REVFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "OnPathFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BankofNewHampshire",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "EmbassyBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "AdditionFinancial",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "VisionsFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Numerica",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "OldNationalBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "NorthshoreBankBusiness",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Flagstar",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "ArizonaBankTrust",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "iTHINKFinancial",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BankofGreeneCounty",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "QuadCityBankandTrustQCBT",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "DedhamSavings",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CreditUnionofSouthernCalifornia",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "USFederalCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "GrandBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "Rho",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "HudsonValleyCreditUnionEnhancedBusinessChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CityNationalBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "CITBankNoPenalty11monthCD",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "PeoplesBancorp",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "BlueVineBusinessChecking",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "UnityBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "bank",
+   "name": "FloridaWestCoastCreditUnion",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "MarriottBonvoyBountiful",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "MarriottBonvoyBrilliant",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "AirFranceKLMVisaSignature",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "HiltonSurpass",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "UnitedQuest",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "ChoicePrivileges",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "WorldofHyatt",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "IberiaVisaSignature",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "AtmosRewardsAscent",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "AtmosRewardsSummit",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "DeltaSkymilesReserve",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "UnitedExplorer",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "DeltaSkymilesBlue",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "FrontierAirlinesWorldMastercard",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "OneKeyCard",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "HiltonHonorsBusiness",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "HiltonHonors",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "JetBluePlus",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "JetBluePremier",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "PrimeVisa",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "AAdvantagePlatinumSelect",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "UpgradeSelectCard",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "BiltPalladium",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "DeltaSkymilesGold",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "BiltBlue",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "ChoicePrivilegesSelect",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "WyndhamRewardsEarner",
+   "offers": 2,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "BiltObsidian",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "BritishAirwaysVisaSignature",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "AAATravelAdvantageCreditCard",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "AAdvantageMileUp",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "UnitedClub",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "MarriottBonvoyBoundless",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "AAdvantageExecutive",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "MarriottBonvoyBevy",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "HiltonAspire",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "IHGOneRewardsTraveler",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "MarriottBonvoyBold",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "AerLingusVisaSignature",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "Target",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "SouthwestRapidRewardsPriority",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "DeltaSkymilesPlatinum",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "MarriottBonvoyBusiness",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "ATTPointsPlus",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "Aeroplan",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "SouthwestRapidRewardsPremier",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "IHGOneRewardsPremier",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "SouthwestRapidRewardsPlus",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "UnitedGateway",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "card",
+   "name": "AAADailyAdvantageCreditCard",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "eToro",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "Moomoo",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "Ark7",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "ETRADE",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "Public",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "Robinhood",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "CharlesSchwab",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "Tastytrade",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "Stash",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "Albert",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "TradeUp",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "Webull",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "SiloMarkets",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "CITBank",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "PlynkDividendMatch",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "NinjaTrader",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "TradeStation",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "BettermentInvestmentBonus",
+   "offers": 1,
+   "issuer": null
+  },
+  {
+   "type": "brokerage",
+   "name": "InteractiveBrokers",
+   "offers": 1,
+   "issuer": null
+  }
+ ],
+ "summary": {
+  "ours_offers": 36,
+  "their_offers": 497,
+  "overlap_offers": 71,
+  "missing_offers": 426,
+  "missing_by_type": {
+   "bank": 328,
+   "card": 50,
+   "brokerage": 19
+  }
+ }
+}

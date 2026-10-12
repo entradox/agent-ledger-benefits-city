@@ -1,0 +1,34 @@
+American Express | Business Gold Card | amex-business-gold-200k
+American Express | Business Platinum Card | amex-business-platinum-300k
+American Express | Gold Card | amex-gold-100k
+American Express | Platinum Card | amex-platinum-175k
+Associated Bank | Associated Choice Checking | associated-bank-checking-600
+BMO | Smart Advantage Checking | bmo-checking-600
+Bank of America | Customized Cash Rewards | bofa-customized-cash-200
+Bank of America | Premium Rewards Credit Card | bofa-premium-rewards-60k
+Bank of America | Premium Rewards Elite Credit Card | bofa-premium-rewards-elite-75k
+Barclays | Tiered Savings | barclays-tiered-savings-200
+Capital One | 360 Checking | capital-one-360-checking-250
+Capital One | Quicksilver | capital-one-quicksilver-200
+Capital One | Savor | capital-one-savor-200
+Capital One | Venture Rewards Credit Card | capital-one-venture-75k
+Capital One | Venture X Rewards Credit Card | capital-one-venture-x-75k
+Chase | Freedom Flex | chase-freedom-flex-250
+Chase | Freedom Unlimited | chase-freedom-unlimited-200
+Chase | Ink Business Preferred | chase-ink-business-preferred-100k
+Chase | Sapphire Preferred | chase-sapphire-preferred-75k
+Chase | Sapphire Reserve | chase-sapphire-reserve-100k
+Chase | Total Checking | chase-total-checking-400
+Citi | AAdvantage Executive World Legend Mastercard | citi-aadvantage-executive-125k
+Citi | Strata Elite Card | citi-strata-elite-75k
+Citi | Strata Premier Card | citi-strata-premier-60k
+Discover | it Cash Back | discover-it-cash-back-match
+KeyBank | Key Smart Checking | keybank-key-smart-checking-300
+M&T Bank | MyChoice Premium Checking | mt-bank-checking-300
+PNC | Virtual Wallet with Performance Select | pnc-virtual-wallet-performance-select-400
+SoFi | Checking and Savings | sofi-checking-savings-400
+TD Bank | Beyond Checking | td-bank-beyond-checking-300
+Truist | One Checking | truist-one-checking-500
+U.S. Bank | Smartly Checking | us-bank-smartly-checking-450
+Wells Fargo | Autograph Journey Card | wells-fargo-autograph-journey-60k
+Wells Fargo | Everyday Checking | wells-fargo-everyday-checking-500
