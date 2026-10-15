@@ -478,5 +478,69 @@
       ],
       "verified_at": "2026-10-06"
     }
+  },
+  {
+    "annual_fee_usd": null,
+    "application_url": "https://baskbank.com/products/interest-savings-account",
+    "bank_or_issuer": "Bask Bank",
+    "bonus_amount_usd": 50,
+    "bonus_max_usd": 300,
+    "bonus_points": null,
+    "bonus_type": "bank_account",
+    "direct_deposit_required": false,
+    "expiry_date": "2026-12-31",
+    "id": "bask-bank-checking-savings-300",
+    "last_verified_date": "2026-10-10",
+    "min_deposit_usd": null,
+    "product_name": "Interest Checking + Interest Savings",
+    "requirements": [
+      "Open both a Bask Interest Savings Account and a Bask Interest Checking Account between October 1, 2026 and December 31, 2026",
+      "Maintain an average monthly balance of at least $10,000 in the Interest Savings Account each statement period",
+      "Receive $2,500 or more in qualifying automated deposits (direct deposit or recurring external ACH; no P2P, wires, or internal transfers) to the Interest Checking Account by the 25th of each month",
+      "Maintain a minimum daily balance of at least $100 in the Interest Checking Account",
+      "$50 cash bonus paid per qualifying statement period, up to six periods ($300 total); plus 0.40% APY rate boost (to 4.30% APY) in qualifying periods",
+      "New Bask Bank customers only; not eligible if you held either account in the 12 months before October 1, 2026"
+    ],
+    "source_url": "https://baskbank.com/products/interest-savings-account",
+    "states_available": "nationwide",
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://baskbank.com/products/interest-savings-account"
+      ],
+      "verified_at": "2026-10-10"
+    }
+  },
+  {
+    "annual_fee_usd": null,
+    "application_url": null,
+    "bank_or_issuer": "Citi",
+    "bonus_amount_usd": 300,
+    "bonus_max_usd": 2000,
+    "bonus_points": null,
+    "bonus_type": "bank_account",
+    "direct_deposit_required": false,
+    "expiry_date": "2027-01-06",
+    "id": "citi-business-checking-2000",
+    "last_verified_date": "2026-10-10",
+    "min_deposit_usd": 5000,
+    "product_name": "CitiBusiness Streamlined / Flexible Checking",
+    "requirements": [
+      "Open a new CitiBusiness Streamlined or Flexible Checking account between October 7, 2026 and January 6, 2027",
+      "Enrollment is in-branch only: ask a Citibank Business Specialist to enroll you in the Citi Checking Offer (no public online application link)",
+      "Deposit $5,000 or more in new-to-Citibank funds within 45 days of account opening",
+      "Maintain the qualifying balance tier from day 46 for an additional 45 days; tiers: $5,000-$19,999 = $300, $20,000-$49,999 = $500, $50,000-$99,999 = $1,000, $100,000-$199,999 = $1,500, $200,000+ = $2,000",
+      "Bonus credited within 30 days after the end of the month in which all requirements are met",
+      "Not combinable with another CitiBusiness checking offer; one bonus per customer (each unique Tax ID counts separately)"
+    ],
+    "source_url": null,
+    "states_available": "nationwide",
+    "verification": {
+      "method": "aggregator_consensus",
+      "sources": [
+        "https://www.hustlermoneyblog.com/citibank-business-checking-bonus/"
+      ],
+      "verified_at": "2026-10-10"
+    }
   }
 ]

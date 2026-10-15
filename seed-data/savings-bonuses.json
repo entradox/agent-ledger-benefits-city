@@ -40,5 +40,37 @@
       ],
       "verified_at": "2026-09-30"
     }
+  },
+  {
+    "annual_fee_usd": null,
+    "application_url": null,
+    "bank_or_issuer": "NexBank (via Raisin)",
+    "bonus_amount_usd": 40,
+    "bonus_max_usd": 1000,
+    "bonus_points": null,
+    "bonus_type": "savings",
+    "direct_deposit_required": false,
+    "expiry_date": "2026-10-31",
+    "id": "nexbank-raisin-savings-1000",
+    "last_verified_date": "2026-10-10",
+    "min_deposit_usd": 10000,
+    "product_name": "High Yield Savings Account",
+    "requirements": [
+      "New Raisin customers only; first deposit must be initiated between September 1, 2026 and October 31, 2026",
+      "Enter promo code STACK at sign-up on the Raisin platform",
+      "Deposit and maintain funds with partner banks for 90 days; Welcome Bonus tiers: $10,000-$24,999 = $40, $25,000-$49,999 = $100, $50,000-$99,999 = $200, $100,000-$199,999 = $425, $200,000+ = $900",
+      "Optional Savings + CD Boost: deposit at least $1,000 into a second product category (CD) within 14 days and maintain $1,000+ in both for 90 days for an extra $10-$100",
+      "4.25% APY; no monthly fees; $1 minimum to open",
+      "Bonus credited to Cash Account within 30 days of meeting all terms"
+    ],
+    "source_url": "https://www.hustlermoneyblog.com/nexbank-high-yield-savings-review/",
+    "states_available": "nationwide",
+    "verification": {
+      "method": "aggregator_consensus",
+      "sources": [
+        "https://www.hustlermoneyblog.com/nexbank-high-yield-savings-review/"
+      ],
+      "verified_at": "2026-10-10"
+    }
   }
 ]
