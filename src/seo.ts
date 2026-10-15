@@ -8,7 +8,7 @@
  *  - everything shown is derived from the served data (listAll / expiringSoon), nothing is invented.
  * seoPaths() is the single list the sitemap and the routes both agree on.
  */
-import { byValue, expiringSoon, listAll } from "./db.js";
+import { byTransferWindow, byValue, expiringSoon, listAll } from "./db.js";
 import type { Bonus, BonusType } from "./types.js";
 import { STATE_NAMES } from "./contract.js";
 
@@ -126,22 +126,6 @@ export const BEST_TYPES: Record<string, BestAxis> = {
     rank: byTransferWindow,
   },
 };
-
-/** Longest stated intro window first; then the cheaper transfer fee (an unstated fee sorts last);
- *  then the larger bonus; then id — so the order is total and stable, never dependent on input order. */
-export function byTransferWindow(a: Bonus, b: Bonus): number {
-  const months = (b.bt_intro_months ?? -1) - (a.bt_intro_months ?? -1);
-  if (months !== 0) return months;
-  const fa = a.bt_fee_pct;
-  const fb = b.bt_fee_pct;
-  if (fa !== fb) {
-    if (fa == null) return 1;
-    if (fb == null) return -1;
-    return fa - fb;
-  }
-  const value = byValue(a, b);
-  return value !== 0 ? value : a.id.localeCompare(b.id);
-}
 
 export function bestOffers(slug: string, limit = 10): Bonus[] | null {
   const axis: BestAxis | undefined = Object.hasOwn(BEST_TYPES, slug) ? BEST_TYPES[slug] : undefined;

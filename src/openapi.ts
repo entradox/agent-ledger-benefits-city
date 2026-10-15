@@ -37,6 +37,7 @@ export function openapiJson(publicUrl: string): object {
             { name: "state", in: "query", description: "2-letter US state code; nationwide offers always match", schema: { type: "string", pattern: "^[A-Za-z]{2}$" } },
             { name: "min_bonus_amount_usd", in: "query", description: "Cards: estimated USD value of points", schema: { type: "number", minimum: 0 } },
             { name: "direct_deposit_required", in: "query", schema: { type: "boolean" } },
+            { name: "balance_transfer", in: "query", schema: { type: "boolean" }, description: "Return only cards whose issuer states an intro rate on transferred balances; ordered by intro window, not bonus value" },
             { name: "query", in: "query", description: "Keyword on bank/issuer and product name", schema: { type: "string", maxLength: LIMITS.query.max } },
             { name: "limit", in: "query", schema: { type: "integer", minimum: LIMITS.limit.min, maximum: LIMITS.limit.max, default: LIMITS.limit.default } },
           ],

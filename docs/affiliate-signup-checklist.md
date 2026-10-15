@@ -57,7 +57,7 @@ the trust story.
 - [ ] A description of traffic sources: SEO content, newsletter (planned), AI agents via MCP. Be honest that traffic is new.
 
 ## 3. Before ANY affiliate link goes live (Morgan, D-1518 review — required)
-- [ ] Visible **"Sponsored"** text label next to every affiliate Apply button (site) and `sponsored: true` (MCP/JSON) — `rel="sponsored"` alone is invisible to people (FTC Endorsement Guides, 16 CFR 255).
+- [x] Visible **"Sponsored"** text label next to every affiliate Apply button (site) and `sponsored: true` (MCP/JSON) — `rel="sponsored"` alone is invisible to people (FTC Endorsement Guides, 16 CFR 255). **BUILT:** `src/site.ts` renders a visible Sponsored badge plus the commission wording beside every affiliate Apply button, and the anchor carries `rel="sponsored nofollow noopener"`. Verified with a live affiliate URL on a throwaway store, 2026-10-15.
 - [ ] `/disclosure` lists every partner network/program **by name**.
 - [ ] Read each program agreement for: brand/trademark use; keyword-bidding bans; approved-creative-only rules; required "Rates & Fees"/terms links per card; passed-down advertising language; rules on showing non-partner competitors beside partner offers.
 - [ ] Re-verify the offer **at the moment its link goes live** so the amount on the page matches the partner page (a stale higher bonus on an affiliate link is a deception risk).
@@ -66,7 +66,31 @@ the trust story.
 - [ ] Inclusion stays independent of commission: don't add or drop an offer because a program exists. Log the reason for each inclusion.
 - [ ] Track affiliate income as its own revenue line; update the privacy page if a network sets cookies via `/go/`.
 
-## 4. Technical hook (already built)
-Put the partner-tracked URL in the record's `affiliate_url` (seed-data). `/go/:id` redirects to it, `sponsored` flips to true everywhere, and the disclosure text switches automatically. The raw partner URL is never published in feeds/MCP/CLI. No code change needed — but the visible "Sponsored" label (section 3) is a required follow-up code change before the first live link.
+## 4. Technical hook — two ways to go live, both already built
+
+**Option A — `AFFILIATE_URLS` env var on the Railway service (no deploy, reversible).**
+A JSON object of `{recordId: "https://track/…"}`. The link is live on the next request; rotating or
+pulling it is the same one-field edit. An env entry **overrides** the record's own `affiliate_url`, so a
+stale committed URL can be replaced without a data change.
+
+```
+AFFILIATE_URLS={"chase-sapphire-preferred-75k":"https://track.network.example/click?aff=1234"}
+```
+
+Safety, verified 2026-10-15: values that are not `http(s)` are ignored (this can never redirect someone
+to a malformed or non-web target), a malformed `AFFILIATE_URLS` fails safe — nothing becomes affiliate,
+the site keeps serving, the disclosure stays in its honest non-affiliate state — and unknown ids are
+ignored.
+
+**Option B — the record's `affiliate_url` in seed-data.** The committed path; needs a commit + deploy.
+
+Either way: `/go/:id` redirects to the partner URL, `sponsored` flips to true everywhere, and the
+disclosure text switches automatically. **The raw partner URL is never published** — verified against
+the JSON feed, `/api/search`, a live MCP `search_bonuses` call, `llms.txt`, `skill.md`, `openapi.json`,
+the agent manifest, `sitemap.xml` and both HTML surfaces.
+
+**Correction to this section (2026-10-15):** it previously said the visible "Sponsored" label was a
+required follow-up code change before the first live link. **It was already built** — see section 3.
+Verified working with a real affiliate URL, so nothing is owed before the first link goes live.
 
 *Not legal advice. Have counsel read the program agreements.*
