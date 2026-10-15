@@ -69,9 +69,27 @@ function statesLabel(b: Bonus): string {
 
 function amountHtml(b: Bonus, big = false): string {
   const cls = big ? "amount" : "amount";
+  // A balance-transfer card carries no signup bonus by design, so the bonus slot would read
+  // "Varies" — a statement about a bonus that does not exist. Show the fact the record IS listed
+  // for instead: the intro window its issuer states on transferred balances.
+  if (b.bonus_amount_usd <= 0 && b.bt_intro_months != null) {
+    const apr = b.bt_intro_apr_pct === 0 ? "0%" : b.bt_intro_apr_pct != null ? `${b.bt_intro_apr_pct}%` : "";
+    return `<div class="${cls}">${apr ? `${apr} for ` : ""}${b.bt_intro_months} months <small>on balance transfers</small></div>`;
+  }
   const note =
     b.bonus_type === "credit_card" ? ` <small>est. value</small>` : ` <small>bonus</small>`;
   return `<div class="${cls}">${formatBonus(b.bonus_amount_usd)}${note}</div>`;
+}
+
+/** The big number on an offer card. A balance-transfer record has no signup bonus, so the bonus
+ *  slot would read "Varies" — a claim about a bonus that does not exist. Show what it IS listed
+ *  for: the intro window the issuer states on transferred balances. */
+function heroHtml(b: Bonus, est: boolean): string {
+  if (b.bonus_amount_usd <= 0 && b.bt_intro_months != null) {
+    const apr = b.bt_intro_apr_pct === 0 ? "0%" : b.bt_intro_apr_pct != null ? `${b.bt_intro_apr_pct}%` : "";
+    return `${apr ? `${apr} for ` : ""}${b.bt_intro_months} months<small>on balance transfers</small>`;
+  }
+  return `${formatBonus(b.bonus_amount_usd)}<small>${est ? "est. value" : "cash bonus"}</small>`;
 }
 
 export function bonusCard(ctx: SiteContext, b: Bonus): string {
@@ -167,7 +185,7 @@ export function offerCardB2(ctx: SiteContext, b: Bonus): string {
       <span class="offer-tile" aria-hidden="true">${esc(issuerMark(b.bank_or_issuer))}</span>
       <span class="offer-kind">${esc(kindLabel(b))}</span>
     </div>
-    <div class="offer-hero">${formatBonus(b.bonus_amount_usd)}<small>${est ? "est. value" : "cash bonus"}</small></div>
+    <div class="offer-hero">${heroHtml(b, est)}</div>
     <div class="offer-name"><a href="${detail}">${esc(b.bank_or_issuer)} · ${esc(b.product_name)}</a></div>
     ${reqs ? `<ul class="offer-reqs">${reqs}</ul>` : `<ul class="offer-reqs"></ul>`}
     <div class="offer-stamp">${src}<span>${verified}</span></div>
@@ -223,6 +241,7 @@ function seoFooterLinks(ctx: SiteContext): string {
     ["/best/credit-card", "Best credit card bonuses"],
     ["/best/savings", "Best savings bonuses"],
     ["/best/brokerage", "Best brokerage bonuses"],
+    ["/best/balance-transfer", "Longest balance-transfer windows"],
     ["/states", "Bonuses by state"],
     ["/expiring-soon", "Expiring soon"],
   ];
@@ -1007,7 +1026,7 @@ Every record carries source_url and last_verified_date. Card point values are es
 - Citable statistics: ${ctx.publicUrl}/api/insights
 - When to cite: ${ctx.publicUrl}/.well-known/ai-plugin-manifest.json
 - Badge: ${ctx.publicUrl}/badge.svg
-- Pages: ${ctx.publicUrl}/banks , /states , /best/bank-account , /best/credit-card , /best/savings , /best/brokerage , /expiring-soon
+- Pages: ${ctx.publicUrl}/banks , /states , ${seoPaths().filter((p) => p.startsWith("/best/")).join(" , ")} , /expiring-soon
 - REST: ${ctx.publicUrl}/api/search , /api/expiring , /api/compare?ids=a,b
 - Credentials (none required): ${ctx.publicUrl}/auth.md
 - Pricing (free): ${ctx.publicUrl}/pricing.md
@@ -1067,7 +1086,7 @@ Every record carries source_url and last_verified_date. Free — no signup, no A
 - Browse: ${base}/bonuses (+ ${base}/bonuses/:id per offer)
 - Issuers: ${base}/banks (+ ${base}/banks/:slug)
 - States: ${base}/states (+ ${base}/states/:code)
-- Ranked lists: ${base}/best/bank-account , ${base}/best/credit-card , ${base}/best/savings , ${base}/best/brokerage
+- Ranked lists: ${seoPaths().filter((x) => x.startsWith("/best/")).map((x) => base + x).join(" , ")}
 - Expiring soon: ${base}/expiring-soon
 - Methodology + trust: ${base}/about , ${base}/disclosure
 - Changelog: ${base}/changelog (JSON ${base}/changelog.json , Atom ${base}/feed.xml)

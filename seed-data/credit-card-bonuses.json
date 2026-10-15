@@ -623,5 +623,48 @@
       ],
       "verified_at": "2026-10-06"
     }
+  },
+  {
+    "annual_fee_usd": 0,
+    "application_url": "https://creditcards.wellsfargo.com/reflect-visa-credit-card/",
+    "bank_or_issuer": "Wells Fargo",
+    "bonus_amount_usd": 0,
+    "bonus_points": null,
+    "bonus_type": "credit_card",
+    "bt_intro_apr_pct": 0,
+    "bt_intro_months": 21,
+    "direct_deposit_required": false,
+    "eligibility": {
+      "cooldown_months": 48,
+      "issuer_rules": [
+        "Intro rates and fees may not apply if you already hold this card product or opened one within the last 48 months, even if that account is closed with a $0 balance"
+      ],
+      "new_to_bank": null,
+      "once_per_lifetime": null
+    },
+    "expiry_date": null,
+    "id": "wells-fargo-reflect-balance-transfer",
+    "last_verified_date": "2026-10-15",
+    "product_name": "Reflect Card",
+    "requirements": [
+      "No signup bonus: this card is listed for the intro rate it gives on transferred balances, not for a cash or points offer",
+      "0% intro APR for 21 months from account opening on purchases and qualifying balance transfers (Wells Fargo's own wording: its 'lowest intro APR')",
+      "A balance transfer qualifies for the introductory rate only if it is made within 120 days of account opening",
+      "After the intro period the rate is a variable APR of 17.74%, 24.24% or 28.49%, depending on your creditworthiness",
+      "Wells Fargo publishes no transfer-fee percentage on the card page. It states that a balance transfer fee typically applies and directs readers to its Important Credit Terms for the current rate and fee, so this record carries no fee figure rather than an assumed one",
+      "There is no grace period on balance transfers: interest begins accruing the day the transfer posts",
+      "$0 annual fee",
+      "Foreign currency conversion fee of 3% of each converted transaction amount"
+    ],
+    "source_url": "https://creditcards.wellsfargo.com/reflect-visa-credit-card/",
+    "states_available": "nationwide",
+    "status": "active",
+    "verification": {
+      "method": "issuer_page",
+      "sources": [
+        "https://creditcards.wellsfargo.com/reflect-visa-credit-card/"
+      ],
+      "verified_at": "2026-10-15"
+    }
   }
 ]
