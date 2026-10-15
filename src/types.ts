@@ -43,6 +43,17 @@ export interface Bonus {
   bonus_points: number | null;
   /** Annual fee in USD (credit cards), null if none/unknown */
   annual_fee_usd: number | null;
+  /** BALANCE-TRANSFER TERMS (credit cards). null = the issuer's page does not state it, or we have
+   *  not confirmed it there. Never 0 as a stand-in for unknown — 0 means the issuer states a 0% intro
+   *  rate on transferred balances.
+   *  `bt_intro_apr_pct`  intro APR applied to transferred balances, in percent
+   *  `bt_intro_months`   length of that intro window, in months — the ranking axis for /best/balance-transfer
+   *  `bt_fee_pct`        balance-transfer fee, percent of each transfer
+   *  `bt_fee_min_usd`    the issuer's stated dollar floor on that fee, null when none is stated */
+  bt_intro_apr_pct: number | null;
+  bt_intro_months: number | null;
+  bt_fee_pct: number | null;
+  bt_fee_min_usd: number | null;
   /** Plain-English qualifying requirements */
   requirements: string[];
   /** Minimum opening deposit in USD, null if none/unknown */

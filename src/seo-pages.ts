@@ -164,16 +164,25 @@ export function statePage(ctx: SiteContext, code: string): string | null {
 export function bestPage(ctx: SiteContext, slug: string): string | null {
   const offers = bestOffers(slug);
   if (!offers) return null;
-  const label = BEST_TYPES[slug].label;
+  const axis = BEST_TYPES[slug];
+  const label = axis.label;
+  // The bonus-amount wording does NOT describe the balance-transfer axis. Publishing it there
+  // would be a false claim about our own ordering, so that page states its own basis.
+  const byTransfer = slug === "balance-transfer";
+  const crumbLabel = byTransfer ? "Longest balance-transfer windows" : `Highest ${label} bonuses`;
   return page(
     ctx,
     `/best/${slug}`,
-    `Highest ${label} bonuses right now (top ${offers.length} by bonus amount)`,
-    `The ${offers.length} highest-amount current ${label} signup bonuses, ranked by stated bonus amount. Commission is never an input to ranking.`,
-    `Highest-value ${label} bonuses right now`,
-    `Ranked by stated bonus amount${slug === "credit-card" ? " (estimated USD value of points)" : ""} — this is not a recommendation: minimum deposits, direct-deposit and spend requirements differ, and commission is never an input. ${esc(disclosureShort(affiliateActive(listAll())))} ${factLine(offers)}`,
+    byTransfer
+      ? `${offers.length} balance-transfer cards, longest stated intro windows first`
+      : `Highest ${label} bonuses right now (top ${offers.length} by bonus amount)`,
+    byTransfer
+      ? `The ${offers.length} cards whose issuer states an intro APR on balance transfers, ordered by the length of that window. Commission is never an input to ranking.`
+      : `The ${offers.length} highest-amount current ${label} signup bonuses, ranked by stated bonus amount. Commission is never an input to ranking.`,
+    byTransfer ? "Longest 0%-intro balance-transfer windows" : `Highest-value ${label} bonuses right now`,
+    `${axis.basis} — this is not a recommendation: minimum deposits, direct-deposit and spend requirements differ, and commission is never an input. ${esc(disclosureShort(affiliateActive(listAll())))} ${factLine(offers)}`,
     offers,
-    [[`Highest ${label} bonuses`, `/best/${slug}`]],
+    [[crumbLabel, `/best/${slug}`]],
   );
 }
 

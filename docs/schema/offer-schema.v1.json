@@ -13,6 +13,10 @@
     "bonus_max_usd",
     "bonus_points",
     "annual_fee_usd",
+    "bt_intro_apr_pct",
+    "bt_intro_months",
+    "bt_fee_pct",
+    "bt_fee_min_usd",
     "requirements",
     "min_deposit_usd",
     "direct_deposit_required",
@@ -71,6 +75,26 @@
       "type": ["number", "null"],
       "nullable": true,
       "provenance": { "source": "seed", "note": "seed-data/*.json; defaulted to null by normalize() in src/db.ts" }
+    },
+    "bt_intro_apr_pct": {
+      "type": ["number", "null"],
+      "nullable": true,
+      "provenance": { "source": "issuer_page", "note": "Balance-transfer intro APR on transferred balances. 0 means the issuer states a 0% intro rate; null means the issuer's page does not state it. Never 0 as a stand-in for unknown. Defaulted to null by normalize() in src/db.ts" }
+    },
+    "bt_intro_months": {
+      "type": ["number", "null"],
+      "nullable": true,
+      "provenance": { "source": "issuer_page", "note": "Length of the balance-transfer intro window in months, as stated by the issuer. The /best/balance-transfer ranking axis. Defaulted to null by normalize() in src/db.ts" }
+    },
+    "bt_fee_pct": {
+      "type": ["number", "null"],
+      "nullable": true,
+      "provenance": { "source": "issuer_page", "note": "Balance-transfer fee as a percent of each transfer, as stated by the issuer. Defaulted to null by normalize() in src/db.ts" }
+    },
+    "bt_fee_min_usd": {
+      "type": ["number", "null"],
+      "nullable": true,
+      "provenance": { "source": "issuer_page", "note": "The issuer's stated dollar floor on the balance-transfer fee; null when none is stated. Defaulted to null by normalize() in src/db.ts" }
     },
     "requirements": {
       "type": "array",

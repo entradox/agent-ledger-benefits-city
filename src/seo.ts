@@ -90,17 +90,66 @@ export function stateOffers(code: string): { code: string; name: string; regiona
   return { code: up, name: st.name, regional: st.offers, nationwide };
 }
 
-export const BEST_TYPES: Record<string, { type: BonusType; label: string }> = {
-  "bank-account": { type: "bank_account", label: "bank account" },
-  "credit-card": { type: "credit_card", label: "credit card" },
-  savings: { type: "savings", label: "savings account" },
-  brokerage: { type: "brokerage", label: "brokerage" },
+/** One `/best/<slug>` axis: which records qualify, how they are ordered, and the ranking statement
+ *  the page publishes. `basis` must describe what `rank` actually does — a page whose copy and its
+ *  order disagree is a false claim about our own data. */
+export interface BestAxis {
+  type: BonusType;
+  label: string;
+  basis: string;
+  select?: (b: Bonus) => boolean;
+  rank: (a: Bonus, b: Bonus) => number;
+}
+
+export const BEST_TYPES: Record<string, BestAxis> = {
+  "bank-account": { type: "bank_account", label: "bank account", basis: "Ranked by stated bonus amount", rank: byValue },
+  "credit-card": {
+    type: "credit_card",
+    label: "credit card",
+    basis: "Ranked by stated bonus amount (estimated USD value of points)",
+    rank: byValue,
+  },
+  savings: { type: "savings", label: "savings account", basis: "Ranked by stated bonus amount", rank: byValue },
+  brokerage: { type: "brokerage", label: "brokerage", basis: "Ranked by stated bonus amount", rank: byValue },
+  /**
+   * Balance-transfer cards carry no signup bonus by design, so the bonus-amount axis can never
+   * surface them — a $0 record sorts below every card that has one, forever. This axis ranks by
+   * the intro window the issuer states on transferred balances instead, with the cheaper transfer
+   * fee breaking ties. A record with no stated balance-transfer terms is not eligible here at all.
+   */
+  "balance-transfer": {
+    type: "credit_card",
+    label: "balance-transfer",
+    basis:
+      "Ranked by the length of the intro window the issuer states on balance transfers, with the cheaper transfer fee as the tie-break",
+    select: (b) => b.bt_intro_months != null,
+    rank: byTransferWindow,
+  },
 };
 
+/** Longest stated intro window first; then the cheaper transfer fee (an unstated fee sorts last);
+ *  then the larger bonus; then id — so the order is total and stable, never dependent on input order. */
+export function byTransferWindow(a: Bonus, b: Bonus): number {
+  const months = (b.bt_intro_months ?? -1) - (a.bt_intro_months ?? -1);
+  if (months !== 0) return months;
+  const fa = a.bt_fee_pct;
+  const fb = b.bt_fee_pct;
+  if (fa !== fb) {
+    if (fa == null) return 1;
+    if (fb == null) return -1;
+    return fa - fb;
+  }
+  const value = byValue(a, b);
+  return value !== 0 ? value : a.id.localeCompare(b.id);
+}
+
 export function bestOffers(slug: string, limit = 10): Bonus[] | null {
-  if (!Object.hasOwn(BEST_TYPES, slug)) return null;
-  const t = BEST_TYPES[slug].type;
-  const offers = listAll().filter((b) => b.bonus_type === t).sort(byValue).slice(0, limit);
+  const axis: BestAxis | undefined = Object.hasOwn(BEST_TYPES, slug) ? BEST_TYPES[slug] : undefined;
+  if (!axis) return null;
+  const offers = listAll()
+    .filter((b) => b.bonus_type === axis.type && (!axis.select || axis.select(b)))
+    .sort(axis.rank)
+    .slice(0, limit);
   return offers.length ? offers : null;
 }
 
