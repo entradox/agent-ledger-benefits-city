@@ -63,9 +63,15 @@ function top(offers: Bonus[]): Bonus {
   return offers.reduce((best, b) => (b.bonus_amount_usd > best.bonus_amount_usd ? b : best), offers[0]);
 }
 
-function factLine(offers: Bonus[]): string {
+function factLine(offers: Bonus[], byTransfer = false): string {
   const t = top(offers);
   const checked = checkRange(offers).newest;
+  // On the balance-transfer axis "the highest is Varies (…, estimated value)" is a sentence about a
+  // bonus these cards do not have. That axis summarises the fact it actually ranks by.
+  if (byTransfer) {
+    const longest = offers.reduce((a, b) => ((b.bt_intro_months ?? -1) > (a.bt_intro_months ?? -1) ? b : a), offers[0]);
+    return `${plural(offers.length, "current offer", "current offers")}; the longest stated intro window on balance transfers is ${plural(longest.bt_intro_months ?? 0, "month", "months")} (${esc(longest.bank_or_issuer)} ${esc(longest.product_name)}).${checked ? ` Most recent source check: ${esc(formatDate(checked))}.` : ""}`;
+  }
   return `${plural(offers.length, "current offer", "current offers")}; the highest is ${formatBonus(t.bonus_amount_usd)} (${esc(t.bank_or_issuer)} ${esc(t.product_name)}${t.bonus_type === "credit_card" ? ", estimated value" : ""}).${checked ? ` Most recent source check: ${esc(formatDate(checked))}.` : ""}`;
 }
 
@@ -180,7 +186,7 @@ export function bestPage(ctx: SiteContext, slug: string): string | null {
       ? `The ${offers.length} cards whose issuer states an intro APR on balance transfers, ordered by the length of that window. Commission is never an input to ranking.`
       : `The ${offers.length} highest-amount current ${label} signup bonuses, ranked by stated bonus amount. Commission is never an input to ranking.`,
     byTransfer ? "Longest 0%-intro balance-transfer windows" : `Highest-value ${label} bonuses right now`,
-    `${axis.basis} — this is not a recommendation: minimum deposits, direct-deposit and spend requirements differ, and commission is never an input. ${esc(disclosureShort(affiliateActive(listAll())))} ${factLine(offers)}`,
+    `${axis.basis} — this is not a recommendation: minimum deposits, direct-deposit and spend requirements differ, and commission is never an input. ${esc(disclosureShort(affiliateActive(listAll())))} ${factLine(offers, byTransfer)}`,
     offers,
     [[crumbLabel, `/best/${slug}`]],
   );

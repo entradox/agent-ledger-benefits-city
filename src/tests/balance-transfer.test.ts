@@ -120,6 +120,13 @@ test("the balance-transfer page states its own ranking basis and never claims th
   // and the assertion is not vacuous: the bonus-ranked page really does carry that wording
   const cc = pages.bestPage(ctx, "credit-card")!;
   assert.ok(cc.includes("Ranked by stated bonus amount"));
+  // The ranking field must be VISIBLE. A page ordered by a number it never displays looks arbitrary
+  // to the person reading it, and a $0-bonus card would otherwise render its bonus slot as "Varies".
+  assert.ok(bt!.includes("21 months"), "the intro window the axis ranks by must appear on the card row");
+  assert.ok(
+    !bt!.includes("the highest is Varies"),
+    "a balance-transfer page must not summarise itself with a bonus these cards do not have",
+  );
 });
 
 test("a transfer card carrying the four new fields round-trips through toPublic and passes the contract schema", () => {
