@@ -22,6 +22,7 @@ const db = await setupDb([
     product_name: "Reflect",
     bonus_type: "credit_card",
     bonus_amount_usd: 0,
+    requirements: ["0% intro APR for 21 months on purchases and qualifying balance transfers"],
     bt_intro_apr_pct: 0,
     bt_intro_months: 21,
     bt_fee_pct: 3,
@@ -74,6 +75,7 @@ const db = await setupDb([
   }),
 ]);
 
+const dbmod = await import("../db.js");
 const seo = await import("../seo.js");
 const pages = await import("../seo-pages.js");
 const { toPublic } = await import("../links.js");
@@ -159,4 +161,42 @@ test("an undeclared field is still rejected by the contract schema", () => {
 
 test("the balance-transfer page is listed in seoPaths and the sitemap when it has records", () => {
   assert.ok(seo.seoPaths().includes("/best/balance-transfer"));
+});
+
+
+test("an agent searching for the term the catalogue is ABOUT finds the record", () => {
+  const { searchBonuses } = dbmod;
+  // Before this, `query` matched issuer and product name only, so "balance transfer" matched nothing
+  // on a catalogue that had just gained a balance-transfer axis. Requirement text is now searched too.
+  // terms a searcher would actually type, and that the requirement text actually contains
+  for (const q of ["balance transfer", "transfer", "0% intro APR"]) {
+    const ids = searchBonuses({ query: q, limit: 10 }).map((b) => b.id);
+    assert.ok(ids.includes("bt-long"), `query "${q}" must find the balance-transfer card, got ${JSON.stringify(ids)}`);
+  }
+  // and the old behaviour still works
+  assert.ok(searchBonuses({ query: "Wells Fargo", limit: 10 }).some((b) => b.id === "bt-long"));
+});
+
+test("search_bonuses({ balance_transfer: true }) returns only the transfer cards, ordered by window", () => {
+  const { searchBonuses } = dbmod;
+  const rows = searchBonuses({ balance_transfer: true, limit: 10 });
+  assert.deepEqual(
+    rows.map((b) => b.id),
+    ["bt-long", "bt-nofee", "bt-short", "bt-unstated-fee"],
+    "the filter must select exactly the cards with a stated intro window, and order them by it",
+  );
+  assert.equal(rows[0].bonus_amount_usd, 0, "value-ordering would bury this record; the axis orders it first");
+  assert.ok(!rows.some((b) => b.id === "premium-only"), "a premium card with no transfer terms is not a balance-transfer offer");
+});
+
+test("the filter and the page share ONE comparator, so they cannot drift apart", () => {
+  const { searchBonuses } = dbmod;
+  const { byTransferWindow } = dbmod;
+  const rows = searchBonuses({ balance_transfer: true, limit: 10 });
+  assert.deepEqual(rows.map((b) => b.id), [...rows].sort(byTransferWindow).map((b) => b.id));
+  assert.deepEqual(
+    rows.map((b) => b.id),
+    seo.bestOffers("balance-transfer")!.map((b) => b.id),
+    "the agent filter and the /best page must agree on both membership and order",
+  );
 });

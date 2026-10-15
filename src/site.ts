@@ -1010,7 +1010,7 @@ Every record carries source_url and last_verified_date. Card point values are es
 
 - MCP (Streamable HTTP): POST ${ctx.publicUrl}/mcp
   Tools: search_bonuses (filters: bonus_type, state, min_bonus_amount_usd,
-  direct_deposit_required, query, limit), get_bonus (id), expiring_soon (days),
+  direct_deposit_required, balance_transfer, query, limit), get_bonus (id), expiring_soon (days),
   compare_bonuses (ids[2..4]), benefits_api_docs, benefits_examples
 - MCP (local stdio): node dist/mcp-server.js  (see repo README)
 - JSON feed: ${ctx.publicUrl}/api/bonuses.json

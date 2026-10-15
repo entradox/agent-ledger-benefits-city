@@ -55,6 +55,11 @@ export function restSearch(sp: URLSearchParams): RestResult {
     if (dd !== "true" && dd !== "false") return badParam("direct_deposit_required", "direct_deposit_required must be true or false");
     f.direct_deposit_required = dd === "true";
   }
+  const bt = sp.get("balance_transfer");
+  if (bt !== null && bt !== "") {
+    if (bt !== "true" && bt !== "false") return badParam("balance_transfer", "balance_transfer must be true or false");
+    f.balance_transfer = bt === "true";
+  }
   const query = sp.get("query");
   if (query) {
     if (query.length > LIMITS.query.max) return badParam("query", `query must be ${LIMITS.query.max} characters or fewer`);

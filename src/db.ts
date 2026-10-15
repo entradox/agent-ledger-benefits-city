@@ -115,14 +115,38 @@ export interface SearchFilters {
   state?: string;
   min_bonus_amount_usd?: number;
   direct_deposit_required?: boolean;
-  /** substring match on bank/issuer or product name */
+  /** Case-insensitive substring match on bank/issuer, product name, or the offer's own requirement
+   *  text. The requirement text is included so a plain-language search for a term the catalogue is
+   *  ABOUT still finds it — "balance transfer" matched nothing when this was name-only, on a
+   *  catalogue that had just gained a balance-transfer axis. */
   query?: string;
+  /** Only records whose issuer states an intro rate on transferred balances (the /best/balance-transfer
+   *  axis). When set, results are ordered by intro window rather than by bonus value — a balance-transfer
+   *  card has no signup bonus, so value-ordering would bury exactly the records this filter selects. */
+  balance_transfer?: boolean;
   limit?: number;
 }
 
 /** Deterministic, commission-independent ordering: value desc, then id asc. */
 export const byValue = (a: Bonus, b: Bonus): number =>
   b.bonus_amount_usd - a.bonus_amount_usd || a.id.localeCompare(b.id);
+
+/** Longest stated intro window first; then the cheaper transfer fee (an unstated fee sorts last);
+ *  then the larger bonus; then id — a total, stable order, never dependent on input order. Shared by
+ *  /best/balance-transfer and search_bonuses({ balance_transfer: true }). */
+export const byTransferWindow = (a: Bonus, b: Bonus): number => {
+  const months = (b.bt_intro_months ?? -1) - (a.bt_intro_months ?? -1);
+  if (months !== 0) return months;
+  const fa = a.bt_fee_pct;
+  const fb = b.bt_fee_pct;
+  if (fa !== fb) {
+    if (fa == null) return 1;
+    if (fb == null) return -1;
+    return fa - fb;
+  }
+  const value = byValue(a, b);
+  return value !== 0 ? value : a.id.localeCompare(b.id);
+};
 
 export function searchBonuses(f: SearchFilters = {}): Bonus[] {
   const s = getDb();
@@ -136,9 +160,12 @@ export function searchBonuses(f: SearchFilters = {}): Bonus[] {
     const q = f.query.toLowerCase();
     out = out.filter(
       (b) =>
-        b.bank_or_issuer.toLowerCase().includes(q) || b.product_name.toLowerCase().includes(q),
+        b.bank_or_issuer.toLowerCase().includes(q) ||
+        b.product_name.toLowerCase().includes(q) ||
+        b.requirements.some((r) => r.toLowerCase().includes(q)),
     );
   }
+  if (f.balance_transfer === true) out = out.filter((b) => b.bt_intro_months != null);
   if (f.state) {
     const st = f.state.toUpperCase();
     out = out.filter(
@@ -148,7 +175,7 @@ export function searchBonuses(f: SearchFilters = {}): Bonus[] {
           b.states_available.map((x) => x.toUpperCase()).includes(st)),
     );
   }
-  out.sort(byValue);
+  out.sort(f.balance_transfer === true ? byTransferWindow : byValue);
   const limit = Math.min(Math.max(f.limit ?? LIMITS.limit.default, LIMITS.limit.min), LIMITS.limit.max);
   return out.slice(0, limit);
 }

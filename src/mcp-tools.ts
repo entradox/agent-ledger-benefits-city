@@ -148,6 +148,7 @@ const EXAMPLES = [
   { title: "What expires in the next 30 days", tool: "expiring_soon", arguments: { days: 30 } },
   { title: "Biggest checking bonuses in Texas", tool: "search_bonuses", arguments: { bonus_type: "bank_account", state: "TX", limit: 5 } },
   { title: "Brokerage signup bonuses", tool: "search_bonuses", arguments: { bonus_type: "brokerage", limit: 5 } },
+  { title: "Cards with a 0% intro rate on balance transfers", tool: "search_bonuses", arguments: { balance_transfer: true, limit: 5 } },
   { title: "Head-to-head", tool: "compare_bonuses", arguments: { ids: ["chase-total-checking-400", "sofi-checking-savings-400"] } },
 ];
 
@@ -193,7 +194,7 @@ export function createMcpServer(): McpServer {
     {
       title: "Search bank and credit card signup bonuses",
       description:
-        "Use when a user wants to find a US bank account, savings, credit card or brokerage signup bonus, or asks which offers are worth opening. Returns matching offers sorted by bonus value, highest first.",
+        "Use when a user wants to find a US bank account, savings, credit card or brokerage signup bonus, or asks which offers are worth opening. Returns matching offers sorted by bonus value, highest first — except when balance_transfer is true, which sorts by intro window instead.",
       inputSchema: {
         bonus_type: z
           .enum(BONUS_TYPES)
@@ -220,7 +221,15 @@ export function createMcpServer(): McpServer {
         query: z
           .string()
           .optional()
-          .describe("Keyword matched against bank/issuer and product name, e.g. 'Chase' or 'Sapphire'."),
+          .describe(
+            "Keyword matched against bank/issuer, product name and the offer's requirement text, e.g. 'Chase', 'Sapphire' or 'balance transfer'.",
+          ),
+        balance_transfer: z
+          .boolean()
+          .optional()
+          .describe(
+            "Set true to return only cards whose issuer states a 0% or intro rate on transferred balances. Results come back ordered by the length of that intro window, cheapest transfer fee first as the tie-break — NOT by bonus value, because these cards carry no signup bonus.",
+          ),
         limit: z.number().int().min(LIMITS.limit.min).max(LIMITS.limit.max).default(LIMITS.limit.default).describe("Max results to return."),
       },
       outputSchema: searchOutput,
