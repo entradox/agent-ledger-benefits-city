@@ -18,14 +18,55 @@ export function isHttpUrl(v: unknown): v is string {
   }
 }
 
+/**
+ * Operational door for partner links: `AFFILIATE_URLS` as a JSON object of { recordId: "https://track/…" }.
+ * It exists so a partner link can go live, be rotated, or be pulled the moment a network approves us —
+ * an env change, not a data change plus a deploy. Nothing else about the rail changes: the URL is
+ * consumed only by /go/:id and is never published in any surface (see isPublishedAffiliateInvariant).
+ *
+ * Precedence: an env entry WINS over the record's own `affiliate_url`, so a stale committed URL can be
+ * replaced or withdrawn without touching seed data. Values that are not http(s) are ignored — this must
+ * never become a way to redirect someone to a malformed or non-web target. Unknown ids are ignored.
+ */
+let affCacheKey: string | null = null;
+let affCache: Record<string, string> = {};
+
+export function affiliateUrls(): Record<string, string> {
+  const raw = process.env.AFFILIATE_URLS ?? "";
+  if (raw === affCacheKey) return affCache;
+  affCacheKey = raw;
+  affCache = {};
+  if (raw) {
+    try {
+      const parsed: unknown = JSON.parse(raw);
+      if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+        for (const [k, v] of Object.entries(parsed as Record<string, unknown>)) {
+          if (typeof v === "string" && isHttpUrl(v)) affCache[k] = v;
+        }
+      }
+    } catch {
+      /* a malformed AFFILIATE_URLS must not break the site: no links become affiliate, everything
+         keeps pointing at the issuer, and the disclosure stays in its honest non-affiliate state. */
+    }
+  }
+  return affCache;
+}
+
+/** The partner URL that actually applies to this record: the env door if it names one, else the record. */
+export function effectiveAffiliateUrl(b: Bonus): string | null {
+  const fromEnv = affiliateUrls()[b.id];
+  if (isHttpUrl(fromEnv)) return fromEnv;
+  return isHttpUrl(b.affiliate_url) ? b.affiliate_url : null;
+}
+
 /** Destination for /go/:id: affiliate URL, else issuer page, else source page (first valid). */
 export function resolveApplyUrl(b: Bonus): string | null {
-  for (const c of [b.affiliate_url, b.application_url, b.source_url]) if (isHttpUrl(c)) return c;
+  for (const c of [effectiveAffiliateUrl(b), b.application_url, b.source_url]) if (isHttpUrl(c)) return c;
   return null;
 }
 
 export function isSponsored(b: Bonus): boolean {
-  return isHttpUrl(b.affiliate_url);
+  return effectiveAffiliateUrl(b) !== null;
 }
 
 export function affiliateActive(bs: Bonus[]): boolean {
