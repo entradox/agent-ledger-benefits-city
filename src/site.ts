@@ -310,6 +310,29 @@ ${footer(ctx)}
 </html>`;
 }
 
+/* ---------------- sponsor slot ---------------- */
+
+/** One weekly paid placement, sold through an operator-set checkout link
+ *  (SPONSOR_URL — a Stripe payment link). Unset renders the honest "pending"
+ *  state, never a dead button. The slot buys placement only: it is marked as
+ *  paid, lives outside the offer grid, and never changes which offers we
+ *  list, how we rank them, or what a record says. */
+export function sponsorSlot(ctx: SiteContext): string {
+  const url = (process.env.SPONSOR_URL ?? "").trim();
+  const door = /^https:\/\//.test(url)
+    ? `<a class="btn" href="${esc(url)}" rel="sponsored nofollow noopener">Book this slot — $99/wk →</a>`
+    : `<span class="sponsor-pending">Slot open — buy link pending</span>`;
+  return `<aside class="sponsor-slot" aria-label="Sponsorship">
+      <div>
+        <div class="sponsor-kicker"><span class="badge badge-sponsored">Sponsored</span> one slot per week</div>
+        <h3>Put your product where people — and agents — pick a bank.</h3>
+        <p>This slot sits on the page humans browse and the feed AI agents query before they choose an account or card. Paid placement, marked as such. It never changes which offers we list, how we rank them, or what a record says.</p>
+        <p class="sponsor-fine">Founding rate $99/week · <a href="${bp(ctx, "/disclosure")}">disclosure</a></p>
+      </div>
+      <div class="sponsor-door">${door}</div>
+    </aside>`;
+}
+
 /* ---------------- landing ---------------- */
 
 export function landingPage(ctx: SiteContext): string {
@@ -373,6 +396,7 @@ export function landingPage(ctx: SiteContext): string {
     <p class="sub">One card per offer, checked at the source. Filter chips jump you to a category; each card carries its source and verified date.</p>
     ${categoryChips(allOffers)}
     <div id="offers">${offerSections(ctx, allOffers)}</div>
+    ${sponsorSlot(ctx)}
   </div></section>
 
   ${expiring.length ? `<section class="section-tight"><div class="wrap">
@@ -527,6 +551,7 @@ export function browsePage(ctx: SiteContext, query: BrowseQuery): string {
         ? `<div id="offers">${categoryChips(results)}${offerSections(ctx, results)}</div>`
         : `<div class="empty"><p><strong>No bonuses match those filters.</strong></p><p>Try widening the state or lowering the minimum bonus.</p></div>`
     }
+    ${sponsorSlot(ctx)}
     <div style="height:40px"></div>
   </div>`;
 
@@ -801,10 +826,12 @@ export function disclosurePage(ctx: SiteContext): string {
   </div><div class="prose">
     <div class="disclosure-box">
       <h3>The short version</h3>
-      <p>${SITE_NAME} is reader-supported. ${live ? `<strong>Some Apply links are affiliate links</strong> and are marked <span class="mono">rel="sponsored"</span>. If you open an account through one we earn a commission, at no extra cost to you, and it never affects which bonuses we list or how we rank them.` : `<strong>Today, no link earns us anything</strong> — see Current status below. When affiliate partnerships go live, some Apply links will earn us a commission if you open an account through them — at no extra cost to you, and never affecting which bonuses we list or how we rank them.`}</p>
+      <p>${SITE_NAME} is reader-supported. ${live ? `<strong>Some Apply links are affiliate links</strong> and are marked <span class="mono">rel="sponsored"</span>. If you open an account through one we earn a commission, at no extra cost to you, and it never affects which bonuses we list or how we rank them.` : `<strong>Today, no Apply link earns us anything</strong> — see Current status below. When affiliate partnerships go live, some Apply links will earn us a commission if you open an account through them — at no extra cost to you, and never affecting which bonuses we list or how we rank them.`} Separately, we sell <strong>one weekly sponsor slot</strong> on the site, always marked Sponsored — see Paid placement.</p>
     </div>
     <h2>Current status</h2>
     <p>${live ? `Apply links marked <span class="mono">rel="sponsored"</span> are affiliate links; all other Apply buttons go to the issuer's page or the tracker named in <span class="mono">source_url</span>, and earn us nothing. Commission is never an input to ordering. Every record names its source in <span class="mono">source_url</span>.` : `As of today, Apply buttons link to each issuer's own page, or to the <strong>bonus tracker where the terms were confirmed</strong> — these are not affiliate links and earn us nothing. Where a bank's site blocks automated access and the offer page cannot be confirmed directly, the link goes to that tracker instead; every record names its source in <span class="mono">source_url</span>. When affiliate partnerships go live, affected links will carry <span class="mono">rel="sponsored"</span> and this page will list the partner programs by name.`}</p>
+    <h2>Paid placement</h2>
+    <p>We sell one weekly <strong>sponsor slot</strong> on the site — a flat weekly fee, sold through a Stripe payment link. A sponsor's slot is always marked <strong>Sponsored</strong>, lives outside the offer listings, and never changes which offers we list, how we rank them, or what a record says. Sponsorship is not an endorsement of the sponsor's product.</p>
     <h2>What never changes</h2>
     <ul>
       <li><strong>Ordering ignores commission.</strong> Default order is by bonus value (cards at estimated USD value from published third-party valuations), or by deadline if you choose; commission is never an input. The MCP tools and JSON feeds expose the same ordering as the human site.</li>
