@@ -149,9 +149,14 @@ function kindLabel(b: Bonus): string {
 export function offerCardB2(ctx: SiteContext, b: Bonus): string {
   const detail = bp(ctx, `/bonuses/${esc(b.id)}`);
   const est = b.bonus_type === "credit_card";
+  // The card shows the first two requirements IN FULL. They used to be sliced at 104 chars
+  // with an appended ellipsis, which cut words in half ("…after account openin…") on a page
+  // whose whole claim is that the fine print is legible — a half word reads as the whole term.
+  // Rendering them whole costs ~1.3 KB of the 60 KB HTML budget (H6), and the card links to
+  // the detail page, which lists every requirement.
   const reqs = (b.requirements ?? [])
     .slice(0, 2)
-    .map((r) => `<li>${esc(r.length > 104 ? `${r.slice(0, 104)}…` : r)}</li>`)
+    .map((r) => `<li>${esc(r)}</li>`)
     .join("");
   const src = b.source_url
     ? `<a href="${esc(b.source_url)}" rel="nofollow noopener" target="_blank">Source</a>`

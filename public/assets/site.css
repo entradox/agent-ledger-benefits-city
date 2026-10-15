@@ -2,12 +2,29 @@
    Tokens pulled from aiagentscity.com: indigo primary, mint + lavender accents,
    warm off-white light sections, near-black dark sections. */
 
+/* H6: one self-hosted subset variable font — no CDN, no third-party request at render time.
+   Archivo Variable, SIL Open Font License 1.1 (Archivo Project Authors / Omnibus-Type), sourced
+   from the google/fonts repository, normal width (wdth pinned), wght axis kept so one 28 KB file
+   serves every weight the stylesheet asks for. Subset = latin-1 + the punctuation the public
+   pages render (© · – — “ ” … ← →); scripts/build-fonts.sh regenerates it byte-identically.
+   font-display:swap paints the system stack first and upgrades when the file lands. */
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("archivo-latin.woff2") format("woff2");
+}
+
 :root {
   --bg: #FAFAF8;
   --bg-warm: #F4F4F2;
   --bg-soft: #F1EFE9;
   --ink: #1B1B18;
-  --muted: #6E6E68;
+  /* #6A6A64 rather than #6E6E68: muted body text sits on --bg-soft in the offer-kind tag and
+     the type badge, and #6E6E68 measured 4.46:1 there — 0.04 under WCAG AA for small text.
+     Darkening the one token fixes both and can only raise contrast on every other pairing. */
+  --muted: #6A6A64;
   --faint: #71717A;
   --line: #E7E4D8;
   --card: #ffffff;
@@ -25,7 +42,7 @@
   --warn: #b45309;
   --warn-soft: #fdf1e2;
   --radius: 14px;
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sans: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
@@ -131,11 +148,10 @@ img { max-width: 100%; }
 .section .sub { color: var(--muted); max-width: 640px; margin: 0 0 30px; font-size: 16.5px; }
 
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-/* Grid items default to min-width:auto, so a panel whose content is a wide table refuses
-   to shrink below the table's min-content width — the panel blew out to 377px inside a
-   342px content box at 390px, making the page scroll sideways. min-width:0 lets the panel
-   shrink so .tbl-wrap's own overflow-x:auto can contain the table, which is the intended
-   behaviour (measured in production: the table scrolls inside its wrapper, page does not). */
+/* Grid items default to min-width:auto, so a panel refuses to shrink below its content's
+   min-content width — a wide child (long <code> in a list, a wide table before D-1562)
+   blew the panel out to 377px inside a 342px content box at 390px and made the page scroll
+   sideways. min-width:0 lets the panel shrink and contain the child instead. */
 .split > * { min-width: 0; }
 @media (max-width: 760px) { .split { grid-template-columns: 1fr; } }
 .panel {
@@ -192,14 +208,6 @@ img { max-width: 100%; }
 .badge-type-card { background: var(--mint-soft); color: var(--mint-deep); }
 .card .actions { margin-top: auto; padding-top: 12px; display: flex; gap: 10px; }
 .card .actions a { font-size: 14px; font-weight: 600; }
-
-table.offers { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; font-size: 14.5px; }
-table.offers th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--faint); padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--bg-warm); }
-table.offers td { padding: 13px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
-table.offers tr:last-child td { border-bottom: 0; }
-table.offers td.amt { font-family: var(--mono); font-weight: 700; color: var(--accent-dark); white-space: nowrap; }
-table.offers tr:hover td { background: #FBFAF8; }
-.tbl-wrap { overflow-x: auto; border-radius: var(--radius); }
 
 /* ---------- filters ---------- */
 .filters {
