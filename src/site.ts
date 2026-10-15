@@ -241,6 +241,7 @@ function seoFooterLinks(ctx: SiteContext): string {
     ["/best/credit-card", "Best credit card bonuses"],
     ["/best/savings", "Best savings bonuses"],
     ["/best/brokerage", "Best brokerage bonuses"],
+    ["/best/balance-transfer", "Longest balance-transfer windows"],
     ["/states", "Bonuses by state"],
     ["/expiring-soon", "Expiring soon"],
   ];
@@ -1025,7 +1026,7 @@ Every record carries source_url and last_verified_date. Card point values are es
 - Citable statistics: ${ctx.publicUrl}/api/insights
 - When to cite: ${ctx.publicUrl}/.well-known/ai-plugin-manifest.json
 - Badge: ${ctx.publicUrl}/badge.svg
-- Pages: ${ctx.publicUrl}/banks , /states , /best/bank-account , /best/credit-card , /best/savings , /best/brokerage , /expiring-soon
+- Pages: ${ctx.publicUrl}/banks , /states , ${seoPaths().filter((p) => p.startsWith("/best/")).join(" , ")} , /expiring-soon
 - REST: ${ctx.publicUrl}/api/search , /api/expiring , /api/compare?ids=a,b
 - Credentials (none required): ${ctx.publicUrl}/auth.md
 - Pricing (free): ${ctx.publicUrl}/pricing.md
@@ -1085,7 +1086,7 @@ Every record carries source_url and last_verified_date. Free — no signup, no A
 - Browse: ${base}/bonuses (+ ${base}/bonuses/:id per offer)
 - Issuers: ${base}/banks (+ ${base}/banks/:slug)
 - States: ${base}/states (+ ${base}/states/:code)
-- Ranked lists: ${base}/best/bank-account , ${base}/best/credit-card , ${base}/best/savings , ${base}/best/brokerage
+- Ranked lists: ${seoPaths().filter((x) => x.startsWith("/best/")).map((x) => base + x).join(" , ")}
 - Expiring soon: ${base}/expiring-soon
 - Methodology + trust: ${base}/about , ${base}/disclosure
 - Changelog: ${base}/changelog (JSON ${base}/changelog.json , Atom ${base}/feed.xml)
