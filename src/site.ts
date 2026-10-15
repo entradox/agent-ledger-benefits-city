@@ -7,11 +7,11 @@
  */
 import { expiringSoon, getBonusById, listAll, searchBonuses } from "./db.js";
 import type { ChangelogEntry } from "./changelog.js";
-import { isUsStateCode } from "./contract.js";
+import { BONUS_TYPES, isUsStateCode } from "./contract.js";
 import { seoPaths } from "./seo.js";
 import { affiliateActive, disclosureShort, isSponsored, resolveApplyUrl } from "./links.js";
 import { daysUntil, formatBonus, formatDate, formatUsd, getStats } from "./stats.js";
-import type { Bonus } from "./types.js";
+import type { Bonus, BonusType } from "./types.js";
 
 /** Product display name — rename here and it follows everywhere the site renders. */
 export const SITE_NAME = "Benefits City";
@@ -44,6 +44,7 @@ export function ldScript(obj: unknown): string {
 function typeBadge(b: Bonus): string {
   if (b.bonus_type === "bank_account") return `<span class="badge badge-type-bank">Bank account</span>`;
   if (b.bonus_type === "savings") return `<span class="badge badge-type-bank">Savings</span>`;
+  if (b.bonus_type === "brokerage") return `<span class="badge badge-type-bank">Brokerage</span>`;
   return `<span class="badge badge-type-card">Credit card</span>`;
 }
 
@@ -93,7 +94,7 @@ export function bonusCard(ctx: SiteContext, b: Bonus): string {
  * two false positives (Truist One Checking, SoFi) in the first pass.
  */
 
-export type OfferCategory = "business" | "credit_card" | "bank_account" | "savings";
+export type OfferCategory = "business" | "credit_card" | "bank_account" | "savings" | "brokerage";
 
 export function categoryOf(b: Bonus): OfferCategory {
   if (/business/i.test(b.product_name)) return "business";
@@ -117,6 +118,11 @@ const CATEGORY_META: { key: OfferCategory; title: string; blurb: string }[] = [
     blurb: "Cash bonuses on new checking and savings accounts.",
   },
   { key: "savings", title: "Savings", blurb: "Savings products paying a signup bonus." },
+  {
+    key: "brokerage",
+    title: "Brokerage",
+    blurb: "Cash bonuses for funding a new brokerage account with qualifying deposits.",
+  },
 ];
 
 /** Two-letter issuer monogram for the wordmark tile (no third-party brand assets). */
@@ -135,6 +141,7 @@ function kindLabel(b: Bonus): string {
   if (categoryOf(b) === "business") return b.bonus_type === "credit_card" ? "business card" : "business account";
   if (b.bonus_type === "credit_card") return "credit card";
   if (b.bonus_type === "savings") return "savings";
+  if (b.bonus_type === "brokerage") return "brokerage";
   return "bank account";
 }
 
@@ -215,6 +222,7 @@ function seoFooterLinks(ctx: SiteContext): string {
     ["/best/bank-account", "Best bank account bonuses"],
     ["/best/credit-card", "Best credit card bonuses"],
     ["/best/savings", "Best savings bonuses"],
+    ["/best/brokerage", "Best brokerage bonuses"],
     ["/states", "Bonuses by state"],
     ["/expiring-soon", "Expiring soon"],
   ];
@@ -226,12 +234,13 @@ function footer(ctx: SiteContext): string {
     <div class="footer-grid">
       <div class="blurb">
         <a class="brand" href="${bp(ctx, "/")}"><span class="brand-mark">B</span><span>${SITE_NAME}</span></a>
-        <p>US bank account, savings and credit card signup bonuses — each checked against a named source, structured for humans and AI agents alike. An AI Agent City project.</p>
+        <p>US bank account, savings, credit card and brokerage signup bonuses — each checked against a named source, structured for humans and AI agents alike. An AI Agent City project.</p>
       </div>
       <div><h4>Explore</h4><ul>
         <li><a href="${bp(ctx, "/bonuses")}">Browse bonuses</a></li>
         <li><a href="${bp(ctx, "/bonuses?type=bank_account")}">Bank account bonuses</a></li>
         <li><a href="${bp(ctx, "/bonuses?type=credit_card")}">Credit card bonuses</a></li>
+        <li><a href="${bp(ctx, "/bonuses?type=brokerage")}">Brokerage bonuses</a></li>
         <li><a href="${bp(ctx, "/agents")}">For agents</a></li>
         ${seoFooterLinks(ctx)}
       </ul></div>
@@ -280,9 +289,14 @@ export function shell(ctx: SiteContext, title: string, desc: string, body: strin
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${esc(canonical)}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="${esc(ctx.publicUrl)}/assets/og-benefits.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(desc)}">
+<meta name="twitter:image" content="${esc(ctx.publicUrl)}/assets/og-benefits.png">
 <link rel="stylesheet" href="${bp(ctx, "/assets/site.css")}">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234F46E5'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='monospace' font-weight='bold'>B</text></svg>">
 ${extraHead}
@@ -314,13 +328,13 @@ export function landingPage(ctx: SiteContext): string {
   <section class="hero"><div class="wrap">
     <div class="eyebrow">AI Agent City · Benefits</div>
     <h1>US signup bonuses. <span class="hl">Checked at the source.</span></h1>
-    <p class="lede">${stats.total_offers} verified bank account and credit card signup bonuses — browsable by humans, queryable by AI agents over MCP. Every offer carries its source and last-verified date. No invented deals, ever.</p>
+    <p class="lede">${stats.total_offers} verified bank account, credit card and brokerage signup bonuses — browsable by humans, queryable by AI agents over MCP. Every offer carries its source and last-verified date. No invented deals, ever.</p>
     <div class="hero-ctas">
       <a class="btn" href="${bp(ctx, "/bonuses")}">Browse bonuses</a>
       <a class="btn btn-dark-outline" href="${bp(ctx, "/agents")}">Connect an agent →</a>
     </div>
     <div class="stat-row">
-      <div class="stat"><div class="v">${stats.total_offers}</div><div class="k">live offers tracked</div><div class="n">${stats.bank_account_offers} bank · ${stats.credit_card_offers} cards</div></div>
+      <div class="stat"><div class="v">${stats.total_offers}</div><div class="k">live offers tracked</div><div class="n">${stats.bank_account_offers} bank · ${stats.credit_card_offers} cards · ${stats.brokerage_offers} brokerage</div></div>
       <div class="stat"><div class="v mint">${formatUsd(stats.total_bonus_usd)}</div><div class="k">combined headline value of listed offers</div><div class="n">card points at est. USD value</div></div>
       <div class="stat"><div class="v">${stats.expiring_within_30d.length}</div><div class="k">expiring within 30 days</div><div class="n">act before the deadline</div></div>
       <div class="stat"><div class="v">${esc(stats.last_verified ?? "—")}</div><div class="k">last verification sweep</div><div class="n">most recent source check</div></div>
@@ -437,7 +451,7 @@ export function landingPage(ctx: SiteContext): string {
 /* ---------------- browse ---------------- */
 
 export interface BrowseQuery {
-  type: string; // "" | "bank_account" | "credit_card" | "savings"
+  type: string; // "" | "bank_account" | "credit_card" | "savings" | "brokerage"
   state: string;
   min: string;
   dd: string; // "" | "yes" | "no"
@@ -447,8 +461,8 @@ export interface BrowseQuery {
 
 export function browsePage(ctx: SiteContext, query: BrowseQuery): string {
   const filters: Parameters<typeof searchBonuses>[0] = {};
-  if (query.type === "bank_account" || query.type === "credit_card" || query.type === "savings")
-    filters.bonus_type = query.type;
+  if (BONUS_TYPES.includes(query.type as (typeof BONUS_TYPES)[number]))
+    filters.bonus_type = query.type as BonusType;
   const minNum = Number(query.min);
   if (query.min !== "" && Number.isFinite(minNum) && minNum > 0)
     filters.min_bonus_amount_usd = minNum;
@@ -485,6 +499,7 @@ export function browsePage(ctx: SiteContext, query: BrowseQuery): string {
             <option value="bank_account"${sel("type", "bank_account", query.type)}>Bank accounts</option>
             <option value="credit_card"${sel("type", "credit_card", query.type)}>Credit cards</option>
             <option value="savings"${sel("type", "savings", query.type)}>Savings accounts</option>
+            <option value="brokerage"${sel("type", "brokerage", query.type)}>Brokerage</option>
           </select></div>
         <div class="field"><label for="f-state">State</label>
           <input id="f-state" name="state" value="${esc(query.state)}" placeholder="e.g. TX" maxlength="2" size="4" style="text-transform:uppercase"></div>
@@ -571,7 +586,7 @@ export function detailPage(ctx: SiteContext, id: string): string | null {
         <div class="fact-box">
           ${amountHtml(b, true)}
           <div class="facts">
-            <div class="fact"><div class="k">Offer type</div><div class="v">${b.bonus_type === "bank_account" ? "Bank account bonus" : b.bonus_type === "savings" ? "Savings account bonus" : "Credit card signup bonus"}</div></div>
+            <div class="fact"><div class="k">Offer type</div><div class="v">${b.bonus_type === "bank_account" ? "Bank account bonus" : b.bonus_type === "savings" ? "Savings account bonus" : b.bonus_type === "brokerage" ? "Brokerage account bonus" : "Credit card signup bonus"}</div></div>
             <div class="fact"><div class="k">Expiry</div><div class="v">${esc(expiryLine)}</div></div>
             ${b.bonus_points ? `<div class="fact"><div class="k">Points / miles</div><div class="v mono">${b.bonus_points.toLocaleString("en-US")}</div></div>` : ""}
             ${b.annual_fee_usd != null ? `<div class="fact"><div class="k">Annual fee</div><div class="v">${b.annual_fee_usd === 0 ? "None" : formatUsd(b.annual_fee_usd)}</div></div>` : ""}
@@ -660,7 +675,7 @@ export function agentsPage(ctx: SiteContext): string {
       <h3>search_bonuses</h3>
       <p>Search offers. Returns matches sorted by bonus amount, highest first.</p>
       <dl class="kv">
-        <dt>bonus_type?</dt><dd>"bank_account" | "credit_card" | "savings"</dd>
+        <dt>bonus_type?</dt><dd>"bank_account" | "credit_card" | "savings" | "brokerage"</dd>
         <dt>state?</dt><dd>2-letter code, e.g. "TX" — nationwide offers always match</dd>
         <dt>min_bonus_amount_usd?</dt><dd>number — card values are estimated USD</dd>
         <dt>direct_deposit_required?</dt><dd>boolean</dd>
@@ -940,8 +955,8 @@ export function llmsText(ctx: SiteContext): string {
   const stats = getStats();
   return `# ${SITE_NAME} — an AI Agent City project
 
-US bank account, savings and credit card signup bonuses, each checked against a named source (issuer page or tracker consensus).
-${stats.total_offers} live offers (${stats.bank_account_offers} bank accounts, ${stats.credit_card_offers} credit cards).
+US bank account, savings, credit card and brokerage signup bonuses, each checked against a named source (issuer page or tracker consensus).
+${stats.total_offers} live offers (${stats.bank_account_offers} bank accounts, ${stats.credit_card_offers} credit cards, ${stats.brokerage_offers} brokerage).
 Total bonus value available: ${formatUsd(stats.total_bonus_usd)}. Last verification sweep: ${stats.last_verified ?? "unknown"}.
 Every record carries source_url and last_verified_date. Card point values are estimated USD.
 
@@ -965,7 +980,7 @@ Every record carries source_url and last_verified_date. Card point values are es
 - Citable statistics: ${ctx.publicUrl}/api/insights
 - When to cite: ${ctx.publicUrl}/.well-known/ai-plugin-manifest.json
 - Badge: ${ctx.publicUrl}/badge.svg
-- Pages: ${ctx.publicUrl}/banks , /states , /best/bank-account , /best/credit-card , /best/savings , /expiring-soon
+- Pages: ${ctx.publicUrl}/banks , /states , /best/bank-account , /best/credit-card , /best/savings , /best/brokerage , /expiring-soon
 - REST: ${ctx.publicUrl}/api/search , /api/expiring , /api/compare?ids=a,b
 - Credentials (none required): ${ctx.publicUrl}/auth.md
 - Pricing (free): ${ctx.publicUrl}/pricing.md
@@ -980,7 +995,7 @@ Every record carries source_url and last_verified_date. Card point values are es
 
 ## Data schema (per offer)
 
-id, bank_or_issuer, product_name, bonus_type (bank_account|credit_card|savings),
+id, bank_or_issuer, product_name, bonus_type (bank_account|credit_card|savings|brokerage),
 bonus_amount_usd (cards: estimated USD value of points), bonus_points,
 annual_fee_usd, requirements[] (plain-English qualifying steps),
 min_deposit_usd, direct_deposit_required (bool), expiry_date (YYYY-MM-DD|null),
@@ -1006,7 +1021,7 @@ export function okfIndexMd(ctx: SiteContext): string {
   const base = ctx.publicUrl.replace(/\/+$/, "");
   return `# ${SITE_NAME} — agent-readable knowledge index
 
-${stats.total_offers} verified US bank account, savings and credit card signup bonuses.
+${stats.total_offers} verified US bank account, savings, credit card and brokerage signup bonuses.
 Every record carries source_url and last_verified_date. Free — no signup, no API key.
 
 ## Primary machine surfaces
@@ -1025,7 +1040,7 @@ Every record carries source_url and last_verified_date. Free — no signup, no A
 - Browse: ${base}/bonuses (+ ${base}/bonuses/:id per offer)
 - Issuers: ${base}/banks (+ ${base}/banks/:slug)
 - States: ${base}/states (+ ${base}/states/:code)
-- Ranked lists: ${base}/best/bank-account , ${base}/best/credit-card , ${base}/best/savings
+- Ranked lists: ${base}/best/bank-account , ${base}/best/credit-card , ${base}/best/savings , ${base}/best/brokerage
 - Expiring soon: ${base}/expiring-soon
 - Methodology + trust: ${base}/about , ${base}/disclosure
 - Changelog: ${base}/changelog (JSON ${base}/changelog.json , Atom ${base}/feed.xml)

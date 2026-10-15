@@ -1,0 +1,143 @@
+[
+  {
+    "id": "bmo-checking-600",
+    "bank_or_issuer": "BMO",
+    "product_name": "Smart Advantage Checking",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 600,
+    "bonus_points": null,
+    "annual_fee_usd": null,
+    "expiry_date": "2026-12-15",
+    "states_available": [
+      "AZ",
+      "CA",
+      "CO",
+      "FL",
+      "IA",
+      "IL",
+      "IN",
+      "MN",
+      "NM",
+      "NV",
+      "OR",
+      "UT",
+      "WA",
+      "WI"
+    ],
+    "min_deposit_usd": 25,
+    "direct_deposit_required": true,
+    "requirements": [
+      "Open a new BMO Smart Advantage, Smart Money, or Relationship Checking account",
+      "Primary applicant must reside in AZ, CA, CO, FL, IA, IL, IN, MN, NM, NV, OR, UT, WA, or WI at the time of application",
+      "Beginning the month following account opening, earn a $100 cash bonus each consecutive month (up to 6 months, $600 total) you have a cumulative total of $1,000 or more in qualifying direct deposits posted to the account",
+      "Account must be funded with at least $25 to open"
+    ],
+    "application_url": "https://www.doctorofcredit.com/il-wi-mn-in-az-fl-ks-mo-bmo-harris-350-checking-300-savings-bonus/",
+    "source_url": "https://www.doctorofcredit.com/il-wi-mn-in-az-fl-ks-mo-bmo-harris-350-checking-300-savings-bonus/",
+    "last_verified_date": "2026-09-20"
+  },
+  {
+    "id": "keybank-key-smart-checking-300",
+    "bank_or_issuer": "KeyBank",
+    "product_name": "Key Smart Checking",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 300,
+    "bonus_points": null,
+    "annual_fee_usd": null,
+    "expiry_date": "2026-12-11",
+    "states_available": [
+      "AK",
+      "CO",
+      "CT",
+      "ID",
+      "IN",
+      "ME",
+      "MA",
+      "MI",
+      "NY",
+      "OH",
+      "OR",
+      "PA",
+      "UT",
+      "VT",
+      "WA"
+    ],
+    "min_deposit_usd": 10,
+    "direct_deposit_required": true,
+    "requirements": [
+      "Open a Key Smart Checking account online by December 11, 2026 with a minimum opening deposit of $10",
+      "Make a total of $2,000 or more in eligible direct deposits within 90 days of account opening",
+      "Eligible direct deposits are electronic ACH deposits such as payroll, Social Security, pension, or government benefits (teller, ATM, and mobile app deposits do not qualify)",
+      "Bonus is deposited into the account within 60 days of meeting requirements",
+      "Offer not available to individuals who were a primary account owner of a KeyBank personal checking account in the last 12 months"
+    ],
+    "application_url": "https://www.key.com/personal/checking/checking-account-bonus-offers.html",
+    "source_url": "https://www.key.com/personal/checking/checking-account-bonus-offers.html",
+    "last_verified_date": "2026-09-20"
+  },
+  {
+    "id": "amex-platinum-175k",
+    "bank_or_issuer": "American Express",
+    "product_name": "Platinum Card",
+    "bonus_type": "credit_card",
+    "bonus_amount_usd": 3500,
+    "bonus_points": 175000,
+    "annual_fee_usd": 895,
+    "expiry_date": null,
+    "states_available": "nationwide",
+    "min_deposit_usd": null,
+    "direct_deposit_required": false,
+    "requirements": [
+      "Apply and find out your offer; eligible applicants may earn as high as 175,000 Membership Rewards points after spending $12,000 in eligible purchases in the first 6 months of card membership",
+      "Welcome offers vary by applicant and you may not be eligible for an offer; Amex shows your exact offer after a soft credit check",
+      "Points valued up to ~$3,500 at 2.0 cents per point (TPG September 2026 Membership Rewards valuation)",
+      "Restricted to one welcome bonus per card per lifetime with American Express"
+    ],
+    "application_url": "https://www.americanexpress.com/us/credit-cards/card/platinum/",
+    "source_url": "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
+    "last_verified_date": "2026-09-20"
+  },
+  {
+    "id": "citi-strata-elite-75k",
+    "bank_or_issuer": "Citi",
+    "product_name": "Strata Elite Card",
+    "bonus_type": "credit_card",
+    "bonus_amount_usd": 1425,
+    "bonus_points": 75000,
+    "annual_fee_usd": 595,
+    "expiry_date": null,
+    "states_available": "nationwide",
+    "min_deposit_usd": null,
+    "direct_deposit_required": false,
+    "requirements": [
+      "Earn 75,000 bonus ThankYou Points after spending $6,000 on purchases within the first 3 months from account opening",
+      "Points valued ~$1,425 at 1.9 cents per point (TPG July 2026 ThankYou valuation)",
+      "Up to $300 annual hotel benefit for stays of two nights or more booked through cititravel.com",
+      "Bonus not available if you received a new account bonus for a Citi Strata Elite account in the past 48 months"
+    ],
+    "application_url": "https://www.citi.com/credit-cards/citi-strata-elite-credit-card",
+    "source_url": "https://awardwallet.com/news/citi-thankyou-rewards/japan-airlines-transfer-partner/",
+    "last_verified_date": "2026-09-20"
+  },
+  {
+    "id": "bofa-premium-rewards-elite-75k",
+    "bank_or_issuer": "Bank of America",
+    "product_name": "Premium Rewards Elite Credit Card",
+    "bonus_type": "credit_card",
+    "bonus_amount_usd": 750,
+    "bonus_points": 75000,
+    "annual_fee_usd": 550,
+    "expiry_date": null,
+    "states_available": "nationwide",
+    "min_deposit_usd": null,
+    "direct_deposit_required": false,
+    "requirements": [
+      "Earn 75,000 online bonus points - a $750 value - after making at least $5,000 in purchases in the first 90 days of account opening",
+      "Points worth a fixed 1 cent each toward cash back, travel, statement credits, or gift cards; no transfer partners available",
+      "Priority Pass Select membership and statement credits help offset the annual fee"
+    ],
+    "application_url": "https://www.bankofamerica.com/credit-cards/",
+    "source_url": "https://awardwallet.com/credit-cards/bank-of-america/premium-rewards-elite/",
+    "last_verified_date": "2026-09-20"
+  }
+]

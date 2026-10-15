@@ -110,7 +110,7 @@ export function banksIndexPage(ctx: SiteContext): string | null {
     <h1>Signup bonuses by bank and card issuer</h1>
     <p>${plural(total, "current offer", "current offers")} from ${plural(groups.length, "issuer", "issuers")}. Pick an issuer to see every offer we track from it.</p>
   </div><div class="prose"><ul>${rows}</ul></div></div>`;
-  return shell(ctx, "Signup bonuses by bank and issuer", `${total} current US bank, savings and credit-card signup bonuses from ${groups.length} issuers.`, body, "/banks", ld);
+  return shell(ctx, "Signup bonuses by bank and issuer", `${total} current US bank, savings, credit-card and brokerage signup bonuses from ${groups.length} issuers.`, body, "/banks", ld);
 }
 
 export function issuerPage(ctx: SiteContext, slug: string): string | null {

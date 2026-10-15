@@ -1,0 +1,126 @@
+[
+  {
+    "id": "pnc-virtual-wallet-performance-select-400",
+    "bank_or_issuer": "PNC",
+    "product_name": "Virtual Wallet with Performance Select",
+    "bonus_type": "bank_account",
+    "bonus_amount_usd": 400,
+    "bonus_points": null,
+    "annual_fee_usd": null,
+    "expiry_date": "2027-01-07",
+    "states_available": [
+      "CO",
+      "IL",
+      "IN",
+      "KY",
+      "MI",
+      "MN",
+      "NC",
+      "OH",
+      "PA",
+      "SC",
+      "WV",
+      "WI"
+    ],
+    "min_deposit_usd": null,
+    "direct_deposit_required": true,
+    "requirements": [
+      "Open a new Virtual Wallet with Performance Select checking product online via the offer page links between September 1, 2026 and January 7, 2027",
+      "Set up and receive total qualifying direct deposits of $5,000 or more into the Spend account within the first 60 days",
+      "Qualifying direct deposit is a recurring direct deposit of paycheck, pension, Social Security, or other regular income from an employer or outside agency (wire transfers, person-to-person transfers, account transfers, and branch/ATM/mobile deposits do not qualify)",
+      "Reward is credited within 60 to 90 days after all conditions are met",
+      "Not eligible if you have an existing PNC consumer checking account, closed one in the past 12 months, or received a PNC promotional premium in the past 24 months"
+    ],
+    "application_url": "https://pnc.com/en/personal-banking/banking/checking/bonus-offer.html",
+    "source_url": "https://pnc.com/en/personal-banking/banking/checking/bonus-offer.html",
+    "last_verified_date": "2026-09-20"
+  },
+  {
+    "id": "amex-business-platinum-300k",
+    "bank_or_issuer": "American Express",
+    "product_name": "Business Platinum Card",
+    "bonus_type": "credit_card",
+    "bonus_amount_usd": 6000,
+    "bonus_points": 300000,
+    "annual_fee_usd": 895,
+    "expiry_date": null,
+    "states_available": "nationwide",
+    "min_deposit_usd": null,
+    "direct_deposit_required": false,
+    "requirements": [
+      "Apply and find out your offer; eligible applicants may earn as high as 300,000 Membership Rewards points after spending $20,000 in eligible purchases in the first 3 months of card membership",
+      "Welcome offers vary by applicant and you may not be eligible for an offer",
+      "Points valued up to ~$6,000 at 2.0 cents per point (TPG September 2026 Membership Rewards valuation)",
+      "Restricted to one welcome bonus per card per lifetime with American Express"
+    ],
+    "application_url": "https://www.americanexpress.com/us/credit-cards/business/business-credit-cards/american-express-business-platinum-credit-card-amex/64259/",
+    "source_url": "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
+    "last_verified_date": "2026-09-20"
+  },
+  {
+    "id": "amex-gold-100k",
+    "bank_or_issuer": "American Express",
+    "product_name": "Gold Card",
+    "bonus_type": "credit_card",
+    "bonus_amount_usd": 2000,
+    "bonus_points": 100000,
+    "annual_fee_usd": 325,
+    "expiry_date": null,
+    "states_available": "nationwide",
+    "min_deposit_usd": null,
+    "direct_deposit_required": false,
+    "requirements": [
+      "Apply and find out your offer; eligible applicants may earn as high as 100,000 Membership Rewards points after spending $8,000 in eligible purchases in the first 6 months of card membership",
+      "Welcome offers vary by applicant and you may not be eligible for an offer",
+      "Points valued up to ~$2,000 at 2.0 cents per point (TPG September 2026 Membership Rewards valuation)",
+      "Restricted to one welcome bonus per card per lifetime with American Express"
+    ],
+    "application_url": "https://www.americanexpress.com/us/credit-cards/card/gold-card/",
+    "source_url": "https://thepointsguy.com/credit-cards/limited-time-card-offers/",
+    "last_verified_date": "2026-09-20"
+  },
+  {
+    "id": "citi-strata-premier-60k",
+    "bank_or_issuer": "Citi",
+    "product_name": "Strata Premier Card",
+    "bonus_type": "credit_card",
+    "bonus_amount_usd": 1140,
+    "bonus_points": 60000,
+    "annual_fee_usd": 95,
+    "expiry_date": null,
+    "states_available": "nationwide",
+    "min_deposit_usd": null,
+    "direct_deposit_required": false,
+    "requirements": [
+      "Earn 60,000 bonus ThankYou Points after spending $4,000 on purchases in the first 3 months of account opening",
+      "Points valued ~$1,140 at 1.9 cents per point (TPG July 2026 ThankYou valuation); redeemable for $600 in gift cards or travel rewards at thankyou.com",
+      "$100 annual hotel benefit on a single hotel stay of $500 or more booked through Citi Travel",
+      "Bonus not available if you received a new account bonus for a Citi Premier or Citi Strata Premier account in the past 48 months"
+    ],
+    "application_url": "https://www.citi.com/credit-cards/citi-strata-premier-credit-card",
+    "source_url": "https://awardwallet.com/news/citi-thankyou-rewards/japan-airlines-transfer-partner/",
+    "last_verified_date": "2026-09-20"
+  },
+  {
+    "id": "discover-it-cash-back-match",
+    "bank_or_issuer": "Discover",
+    "product_name": "it Cash Back",
+    "bonus_type": "credit_card",
+    "bonus_amount_usd": 525,
+    "bonus_points": null,
+    "annual_fee_usd": 0,
+    "expiry_date": null,
+    "states_available": "nationwide",
+    "min_deposit_usd": null,
+    "direct_deposit_required": false,
+    "requirements": [
+      "Intro offer: Unlimited Cashback Match for all new cardmembers - Discover automatically matches all the cash back you earned at the end of your first year",
+      "No minimum spending requirement and no maximum rewards cap; e.g., $300 earned becomes $600",
+      "Bonus value estimated at ~$525 based on WalletHub's calculation of the average person's first-year match value; actual value is unlimited and spend-dependent",
+      "5% cash back on rotating quarterly categories on up to $1,500 in purchases (activation required); 1% on all other purchases"
+    ],
+    "application_url": "https://www.discover.com/credit-cards/",
+    "source_url": "https://financebuzz.com/landing-credit-card-take-a-break-from-high-interest-it-cash-back-dcb-only",
+    "last_verified_date": "2026-09-20"
+  }
+]

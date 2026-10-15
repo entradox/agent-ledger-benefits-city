@@ -53,6 +53,7 @@ export function insights(offers: Bonus[] = listAll(), publicUrl: string = public
       bank_account: typeStats(offers, "bank_account"),
       credit_card: typeStats(offers, "credit_card"),
       savings: typeStats(offers, "savings"),
+      brokerage: typeStats(offers, "brokerage"),
     },
     bank_account_direct_deposit: {
       requires_direct_deposit: needDd,
@@ -62,7 +63,7 @@ export function insights(offers: Bonus[] = listAll(), publicUrl: string = public
     expiring_within_30_days: offers.filter((b) => isExpiringWithin(b, 30, today)).length,
     scope: "Only the offers Benefits City tracks; not a market-wide or industry-wide total.",
     method: "Computed live from the offers Benefits City currently serves; each offer is checked against a named source (issuer page or bonus trackers). Card values are estimates.",
-    source: `Benefits City — US bank, savings and credit-card signup bonuses (${base})`,
+    source: `Benefits City — US bank, savings, credit-card and brokerage signup bonuses (${base})`,
     attribution: `Source: Benefits City (${base}), computed ${today}; offers last checked ${oldest ?? "n/a"} to ${newest ?? "n/a"}`,
   };
 }

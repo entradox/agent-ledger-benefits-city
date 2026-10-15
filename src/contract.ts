@@ -5,7 +5,7 @@
  * Parameter NAMES are tied across MCP and REST by a test (rest.test.ts "I-2 guard").
  */
 
-export const BONUS_TYPES = ["bank_account", "credit_card", "savings"] as const;
+export const BONUS_TYPES = ["bank_account", "credit_card", "savings", "brokerage"] as const;
 
 export const LIMITS = {
   limit: { min: 1, max: 100, default: 25 },

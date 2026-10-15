@@ -28,7 +28,7 @@ Every record carries source_url and last_verified_date. Card point values are es
 
 ## Data schema (per offer)
 
-id, bank_or_issuer, product_name, bonus_type (bank_account|credit_card),
+id, bank_or_issuer, product_name, bonus_type (bank_account|credit_card|savings|brokerage),
 bonus_amount_usd (cards: estimated USD value of points), bonus_points,
 annual_fee_usd, requirements[] (plain-English qualifying steps),
 min_deposit_usd, direct_deposit_required (bool), expiry_date (YYYY-MM-DD|null),
