@@ -327,7 +327,7 @@ export function sponsorSlot(ctx: SiteContext): string {
         <div class="sponsor-kicker"><span class="badge badge-sponsored">Sponsored</span> one slot per week</div>
         <h3>Put your product where people — and agents — pick a bank.</h3>
         <p>This slot sits on the page humans browse and the feed AI agents query before they choose an account or card. Paid placement, marked as such. It never changes which offers we list, how we rank them, or what a record says.</p>
-        <p class="sponsor-fine">Founding rate $99/week · <a href="${bp(ctx, "/disclosure")}">disclosure</a></p>
+        <p class="sponsor-fine">Founding rate $99/week · <a href="${bp(ctx, "/disclosure")}">disclosure</a> · <a href="mailto:bonuses@aiagentscity.com">bonuses@aiagentscity.com</a></p>
       </div>
       <div class="sponsor-door">${door}</div>
     </aside>`;
